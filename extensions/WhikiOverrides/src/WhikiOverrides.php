@@ -179,7 +179,7 @@ class WhikiOverrides {
     // Quantcast tracking and consent modals
     public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) { 
     
-    $out->addHeadItem("<!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+    $out->addHeadItem("Quantcast", "<!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
 			<script type=\"text/javascript\" async=true>
 			(function() {
 			  var host = 'telepedia.net';
