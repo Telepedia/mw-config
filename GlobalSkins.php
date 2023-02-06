@@ -1,8 +1,8 @@
 <?php
 
 wfLoadSkins( [
-	'MinervaNeue',
-	'Vector',
+    'MinervaNeue',
+    'Vector',
     'Telepedia',
     'MonoBook'
 ] );
