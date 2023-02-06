@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly",
+			"Wrightbus",
+			"Lakejason0",
+			"Winston Sung"
+		]
+	},
+	"multiboilerplate-desc": "允許在編輯頁面時，可從編輯表單上方的下拉選單中選擇預先格式的範本",
+	"multiboilerplate-legend": "選取範本",
+	"multiboilerplate-submit": "載入",
+	"boilerplates": "範本",
+	"multiboilerplate-special-pagetext": "新增頁面時可以預先載入這些範本。（<span class=plainlinks>[{{fullurl:不存在的頁面|action=edit}} 測試例子]</span>）",
+	"multiboilerplate-special-define-in-localsettings": "範本定義於本地設定（LocalSettings）。",
+	"multiboilerplate-special-define-in-interface": "範本定義於 [[MediaWiki:Multiboilerplate]]。",
+	"multiboilerplate-special-no-boilerplates": "尚未在任何地方定義範本。",
+	"multiboilerplate-nonexistant-page": "範本頁面不存在：「$1」"
+}

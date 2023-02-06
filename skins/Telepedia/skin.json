@@ -1,0 +1,65 @@
+{
+	"name": "Telepedia",
+	"version": "1.0.0",
+	"author": "Whiki LTD",
+	"url": "https://www.mediawiki.org/wiki/Skin:Telepedia",
+	"descriptionmsg": "telepedia-desc",
+	"namemsg": "skinname-telepedia",
+	"license-name": "GPL-2.0-or-later",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.39.0"
+	},
+	"ValidSkinNames": {
+		"telepedia": "Telepedia"
+	},
+	"MessagesDirs": {
+		"Telepedia": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.telepedia": {
+			"class": "ResourceLoaderSkinModule",
+			"features": {
+				"content-links": true,
+				"content-media": true,
+				"interface-message-box": true,
+				"interface-category": true,
+				"content-tables": true,
+				"i18n-ordered-lists": true,
+				"i18n-all-lists-margins": true,
+				"i18n-headings": true,
+				"elements": true,
+				"interface": true,
+				"logo": true
+
+			},
+			"styles": [ "resources/screen-common.less" ]
+		},
+		"skins.example.js": {
+			"scripts": [
+				"resources/main.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Telepedia"
+	},
+	"ResourceModuleSkinStyles": {
+		"example": {
+			"+ext.echo.styles.badge": "resources/extensions/echo.styles.badge.less",
+			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.css",
+			"+mediawiki.special.preferences.styles": "skinStyles/mediawiki.special.preferences.styles.less",
+			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
+			"mediawiki.special": "skinStyles/mediawiki.special.less"
+		}
+	},
+	"AutoloadClasses": {
+		"SkinTelepedia": "includes/SkinTelepedia.php",
+		"TelepediaTemplate": "includes/TelepediaTemplate.php",
+		"TelepediaSkinNavigationService": "includes/TelepediaSkinNavigationService.php"
+	},
+	"manifest_version": 2
+}

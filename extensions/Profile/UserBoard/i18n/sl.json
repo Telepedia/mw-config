@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"boardlinkselectfriends": "Izberi prijatelje",
+	"boardlinkunselectfriends": "Odizberi prijatelje",
+	"boardblast-error-missing-user": "Prosimo, izberite vsaj eno osebo",
+	"userboard_loggedout": "Za pošiljanje sporočil drugim uporabnikom morate biti [[Special:UserLogin|prijavljeni]]."
+}

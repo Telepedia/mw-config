@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Adam-Yourist"
+		]
+	},
+	"comments-permalink": "Цахувцалу тӏатовжам",
+	"comments-time-days": "{{PLURAL:$1|ди}}",
+	"comments-time-hours": "{{PLURAL:$1|цхьа сахьат|$1 сахьат}}"
+}

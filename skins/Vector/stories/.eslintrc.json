@@ -1,0 +1,28 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia",
+		"wikimedia/language/es6"
+	],
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"quotes": "off"
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"settings": {
+		"jsdoc": {
+			"preferredTypes": {
+				"Indicator": "Indicator",
+				"LogoOptions": "LogoOptions",
+				"LogoTemplateData": "LogoTemplateData",
+				"MenuDefinition": "MenuDefinition",
+				"SearchData": "SearchData",
+				"UserLinksDefinition": "UserLinksDefinition"
+			}
+		}
+	}
+}

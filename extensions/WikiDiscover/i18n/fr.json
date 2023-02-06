@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf",
+			"Florian COLLIN",
+			"Gomoko",
+			"Tektasc",
+			"Thibaut120094",
+			"Verdy p",
+			"Wladek92"
+		]
+	},
+	"randomwiki": "Wiki aléatoire",
+	"randomwiki-header": "Sélectionnez une catégorie et une langue ci-dessous,  lorsque vous les soumettrez vous serez redirigé aléatoirement vers un wiki qui correspond aux critères sélectionnés !",
+	"wikidiscover": "WikiDiscover",
+	"wikidiscover-desc": "Permet de [[Special:WikiDiscover|découvrir des wikis]] dans une ferme de wikis proposant à leurs utilisateurs la fonctionnalité [[Special:CreateWiki|Créer un wiki]].",
+	"wikidiscover-table-category": "Catégorie",
+	"wikidiscover-table-description": "Description",
+	"wikidiscover-table-established": "Établie",
+	"wikidiscover-table-language": "Langue",
+	"wikidiscover-table-state": "État",
+	"wikidiscover-table-visibility": "Visibilité",
+	"wikidiscover-table-wiki": "Nom du wiki",
+	"apihelp-wikidiscover-summary": "Obtenir une liste de wikis sur une ferme de wikis CreateWiki.",
+	"apihelp-wikidiscover-param-state": "Filtrer par l’état CreateWiki défini sur un wiki.",
+	"apihelp-wikidiscover-param-siteprop": "Information à renvoyer sur un wiki défini.",
+	"apihelp-wikidiscover-param-limit": "Nombre maximal de résultats à afficher.",
+	"apihelp-wikidiscover-param-wikislist": "Obtenir une liste de tous les wikis.",
+	"apihelp-wikidiscover-example": "Afficher tous les wikis sur le formulaire."
+}

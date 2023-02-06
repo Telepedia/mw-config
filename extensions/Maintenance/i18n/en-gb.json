@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robin Owain",
+			"Shirayuki"
+		]
+	},
+	"maintenance-cleanupCaps-desc": "Script to cleanup capitalisation"
+}

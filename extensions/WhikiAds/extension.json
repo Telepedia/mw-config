@@ -1,0 +1,47 @@
+{
+	"name": "WhikiAds",
+	"namemsg": "whikiads-extensionname",
+	"version": "1.0.0",
+	"author": [
+		"whiki.online"
+	],
+	"url": "",
+	"descriptionmsg": "whikiads-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.19.0"
+	},
+	"MessagesDirs": {
+		"WhikiAds": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"WhikiAds": "src/WhikiAds.php"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "WhikiAds/resources"
+	},
+  	"ResourceModules": {
+            "ext.sidebar": {
+            "packageFiles": [ "sidebar.js" ]
+           }
+        },
+	"Hooks": {
+		"SiteNoticeAfter": "WhikiAds::onSiteNoticeAfter",
+                "OutputPageBeforeHTML": "WhikiAds::onOutputPageBeforeHTML"
+
+                
+	},
+	"config": {
+		"WhikiAdsConfig": {
+			"value": true
+		}
+	},
+	"ConfigRegistry": {
+		"whikiAds": "GlobalVarConfig::newInstance"
+	},
+	"manifest_version": 2
+}

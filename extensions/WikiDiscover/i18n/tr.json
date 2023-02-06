@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Agaafd",
+			"BaRaN6161 TURK",
+			"Hedda",
+			"MuratTheTurkish",
+			"SaldırganSincap"
+		]
+	},
+	"randomwiki": "Rastgele Viki",
+	"randomwiki-header": "Aşağıdan bir kategori ve bir dil seçin ve gönderimde seçilen kriterleri karşılayan bir vikiye rastgele yönlendireceksiniz!",
+	"wikidiscover": "WikiDiscover",
+	"wikidiscover-desc": "[[Special:CreateWiki|CreateWiki]] ile bir viki çiftliğindeki  [[Special:WikiDiscover|vikileri keşfetmeye]] izin verir.",
+	"wikidiscover-table-category": "Kategori",
+	"wikidiscover-table-description": "Açıklama",
+	"wikidiscover-table-established": "Kuruldu",
+	"wikidiscover-table-language": "Dil",
+	"wikidiscover-table-state": "İl",
+	"wikidiscover-table-visibility": "Görünürlük",
+	"wikidiscover-table-wiki": "Viki Adı",
+	"apihelp-wikidiscover-summary": "CreateWiki viki çiftliğindeki vikilerin bir listesini alın.",
+	"apihelp-wikidiscover-param-state": "Bir vikinin CreateWiki tanımlı durumuna göre filtreleyin.",
+	"apihelp-wikidiscover-param-siteprop": "Tanımlanmış bir viki hakkındaki bilgiye dönüş yapın.",
+	"apihelp-wikidiscover-param-limit": "Gösterilecek maksimum sonuç sayısı.",
+	"apihelp-wikidiscover-param-wikislist": "Tüm wiki'lerin bir listesini alın.",
+	"apihelp-wikidiscover-example": "Tüm vikileri formda göster."
+}

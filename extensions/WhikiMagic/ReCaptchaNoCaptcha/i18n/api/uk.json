@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"DDPAT",
+			"Ice bulldog"
+		]
+	},
+	"renocaptcha-apihelp-param-g-recaptcha-response": "Поле з віджета ReCaptcha."
+}

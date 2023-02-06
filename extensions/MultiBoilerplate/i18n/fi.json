@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cimon Avaro",
+			"Crt",
+			"Rönttönen",
+			"Str4nd"
+		]
+	},
+	"multiboilerplate-desc": "Mahdollistaa vakiotekstin valitsemisen tiputusvalikosta, joka sijaitsee muokkauskentän yläpuolella sivuja muokattaessa.",
+	"multiboilerplate-legend": "Valitse vakioteksti",
+	"multiboilerplate-submit": "Lataa",
+	"boilerplates": "Vakiotekstit",
+	"multiboilerplate-special-define-in-localsettings": "Vakiotekstit määritellään asetustiedostossa LocalSettings.",
+	"multiboilerplate-special-define-in-interface": "Vakiotekstit määritellään järjestelmäviestillä [[MediaWiki:Multiboilerplate]]."
+}

@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Akwugo",
+			"Tochiprecious",
+			"Ukabia"
+		]
+	},
+	"centralauth-admin-blocklog": "Kwụchie ntinye",
+	"centralauth-admin-info-locked": "Gbàchịrị:",
+	"centralauth-admin-info-username": "Ahàǹjìème:",
+	"centralauth-admin-list-blocked": "Kàchịrị",
+	"centralauth-admin-no": "mbà",
+	"centralauth-admin-reason": "Mgbághapụtà:",
+	"centralauth-admin-status-hidden": "Zonarịrị:",
+	"centralauth-admin-username": "Ahàǹjìème:",
+	"centralauth-admin-yes": "eeh",
+	"centralauth-days-ago": "{{PLURAL:$1|chi|chi}} $1 gárá",
+	"centralauth-editgroup-reason": "Mgbághapụtà:",
+	"centralauth-editset-name": "Áhà:",
+	"centralauth-editset-nouse": "(efù)",
+	"centralauth-editset-reason": "Mgbághapụtà:",
+	"centralauth-editset-submit": "Zibànye",
+	"centralauth-editset-submit-delete": "Kàcha",
+	"centralauth-editset-type": "Ùdị:",
+	"centralauth-editset-wikis": "Wiki:",
+	"centralauth-finish-login": "Banyé",
+	"centralauth-finish-password": "Okwúngáfè:",
+	"centralauth-foreign-contributions": "$1 {{PLURAL:$1|Ihe emetara|ihe emetara}} na $2",
+	"centralauth-foreign-link": "User $1 on $2",
+	"centralauth-hours-ago": "{{PLURAL:$1|àmànì|àmànì}} $1 gárá",
+	"centralauth-listusers-locked": "gbàchịrị",
+	"centralauth-log-status-locked": "gbàchịrị",
+	"centralauth-log-status-none": "(efù)",
+	"centralauth-merge-method-login": "ekere na nbanye",
+	"centralauth-merge-method-primary": "wiki nke úlọ",
+	"centralauth-months-ago": "{{PLURAL:$1|önwa|önwa}} $1 gárá",
+	"centralauth-rename-progress-username": "Ahàǹjìème",
+	"centralauth-years-ago": "{PLURAL:$1|afọ|afọ}} $1 gárá aga",
+	"globalrenamequeue-column-rq-name": "Ahàǹjìème",
+	"globalrenamequeue-form-username": "Ahàǹjìème:",
+	"globalrenamequeue-request-cancel-text": "Hapụ̀"
+}

@@ -1,0 +1,9 @@
+*.kate-swp
+*~
+.*.swp
+.DS_Store
+.svn
+/vendor
+/node_modules
+composer.lock
+.phpunit.result.cache

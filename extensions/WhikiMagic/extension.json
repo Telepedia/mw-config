@@ -1,0 +1,106 @@
+{
+	"name": "WhikiMagic",
+	"author": [
+		"John Lewis",
+		"Labster",
+		"MacFan4000",
+		"Reception123",
+		"Revi",
+		"Paladox",
+		"Southparkfan",
+		"Universal Omega"
+	],
+	"url": "https://whiki.online",
+	"descriptionmsg": "whikimagic-description",
+	"license-name": "GPL-3.0-or-later",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.38.0"
+	},
+	"MessagesDirs": {
+		"WhikiMagic": [
+			"i18n/Whiki"
+		],
+		"WhikiOverrideMessagesMagic": [
+			"i18n/overrides"
+		],
+		"WhikiLocalizedProjectNames": [
+			"i18n/Whikiprojectnames"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"WhikiMagicAliases": "includes/WhikiMagicAliases.php"
+	},
+	"AutoloadClasses": {
+		"WhikiMagicLogEmailManager": "includes/WhikiMagicLogEmailManager.php",
+		"WhikiMagicHooks": "includes/WhikiMagicHooks.php"
+	},
+	"Hooks": {
+		"AbuseFilterShouldFilterAction": [
+			"WhikiMagicHooks::onAbuseFilterShouldFilterAction"
+		],
+		"CreateWikiDeletion": [
+			"WhikiMagicHooks::onCreateWikiDeletion"
+		],
+		"CreateWikiRename": [
+			"WhikiMagicHooks::onCreateWikiRename"
+		],
+		"CreateWikiStatePrivate": [
+			"WhikiMagicHooks::onCreateWikiStatePrivate"
+		],
+		"CreateWikiTables": [
+			"WhikiMagicHooks::onCreateWikiTables"
+		],
+		"CreateWikiReadPersistentModel": [
+			"WhikiMagicHooks::onCreateWikiReadPersistentModel"
+		],
+		"CreateWikiWritePersistentModel": [
+			"WhikiMagicHooks::onCreateWikiWritePersistentModel"
+		],
+		"MessageCache::get": [
+			"WhikiMagicHooks::onMessageCacheGet"
+		],
+		"TitleReadWhitelist": [
+			"WhikiMagicHooks::onTitleReadWhitelist"
+		],
+		"HtmlPageLinkRendererEnd": [
+			"WhikiMagicHooks::onHtmlPageLinkRendererEnd"
+		],
+		"InitializeArticleMaybeRedirect": [
+			"WhikiMagicHooks::onInitializeArticleMaybeRedirect"
+		],
+		"GlobalUserPageWikis": [
+			"WhikiMagicHooks::onGlobalUserPageWikis"
+		],
+		"MimeMagicInit": [
+			"WhikiMagicHooks::onMimeMagicInit"
+		],
+		"SiteNoticeAfter": [
+			"WhikiMagicHooks::onSiteNoticeAfter"
+		],
+		"SkinAddFooterLinks": [
+			"WhikiMagicHooks::onSkinAddFooterLinks"
+		],
+		"UserGetRightsRemove": [
+			"WhikiMagicHooks::onUserGetRightsRemove"
+		],
+		"RecentChange_save": [
+			"WhikiMagicHooks::onRecentChange_save"
+		]
+	},
+	"ConfigRegistry": {
+		"Whikimagic": "GlobalVarConfig::newInstance"
+	},
+	"config": {
+		"WhikiMagicLogEmailConditions": {
+			"value": []
+		},
+		"WhikiStaffAccessIds": {
+			"value": []
+		}
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"manifest_version": 2
+}

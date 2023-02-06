@@ -1,0 +1,23 @@
+.welcome-module {
+-webkit-box-pack: center;
+background-color: #656e78;
+background-image: var(--hero-image);
+background-position: 50%;
+background-size: cover;
+display: -webkit-box;
+display: flex;
+height: 200px;
+justify-content: center;
+position: relative;
+text-align: center;
+}
+
+.text-center {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    font-size: 45px;
+    font-family: Helvetica Neue;
+    color: white;
+    font-weight: bold;
+}

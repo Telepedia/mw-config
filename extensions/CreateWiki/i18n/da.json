@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"action-createwiki": "opret wikier",
+	"createwiki": "Opret en wiki",
+	"createwiki-label-category": "Kategori:",
+	"createwiki-label-dbname": "Databasenavn:",
+	"createwiki-label-language": "Sprog:",
+	"createwiki-label-private": "Marker denne wiki som privat",
+	"createwiki-label-reason": "Begrundelse:",
+	"createwiki-label-sitename": "Sidenavn:",
+	"echo-category-title-wiki-creation": "Oprettelse af wiki",
+	"echo-pref-tooltip-wiki-creation": "Giv mig besked når min wiki er blevet oprettet.",
+	"notification-createwiki-wiki-creation-email-subject": "Du har oprettet wikien $1!",
+	"notification-createwiki-wiki-creation-visitwiki-label": "Besøg wiki",
+	"requestwiki-label-language": "Sprog:",
+	"requestwiki-label-sitename": "Navn på wiki:",
+	"requestwikiqueue-approve": "Godkend",
+	"requestwikiqueue-decline": "Afvis",
+	"requestwikiqueue-handle": "Håndter forespørgsel",
+	"requestwikiqueue-pager-status-approved": "godkendt",
+	"requestwikiqueue-pager-status-declined": "afslået",
+	"requestwikiqueue-request-label-action": "Marker denne anmodning som...",
+	"requestwikiqueue-request-label-comment": "Kommentar:",
+	"requestwikiqueue-request-label-language": "Sprog",
+	"requestwikiqueue-request-label-sitename": "Sidenavn",
+	"requestwikiqueue-request-label-status": "Status",
+	"right-createwiki": "Opret wikier"
+}

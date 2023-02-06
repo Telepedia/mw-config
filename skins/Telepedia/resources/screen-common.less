@@ -1,0 +1,1141 @@
+* {
+  font-family: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+}
+/* Stop playing transition momentarily on viewport resize. */
+body.stop-transition .menu {
+  transition: none;
+}
+
+header {
+  width: 100%;
+  background-color: #400675;
+  padding: 0 20px;
+  height: 35px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  margin-left: -8px;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header-img {
+  width: 130px;
+
+}
+
+/* Navigation */
+
+nav {
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-top: 6px !important;
+}
+
+/* Hamburger menu button */
+
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: inline-block;
+  position: relative;
+  top: -42px;
+  left: -25px;
+  cursor: pointer;
+  padding: 24px 14px;
+  z-index: 1;
+}
+
+.navicon {
+  background-color: #fff;
+  display: block;
+  height: 3px;
+  width: 26px;
+  position: relative;
+  transition: 0.3192s ease-in-out;
+}
+
+.navicon:before,
+.navicon:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
+  transition: 0.3192s ease-in-out;
+}
+
+.navicon:before {
+  top: 9px;
+}
+
+.navicon:after {
+  bottom: 9px;
+}
+
+/* Hamburger Menu Animation Start */
+
+.menu-btn:checked~.menu-icon .navicon:before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.menu-btn:checked~.menu-icon .navicon:after {
+  transform: rotate(45deg);
+  bottom: 0;
+}
+
+.menu-btn:checked~.menu-icon .navicon {
+  background: transparent;
+  transition: 0.3192s ease-in-out;
+}
+
+/* Hide blue background on hamburger menu tap on some mobile devices */
+
+.menu-icon,
+.menu-btn,
+.navicon {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Nav items */
+
+.menu {
+  background-color: #400675;
+  width: 100%;
+  height: auto;
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-top: 35px;
+  padding: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3192s ease-in-out, opacity 0.3192s ease-in-out;
+}
+
+
+.menu-btn:checked~nav .menu {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3192s ease-in-out, opacity 0.3192s ease-in-out;
+}
+
+.menu li {
+  opacity: 0;
+  transition: 0.5s;
+  display: block !important;
+
+}
+
+.menu a {
+  color: #222222;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0;
+  transition: 0.5s;
+  font-family: 'Mike Sans Free', Helvetica, Arial;
+  letter-spacing: 2px;
+}
+
+.menu-btn:checked~nav .menu a,
+.menu-btn:checked~nav .menu li {
+  opacity: 1;
+  transition: 0.3192s ease-in-out;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .logo {
+    width: 60vw;
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+
+  .mw-portlet-personal {
+    float: right;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  nav {
+    margin-top: 0;
+  }
+
+  .menu {
+    width: 100%;
+    transform: none;
+    transition: none;
+    position: static;
+    margin: 0;
+    visibility: visible;
+    opacity: 1;
+    margin-left: -20px !important;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .menu li {
+    border: none;
+    padding: 0;
+    opacity: 1;
+    transition: none;
+    display: inline !important;
+  }
+
+  .menu a {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+.telepedia-ad-top {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .logo {
+    width: 60vw;
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+
+  .mw-portlet-personal {
+    float: right;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  nav {
+    margin-top: 0;
+  }
+
+  .menu {
+    width: 100%;
+    transform: none;
+    transition: none;
+    position: static;
+    margin: 0;
+    visibility: visible;
+    opacity: 1;
+    margin-left: -20px !important;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .menu li {
+    border: none;
+    padding: 0;
+    opacity: 1;
+    transition: none;
+    display: inline !important;
+  }
+
+  .menu a {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+.global-footer {
+  height: 35px;
+  background-color: #400675;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  margin-top: 20px !important;
+  padding: 5px;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+.global-footer a {
+  color: white !important;
+}
+
+.mw-portlet-personal ul li {
+    display: inline;
+    padding: 5px;
+    color: white;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+.mw-portlet-personal a {
+    color: white !important;
+}
+
+#p-personal-label {
+    display: none;
+}
+
+.mw-portlet-personal {
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+.content-container {
+  max-width: 115em;
+  box-sizing: border-box;
+  padding: 0 1em;
+  margin: auto;
+}
+
+.mw-body {
+    font-family: 'Helvetica Neue', 'Arial', serif;
+     margin: auto;
+     width: 80%;
+     position: relative;
+     background-color: var(--body, #fff);
+     padding: 5px 15px 0 25px;
+     border-radius: 0;
+     padding-bottom: 20px;
+     font-size: 14px !important;
+     line-height: 1.7;
+
+}
+
+
+#mw-wrapper {
+  width: 100vw;
+ }
+
+body {
+     background: rgb(229, 236, 249);
+}
+
+#p-namespaces-label {
+  display: none;
+}
+
+#p-namespaces ul {
+  list-style-type: none;
+}
+
+#p-namespaces li {
+  display: inline;
+  margin-right: 10px;
+  margin-top: -45px;
+}
+
+#p-namespaces {
+  float: left;
+  margin-top: 15px;
+  margin-left: -25px;
+}
+
+
+#p-views-label {
+  display: none;
+}
+
+#p-views ul {
+list-style-type: none;
+}
+
+#p-views li {
+display: inline;
+margin-right: 10px;
+margin-top: -45px;
+}
+
+#p-views {
+float: right;
+margin-top: 15px;
+margin-left: -25px;
+
+}
+
+#p-cactions-label {
+  display: none;
+}
+
+label[for=searchInput] {
+  display: none;
+}
+
+#searchInput::-webkit-input-placeholder {
+  color: white;
+  border-radius: 0;
+}
+
+#searchInput:-ms-input-placeholder {
+  color: white;
+  border-radius: 0;
+}
+
+#searchInput::-moz-placeholder {
+  color: white;
+  opacity: 1;
+  border-radius: 0;
+}
+
+#searchInput:::-moz-placeholder {
+  color: white;
+  opacity: 1;
+  border-radius: 0;
+}
+
+.mw-first-heading {
+  font-weight: normal;
+  font-size: 188%;
+}
+
+#searchGoButton, .searchGoButton, #searchInput {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -webkit-appearance: none !important;
+}
+
+#footer-list {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  font-family: 'Helvetica', 'Arial', serif;
+  font-size: 14px;
+}
+
+#footer-info-lastmod {
+  display: none;
+}
+
+#footer-list ul {
+  list-style-type: none;
+}
+
+#p-navigation-label {
+  display: none;
+}
+
+#p-tb-label {
+  display: none;
+}
+
+#footer-places-privacy, #footer-places-about, #footer-places-disclaimer {
+  display: none;
+}
+
+.mw-editsection {
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.printfooter {
+  display: none;
+}
+
+.global-footer {
+  font-family: Arial;
+}
+
+#searchInput {
+  background: transparent;
+  border: 1px solid grey;
+  padding: 5px;
+  color: white;
+  margin-top: 50px;
+}
+
+.searchButton {
+  background: grey;
+  padding: 5px;
+  border: 1px solid grey;
+  margin-left: -5px;
+  color: white;
+}
+
+// Talk page link in mw-head.
+#ca-talk.new a,
+#ca-talk.new a:visited,
+#ca-nstab-main.new a,
+#ca-nstab-main.new a:visited {
+    color: var(--headerlinks, #ba0000) !important;
+}
+
+#mw-head-right {
+    position: absolute;
+    right: 15px;
+    list-style: none;
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        margin-top: 0;
+        display: inline-block;
+        margin-left: 20px;
+        font-size: 14px;
+    }
+
+    #mw-head-more {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: -5px;
+        margin-right: 10px;
+        width: 70px;
+        position: relative;
+        z-index: 1;
+        font-size: 14px;
+
+        &:focus {
+            outline: transparent;
+        }
+    }
+
+    #mw-head-more > div {
+        padding: 0 2px;
+
+        &:hover {
+            border-color: #aaa;
+            background-color: #222;
+        }
+
+        > a {
+            height: 20px;
+            color: white;
+        }
+
+        ul {
+            /* Can't use display: none because it's not animatable */
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            list-style: none;
+            display: block;
+            border-top: 1px solid #ededed;
+            font-size: 14px !important;
+        }
+
+        &:hover ul {
+            max-height: 9999px;
+            opacity: 1;
+        }
+
+        a {
+            display: block;
+            padding: 4px 6px;
+            border-radius: 2px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        li {
+            float: none;
+            font-size: 1.4rem;
+            margin: 0;
+            padding: 0;
+            background: none;
+            display: block;
+            font-size: 14px;
+
+            a {
+                margin: 2px 0;
+            }
+        }
+    }
+}
+
+.page_item li {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+
+.article-header {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    height: 20px;
+
+    ul {
+        list-style: none;
+        font-size: 1.4rem;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: inline-block;
+            vertical-align: top;
+
+            a {
+                text-decoration: none;
+
+                &:visited {
+                    color: var(--links, #0645ad);
+                }
+            }
+
+            /* Makes the currently selected mw-head item bold. */
+            &.selected {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+#mw-head-left {
+    position: absolute;
+    left: 0;
+
+    > li {
+        margin-right: 20px;
+        font-size: 14px;
+    }
+}
+
+#site-sub {
+    display: none;
+}
+
+.community-header-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: end;
+    display: -webkit-box;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: flex-end;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 5px 15px 0 25px;
+}
+
+.telepedia-community-header {
+    display:grid;
+    grid-template-columns:-webkit-min-content 1fr;
+    grid-template-columns:min-content 1fr;
+    grid-template-rows:1fr -webkit-min-content;
+    grid-template-rows:1fr min-content;
+    width:100%;
+}
+
+.telepedia-community-header__image{
+    margin-right:18px
+}
+@media only screen and (min-width:1280px){
+    .telepedia-community-header__image{
+        grid-row:1/3
+    }
+}
+.telepedia-community-header__image img{
+    display:block;
+    max-height:100px;
+    max-width:250px;
+    -o-object-fit:scale-down;
+    object-fit:scale-down;
+    -o-object-position:bottom;
+    object-position:bottom;
+    width:auto
+}
+@media only screen and (max-width:1279px){
+    .telepedia-community-header__image img{
+        max-height:80px;
+        max-width:174px
+    }
+}
+.telepedia-community-header__top-container{
+    -webkit-box-align:end;
+    align-items:flex-end;
+    display:-webkit-box;
+    display:flex
+}
+
+.telepedia-community-header__community-name-wrapper{
+    -webkit-box-align:center;
+    align-items:center;
+    display:-webkit-box;
+    display:flex
+}
+
+.telepedia-community-header__community-name{
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    color:inherit;
+    display:-webkit-box;
+    font-size:18px;
+    font-weight:500;
+    line-height:1.25;
+    margin-right:9px;
+    overflow:hidden;
+    text-decoration:none
+}
+@media only screen and (min-width:1280px){
+    .telepedia-community-header__community-name{
+        font-size:24px
+    }
+}
+.telepedia-community-header__community-name:active,.telepedia-community-header__community-name:focus,.telepedia-community-header__community-name:hover{
+    color:inherit
+}
+@media only screen and (max-width:1279px){
+    .telepedia-community-header__local-navigation{
+        grid-column:1/3
+    }
+}
+
+.telepedia-community-header__local-navigation{
+    padding:0
+}
+
+.telepedia-sticky-header .telepedia-community-header__local-navigation{
+    -webkit-box-align:center;
+    -webkit-box-flex:1;
+    align-items:center;
+    flex-grow:1;
+    margin:0 24px
+}
+@media only screen and (max-width:1023px){
+    .telepedia-community-header__local-navigation .explore-menu .wds-dropdown__toggle>a>span{
+        display:none
+    }
+    .telepedia-community-header__local-navigation .explore-menu .wds-dropdown__content{
+        left:-12px;
+        -webkit-transform:none;
+        transform:none
+    }
+    .telepedia-sticky-header .telepedia-community-header__local-navigation{
+        margin-left:0
+    }
+    .telepedia-sticky-header .telepedia-community-header__local-navigation .wds-tabs{
+        grid-column-gap:15px
+    }
+}
+.telepedia-community-header__local-navigation .extra-large-navigation,.telepedia-community-header__local-navigation .large-navigation,.telepedia-community-header__local-navigation .medium-navigation,.telepedia-community-header__local-navigation .small-navigation{
+    display:none
+}
+@media only screen and (min-width:1280px){
+    .telepedia-community-header .telepedia-community-header__local-navigation .extra-large-navigation{
+        display:-webkit-box;
+        display:flex
+    }
+}
+@media only screen and (min-width:1024px) and (max-width:1279px){
+    .telepedia-community-header .telepedia-community-header__local-navigation .large-navigation{
+        display:-webkit-box;
+        display:flex
+    }
+}
+@media only screen and (max-width:1023px){
+    .telepedia-community-header .telepedia-community-header__local-navigation .medium-navigation{
+        display:-webkit-box;
+        display:flex
+    }
+}
+@media only screen and (min-width:1280px){
+    .telepedia-sticky-header .telepedia-community-header__local-navigation .large-navigation{
+        display:-webkit-box;
+        display:flex
+    }
+}
+@media only screen and (min-width:1024px) and (max-width:1279px){
+    .telepedia-sticky-header .telepedia-community-header__local-navigation .medium-navigation{
+        display:-webkit-box;
+        display:flex
+    }
+}
+@media only screen and (max-width:1023px){
+    .telepedia-sticky-header .telepedia-community-header__local-navigation .small-navigation{
+        display:-webkit-box;
+        display:flex
+    }
+}
+
+.searchForm {
+    grid-column: 3;
+    grid-row-start: 2;
+    grid-row-end: 1;
+    align-items: baseline;
+}
+
+#sitename a {
+    font-size: 20px;
+}
+
+.telepedia-community-header {
+    background: var(--header,#222222);
+    margin-left: -25px;
+    margin-top: -15px;
+    padding: 20px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.telepedia-community-header__community-name-wrapper a {
+    font-size: 22px;
+    color: white;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+#secondarynav {
+  font-size: 15px;
+  line-height: 14px;
+  display: flex;
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-gap: 20px !important;
+}
+
+#secondarynav, #secondarynav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+    list-style-position: outside;
+}
+
+#secondarynav {
+    width: auto;
+    font-family: Arial;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+
+#secondarynav li {
+    position: relative;
+    margin: 0;
+}
+
+#secondarynav a {
+    color:  white !important;
+    text-decoration: none;
+}
+
+#secondarynav > li:first-child > a {
+    border-left: none;
+}
+#secondarynav > li:first-child > a:hover {
+    border-radius: 6px 0 0 6px;
+}
+
+#secondarynav ul a {
+    float: none;
+}
+
+#secondarynav ul li {
+    float: none;
+}
+
+#secondarynav li:hover > a {
+    color: black;
+}
+
+*html #secondarynav li a:hover { /* IE6 only */
+    color: black;
+}
+
+#secondarynav ul {
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    padding: 5px;
+    z-index: 99999;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    background: var(--body, #222);
+    border-radius: 5px;
+    font-weight: normal;
+}
+
+#secondarynav > li > ul {
+    top: 50px;
+}
+
+#secondarynav > li > ul {
+    padding-top: 10px;
+}
+
+#secondarynav ul > li:first-child {
+    border-radius: 3px;
+}
+
+#secondarynav > li:hover > ul {
+    top: 38px;
+}
+
+#secondarynav li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+}
+
+#secondarynav ul ul {
+    top: 0;
+    margin: 0;
+}
+
+#secondarynav li ul li:hover > ul {
+    left: 153px;
+}
+
+#secondarynav ul li {
+    float: none;
+    display: block;
+    border: 0;
+    _line-height: 0; /*IE6 only*/
+    width: auto;
+    min-width: 145px;
+}
+
+#secondarynav ul li:last-child {
+    border: none;
+}
+
+#secondarynav ul a {
+    padding: 10px;
+    width: auto;
+    _height: 10px; /*IE6 only*/
+    display: block;
+    white-space: nowrap;
+    border-left: none;
+    float: none;
+    text-transform: none;
+}
+
+
+#secondarynav ul li:first-child > a {
+    border-radius: 3px 3px 0 0;
+}
+
+#secondarynav > li > ul > li:first-child > a:before,
+#secondarynav > li > ul > li:first-child > .before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    width: 15px;
+    height: 10px;
+    top: -45px;
+    padding-top: 20px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    background-position: bottom left;
+    bottom: -1px;
+    height: 0;
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    border: 9px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 9px;
+    border-bottom: 9px solid var(--body, #222);
+    margin-left: -9px;
+}
+
+
+#secondarynav ul ul li:first-child > a:before,
+#secondarynav ul ul > li:first-child > .before {
+    content: '';
+    position: absolute;
+    left: -13px;
+    width: 8px;
+    height: 10px;
+    top: -3px;
+    padding-top: 20px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+
+
+#secondarynav ul li:last-child > a {
+    border-radius: 0 0 3px 3px;
+}
+
+#secondarynav ul li a {
+  color: black;
+  font-weight: bold;
+}
+
+#secondaynav > li:hover > ul {
+	top: 38px;
+}
+
+#secondarynav li:hover > ul {
+	opacity: 1;
+	visibility: visible;
+}
+
+#secondarynav ul ul {
+	top: 0;
+	left: 163px;
+	margin: 0;
+}
+
+#secondarynav li ul li:hover > ul {
+	left: 153px;
+}
+
+
+#pt-notifications-alert .mw-echo-notifications-badge, #pt-notifications-notice .mw-echo-notifications-badge {
+  float: left !important;
+  filter: invert(1);
+}
+
+#pt-notifications-alert, #pt-notifications-notice {
+  display: inline !important;
+}
+
+.mw-echo-ui-notificationBadgeButtonPopupWidget {
+  float: left !important;
+}
+
+#pt-notifications-alert .mw-echo-notifications-badge, #pt-notifications-notice .mw-echo-notifications-badge {
+  margin-top: -7px;
+}
+
+.mw-portlet-personal ul {
+  margin-top: 5px;
+}
+
+
+#pt-notifications-alert .mw-echo-notifications-badge, #pt-notifications-notice .mw-echo-notifications-badge {
+  margin-top: -7px;
+}
+
+#pt-notifications-alert.mw-list-item {
+  float: left;
+}
+
+#pt-notifications-notice.mw-list-item {
+  float: left;
+}
+
+#wds-icons-dropdown-tiny {
+  fill: currentcolor;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.page_item.page_item_has_children:hover #wds-icons-dropdown-tiny {
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+
+#secondarynav a {
+  color: white;
+}
+
+
+@media screen and (min-width: 1300px) {
+  #secondarynav {
+    grid-column: 2 !important;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #p-logo {
+    grid-row: 1/2 !important;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  #p-logo {
+    grid-row-start: 1 !important;
+    grid-row-end: 3;
+  }
+}
+
+#telepedia-community-header__top-container {
+  grid-column: 2 !important;
+}
+
+.telepedia-community-header__top-container {
+  margin-bottom: 5px;
+}
+
+.telepedia-community-header__community-name-wrapper a {
+  color: white !important;
+}
+.searchForm {
+  grid-column: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#footer-list {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  font-family: 'Helvetica', 'Arial', serif;
+  font-size: 14px;
+}
+
+#footer-info-lastmod {
+  display: none;
+}
+
+#footer-list ul {
+  list-style-type: none;
+}
+
+.footerMeta {
+  margin: 0 auto;
+  width: 80%;
+  color: white;
+  text-align: left;
+  margin-bottom: 40px;
+  font-size: 14px;
+  font-family: 'Helvetica', 'Arial', serif;
+  padding: 15px 15px 10px 25px;
+  background: var(--body, rgba(192,192,192,0.9));
+}
+
+.footerMeta li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#secondarynav {
+  grid-column: 1;
+}
+
+#p-logo {
+  grid-row: 1/3 !important;
+}
+

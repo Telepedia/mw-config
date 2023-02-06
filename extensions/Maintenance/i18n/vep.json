@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Игорь Бродский"
+		]
+	},
+	"maintenance": "Holitamižen skriptoiden kävutamine",
+	"maintenance-error-invalidtype": "Vär tip!",
+	"maintenance-option-confirm": "Vahvištoitta",
+	"maintenance-invalidname": "Vär kävutajannimi!",
+	"maintenance-failed": "ONETOMAŠTI",
+	"maintenance-error": "Petuz: $1",
+	"maintenance-memc-parsercache": "Parseran keš",
+	"maintenance-memc-invalid": "värid:",
+	"maintenance-memc-expired": "männuden lopstrokanke:",
+	"maintenance-memc-absent": "ei ole:"
+}

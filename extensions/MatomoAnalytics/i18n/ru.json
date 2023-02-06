@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"ArticleEditor404",
+			"DDPAT",
+			"Ice bulldog",
+			"Okras"
+		]
+	},
+	"analytics": "MatomoAnalytics",
+	"matomoanalytics-labels-browser": "Браузеры",
+	"matomoanalytics-labels-continent": "Континенты",
+	"matomoanalytics-labels-country": "Страна",
+	"matomoanalytics-labels-devices": "Устройства",
+	"matomoanalytics-labels-os": "Операционная система",
+	"matomoanalytics-labels-resolution": "Решение",
+	"matomoanalytics-labels-social": "Социальные сети",
+	"matomoanalytics-labels-visitday": "Дни",
+	"matomoanalytics-labels-visitduration": "Длительность",
+	"matomoanalytics-labels-visithour": "Часы",
+	"matomoanalytics-labels-visitpages": "Уникальные страницы",
+	"matomoanalytics-labels-website": "Сайты",
+	"right-noanalytics": "Не отслеживать через Matomo"
+}

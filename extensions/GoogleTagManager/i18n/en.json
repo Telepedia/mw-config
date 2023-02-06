@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Felix Kaiser",
+        	"Tom Hutchison"
+		]
+	},
+	"googletagmanager-desc": "Inserts a Google Tag Manager container into pages for tracking",
+	"right-noanalytics": "Suppress Google Tag Manager insertion",
+	"action-noanalytics": "Bypass analytics"
+}

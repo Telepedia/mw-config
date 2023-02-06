@@ -1,0 +1,12 @@
+{
+  "@metadata": {
+    "authors": [
+      "Telepedia LTD"
+    ]
+  },
+  "community": "Community",
+  "community-desc": "Adds the MyExtension functionality.",
+  "communitycontent": "HI",
+  "communityheader": "Welcome to {{SITENAME}}.",
+  "community-summary": "On this special page, do this simple thing and earn wonders."
+}

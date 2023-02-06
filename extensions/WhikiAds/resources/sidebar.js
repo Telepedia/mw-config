@@ -1,0 +1,2 @@
+$("head").append('<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script> window.googletag = window.googletag || {cmd: []}; googletag.cmd.push(function() { googletag.defineSlot(\'/22705328868/testing1202\', [728, 90], \'div-gpt ad-1672465783553-0\').addService(googletag.pubads()); googletag.pubads().enableSingleRequest(); googletag.enableServices(); }); </script>');

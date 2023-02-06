@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sabelöga",
+			"WikiPhoenix"
+		]
+	},
+	"miraheze-dberr-again": "Försök att vänta några minuter och ladda in sidan på nytt. Kolla vårt Twitter-konto (https://twitter.com/Miraheze) eller kontakta systemadministratörerna genom att ansluta till #miraheze på irc.libera.chat för att ta reda på mer om felet.",
+	"miraheze-centralauth-login-error-locked": "{{GENDER:$1|Du}} kunde inte logga in för att {{GENDER:$1|ditt}} konto har låsts globalt. Kontakta <code>cvt[på]miraheze.org</code> för mer information eller för att överklaga.",
+	"miraheze-oathauth-step1": "VIKTIGT! Se till att läsa OATHAuth-sidan innan du slår på detta! Steg 1: Ladda ner ett program för tvåfaktorsautensiering",
+	"miraheze-prefs-help-realname": "Riktigt namn är valfritt. Väljer du att ange det, kommer det att användas för att tillskriva dig ditt arbete. Genom att använda Miraheze accepterar du dessutom till <span class=\"plainlinks\">[https://meta.miraheze.org/wiki/Terms_of_Use användarvillkoren]</span> och <span class=\"plainlinks\">[https://meta.miraheze.org/wiki/Privacy_Policy integritetspolicyn]</span>.",
+	"miraheze-newsignuppage-loginform-tos": "Jag har läst, förstått och samtycker i [https://meta.miraheze.org/wiki/Terms_of_Use användarvillkoren] och [https://meta.miraheze.org/wiki/Privacy_Policy integritetspolicyn]",
+	"miraheze-newsignuppage-must-accept-tos": "Du måste acceptera användarvillkoren för att skapa ett konto!",
+	"miraheze-centralauth-merge-method-admin": "Manuellt sammanslaget konto",
+	"miraheze-centralauth-merge-method-admin-desc": "Det här kontot blev manuellt sammanslaget av en systemadministratör eller en steward. Detta kan ha varit på grund av ett tekniskt problem i en namnförändrings- eller sammanslagningsprocess.",
+	"miraheze-restriction-protect": "Skrivskydda",
+	"miraheze-restriction-delete": "Radera",
+	"miraheze-skinname-snapwikiskin": "Snäpp!",
+	"miraheze-snapwikiskin": "Snäpp!",
+	"miraheze-wikibase-sitelinks-miraheze": "Miraheze-wikier",
+	"miraheze-group-checkuser": "IP-kontrollanter",
+	"miraheze-group-checkuser-member": "IP-kontrollant",
+	"miraheze-grouppage-checkuser": "m:Special:MyLanguage/CheckUser",
+	"miraheze-group-bureaucrat": "Byråkrater",
+	"miraheze-grouppage-bureaucrat": "m:Special:MyLanguage/User groups#{{int:Group-bureaucrat}}",
+	"miraheze-group-bureaucrat-member": "{{GENDER:$1|byråkrat}}",
+	"miraheze-group-sysop": "Administratörer",
+	"miraheze-grouppage-sysop": "m:Special:MyLanguage/User groups#{{int:Group-sysop}}",
+	"miraheze-group-sysop-member": "{{GENDER:$1|administratör}}",
+	"miraheze-group-interface-admin": "Gränssnittsadministratörer",
+	"miraheze-grouppage-interface-admin": "m:Special:MyLanguage/User groups#{{int:Group-interface-admin}}",
+	"miraheze-group-interface-admin-member": "{{GENDER:$1|gränssnittsadministratör}}",
+	"miraheze-group-bot": "Robotar",
+	"miraheze-grouppage-bot": "m:Special:MyLanguage/User groups#{{int:Group-bot}}",
+	"miraheze-group-bot-member": "{{GENDER:$1|robot}}",
+	"miraheze-grouppage-user": "m:Special:MyLanguage/User groups#{{int:Group-user}}"
+}

@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"MITO",
+			"Moj",
+			"Nike"
+		]
+	},
+	"randomwiki": "Satunnainen wiki",
+	"wikidiscover": "WikiDiscover",
+	"wikidiscover-table-category": "Luokka",
+	"wikidiscover-table-description": "Kuvaus",
+	"wikidiscover-table-established": "Perustettu",
+	"wikidiscover-table-language": "Kieli",
+	"wikidiscover-table-state": "Tila",
+	"wikidiscover-table-visibility": "Näkyvyys",
+	"wikidiscover-table-wiki": "Wikin nimi",
+	"apihelp-wikidiscover-param-wikislist": "Hanki luettelo kaikista wikeistä."
+}

@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeblad",
+			"Yupik",
+			"Kimberli Mäkäräinen (WMNO)"
+		]
+	},
+	"centralauth-prefs-count-attached": "Du dovddaldat lea registrerejuvvon $1 {{PLURAL:$1|prošektii|prošeavttaide}}.",
+	"centralauth-prefs-status": "Váldodovddaldaga dilli:",
+	"globalrenamequeue-form-status-all": "buot",
+	"globalrenamerequest-email-label": "E-poastačujuhus:"
+}

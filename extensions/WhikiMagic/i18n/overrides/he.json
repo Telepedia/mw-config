@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Ghsuvr",
+			"YaronSh",
+			"לואיקה"
+		]
+	},
+	"miraheze-centralauth-groupname": "Miraheze",
+	"miraheze-centralauth-merge-method-admin": "חשבון ממוזג ידנית",
+	"miraheze-centralauth-merge-method-admin-desc": "חשבון זה מוזג ידנית על ידי מפעיל או דייל. ייתכן שזה נבע מבעיה טכנית בתהליך שינוי השם או המיזוג",
+	"miraheze-restriction-protect": "הגנה",
+	"miraheze-restriction-delete": "מחיקה",
+	"miraheze-skinname-snapwikiskin": "Snap!",
+	"miraheze-snapwikiskin": "Snap!",
+	"miraheze-wikibase-sitelinks-miraheze": "אתרי ויקי של Miraheze",
+	"miraheze-group-sysop": "מנהלים",
+	"miraheze-group-bot": "בוטים"
+}

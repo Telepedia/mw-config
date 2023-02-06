@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dakrismeno",
+			"Salvemm el lombard"
+		]
+	},
+	"centralauth": "Manesg de l'utenza global",
+	"centralauth-admin-blocklog": "register di bloch",
+	"centralauth-createlocal-pretext": "Te podet drovà quall modulo chì per creà on cunt local per on cunt global al cas che l'utent el poda nò creàll deperlù per ona reson o per l'altra.",
+	"centralauth-createlocal-username": "Nom utenza global",
+	"centralauth-foreign-contributions": "$1 {{PLURAL:$1|contribuzzion}} su $2",
+	"centralauth-foreign-link": "Utent $1 in su $2",
+	"centralauth-login-no-others": "Te see stad conligaa in automatich a i alter proget de {{int:Centralauth-groupname}}.",
+	"centralauth-login-progress": "Coness {{PLURAL:$2|a l'alter proget|a i alter proget}} de {{int:Centralauth-groupname}}:",
+	"centralauth-merge-method-login": "cread per mezz del reconossiment a l'entrada",
+	"centralauth-prefs-count-attached": "La toa utenza l'è attiva in su $1 {{PLURAL:$1|wiki}}.",
+	"centralauth-prefs-manage": "Gestion de la toa utenza global",
+	"centralauth-prefs-status": "Utenza global",
+	"centralauth-prefs-unattached": "Conligada insema minga del tutt",
+	"createlocalaccount": "Forza la creazzion d'ona utenza local",
+	"globalgroupmembership": "Aderenza ai grup globai",
+	"globalgrouppermissions": "Manegg di grup globai.",
+	"globalrenameprogress": "Progress del cambiament global del nom",
+	"globalrenamerequest": "Domanda de rinomina de l'utenza global",
+	"globalrenamerequest-newname-label": "Nom de l'utent domandadː",
+	"globalrenamerequest-pretext": "Ciama on nom noeuv de la toa utenza per vesser conossud in tucc i proget.\n\nTute i to contribuzzion precedente i sarann conligade al nom noeuv.\n\nOna lista di domande fade con quell modol chì la sarà resa disponibil ai utent che i gh'hann l'abilitazzion de fà quell metser chì. Te ricevareet on messagg de notifica via posta eletronica quand che 'l process el sarà completad.\n\nSe la tua domanda l'è dovuda al desideri di vesser anonim/riservatezza, ten a ment che 'l sarà cread on register permanent con la nota del nom precedent de la toa utenza. Donca, te podet pensà domà de[[Special:CreateAccount|creare una noeuva utenza separada e indipendenta]] e fàss rinominà la toa utenza de incoeu con on nom a cas e poeu bandonàlla.",
+	"globalrenamerequest-reason-label": "Motiv de la domanda",
+	"globalrenamerequest-status-text": "La toa domanda de modifega del nom de la toa utenza adess a l'è in cors, 'dree a specià l'aprovazzion de quei che gh'hann l'abilitazzion de fà quell mester chì. El te sarà mandad on messaa de notifica per mez de la posta eletronica quand che la domanda la sarà scoduda.\n\n;Nom de l'utenza de adess:\n:$1\n;Nom de l'utenza domandada:\n:$2",
+	"globalrenamerequest-submit-text": "Ciama on cambiament de nom",
+	"globalrenamerequest-username-label": "Nom de l'utent de adessː",
+	"globalusers": "Lista di cunt globai",
+	"logentry-gblrights-grouprename": "El / la $1 {{GENDER:$2|l'ha rinominad}} el grup $5 come $4"
+}

@@ -1,0 +1,48 @@
+{
+	"name": "WhikiOverrides",
+	"namemsg": "whikioverrides-extensionname",
+	"version": "1.0.0",
+	"author": [
+        "whiki.online"
+	],
+	"url": "",
+	"descriptionmsg": "whikioverrides-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.19.0"
+	},
+	"MessagesDirs": {
+		"WhikiOverrides": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"WhikiOverrides": "src/WhikiOverrides.php"
+	},
+	"ConfigRegistry": {
+		"whikioverrides": "GlobalVarConfig::newInstance"
+	},
+  	"ResourceModules": {
+	    "ext.feedback": {
+	      "localBasePath": "resources/ext.feedback",
+	      "remoteExtPath": "WhikiOverrides/resources/ext.feedback",
+	      "dependencies": [],
+	      "styles": "feedback.css",
+	      "packageFiles": [
+	        "slideout.js"
+	      ],
+	      "messages": []
+	    }
+	  },
+	"Hooks": {
+		"MessageCache::get": "WhikiOverrides::onMessageCacheget",
+		"HtmlPageLinkRendererEnd": "WhikiOverrides::onHtmlPageLinkRendererEnd",
+		"InitializeArticleMaybeRedirect": "WhikiOverrides::onInitializeArticleMaybeRedirect",
+		"GlobalUserPageWikis": "WhikiOverrides::onGlobalUserPageWikis",
+		"SkinAddFooterLinks": "WhikiOverrides::onSkinAddFooterLinks",
+	        "SiteNoticeAfter": "WhikiOverrides::onSiteNoticeAfter"
+
+	},
+	"manifest_version": 2
+}

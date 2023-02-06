@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Narazeni",
+			"Silovan"
+		]
+	},
+	"centralauth-admin-blocklog": "ბლოკირაფაშ ისტორია",
+	"centralauth-foreign-contributions": "$1 {{PLURAL:$1|თირუა|თირუა}} $2-ს",
+	"centralauth-foreign-link": "მახვარებუ $1  $2-ს",
+	"centralauth-merge-method-login": "აკიქიმინჷ მიშულაშ ბორჯის",
+	"log-action-filter-globalauth": "თირუაშ ტიპი:",
+	"log-action-filter-globalauth-delete": "გლობალური ანგარიშიშ ლასუა",
+	"log-action-filter-globalauth-setstatus": "გლობალური ანგარიშიშ სტატუსიშ თირუა",
+	"log-action-filter-suppress-cadelete": "გლობალური ანგარიშიშ ლასუა",
+	"log-action-filter-suppress-setstatus": "გლობალური ანგარიშიშ სტატუსიშ თირუა",
+	"logentry-globalauth-delete": "მახვარებუქ $1 {{GENDER:$2|დოლასჷ}} გლობალური ანგარიში \"$3\"",
+	"centralauth-badaccess-blacklisted": "თქვა ვეშეილებჷნა გლობალური ჯოხოშ თირუა მითხუათინ, თიშ გეშა, ნამჷ-და თქვა უჩა ერკებულს რეთ."
+}

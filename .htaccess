@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteRule ^/?wiki(/.*)?$ %{DOCUMENT_ROOT}/index.php [L]
+
+RewriteRule ^/?$ %{DOCUMENT_ROOT}/index.php [L]
+
+RewriteRule ^robots\.txt$ robots.php [NS]
+
+ErrorDocument 404 /404.php
+
+Header add "disablevcache" "true"

@@ -1,0 +1,34 @@
+.feedback-slideout {
+  background: #E8EE1F;
+  width: 280px;
+  padding: 15px;
+  right: 0 !important;
+  float: right;
+  position: fixed;
+  bottom: 15px;
+  display: none;
+  color: black;
+}
+
+.feedback-header {
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 2px solid yellow;
+  border-color: black;
+  margin-bottom: 10px;
+}
+
+.feedback-close {
+  float: left;
+  margin-top: -4px !important;
+  font-size: 20px;
+  margin-right: 7px;
+}
+
+#feedback-show {
+  display: block !important;
+}
+
+#feedback-closed {
+  display: none !important !important;
+}

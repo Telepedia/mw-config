@@ -1,0 +1,71 @@
+{
+	"name": "SearchDigest",
+	"author": [
+		"[https://twitter.com/jaydenkieran Jayden Bailey]"
+	],
+	"url": "https://gitlab.com/weirdgloop/extensions/searchdigest",
+	"version": "1.2",
+	"descriptionmsg": "searchdigest-desc",
+	"license-name": "GPL-3.0+",
+	"manifest_version": 1,
+	"config": {
+		"SearchDigestStrikeValidPages": true,
+		"SearchDigestCreateRedirect": true,
+		"SearchDigestMinimumMisses": 10	
+	},
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.36.0"
+	},
+	"AutoloadClasses": {
+		"SearchDigestHooks": "src/SearchDigestHooks.php",
+		"SearchDigestException": "src/SearchDigestException.php",
+		"SearchDigestRecord": "src/SearchDigestRecord.php",
+		"SearchDigestMaintenance": "src/SearchDigestMaintenance.php",
+		"SpecialSearchDigest": "src/SpecialSearchDigest.php"
+	},
+	"SpecialPages": {
+		"SearchDigest": "SpecialSearchDigest"
+	},
+	"ResourceModules": {
+		"ext.searchdigest.styles": {
+			"styles": "ext.searchdigest.styles.css"
+		},
+    "ext.searchdigest.redirect": {
+        "scripts": [
+            "ext.searchdigest.redirect.js"
+				],
+				"styles": "ext.searchdigest.redirect.css",
+        "messages": [
+						"searchdigest-redirect-buttontext",
+						"searchdigest-redirect-successtext",
+						"searchdigest-redirect-problem",
+						"searchdigest-redirect-editsummary",
+						"searchdigest-redirect-inputplaceholder",
+						"searchdigest-redirect-helptext",
+						"searchdigest-redirect-redirectbutton",
+						"searchdigest-redirect-title",
+						"cancel"
+        ],
+        "dependencies": [
+						"oojs-ui-core",
+						"oojs-ui-windows",
+						"mediawiki.api"
+        ]
+    }
+	},
+	"ResourceFileModulePaths": {
+    "localBasePath": "src/modules",
+    "remoteExtPath": "SearchDigest/src/modules"
+	},
+	"MessagesDirs": {
+		"SearchDigest": "i18n"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": "SearchDigestHooks::onLoadExtensionSchemaUpdates",
+		"SpecialSearchNogomatch": "SearchDigestHooks::onSpecialSearchNogomatch"
+	},
+	"AvailableRights": [
+		"searchdigest-admin"
+	]
+}

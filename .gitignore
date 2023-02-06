@@ -1,0 +1,5 @@
+/cache/*
+/sitemap/*
+/images/*
+/tests/*
+LocalSettings.php

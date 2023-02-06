@@ -1,0 +1,41 @@
+{
+	"name": "Community",
+	"version": "0.6.0",
+	"author": [
+		"Telepedia LTD"
+	],
+	"license-name": "GPL-2.0-or-later",
+	"url": "https://www.mediawiki.org/wiki/Extension:Community",
+	"descriptionmsg": "community-desc",
+	"type": "specialpage",
+	"requires": {
+		"MediaWiki": ">= 1.39.0"
+	},
+	"SpecialPages": {
+		"Community": "SpecialCommunity"
+	},
+	"MessagesDirs": {
+		"Community": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"SpecialCommunity": "src/Community.php",
+		"CommunityPageShortPagesCardModel": "CommunityPageShortPagesCardModel.php"
+	},
+	"AutoloadNamespaces": {
+		"Telepedia\\Community\\": "src/"
+	},
+	"manifest_version": 2,
+  "ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "Community/resources"
+	},
+  "ResourceModules": {
+		"ext.community.styles": {
+			"localBasePath": "resources",
+			"remoteExtPath": "Community/resources",
+			"styles": "ext.community.styles.css"
+		}
+	}
+}

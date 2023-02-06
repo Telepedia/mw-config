@@ -1,0 +1,834 @@
+{
+	"name": "CentralAuth",
+	"author": [
+		"Brion Vibber",
+		"Kunal Mehta",
+		"Sam Reed",
+		"Aaron Schulz",
+		"Brad Jorsch",
+		"Umherirrender",
+		"Marius Hoch",
+		"Andrew Garrett",
+		"Chris Steipp",
+		"Tim Starling",
+		"Gergő Tisza",
+		"Alexandre Emsenhuber",
+		"Victor Vasiliev",
+		"Glaisher",
+		"DannyS712",
+		"Peter Gehres",
+		"Bryan Davis",
+		"James D. Forrester",
+		"Taavi Väänänen",
+		"Alexander Vorwerk"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:CentralAuth",
+	"descriptionmsg": "centralauth-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "specialpage",
+	"requires": {
+		"MediaWiki": ">= 1.39.0"
+	},
+	"GroupPermissions": {
+		"steward": {
+			"centralauth-createlocal": true,
+			"centralauth-unmerge": true,
+			"centralauth-lock": true,
+			"centralauth-suppress": true
+		},
+		"sysop": {
+			"centralauth-createlocal": true
+		},
+		"*": {
+			"centralauth-merge": true
+		}
+	},
+	"GrantPermissions": {
+		"setglobalaccountstatus": {
+			"centralauth-lock": true,
+			"centralauth-suppress": true
+		},
+		"createlocalaccount": {
+			"centralauth-createlocal": true
+		}
+	},
+	"GrantPermissionGroups": {
+		"setglobalaccountstatus": "administration"
+	},
+	"AvailableRights": [
+		"centralauth-createlocal",
+		"centralauth-merge",
+		"centralauth-unmerge",
+		"centralauth-lock",
+		"centralauth-suppress",
+		"globalgrouppermissions",
+		"globalgroupmembership",
+		"centralauth-rename"
+	],
+	"SessionProviders": {
+		"CentralAuthSessionProvider": {
+			"class": "CentralAuthSessionProvider",
+			"args": [
+				{
+					"priority": 50
+				}
+			],
+			"services": [
+				"CentralAuth.CentralAuthSessionManager",
+				"CentralAuth.CentralAuthUtilityService"
+			]
+		},
+		"CentralAuthApiSessionProvider": {
+			"class": "CentralAuthApiSessionProvider",
+			"args": [],
+			"services": [
+				"CentralAuth.CentralAuthSessionManager",
+				"CentralAuth.CentralAuthUtilityService"
+			]
+		},
+		"CentralAuthHeaderSessionProvider": {
+			"class": "CentralAuthHeaderSessionProvider",
+			"args": [],
+			"services": [
+				"CentralAuth.CentralAuthSessionManager",
+				"CentralAuth.CentralAuthUtilityService"
+			]
+		}
+	},
+	"CentralIdLookupProviders": {
+		"CentralAuth": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\User\\CentralAuthIdLookup",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager"
+			]
+		}
+	},
+	"ExtensionFunctions": [
+		"MediaWiki\\Extension\\CentralAuth\\CentralAuthHooks::onRunExtensionFunctions"
+	],
+	"SpecialPages": {
+		"CentralAuth": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialCentralAuth",
+			"services": [
+				"NamespaceInfo",
+				"CentralAuth.CentralAuthDatabaseManager",
+				"CentralAuth.CentralAuthUIService",
+				"ReadOnlyMode",
+				"UserNameUtils"
+			]
+		},
+		"CentralLogin": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialCentralLogin",
+			"services": [
+				"StatsdDataFactory",
+				"CentralAuth.CentralAuthUtilityService",
+				"CentralAuth.CentralAuthSessionManager"
+			]
+		},
+		"CentralAutoLogin": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialCentralAutoLogin",
+			"services": [
+				"CentralAuth.CentralAuthUtilityService",
+				"UserOptionsManager",
+				"ReadOnlyMode",
+				"CentralAuth.CentralAuthSessionManager"
+			]
+		},
+		"CreateLocalAccount": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialCreateLocalAccount",
+			"services": [
+				"CentralAuth.CentralAuthForcedLocalCreationService"
+			]
+		},
+		"MergeAccount": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialMergeAccount",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager",
+				"NamespaceInfo",
+				"UserFactory"
+			]
+		},
+		"GlobalGroupMembership": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialGlobalGroupMembership",
+			"services": [
+				"CentralAuth.GlobalGroupLookup",
+				"UserNameUtils",
+				"UserNamePrefixSearch"
+			]
+		},
+		"GlobalGroupPermissions": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialGlobalGroupPermissions",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager",
+				"CentralAuth.GlobalGroupLookup",
+				"PermissionManager"
+			]
+		},
+		"WikiSets": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialWikiSets",
+			"services": [
+				"CentralAuth.CentralAuthWikiListService"
+			]
+		},
+		"GlobalUsers": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialGlobalUsers",
+			"services": [
+				"ContentLanguage",
+				"CentralAuth.CentralAuthDatabaseManager",
+				"CentralAuth.GlobalGroupLookup"
+			]
+		},
+		"MultiLock": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialMultiLock",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager",
+				"CentralAuth.CentralAuthUIService"
+			]
+		},
+		"GlobalRenameUser": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialGlobalRenameUser",
+			"services": [
+				"CentralAuth.CentralAuthUIService",
+				"CentralAuth.GlobalRenameDenylist",
+				"CentralAuth.GlobalRenameUserValidator",
+				"CentralAuth.CentralAuthDatabaseManager",
+				"JobQueueGroupFactory"
+			]
+		},
+		"GlobalRenameProgress": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Special\\SpecialGlobalRenameProgress",
+			"services": [
+				"UserNameUtils",
+				"CentralAuth.CentralAuthUIService"
+			]
+		}
+	},
+	"JobClasses": {
+		"crosswikiSuppressUser": "MediaWiki\\Extension\\CentralAuth\\User\\CentralAuthSuppressUserJob",
+		"LocalRenameUserJob": "MediaWiki\\Extension\\CentralAuth\\GlobalRename\\LocalRenameJob\\LocalRenameUserJob",
+		"LocalPageMoveJob": "MediaWiki\\Extension\\CentralAuth\\GlobalRename\\LocalRenameJob\\LocalPageMoveJob",
+		"CentralAuthCreateLocalAccountJob": "MediaWiki\\Extension\\CentralAuth\\User\\CentralAuthCreateLocalAccountJob",
+		"CentralAuthUnattachUserJob": "MediaWiki\\Extension\\CentralAuth\\User\\CentralAuthUnattachUserJob"
+	},
+	"LogTypes": [
+		"globalauth",
+		"gblrights",
+		"gblrename"
+	],
+	"LogNames": {
+		"globalauth": "centralauth-log-name",
+		"gblrights": "centralauth-rightslog-name"
+	},
+	"LogHeaders": {
+		"globalauth": "centralauth-log-header",
+		"gblrights": "centralauth-rightslog-header"
+	},
+	"ActionFilteredLogs": {
+		"suppress": {
+			"setstatus": [
+				"setstatus"
+			],
+			"cadelete": [
+				"cadelete"
+			]
+		},
+		"globalauth": {
+			"delete": [
+				"delete"
+			],
+			"setstatus": [
+				"setstatus",
+				"lock",
+				"unlock",
+				"hide",
+				"unhide",
+				"lockandhid"
+			]
+		},
+		"gblrights": {
+			"usergroups": [
+				"usergroups"
+			],
+			"groupprms": [
+				"groupperms",
+				"groupprms2",
+				"groupprms3",
+				"grouprename"
+			],
+			"setmodify": [
+				"newset",
+				"deleteset",
+				"setchange",
+				"setrename",
+				"setnewtype"
+			]
+		},
+		"newusers": {
+			"forcecreatelocal": [
+				"forcecreatelocal"
+			]
+		},
+		"_merge_strategy": "array_plus_2d"
+	},
+	"LogActions": {
+		"globalauth/lock": "centralauth-log-entry-lock",
+		"globalauth/unlock": "centralauth-log-entry-unlock",
+		"globalauth/hide": "centralauth-log-entry-hide",
+		"globalauth/unhide": "centralauth-log-entry-unhide",
+		"globalauth/lockandhid": "centralauth-log-entry-lockandhide",
+		"gblrights/groupperms": "centralauth-rightslog-entry-groupperms"
+	},
+	"LogActionsHandlers": {
+		"globalauth/delete": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\GlobalDeleteLogFormatter",
+		"globalauth/setstatus": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\ChangeStatusLogFormatter",
+		"newusers/forcecreatelocal": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\ForceCreateLocalUserLogFormatter",
+		"suppress/cadelete": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\GlobalDeleteLogFormatter",
+		"suppress/setstatus": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\ChangeStatusLogFormatter",
+		"gblrights/usergroups": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\GroupMembershipChangeLogFormatter",
+		"gblrights/groupprms2": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\PermissionChangeLogFormatter",
+		"gblrights/groupprms3": "LogFormatter",
+		"gblrights/grouprename": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\GroupRenameLogFormatter",
+		"gblrename/rename": "MediaWiki\\Extension\\CentralAuth\\GlobalRename\\GlobalRenameLogFormatter",
+		"gblrename/promote": "MediaWiki\\Extension\\CentralAuth\\GlobalRename\\GlobalRenameLogFormatter",
+		"gblrename/merge": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\GlobalUserMergeLogFormatter",
+		"gblrights/newset": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\WikiSetLogFormatter",
+		"gblrights/setrename": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\WikiSetLogFormatter",
+		"gblrights/setnewtype": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\WikiSetLogFormatter",
+		"gblrights/setchange": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\WikiSetLogFormatter",
+		"gblrights/deleteset": "MediaWiki\\Extension\\CentralAuth\\LogFormatter\\WikiSetLogFormatter"
+	},
+	"APIModules": {
+		"createlocalaccount": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiCreateLocalAccount",
+			"services": [
+				"CentralAuth.CentralAuthForcedLocalCreationService"
+			]
+		},
+		"deleteglobalaccount": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiDeleteGlobalAccount",
+		"setglobalaccountstatus": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiSetGlobalAccountStatus",
+		"centralauthtoken": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiCentralAuthToken",
+			"services": [
+				"CentralAuth.CentralAuthSessionManager"
+			]
+		},
+		"globaluserrights": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiGlobalUserRights",
+			"services": [
+				"CentralAuth.GlobalGroupLookup",
+				"UserNameUtils",
+				"UserNamePrefixSearch"
+			]
+		}
+	},
+	"APIMetaModules": {
+		"globaluserinfo": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiQueryGlobalUserInfo",
+			"services": [
+				"UserNameUtils"
+			]
+		},
+		"globalrenamestatus": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiQueryGlobalRenameStatus"
+	},
+	"APIListModules": {
+		"globalgroups": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiQueryGlobalGroups",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager"
+			]
+		},
+		"wikisets": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiQueryWikiSets",
+			"services": [
+				"CentralAuth.CentralAuthWikiListService"
+			]
+		},
+		"globalallusers": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Api\\ApiQueryGlobalAllUsers",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager",
+				"CentralAuth.GlobalGroupLookup"
+			]
+		}
+	},
+	"MessagesDirs": {
+		"SpecialCentralAuth": [
+			"i18n",
+			"i18n/api"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"SpecialCentralAuthAliases": "CentralAuth.alias.php",
+		"SpecialCentralAuthAliasesNoTranslate": "CentralAuth.notranslate-alias.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\CentralAuth\\": "includes/"
+	},
+	"AutoloadClasses": {
+		"CentralAuthSessionProvider": "includes/session/CentralAuthSessionProvider.php",
+		"CentralAuthApiSessionProvider": "includes/session/CentralAuthApiSessionProvider.php",
+		"CentralAuthHeaderSessionProvider": "includes/session/CentralAuthHeaderSessionProvider.php",
+		"CentralAuthTokenSessionProvider": "includes/session/CentralAuthTokenSessionProvider.php"
+	},
+	"TestAutoloadClasses": {
+		"CentralAuthUsingDatabaseTestCase": "tests/phpunit/CentralAuthUsingDatabaseTestCase.php",
+		"CentralAuthTestUser": "tests/phpunit/CentralAuthTestUser.php",
+		"CentralAuthTokenSessionProviderTest": "tests/phpunit/CentralAuthTokenSessionProviderTest.php"
+	},
+	"ResourceModules": {
+		"ext.centralauth": {
+			"scripts": "ext.centralauth.js",
+			"styles": "ext.centralauth.css",
+			"dependencies": [
+				"mediawiki.util",
+				"jquery.spinner"
+			],
+			"messages": [
+				"centralauth-merge-method-primary",
+				"centralauth-merge-method-primary-desc",
+				"centralauth-merge-method-new",
+				"centralauth-merge-method-new-desc",
+				"centralauth-merge-method-empty",
+				"centralauth-merge-method-empty-desc",
+				"centralauth-merge-method-password",
+				"centralauth-merge-method-password-desc",
+				"centralauth-merge-method-mail",
+				"centralauth-merge-method-mail-desc",
+				"centralauth-merge-method-admin",
+				"centralauth-merge-method-admin-desc",
+				"centralauth-merge-method-login",
+				"centralauth-merge-method-login-desc",
+				"centralauth-admin-delete-confirm",
+				"centralauth-completelogin-back"
+			]
+		},
+		"ext.centralauth.centralautologin": {
+			"packageFiles": [
+				"ext.centralauth.centralautologin.js",
+				{
+					"name": "data.json",
+					"callback": "MediaWiki\\Extension\\CentralAuth\\CentralAuthHooks::getCentralautologinJsData"
+				}
+			],
+			"styles": "ext.centralauth.centralautologin.css",
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"dependencies": [
+				"mediawiki.jqueryMsg"
+			]
+		},
+		"ext.centralauth.centralautologin.clearcookie": {
+			"scripts": "ext.centralauth.centralautologin.clearcookie.js",
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		},
+		"ext.centralauth.misc.styles": {
+			"styles": [
+				"ext.centralauth.noflash.css",
+				"ext.centralauth.globalusers.css",
+				"ext.centralauth.globalgrouppermissions.css",
+				"ext.centralauth.globalrenameuser.css"
+			]
+		},
+		"ext.centralauth.globaluserautocomplete": {
+			"scripts": "ext.centralauth.globaluserautocomplete.js",
+			"dependencies": [
+				"jquery.suggestions",
+				"mediawiki.api"
+			]
+		},
+		"ext.centralauth.globalrenameuser": {
+			"scripts": "ext.centralauth.globalrenameuser.js",
+			"dependencies": [
+				"mediawiki.util"
+			],
+			"messages": [
+				"centralauth-rename-confirm"
+			]
+		},
+		"ext.centralauth.ForeignApi": {
+			"scripts": [
+				"ext.centralauth.ForeignApi.js",
+				"ext.centralauth.ForeignRest.js"
+			],
+			"dependencies": [
+				"mediawiki.ForeignApi.core"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.widgets.GlobalUserInputWidget": {
+			"scripts": "ext.widgets.GlobalUserInputWidget.js",
+			"dependencies": [
+				"mediawiki.api",
+				"oojs-ui-widgets"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "CentralAuth/modules"
+	},
+	"QUnitTestModule": {
+		"localBasePath": "",
+		"remoteExtPath": "CentralAuth",
+		"scripts": [
+			"tests/qunit/ext.centralauth.ForeignApi.test.js",
+			"tests/qunit/ext.centralauth.ForeignRest.test.js"
+		],
+		"dependencies": [
+			"ext.centralauth.ForeignApi"
+		]
+	},
+	"callback": "MediaWiki\\Extension\\CentralAuth\\CentralAuthHooks::onRegistration",
+	"HookHandlers": {
+		"abusefilter": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\AbuseFilterHookHandler"
+		},
+		"api": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\ApiHookHandler",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"contentsecuritypolicy": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\ContentSecurityPolicyHookHandler",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"default": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\CentralAuthHooks"
+		},
+		"importhandle": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\ImportHandleHookHandler",
+			"services": [
+				"CentralAuth.CentralAuthUtilityService",
+				"UserFactory"
+			]
+		},
+		"log": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\LogHookHandler",
+			"services": [
+				"UserNameUtils",
+				"DBLoadBalancerFactory"
+			]
+		},
+		"logincomplete": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\LoginCompleteHookHandler",
+			"services": [
+				"MainConfig",
+				"CentralAuth.CentralAuthSessionManager",
+				"UserOptionsLookup",
+				"HookContainer"
+			]
+		},
+		"noservices": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\NoServicesHookHandler"
+		},
+		"pagedisplay": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\PageDisplayHookHandler",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"passwordpolicies": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\PasswordPoliciesHookHandler",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"permissions": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\PermissionsHookHandler",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"securepoll": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\SecurePollHookHandler",
+			"services": [
+				"NamespaceInfo"
+			]
+		},
+		"specialcontributions": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\SpecialContributionsHookHandler",
+			"services": [
+				"NamespaceInfo"
+			]
+		},
+		"specialpageinit": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\SpecialPageInitHookHandler",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"rename": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\GlobalRenameHookHandler"
+		},
+		"unittests": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\UnitTestsHookHandler",
+			"services": [
+				"DBLoadBalancer"
+			]
+		},
+		"usercreation": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\UserCreationHookHandler",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager",
+				"CentralAuth.CentralAuthUtilityService"
+			]
+		},
+		"usereditcountupdate": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\UserEditCountUpdateHookHandler",
+			"services": [
+				"CentralAuth.CentralAuthEditCounter"
+			]
+		},
+		"userlogout": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\Hooks\\Handlers\\UserLogoutHookHandler",
+			"services": [
+				"MainConfig"
+			]
+		}
+	},
+	"Hooks": {
+		"AbuseFilter-builder": "abusefilter",
+		"AbuseFilter-computeVariable": "abusefilter",
+		"AbuseFilter-generateUserVars": "abusefilter",
+		"AbuseFilterShouldFilterAction": "abusefilter",
+		"ApiQueryTokensRegisterTypes": "default",
+		"APIGetAllowedParams": "api",
+		"BeforePageDisplay": "pagedisplay",
+		"ContentSecurityPolicyDefaultSource": "contentsecuritypolicy",
+		"ContentSecurityPolicyScriptSource": "contentsecuritypolicy",
+		"GetLogTypesOnUser": "default",
+		"GetPreferences": "default",
+		"GetUserBlock": "default",
+		"getUserPermissionsErrorsExpensive": "permissions",
+		"ImportHandleUnknownUser": "importhandle",
+		"InvalidateEmailComplete": "default",
+		"LoadExtensionSchemaUpdates": "noservices",
+		"LocalUserCreated": "usercreation",
+		"LogEventsListGetExtraInputs": "log",
+		"MakeGlobalVariablesScript": "default",
+		"OtherBlockLogLink": "default",
+		"PasswordPoliciesForUser": "passwordpolicies",
+		"RenameUserComplete": "rename",
+		"RenameUserPreRename": "rename",
+		"RenameUserWarning": "rename",
+		"ResourceLoaderForeignApiModules": "default",
+		"SecurePoll_GetUserParams": "securepoll",
+		"SessionCheckInfo": "default",
+		"SpecialContributionsBeforeMainOutput": "specialcontributions",
+		"SpecialLogAddLogSearchRelations": "log",
+		"SpecialPage_initList": "specialpageinit",
+		"SpecialPasswordResetOnSubmit": "default",
+		"TempUserCreatedRedirect": "logincomplete",
+		"TestCanonicalRedirect": "default",
+		"UnitTestsAfterDatabaseSetup": "unittests",
+		"UnitTestsBeforeDatabaseTeardown": "unittests",
+		"UserArrayFromResult": "default",
+		"UserEditCountUpdate": "usereditcountupdate",
+		"UserGetEmail": "default",
+		"UserGetEmailAuthenticationTimestamp": "default",
+		"UserGetReservedNames": "default",
+		"UserGetRights": "default",
+		"UserIsBot": "default",
+		"UserIsLocked": "default",
+		"UserLoginComplete": "logincomplete",
+		"UserLogout": "userlogout",
+		"UserLogoutComplete": "userlogout",
+		"UserSaveSettings": "default",
+		"UserSetEmail": "default",
+		"UserSetEmailAuthenticationTimestamp": "default"
+	},
+	"ConfigRegistry": {
+		"CentralAuth": "GlobalVarConfig::newInstance"
+	},
+	"config": {
+		"CentralAuthDatabase": {
+			"description": "Database name you keep central auth data in. If this is not on the primary database connection, don't forget to also set up $wgDBservers to have an entry with a groupLoads setting for the 'CentralAuth' group. Alternatively you can use $wgLBFactoryConf to set up an LBFactoryMulti object. To use a database with a table prefix, set this variable to \"{$database}-{$prefix}\".",
+			"value": "centralauth"
+		},
+		"CentralAuthAutoMigrate": {
+			"description": "If true, existing unattached accounts will be automatically migrated if possible at first login. Any new account creations will be required to attach. If false, unattached accounts will not be harassed unless the individual account has opted in to migration.",
+			"value": false
+		},
+		"CentralAuthAutoMigrateNonGlobalAccounts": {
+			"description": "If true, existing unattached accounts where no global account exists will be compared to see if a merge can be made based on passwords and emails with no clashes (all accounts merge). This was formerly controlled by $wgCentralAuthAutoMigrate",
+			"value": false
+		},
+		"CentralAuthStrict": {
+			"description": "If true, remaining accounts which have not been attached will be forbidden from logging in until they are resolved.",
+			"value": false
+		},
+		"CentralAuthDryRun": {
+			"description": "If true, merging won't actually be possible through the Special:MergeAccount interface.",
+			"value": false
+		},
+		"CentralAuthCookies": {
+			"description": "If true, global session and token cookies will be set alongside the per-wiki session and login tokens when users log in with a global account. This allows other wikis on the same domain to transparently log them in.",
+			"value": false
+		},
+		"CentralAuthLoginWiki": {
+			"description": "Database name of a central login wiki. This is an alternative to directly setting cross-domain cookies for each wiki in $wgCentralAuthAutoLoginWikis. If set, a single login wiki will use a session/cookie to handle unified login sessions across wikis. On login, users will be redirected to the login wiki's Special:CentralLogin/login page and then redirected to Special:CentralLogin back on the originating wiki. In the process, the central login wiki cookie and session will be set. As the user accesses other wikis, the login wiki will be checked via JavaScript to check login status and set the local session and cookies. This requires $wgCentralAuthCookies.",
+			"value": false
+		},
+		"CentralAuthCookieDomain": {
+			"description": "Domain to set global cookies for. For instance, '.wikipedia.org' to work on all wikipedia.org subdomains instead of just the current one. Leave blank to set the cookie for the current domain only, such as if all your wikis are hosted on the same subdomain.",
+			"value": ""
+		},
+		"CentralAuthCookiePrefix": {
+			"description": "Prefix for CentralAuth global authentication cookies.",
+			"value": "centralauth_"
+		},
+		"CentralAuthCookiePath": {
+			"description": "Path for CentralAuth global authentication cookies. Set this variable if you want to restrict cookies to a certain path within the domain specified by $wgCentralAuthCookieDomain.",
+			"value": "/"
+		},
+		"CentralAuthAutoLoginWikis": {
+			"description": "List of wiki IDs which should be called on login to try to set third-party cookies for the global session state. The wiki ID is typically the database name, except when table prefixes are used, in which case it is the database name, a hyphen separator, and then the table prefix. This allows a farm with multiple second-level domains to set up a global session on all of them by hitting one wiki from each domain (en.wikipedia.org, en.wikinews.org, etc). Done by accessing Special:CentralAutoLogin/start on each wiki. If empty, no other wikis will be hit. The key should be set to the cookie domain name.",
+			"value": []
+		},
+		"CentralAuthAutoCreateWikis": {
+			"description": "List of wiki IDs on which an attached local account should be created automatically when the global account is created. The wiki ID is typically the database name, except when table prefixes are used, in which case it is the database name, a hyphen separator, and then the table prefix.",
+			"value": []
+		},
+		"CentralAuthLoginIcon": {
+			"description": "Local filesystem path to the icon returned by Special:CentralAutoLogin. Should be a 20x20px PNG.",
+			"value": false
+		},
+		"CentralAuthPrefsForUIReload": {
+			"description": "User preferences for which we should recommend reloading the page after a successful central login query. If you need to do something more complicated than just compare the user option to default, use the hook CentralAuthIsUIReloadRecommended.",
+			"value": [
+				"skin",
+				"language",
+				"thumbsize",
+				"underline",
+				"stubthreshold",
+				"showhiddencats",
+				"justify",
+				"numberheadings",
+				"editondblclick",
+				"editsection",
+				"editsectiononrightclick",
+				"usenewrc",
+				"extendwatchlist"
+			]
+		},
+		"CentralAuthCreateOnView": {
+			"description": "If true, local accounts will be created for active global sessions on any page view. This is kind of creepy, so we're gonna have it off for a little bit. With other default options, the local autocreation will be held off until an active login attempt, while global sessions will still automatically log in those who already have a merged account.",
+			"value": false
+		},
+		"CentralAuthRC": {
+			"description": "Array of settings for sending the CentralAuth events to the RC Feeds",
+			"value": []
+		},
+		"DisableUnmergedEditing": {
+			"description": "Disable editing for non-global accounts (except on NS_USER_TALK and NS_PROJECT_TALK)",
+			"value": false
+		},
+		"CentralAuthWikisPerSuppressJob": {
+			"description": "Size of wikis handled in one suppress user job. Keep in mind that one wiki requires ~10 queries.",
+			"value": 10
+		},
+		"CentralAuthReadOnly": {
+			"description": "Like $wgReadOnly, used to set extension to database read only mode",
+			"value": false
+		},
+		"CentralAuthUseEventLogging": {
+			"description": "Use the EventLogging extension to measure various activities",
+			"value": false
+		},
+		"CentralAuthPreventUnattached": {
+			"description": "Don't allow new unattached accounts to be created",
+			"value": false
+		},
+		"CentralAuthEnableGlobalRenameRequest": {
+			"description": "Feature flag for Special:GlobalRenameRequest",
+			"value": false
+		},
+		"CentralAuthCheckSULMigration": {
+			"description": "Enable special logic to attempt to ease the user facing impact of forced user migrations.",
+			"value": false
+		},
+		"CentralAuthGlobalPasswordPolicies": {
+			"description": "Global Password Policies. These are applied like local password policies, the strongest policy applicable to a user is used. Policies can apply to either a local group (if the user is a member of that group on any wiki, the policy will apply to that user) or global group.",
+			"value": []
+		},
+		"CentralAuthGlobalBlockInterwikiPrefix": {
+			"value": "global"
+		},
+		"OverrideCentralIdLookupProvider": {
+			"description": "Set false if you really want to use 'local' rather than 'CentralAuth' for $wgCentralIdLookupProvider. This isn't the default because using CentralAuth is almost always what you want if CentralAuth is installed.",
+			"value": true
+		},
+		"CentralAuthOldNameAntiSpoofWiki": {
+			"value": false
+		},
+		"GlobalRenameDenylist": {
+			"value": null,
+			"description": "Source URL for the global rename denylist feature; if null, the feature is disabled."
+		},
+		"GlobalRenameDenylistRegex": {
+			"value": false,
+			"description": "Does the global rename denylist allow regexes? Does not have any effect when GlobalRenameDenylist is null."
+		},
+		"CentralAuthSessionCacheType": {
+			"description": "If set, this will be used instead of $wgSessionCacheType for session storage",
+			"value": null
+		},
+		"CentralAuthTokenCacheType": {
+			"description": "If set, this will be used instead of $wgCentralAuthSessionCacheType for storage of temporary tokens, which are used to carry login data across domains. Normally these tokens are single-use and have a TTL of 1 minute.",
+			"value": null
+		},
+		"CentralAuthTokenSessionTimeout": {
+			"description": "The amount of time to wait for tokens to appear in the session store, in seconds",
+			"value": 3
+		}
+	},
+	"AuthManagerAutoConfig": {
+		"primaryauth": {
+			"CentralAuthPrimaryAuthenticationProvider": {
+				"class": "MediaWiki\\Extension\\CentralAuth\\CentralAuthPrimaryAuthenticationProvider",
+				"sort": 10,
+				"services": [
+					"CentralAuth.CentralAuthDatabaseManager",
+					"UserNameUtils",
+					"StatsdDataFactory",
+					"ReadOnlyMode",
+					"CentralAuth.GlobalRenameRequestStore",
+					"CentralAuth.CentralAuthUtilityService"
+				]
+			}
+		},
+		"secondaryauth": {
+			"CentralAuthSecondaryAuthenticationProvider": {
+				"class": "MediaWiki\\Extension\\CentralAuth\\CentralAuthSecondaryAuthenticationProvider",
+				"sort": 0
+			}
+		}
+	},
+	"TempUserSerialProviders": {
+		"centralauth": {
+			"class": "MediaWiki\\Extension\\CentralAuth\\CentralAuthTempUserSerialProvider",
+			"services": [
+				"CentralAuth.CentralAuthDatabaseManager"
+			]
+		}
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"manifest_version": 2
+}

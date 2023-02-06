@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"whiki.online"
+		]
+	},
+	"whikiads": "WhikiAds",
+	"whikiads-extensionname": "WhikiAds",
+	"whikiads-desc": "implements advertisement code across the Whiki platform.",
+	"whikiads-portletlabel": "Advertisements"
+}

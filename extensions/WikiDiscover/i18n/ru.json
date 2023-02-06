@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"DDPAT",
+			"Happy13241",
+			"Ice bulldog",
+			"Kareyac",
+			"Movses",
+			"Nk88",
+			"Okras",
+			"Ole Yves",
+			"Pacha Tchernof",
+			"Rubin16",
+			"Stjn",
+			"WerySkok"
+		]
+	},
+	"randomwiki": "Cлучайный вики-проект",
+	"randomwiki-header": "Выберите категорию и язык ниже, и при отправке вы будете перенаправлены случайным образом в вики, которая соответствует выбранным критериям!",
+	"wikidiscover": "WikiDiscover",
+	"wikidiscover-desc": "Позволяет [[Special:WikiDiscover|обнаруживать вики]] на вики-ферме вики с [[Special:CreateWiki|CreateWiki]].",
+	"wikidiscover-table-category": "Категория",
+	"wikidiscover-table-description": "Описание",
+	"wikidiscover-table-established": "Установлено",
+	"wikidiscover-table-language": "Язык",
+	"wikidiscover-table-state": "Статус",
+	"wikidiscover-table-visibility": "Видимость",
+	"wikidiscover-table-wiki": "Имя вики",
+	"apihelp-wikidiscover-summary": "Получить список вики на вики-ферме CreateWiki.",
+	"apihelp-wikidiscover-param-state": "Фильтровать по установленному CreateWiki состоянию вики.",
+	"apihelp-wikidiscover-param-siteprop": "Информация, которую нужно вернуть о переданной вики.",
+	"apihelp-wikidiscover-param-limit": "Максимальное количество результатов для отображения.",
+	"apihelp-wikidiscover-param-wikislist": "Получить список всех вики.",
+	"apihelp-wikidiscover-example": "Показать все вики в форме."
+}

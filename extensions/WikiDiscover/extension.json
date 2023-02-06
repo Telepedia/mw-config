@@ -1,0 +1,60 @@
+{
+	"name": "WikiDiscover",
+	"author": [
+		"John Lewis",
+		"Universal Omega"
+	],
+	"descriptionmsg": "wikidiscover-desc",
+	"url": "https://github.com/miraheze/WikiDiscover",
+	"license-name": "GPL-3.0-or-later",
+	"type": "specialpage",
+	"requires": {
+		"MediaWiki": ">= 1.36.0",
+		"extensions": {
+			"CreateWiki": "*"
+		}
+	},
+	"SpecialPages": {
+		"RandomWiki": "SpecialRandomWiki",
+		"WikiDiscover": "SpecialWikiDiscover"
+	},
+	"APIModules": {
+		"wikidiscover": "ApiWikiDiscover"
+	},
+	"MessagesDirs": {
+		"WikiDiscover": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"WikiDiscoverMagic": "includes/WikiDiscoverMagic.php",
+		"WikiDiscoverAliases": "includes/WikiDiscoverAliases.php"
+	},
+	"AutoloadClasses": {
+		"WikiDiscover": "includes/WikiDiscover.php",
+		"WikiDiscoverRandom": "includes/WikiDiscoverRandom.php",
+		"SpecialRandomWiki": "includes/SpecialRandomWiki.php",
+		"SpecialWikiDiscover": "includes/SpecialWikiDiscover.php",
+		"WikiDiscoverWikisPager": "includes/WikiDiscoverWikisPager.php",
+		"ApiWikiDiscover": "includes/ApiWikiDiscover.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"WikiDiscover::onParserFirstCallInit"
+		],
+		"ParserGetVariableValueSwitch": [
+			"WikiDiscover::onParserGetVariableValueSwitch"
+		],
+		"GetMagicVariableIDs": [
+			"WikiDiscover::onGetMagicVariableIDs"
+		]
+	},
+	"config": {
+		"WikiDiscoverUseDescriptions": {
+			"description": "Whether or not to enable wiki descriptions.",
+			"public": true,
+			"value": false
+		}
+	},
+	"manifest_version": 2
+}

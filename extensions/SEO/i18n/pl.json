@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rail"
+		]
+	},
+	"seo": "Optymalizacja dla wyszukiwarek",
+	"seo_description": "Usprawnienia SEO, włączające wsparcie mikrodanych",
+	"seo_description_missing": "Tag metadesc nie ma zawartości.",
+	"seo_keywords_missing": "Tag metakeys nie ma zawartości."
+}

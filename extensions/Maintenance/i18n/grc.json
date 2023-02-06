@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Crazymadlover",
+			"Gts-tg",
+			"Omnipaedista",
+			"PastelKos"
+		]
+	},
+	"maintenance": "Ἐκτέλεση ἐργασιῶν συντηρήσεως",
+	"maintenance-option-confirm": "Κυροῦν",
+	"maintenance-failed": "ΑΠΕΤΕΥΧΘΗ",
+	"maintenance-memc-requests": "Αἰτήσεις"
+}

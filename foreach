@@ -1,0 +1,22 @@
+#! /bin/bash
+
+usage(){
+        echo "Usage: /usr/local/bin/foreachdbinlist /srv/mediawiki/cache/<dblist>.json /srv/mediawiki/w/<maintenance script> <any other options if needed>"
+        exit 1
+}
+
+[[ $# -eq 0 ]] && usage
+
+if [ ! -f $1 ]; then
+        echo "dblist does not exist!"
+        usage
+        exit 1
+fi
+
+wikis=`/usr/bin/jq ".combi | keys | .[]" $1 | sed 's/.//;s/.$//'`
+
+for wiki in $wikis
+do
+        echo "Running ${*:2} for $wiki"
+        /usr/bin/php $2 --wiki $wiki ${*:3}
+done

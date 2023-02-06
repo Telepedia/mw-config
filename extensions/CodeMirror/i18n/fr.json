@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gomoko",
+			"Thibaut120094",
+			"Trizek (WMF)",
+			"Verdy p",
+			"Wladek92"
+		]
+	},
+	"codemirror-desc": "Fournit une mise en évidence de la syntaxe dans l’éditeur de wikicode",
+	"codemirror-toggle-label": "Mise en évidence de la syntaxe"
+}

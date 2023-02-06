@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kambai Akau"
+		]
+	},
+	"apierror-centralauth-editconflict": "Á̱ ta̱taat zok njhyuk, á̱ fwan nyia̱.",
+	"apihelp-setglobalaccountstatus-param-statecheck": "MD5 ku yet khai nfwuo <username>:<hidden>:<locked> a̱ni, nang á̱ ba̱ng fwuo mi̱ di̱ yong huni, na tyai zók di̱ nta̱m jhyuk. Nyia̱-seti a tyia̱ <locked> nat 1 ka̱nang á̱ nyim, a̱wot 0 ka̱nang á̱ nwai nyim."
+}

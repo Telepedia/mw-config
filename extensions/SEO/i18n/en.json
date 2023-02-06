@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"seo": "Search Engine Optimization",
+	"seo_description": "SEO improvements, including microdata support.",
+	"seo_description_missing": "Content is missing inside the metadesc tag.",
+	"seo_keywords_missing": "Content is missing inside the metakeys tag."
+}

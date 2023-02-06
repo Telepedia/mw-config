@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Felix Kaiser",
+        	"Tom Hutchison"
+		]
+	},
+	"googletagmanager-desc": "The name of the extension's entry in Special:SpecialPages",
+	"right-noanalytics": "Permission right message",
+	"action-noanalytics": "Used in 'You do not have permission to...' message.{{Identical|Bypass analytics}}"
+}

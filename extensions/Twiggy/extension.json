@@ -1,0 +1,58 @@
+{
+	"name": "Twiggy",
+	"version": "0.0.1",
+	"author": [
+		"Hydra Wiki Platform Team"
+	],
+	"license-name": "GPL-2.0-or-later",
+	"descriptionmsg": "twiggy_description",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.31.0"
+	},
+	"MessagesDirs": {
+		"Twiggy": [
+			"i18n"
+		]
+	},
+	"AutoloadNamespaces": {
+		"Twiggy\\": "src/"
+	},
+	"Hooks": {
+		"MediaWikiServices": [
+			"Twiggy\\Hooks::onMediaWikiServices"
+		]
+	},
+	"config": {
+		"TwiggyAllowedPHPFunctions": {
+			"value": [
+				"wfMessage",
+				"ucwords"
+			],
+			"merge_strategy": "array_merge"
+		},
+		"TwiggyBlacklistedPHPFunctions": {
+			"value": [
+				"shell_exec"
+			]
+		}
+	},
+	"load_composer_autoloader": true,
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "Twiggy/resources"
+	},
+	"ResourceModules": {
+		"ext.twiggy": {
+			"position": "top",
+			"dependencies": [
+				"mediawiki.api",
+				"mediawiki.jqueryMsg"
+			],
+			"scripts": [
+				"js/dist/ext.twig.message.js"
+			]
+		}
+	},
+	"manifest_version": 2
+}

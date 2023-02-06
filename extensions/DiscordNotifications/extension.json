@@ -1,0 +1,193 @@
+{
+	"name": "DiscordNotifications",
+	"version": "2.0.0",
+	"author": [
+		"Universal Omega",
+		"Aleksi Postari"
+	],
+	"url": "https://github.com/Universal-Omega/DiscordNotifications",
+	"descriptionmsg": "discordnotifications-desc",
+	"namemsg": "discordnotifications-extensionname",
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.37.0"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\DiscordNotifications\\": "includes/"
+	},
+	"MessagesDirs": {
+		"DiscordNotifications": [
+			"i18n"
+		]
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\DiscordNotifications\\Hooks",
+			"services": [
+				"ActorStore",
+				"ConfigFactory",
+				"PermissionManager",
+				"RevisionLookup",
+				"TitleFactory",
+				"UserGroupManager",
+				"WikiPageFactory"
+			]
+		}
+	},
+	"Hooks": {
+		"PageDeleteComplete": {
+			"handler": "main"
+		},
+		"PageMoveComplete": {
+			"handler": "main"
+		},
+		"LocalUserCreated": {
+			"handler": "main"
+		},
+		"BlockIpComplete": {
+			"handler": "main"
+		},
+		"UploadComplete": {
+			"handler": "main"
+		},
+		"ArticleProtectComplete": {
+			"handler": "main"
+		},
+		"UserGroupsChanged": {
+			"handler": "main"
+		},
+		"APIFlowAfterExecute": {
+			"handler": "main"
+		},
+		"AfterImportPage": {
+			"handler": "main"
+		},
+		"PageSaveComplete": {
+			"handler": "main"
+		}
+	},
+	"config": {
+		"DiscordIncomingWebhookUrl": {
+			"value": ""
+		},
+		"DiscordAdditionalIncomingWebhookUrls": {
+			"value": []
+		},
+		"DiscordFromName": {
+			"value": ""
+		},
+		"DiscordSendMethod": {
+			"value": "curl"
+		},
+		"DiscordCurlProxy": {
+			"value": ""
+		},
+		"DiscordIncludePageUrls": {
+			"value": true
+		},
+		"DiscordIncludeUserUrls": {
+			"value": true
+		},
+		"DiscordIgnoreMinorEdits": {
+			"value": false
+		},
+		"DiscordExcludeNotificationsFrom": {
+			"value": []
+		},
+		"DiscordExcludedPermission": {
+			"value": ""
+		},
+		"DiscordNotificationWikiUrl": {
+			"value": ""
+		},
+		"DiscordNotificationWikiUrlEnding": {
+			"value": "index.php?title="
+		},
+		"DiscordNotificationWikiUrlEndingUserRights": {
+			"value": "Special%3AUserRights&user="
+		},
+		"DiscordNotificationWikiUrlEndingBlockList": {
+			"value": "Special:BlockList"
+		},
+		"DiscordNotificationWikiUrlEndingBlockUser": {
+			"value": "Special:Block/"
+		},
+		"DiscordNotificationWikiUrlEndingUserPage": {
+			"value": "User:"
+		},
+		"DiscordNotificationWikiUrlEndingUserTalkPage": {
+			"value": "User_talk:"
+		},
+		"DiscordNotificationWikiUrlEndingUserContributions": {
+			"value": "Special:Contributions/"
+		},
+		"DiscordNotificationWikiUrlEndingEditArticle": {
+			"value": "action=edit"
+		},
+		"DiscordNotificationWikiUrlEndingDeleteArticle": {
+			"value": "action=delete"
+		},
+		"DiscordNotificationWikiUrlEndingHistory": {
+			"value": "action=history"
+		},
+		"DiscordNotificationWikiUrlEndingDiff": {
+			"value": "diff=prev&oldid="
+		},
+		"DiscordNotificationNewUser": {
+			"value": true
+		},
+		"DiscordNotificationBlockedUser": {
+			"value": true
+		},
+		"DiscordNotificationAddedArticle": {
+			"value": true
+		},
+		"DiscordNotificationRemovedArticle": {
+			"value": true
+		},
+		"DiscordNotificationMovedArticle": {
+			"value": true
+		},
+		"DiscordNotificationEditedArticle": {
+			"value": true
+		},
+		"DiscordNotificationFileUpload": {
+			"value": true
+		},
+		"DiscordNotificationProtectedArticle": {
+			"value": true
+		},
+		"DiscordNotificationShowSuppressed": {
+			"value": true
+		},
+		"DiscordNotificationUserGroupsChanged": {
+			"value": true
+		},
+		"DiscordNotificationFlow": {
+			"value": true
+		},
+		"DiscordNotificationAfterImportPage": {
+			"value": true
+		},
+		"DiscordIncludeDiffSize": {
+			"value": true
+		},
+		"DiscordShowNewUserFullName": {
+			"value": false
+		},
+		"DiscordShowNewUserEmail": {
+			"value": false
+		},
+		"DiscordShowNewUserIP": {
+			"value": false
+		},
+		"DiscordAvatarUrl": {
+			"value": ""
+		}
+	},
+	"ConfigRegistry": {
+		"DiscordNotifications": "GlobalVarConfig::newInstance"
+	},
+	"manifest_version": 2
+}

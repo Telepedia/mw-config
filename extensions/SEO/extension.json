@@ -1,0 +1,39 @@
+{
+	"name": "SEO",
+	"version": "2.0.2",
+	"author": [
+		"Collin Klopfenstein",
+		"Tim Aldridge",
+		"Hydra Wiki Platform Team"
+	],
+	"descriptionmsg": "seo_description",
+	"license-name": "GPL-2.0-or-later",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"AvailableRights": [
+		"seo"
+	],
+	"MessagesDirs": {
+		"SEO": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"SEOHooks": "SEOHooks.php"
+	},
+	"Hooks": {
+		"BeforePageDisplay": "SEOHooks::onBeforePageDisplay",
+		"OutputPageParserOutput": "SEOHooks::onOutputPageParserOutput",
+		"SkinTemplateOutputPageBeforeExec": "SEOHooks::onSkinTemplateOutputPageBeforeExec"
+	},
+	"ConfigRegistry": {
+		"seo": "GlobalVarConfig::newInstance"
+	},
+	"config": {
+		"SEOPublisherName": "Telepedia",
+		"SEOPublisherLogo": "/skins/Westeros/includes/Telepedia%20White.png"
+	},
+	"manifest_version": 1
+}
