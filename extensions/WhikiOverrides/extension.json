@@ -41,7 +41,8 @@
 		"InitializeArticleMaybeRedirect": "WhikiOverrides::onInitializeArticleMaybeRedirect",
 		"GlobalUserPageWikis": "WhikiOverrides::onGlobalUserPageWikis",
 		"SkinAddFooterLinks": "WhikiOverrides::onSkinAddFooterLinks",
-	        "SiteNoticeAfter": "WhikiOverrides::onSiteNoticeAfter"
+	        "SiteNoticeAfter": "WhikiOverrides::onSiteNoticeAfter",
+		"BeforePageDisplay": "WhikiOverrides::onBeforePageDisplay"
 
 	},
 	"manifest_version": 2
