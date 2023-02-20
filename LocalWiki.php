@@ -20,6 +20,10 @@ switch ( $wi->dbname ) {
         $wgGroupPermissions['autoconfirmed']['mwoauthupdateownconsumer'] = true;
         break;
 
+    case 'testingoawiki':
+        wfLoadExtension( 'Discussions' );
+        break;
+        
     case '1899wiki':
         wfLoadExtension( 'MultiBoilerplate' );
         wfLoadExtension( 'Video' );

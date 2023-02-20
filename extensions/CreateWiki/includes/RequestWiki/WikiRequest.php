@@ -40,7 +40,10 @@ class WikiRequest {
 	public function __construct( int $id = null, CreateWikiHookRunner $hookRunner = null ) {
 		$this->config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'CreateWiki' );
 		$this->hookRunner = $hookRunner ?? MediaWikiServices::getInstance()->get( 'CreateWikiHookRunner' );
-		$this->dbw = wfGetDB( DB_PRIMARY, [], $this->config->get( 'CreateWikiGlobalWiki' ) );
+
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$this->dbw = $lbFactory->getMainLB( $this->config->get( 'CreateWikiGlobalWiki' ) )
+			->getMaintenanceConnectionRef( DB_PRIMARY, [], $this->config->get( 'CreateWikiGlobalWiki' ) );
 
 		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 
@@ -178,7 +181,7 @@ class WikiRequest {
 			$this->status = 'approved';
 			$this->save();
 			$this->addComment( 'Request approved. ' . ( $reason ?? '' ), $user );
-			$this->log( $user, 'requestaccept' );
+			$this->log( $user, 'requestapprove' );
 
 			if ( !is_int( $this->config->get( 'CreateWikiAIThreshold' ) ) ) {
 				$this->tryAutoCreate();
