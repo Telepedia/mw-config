@@ -13,7 +13,7 @@
 	"createwiki-desc": "An extension to easily create new wikis on a wiki farm.",
 	"createwiki-close-email-sender": "Telepedia",
 	"createwiki-email-subject": "Your new Telepedia wiki: $1",
-	"createwiki-email-body": "Hello!\n\nYou recently requested a wiki on Telepedia. We are pleased to inform you that it has been approved!\n\Telepedia is here to help you every step of the way, don't be afraid to ask!\n\nPlease remember that all wikis must abide by the Content Policy or they may be closed. Remember that your wiki cannot deviate too much from its approved purpose or it may be closed too.\n\nThank you for flying Telepedia! We wish you all the best on your new wiki adventure.",
+	"createwiki-email-body": "Hello!\n\nYou recently requested a wiki on Telepedia. We are pleased to inform you that it has been approved!\n\nThank you for choosing Telepedia! We wish you all the best on your new wiki adventure.",
 	"createwiki-error-dbexists": "A wiki with that database name already exists.",
 	"createwiki-error-disallowed": "The subdomain you have requested can not be created. Please either request a new subdomain or contact system administrators for help.",
 	"createwiki-error-notalnum": "The database name may not contain non-alphanumeric characters.",
