@@ -8,6 +8,8 @@ wfLoadExtensions( [
     'DiscordNotifications',
     'Interwiki',
     'GlobalUserPage',
+    'ConfirmEdit',
+    'ConfirmEdit/hCaptcha',
     'RemoveRedlinks',
     'WikiSEO',
     'MobileFrontend',
