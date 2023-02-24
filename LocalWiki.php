@@ -30,7 +30,6 @@ switch ( $wi->dbname ) {
         wfLoadExtension( 'Video' );
         wfLoadExtension( 'Popups' );
         $wgPopupsRestGatewayEndpoint = '/api.php';
-        wfLoadSkin( 'Cosmos' );
         break;
 
     case 'tbsatdhwiki':
