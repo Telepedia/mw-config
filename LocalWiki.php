@@ -22,8 +22,9 @@ switch ( $wi->dbname ) {
 
     case 'testingoawiki':
         wfLoadExtension( 'Discussions' );
+        $wgShowExceptionDetails = true;
         break;
-        
+
     case '1899wiki':
         wfLoadExtension( 'MultiBoilerplate' );
         wfLoadExtension( 'Video' );
@@ -34,7 +35,6 @@ switch ( $wi->dbname ) {
         wfLoadExtension( 'Video' );
         wfLoadExtension( 'Popups' );
         $wgPopupsRestGatewayEndpoint = '/api.php';
-        wfLoadSkin( 'Cosmos' );
         break;
 
     case 'tbsatdhwiki':

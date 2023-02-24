@@ -1,7 +1,19 @@
 <?php
 
+namespace MediaWiki\Extension\ConfirmEdit\ReCaptchaNoCaptcha;
+
+use ApiBase;
+use FormatJson;
+use Html;
 use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\Extension\ConfirmEdit\Auth\CaptchaAuthenticationRequest;
+use MediaWiki\Extension\ConfirmEdit\Hooks;
+use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\MediaWikiServices;
+use Message;
+use RawMessage;
+use Status;
+use WebRequest;
 
 class ReCaptchaNoCaptcha extends SimpleCaptcha {
 	// used for renocaptcha-edit, renocaptcha-addurl, renocaptcha-badlogin, renocaptcha-createaccount,
@@ -255,7 +267,7 @@ HTML;
 		}
 
 		// ugly way to retrieve error information
-		$captcha = ConfirmEditHooks::getInstance();
+		$captcha = Hooks::getInstance();
 
 		$formDescriptor['captchaWord'] = [
 			'class' => HTMLReCaptchaNoCaptchaField::class,
