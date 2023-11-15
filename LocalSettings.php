@@ -65,6 +65,9 @@ $wgConf->settings += [
     'wgCdnServers' => [
         'default' => ['127.0.0.1', '95.216.69.18' ]
     ],
+    'wgDBserver' => [
+        'default' => 95.216.69.15,
+    ],
     'wgCdnServersNoPurge' => [
         'default' => [
             "23.235.32.0/20",
