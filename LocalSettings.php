@@ -66,7 +66,7 @@ $wgConf->settings += [
         'default' => ['127.0.0.1', '95.216.69.18' ]
     ],
     'wgDBserver' => [
-        'default' => 95.216.69.15,
+        'default' => '95.216.69.15',
     ],
     'wgCdnServersNoPurge' => [
         'default' => [
@@ -321,7 +321,7 @@ $wgConf->settings += [
         ],
     ],
     'wgCreateWikiCacheDirectory' => [
-        'default' => '/var/www/html/mediawiki1/cache',
+        'default' => '/var/www/html/mediawiki/cache',
     ],
     'wgCreateWikiCategories' => [
         'default' => [
@@ -664,9 +664,6 @@ $wgConf->settings += [
         'default' => true
     ],
     // Server
-    'wgArticlePath' => [
-        'default' => '/wiki/$1',
-    ],
     'wgDisableOutputCompression' => [
         'default' => true,
     ],
