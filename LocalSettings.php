@@ -685,12 +685,6 @@ $wgConf->settings += [
     'wgInternalServer' => [
         'default' => 'http://telepedia.net',
     ],
-    'wgSessionCacheType' => [
-        'default' => 'CACHE_ANYTHING',
-    ],
-    'wgMainCacheType' => [
-        'default' => 'CACHE_ANYTHING',
-    ],
     'wgShowHostnames' => [
         'default' => true,
     ],
