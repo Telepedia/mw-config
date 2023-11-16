@@ -668,7 +668,7 @@ $wgConf->settings += [
         'default' => true,
     ],
     'wgScriptPath' => [
-        'default' => '/w',
+        'default' => '',
     ],
     'wgScript' => [
         'default' => "/index.php",
