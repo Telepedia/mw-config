@@ -668,10 +668,13 @@ $wgConf->settings += [
         'default' => true,
     ],
     'wgScriptPath' => [
-        'default' => '',
+        'default' => '/w',
     ],
     'wgScript' => [
         'default' => "/index.php",
+    ],
+    'wgArticlePath' => [
+        'default' => "/wiki/$1",
     ],
     'wgLoadPath' => [
         'default' => "/load.php",

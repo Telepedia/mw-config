@@ -19,7 +19,7 @@ wfLoadExtensions( [
     'DismissableSiteNotice',
     'GTag',
     'Cite',
-    'TelepediaAds',
+    //'TelepediaAds',
     'CentralAuth',
     'PortableInfobox',
     'ImportDump',
@@ -29,10 +29,10 @@ wfLoadExtensions( [
     'Nuke',
     'MultimediaViewer',
     'TemplateData',
-    'SEO',
+    //'SEO',
     'Scribunto',
     'AbuseFilter',
-    'WhikiOverrides',
+    //'WhikiOverrides',
     'IPInfo',
     'SpamBlacklist'
 ] );
