@@ -521,7 +521,7 @@ $wgConf->settings += [
         ],
     ],
     'wgForceHTTPS' => [
-        'default' => true
+        'default' => false
     ],
     'wgWikiDiscoverUseDescriptions' => [
         'default' => true
