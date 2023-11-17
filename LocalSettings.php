@@ -62,9 +62,6 @@ $wgConf->settings += [
     'wgUseCdn' => [
         'default' => true
     ],
-    'wgCdnServers' => [
-        'default' => ['127.0.0.1', '95.216.69.18' ]
-    ],
     'wgDBserver' => [
         'default' => '95.216.69.15',
     ],
@@ -87,7 +84,9 @@ $wgConf->settings += [
             "167.82.224.0/20",
             "172.111.64.0/18",
             "185.31.16.0/22",
-            "199.27.72.0"
+            "199.27.72.0",
+            "127.0.0.1",
+            "95.216.69.18"
         ]
     ],
     'wgImageMagickConvertCommand' => [
