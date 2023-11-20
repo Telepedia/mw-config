@@ -32,7 +32,7 @@ wfLoadExtensions( [
     //'SEO',
     'Scribunto',
     'AbuseFilter',
-    'TelepediaMagic'
+    'TelepediaMagic',
     'IPInfo',
     'SpamBlacklist'
 ] );
