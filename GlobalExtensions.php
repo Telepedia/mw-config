@@ -19,7 +19,7 @@ wfLoadExtensions( [
     'DismissableSiteNotice',
     'GTag',
     'Cite',
-    //'TelepediaAds',
+    'TelepediaAds',
     'CentralAuth',
     'PortableInfobox',
     'ImportDump',
