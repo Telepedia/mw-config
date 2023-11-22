@@ -1000,6 +1000,7 @@ if ( $wi->missing ) {
 // Define last to avoid all dependencies
 require_once '/var/www/html/mediawiki/GlobalSettings.php';
 require_once '/var/www/html/mediawiki/LocalWiki.php';
+require_once '/var/www/html/mediawiki/GlobalCache.php';
 
 // Define last - Extension message files for loading extensions
 if (
