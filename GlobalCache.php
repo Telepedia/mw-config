@@ -9,5 +9,7 @@ $wgObjectCaches['redis'] = [
 
 $wgInvalidateCacheOnLocalSettingsChange = false;
 
-$wgMainCacheType = 'redis';
-$wgSessionCacheType = 'redis';
+$wgMainCacheType = CACHE_MEMCACHED;
+$wgSessionCacheType = CACHE_MEMCACHED;
+
+$wgMemCachedServers = [ '10.0.0.8:11000' ];

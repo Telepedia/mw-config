@@ -146,7 +146,7 @@ $wgConf->settings += [
         'default' => true,
     ],
     'wgCentralAuthSessionCacheType' => [
-        'default' => CACHE_ACCEL,
+        'default' => CACHE_MEMCACHED,
     ],
     'wgCentralAuthPreventUnattached' => [
         'default' => true,
