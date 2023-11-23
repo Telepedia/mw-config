@@ -415,6 +415,12 @@ $wgConf->settings += [
             'settings' => true
         ],
     ],
+    'wgManageWikiExtensionsDefault' => [
+		'default' => [
+			'minervaneue',
+			'mobilefrontend',
+		],
+	],
     'wgManageWikiPermissionsDisallowedRights' => [
         'default' => [
             '*' => [

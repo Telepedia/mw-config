@@ -13,7 +13,6 @@ wfLoadExtensions( [
     'ConfirmEdit/hCaptcha',
     'RemoveRedlinks',
     'WikiSEO',
-    'MobileFrontend',
     'NativeSvgHandler',
     'LinkSuggest',
     'DismissableSiteNotice',

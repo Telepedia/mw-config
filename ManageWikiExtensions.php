@@ -125,7 +125,6 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'parserhooks',
 	],
-
 	'poem' => [
 		'name' => 'Poem',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Poem',
@@ -674,6 +673,289 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'parserhooks',
 	],
+	'approvedrevs' => [
+		'name' => 'Approved Revs',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Approved_Revs',
+		'var' => 'wmgUseApprovedRevs',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'sql' => [
+				'approved_revs_files' => "$IP/extensions/ApprovedRevs/sql/ApprovedFiles.sql",
+				'approved_revs' => "$IP/extensions/ApprovedRevs/sql/ApprovedRevs.sql"
+			],
+			'permissions' => [
+				'sysop' => [
+					'permissions' => [
+						'viewapprover',
+						'approverevisions',
+					],
+				],
+				'*' => [
+					'permissions' => [
+						'viewlinktolatest',
+					],
+				],
+			],
+		],
+		'section' => 'antispam',
+	],
+	'arrays' => [
+		'name' => 'Arrays',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Arrays',
+		'var' => 'wmgUseArrays',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
+	'articlecreationworkflow' => [
+		'name' => 'ArticleCreationWorkflow',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ArticleCreationWorkflow',
+		'var' => 'wmgUseArticleCreationWorkflow',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'permissions' => [
+				'*' => [
+					'permissions' => [
+						'createpagemainns',
+					],
+				],
+				'autoconfirmed' => [
+					'permissions' => [
+						'createpagemainns',
+					],
+				],
+				'user' => [
+					'permissions' => [
+						'createpagemainns',
+					],
+				],
+			],
+		],
+		'section' => 'other',
+	],
+	'articleratings' => [
+		'name' => 'ArticleRating',
+		'displayname' => 'ArticleRatings',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ArticleRatings',
+		'var' => 'wmgUseArticleRatings',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'permissions' => [
+				'reviewer' => [
+					'permissions' => [
+						'change-rating',
+					],
+				],
+			],
+			'sql' => [
+				'ratings' => "$IP/extensions/ArticleRatings/ratings.sql"
+			],
+		],
+		'section' => 'other',
+	],
+	'articletocategory2' => [
+		'name' => 'ArticleToCategory2',
+		'displayname' => 'Article To Category 2',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ArticleToCategory2',
+		'var' => 'wmgUseArticleToCategory2',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
+	'capiunto' => [
+		'name' => 'Capiunto',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Capiunto',
+		'var' => 'wmgUseCapiunto',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
+	'categoryexplorer' => [
+		'name' => 'CategoryExplorer',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CategoryExplorer',
+		'var' => 'wmgUseCategoryExplorer',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
+	'categorysortheaders' => [
+		'name' => 'CategorySortHeaders',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CategorySortHeaders',
+		'var' => 'wmgUseCategorySortHeaders',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [],
+		'section' => 'other',
+	],
+	'citethispage' => [
+		'name' => 'CiteThisPage',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CiteThisPage',
+		'var' => 'wmgUseCiteThisPage',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'specialpages',
+	],
+	'cleanchanges' => [
+		'name' => 'Clean Changes',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CleanChanges',
+		'var' => 'wmgUseCleanChanges',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
+	'contributionscores' => [
+		'name' => 'ContributionScores',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Contribution_Scores',
+		'var' => 'wmgUseContributionScores',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'specialpages',
+	],
+	'countdownclock' => [
+		'name' => 'CountDownClock',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CountDownClock',
+		'var' => 'wmgUseCountDownClock',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
+	'createredirect' => [
+		'name' => 'CreateRedirect',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CreateRedirect',
+		'var' => 'wmgUseCreateRedirect',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'specialpages',
+	],
+	'deleteuserpages' => [
+		'name' => 'DeleteUserPages',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:DeleteUserPages',
+		'var' => 'wmgUseDeleteUserPages',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [],
+		'section' => 'other',
+	],
+	'disambiguator' => [
+		'name' => 'Disambiguator',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Disambiguator',
+		'var' => 'wmgUseDisambiguator',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
+	'editsubpages' => [
+		'name' => 'EditSubpages',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:EditSubpages',
+		'var' => 'wmgUseEditSubpages',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [],
+		'section' => 'other',
+	],
+	'flaggedrevs' => [
+		'name' => 'FlaggedRevs',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:FlaggedRevs',
+		'var' => 'wmgUseFlaggedRevs',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'sql' => [
+				'flaggedpages' => "$IP/extensions/FlaggedRevs/backend/schema/mysql/tables-generated.sql",
+			],
+			'permissions' => [
+				'editor' => [
+					'permissions' => [
+						'review',
+						'autoreview',
+						'autoconfirmed',
+						'editsemiprotected',
+						'unreviewedpages',
+					],
+				],
+				'reviewer' => [
+					'permissions' => [
+						'validate',
+						'review',
+						'autoreview',
+						'autoconfirmed',
+						'editsemiprotected',
+						'unreviewedpages',
+					],
+				],
+				'sysop' => [
+					'permissions' => [
+						'autoreview',
+						'stablesettings',
+						'movestable',
+						'review',
+						'unreviewedpages',
+					],
+					'addgroups' => [
+						'editor',
+						'autoreview',
+					],
+					'removegroups' => [
+						'editor',
+						'autoreview',
+					],
+				],
+				'autoreview' => [
+					'permissions' => [
+						'autoreview',
+					],
+				],
+				'bot' => [
+					'permissions' => [
+						'autoreview',
+					],
+				],
+			],
+		],
+		'section' => 'specialpages',
+	],
+	'imagemap' => [
+		'name' => 'ImageMap',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ImageMap',
+		'var' => 'wmgUseImageMap',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
+	'lockauthor' => [
+		'name' => 'LockAuthor',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:LockAuthor',
+		'var' => 'wmgUseLockAuthor',
+		'conflicts' => 'authorprotect',
+		'requires' => [],
+		'install' => [
+			'permissions' => [
+				'sysop' => [
+					'permissions' => [
+						'editall',
+					],
+				],
+			],
+		],
+		'section' => 'antispam',
+	],
+	'mobilefrontend' => [
+		'name' => 'MobileFrontend',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:MobileFrontend',
+		'var' => 'wmgUseMobileFrontend',
+		'conflicts' => false,
+		'requires' => [
+			'extensions' => [
+				'minervaneue',
+			],
+		],
+		'section' => 'other',
+	],
+
+	/// Skins 
 	'apex' => [
 		'name' => 'Apex',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Skin:Apex',
@@ -726,6 +1008,14 @@ $wgManageWikiExtensions = [
 		'name' => 'Gamepress',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Skin:Gamepress',
 		'var' => 'wmgUseGamepress',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'skins',
+	],
+	'minervaneue' => [
+		'name' => 'MinervaNeue',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Skin:Minerva_Neue',
+		'var' => 'wmgUseMinervaNeue',
 		'conflicts' => false,
 		'requires' => [],
 		'section' => 'skins',
