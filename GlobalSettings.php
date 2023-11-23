@@ -2,6 +2,12 @@
 // SocialProfile
 if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
 	require_once "/var/www/html/mediawiki/extensions/SocialProfile/SocialProfile.php";
+	$wgSocialProfileFileBackend = 'AmazonS3';
+	$wgAWSRepoZones['avatars'] = [
+    'container' => 'avatars',
+    'path' => "/avatars",
+    'isPublic' => true
+	];
 }
 
 /* $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
