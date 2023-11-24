@@ -516,6 +516,39 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
+	'adminlinks' => [
+		'name' => 'Admin Links',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Admin_Links',
+		'var' => 'wmgUseAdminLinks',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'permissions' => [
+				'sysop' => [
+					'permissions' => [
+						'adminlinks',
+					],
+				],
+			],
+		],
+		'section' => 'specialpages',
+	],
+	'sandboxlink' => [
+		'name' => 'SandboxLink',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:SandboxLink',
+		'var' => 'wmgUseSandboxLink',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
+	'groupssidebar' => [
+		'name' => 'GroupsSidebar',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:GroupsSidebar',
+		'var' => 'wmgUseGroupsSidebar',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
 	'ajaxpoll' => [
 		'name' => 'AJAX Poll',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:AJAXPoll',
@@ -968,6 +1001,26 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
+	'discussiontools' => [
+		'name' => 'DiscussionTools',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:DiscussionTools',
+		'var' => 'wmgUseDiscussionTools',
+		'conflicts' => false,
+		'requires' => [
+			'extensions' => [
+				'linter',
+				'visualeditor',
+			],
+		],
+		'install' => [
+			'sql' => [
+				'discussiontools_items' => "$IP/extensions/DiscussionTools/sql/mysql/discussiontools_persistent.sql",
+				'discussiontools_subscription' => "$IP/extensions/DiscussionTools/sql/mysql/discussiontools_subscription.sql",
+			],
+		],
+		'section' => 'other',
+	],
+
 
 	/// Skins 
 	'apex' => [
