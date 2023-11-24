@@ -57,7 +57,7 @@ $wgConf->settings += [
         'default' => "/$wgDBname"
     ],
     'wgUploadBaseUrl' => [
-        'default' => 'static.telepedia.net'
+        'default' => 'https://static.telepedia.net'
     ],
     'wgUseCdn' => [
         'default' => true
@@ -169,6 +169,7 @@ $wgConf->settings += [
     // Skins
     'wgDefaultMobileSkin' => [
         'default' => 'minerva',
+        'witchhatatelierwiki' => 'cosmos',
     ],
     'wgCosmosContentWidth' => [
         'default' => 'large',
@@ -536,6 +537,8 @@ $wgConf->settings += [
     // Licenses
     'wgRightsUrl' => [
         'default' => 'https://creativecommons.org/licenses/by-nc-sa/3.0/',
+        'backroomsdewiki' => 'https://creativecommons.org/licenses/by/3.0/',
+        'backroomsdewiki' => 'Creative Commons Attribution 3.0 International (CC BY 3.0)',
     ],
     'wgRightsText' => [
         'default' => 'Creative Commons Attribution-NonCommercial 3.0 Unported (CC BY-NC-SA 3.0)',
@@ -565,6 +568,8 @@ $wgConf->settings += [
     ],
     'wgUseInstantCommons' => [
         'default' => true,
+        'witchhatatelierwiki' => false,
+        'latelierdessorcierswiki' => false,
     ],
     'wgMaxImageArea' => [
         'default' => '1.25e7',
@@ -990,7 +995,7 @@ require_once __DIR__ . '/ManageWikiNamespaces.php';
 require_once __DIR__ . '/ManageWikiSettings.php';
 
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
-$wgUploadPath = "{$wgScriptPath}/images/$wgDBname";
+$wgUploadPath = "{$wgScriptPath}/$wgDBname";
 
 $wgLocalisationCacheConf['storeClass'] = LCStoreCDB::class;
 $wgLocalisationCacheConf['storeDirectory'] = '/var/www/html/mediawiki/cache/l10n';
