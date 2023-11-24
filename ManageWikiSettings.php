@@ -1160,4 +1160,3 @@ $wgManageWikiSettings = [
 		'requires' => [],
 	],
 ];
-
