@@ -48,6 +48,20 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'editors',
 	],
+	'linter' => [
+		'name' => 'Linter',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Linter',
+		'var' => 'wmgUseLinter',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'sql' => [
+				'linter' => "$IP/extensions/Linter/sql/tables-generated.sql"
+			],
+		],
+		'section' => 'specialpages',
+		],
+	
 	'visualeditor' => [
 		'name' => 'VisualEditor',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:VisualEditor',
