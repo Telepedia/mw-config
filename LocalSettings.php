@@ -299,6 +299,7 @@ $wgConf->settings += [
             'Movie franchise information wiki' => 'Movie franchise information wiki',
             'TV Series information wiki' => 'TV Series information wiki',
             'Platform Administration' => 'Platform Administration wiki',
+            'Book or Graphic' => 'Manga, Comic, or other graphical material',
             'None of the above' => 'None of the above',
         ],
     ],
@@ -392,7 +393,7 @@ $wgConf->settings += [
             ],
         ],
     ],
-// Database
+    // Database
     'wgAllowSchemaUpdates' => [
         'default' => false,
     ],
@@ -400,7 +401,7 @@ $wgConf->settings += [
         'default' => [],
     ],
 
-// ManageWiki
+    // ManageWiki
     'wgManageWiki' => [
         'default' => [
             'core' => true,
@@ -612,6 +613,9 @@ $wgConf->settings += [
     'wgScribuntoDefaultEngine' => [
         'default' => 'luastandalone'
     ],
+    'wgUsePrivateIPs' => [
+        'default' => true
+    ],
     'wgAllowUserCss' => [
         'default' => true
     ],
@@ -664,10 +668,12 @@ $wgConf->settings += [
     'wgOAuth2PrivateKey' => [
         'default' => '/etc/private/private.key',
     ],
-    //compres revisions
+
+    // Compress revisions
     'wgCompressRevisions' => [
         'default' => true
     ],
+
     // Server
     'wgDisableOutputCompression' => [
         'default' => true,
@@ -744,12 +750,6 @@ $wgConf->settings += [
     ],
 
     // Extensions
-    'wgCookieWarningEnabled' => [
-        'default' => 'true',
-    ],
-    'wgCookieWarningMoreUrl' => [
-        'default' => 'https://telepedia.net/privacy-policy/',
-    ],
     'wgAllowSiteCSSOnRestrictedPages' => [
         'default' => true,
     ],
@@ -760,7 +760,7 @@ $wgConf->settings += [
         'default' => true,
     ],
 
-    //echo
+    // Echo
     'wgEchoSharedTrackingDB' => [
         'default' => 'metawiki',
     ],
@@ -834,6 +834,7 @@ $wgConf->settings += [
     'wgCheckUserEnableSpecialInvestigate' => [
         'default' => true
     ],
+
     // InterWiki
     'wgInterwikiCentralDB' => [
         'default' => 'metawiki',
@@ -860,7 +861,7 @@ $wgConf->settings += [
         'default' => true,
     ],
 
-    //comments
+    // Comments
     'wgCommentsInRecentChanges' => [
         'default' => true,
     ],
