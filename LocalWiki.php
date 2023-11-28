@@ -3,7 +3,6 @@
 switch ( $wi->dbname ) {
 
     case 'spicewarswiki':
-        wfLoadExtension( 'SearchStats' );
         wfLoadExtension( 'SemanticMediaWiki' );
         enableSemantics( 'spicewars.telepedia.net' );
         $smwgShowFactbox = SMW_FACTBOX_NONEMPTY;
