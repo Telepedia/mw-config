@@ -34,5 +34,6 @@ wfLoadExtensions( [
     'TelepediaMagic',
     'IPInfo',
     'SpamBlacklist',
-    'RemovePII'
+    'RemovePII',
+    'Renameuser'
 ] );

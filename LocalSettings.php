@@ -973,7 +973,7 @@ $wgConf->settings += [
 
     // GDPR 
     'wgRemovePIIAllowedWikis' => [
-        'default' => 'metawiki'
+        'default' => ''
     ],
     'wgRemovePIIHashPrefixOptions' => [
 		'default' => [
