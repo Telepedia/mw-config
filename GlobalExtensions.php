@@ -33,5 +33,6 @@ wfLoadExtensions( [
     'AbuseFilter',
     'TelepediaMagic',
     'IPInfo',
-    'SpamBlacklist'
+    'SpamBlacklist',
+    'RemovePII'
 ] );

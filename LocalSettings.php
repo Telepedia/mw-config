@@ -970,6 +970,23 @@ $wgConf->settings += [
     'wgEnableCanonicalServerLink' => [
         'default' => true
     ],
+
+    // GDPR 
+    'wgRemovePIIAllowedWikis' => [
+        'default' => 'metawiki'
+    ],
+    'wgRemovePIIHashPrefixOptions' => [
+		'default' => [
+			'Staff' => 'TelepediaGDPR_',
+			'Stewards' => 'Vanished user ',
+		],
+	],
+    'wgRemovePIIHashPrefix' => [
+		'default' => 'TelepediaGDPR_',
+	],
+    'wgRemovePIIAutoPrefix' => [
+		'default' => 'TelepediaGDPR_',
+	],
 ];
 
 // ManageWiki settings
