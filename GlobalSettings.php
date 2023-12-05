@@ -122,7 +122,7 @@ if ( $wgWordmark ) {
 	];
 }
 
-$wgJobRunRate = 0
+$wgJobRunRate = 0;
 // Vector
 $vectorVersion = $wgDefaultSkin === 'vector' ? '2' : '1';
 
