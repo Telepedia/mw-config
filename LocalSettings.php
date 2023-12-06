@@ -355,7 +355,7 @@ $wgConf->settings += [
         'default' => true,
     ],
     'wgCreateWikiUseJobQueue' => [
-        'default' => true,
+        'default' => false,
         'betatest' => false,
     ],
     'wgLogo' => [
