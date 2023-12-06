@@ -17,7 +17,6 @@ switch ( $wi->dbname ) {
 
     case 'testingoawiki':
         wfLoadExtension( 'NativeSvgHandler' );
-        wfLoadExtension( 'Karma' );
         break;
 
     case 'witchhatatelierwiki':
