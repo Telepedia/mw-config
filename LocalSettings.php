@@ -598,6 +598,9 @@ $wgConf->settings += [
     'wgLogSpamBlacklistHits' => [
         'default' => true
     ],
+    'wgSFSIPListLocation' => [
+		'default' => '/srv/mediawiki/stopforumspam/listed_ip_90_ipv46_all.txt',
+	],
     'wgBlacklistSettings' => [
 		'default' => [
 			'spam' => [
