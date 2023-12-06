@@ -731,7 +731,7 @@ $wgConf->settings += [
 
     // CreateWiki Defined Special Variables
     'cwClosed' => [
-        'default' => true,
+        'default' => false,
     ],
     'cwExperimental' => [
         'default' => false,
