@@ -8,6 +8,12 @@ if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
     'path' => "/avatars",
     'isPublic' => true
 	];
+
+	$wgAWSRepoZones['awards'] = [
+    'container' => 'awards',
+    'path' => "/awards",
+    'isPublic' => true
+	];
 }
 
 /* $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
