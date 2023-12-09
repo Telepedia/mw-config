@@ -16,6 +16,19 @@ if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
 	];
 }
 
+$wgCaptchaQuestions = [
+    "What colour's are used in the Telepedia Logo?" => [ 'yellow', 'black' ],
+	"What was the default skin on Wikipedia before Vector-2022?" => [ 'vector' ],
+	"What does CVT stand for?" => ['counter vandalism team'],
+];
+
+$wgCaptchaTriggers['edit']          = false;
+$wgCaptchaTriggers['create']        = false;
+$wgCaptchaTriggers['createtalk']    = false;
+$wgCaptchaTriggers['addurl']        = true;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin']      = true;
+
 /* $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 
 function metaConditionalSiteNotice( &$siteNotice, $skin ) {
