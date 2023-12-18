@@ -131,6 +131,20 @@ $wgManageWikiExtensions = [
 			],
 		],
 	],
+	'math' => [
+		'name' => 'Math',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Math',
+		'var' => 'wmgUseMath',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'sql' => [
+				'mathlatexml' => "$IP/extensions/Math/sql/mysql/mathlatexml.sql",
+				'mathoid' => "$IP/extensions/Math/sql/mysql/mathoid.sql"
+			],
+		],
+		'section' => 'parserhooks',
+	],
 	'msupload' => [
 		'name' => 'MsUpload',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:MsUpload',
