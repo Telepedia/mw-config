@@ -775,57 +775,99 @@ $wgConf->settings += [
     ],
 
     // DiscordNotifications
-    'wgDiscordAvatarUrl' => [
-        'default' => '',
-    ],
-    'wgDiscordIncomingWebhookUrl' => [
-        'default' => 'https://discord.com/api/webhooks/1022160482582409289/NLxDmId0agvsqmPuv2FqAPpK63GH7L03_11MWR8h2-UFYwW9SZSQsSARu9JgUYhJPSEL',
-    ],
-    'wgDiscordIgnoreMinorEdits' => [
-        'default' => false,
-    ],
-    'wgDiscordIncludePageUrls' => [
-        'default' => true,
-    ],
-    'wgDiscordIncludeUserUrls' => [
-        'default' => true,
-    ],
-    'wgDiscordIncludeDiffSize' => [
-        'default' => true,
-    ],
-    'wgDiscordNotificationMovedArticle' => [
-        'default' => true,
-    ],
-    'wgDiscordNotificationFileUpload' => [
-        'default' => true,
-    ],
-    'wgDiscordNotificationProtectedArticle' => [
-        'default' => true,
-    ],
-    'wgDiscordNotificationAfterImportPage' => [
-        'default' => true,
-    ],
-    'wgDiscordNotificationShowSuppressed' => [
-        'default' => false,
-    ],
+	'wgDiscordAvatarUrl' => [
+		'default' => '',
+	],
+	'wgDiscordIgnoreMinorEdits' => [
+		'default' => false,
+	],
+	'wgDiscordIncludePageUrls' => [
+		'default' => true,
+	],
+	'wgDiscordIncludeUserUrls' => [
+		'default' => true,
+	],
+	'wgDiscordIncludeDiffSize' => [
+		'default' => true,
+	],
+	'wgDiscordNotificationMovedArticle' => [
+		'default' => true,
+	],
+	'wgDiscordNotificationFileUpload' => [
+		'default' => true,
+	],
+	'wgDiscordNotificationProtectedArticle' => [
+		'default' => true,
+	],
+	'wgDiscordNotificationAfterImportPage' => [
+		'default' => true,
+	],
+	'wgDiscordNotificationShowSuppressed' => [
+		'default' => false,
+	],
     'wgDiscordNotificationWikiUrl' => [
         'default' => $wi->server . '/',
     ],
-    'wgDiscordNotificationBlockedUser' => [
-        'default' => true,
-    ],
-    'wgDiscordNotificationNewUser' => [
-        'default' => true,
-    ],
-    'wgDiscordAdditionalIncomingWebhookUrls' => [
-        'default' => [],
-    ],
-    'wgDiscordExcludedPermission' => [
-        'default' => 'sysop',
-    ],
-    'wgDismissableSiteNoticeForAnons' => [
-        'default' => true,
-    ],
+	'wgDiscordNotificationCentralAuthWikiUrl' => [
+		'default' => 'https://meta.telepedia.net/',
+	],
+	'wgDiscordNotificationBlockedUser' => [
+		'default' => true,
+	],
+	'wgDiscordNotificationNewUser' => [
+		'default' => true,
+	],
+	'wgDiscordNotificationIncludeAutocreatedUsers' => [
+		'default' => true,
+		'commonswiki' => false,
+		'devwiki' => false,
+		'loginwiki' => false,
+		'metawiki' => false,
+		'testwiki' => false,
+	],
+	'wgDiscordAdditionalIncomingWebhookUrls' => [
+		'default' => [],
+	],
+	'wgDiscordDisableEmbedFooter' => [
+		'default' => false,
+		'puzzleswikiwiki' => true,
+	],
+	'wgDiscordExcludeConditions' => [
+		'default' => [
+			'experimental' => [
+				'article_inserted' => [
+					'groups' => [
+						'sysop',
+					],
+					'permissions' => [
+						'bot',
+						'managewiki',
+					],
+				],
+				'article_saved' => [
+					'groups' => [
+						'sysop',
+					],
+					'permissions' => [
+						'bot',
+						'managewiki',
+					],
+				],
+			],
+			'users' => [
+				'OABot',
+			],
+		],
+	],
+	'wgDiscordEnableExperimentalCVTFeatures' => [
+		'default' => true,
+	],
+	'wgDiscordExperimentalCVTMatchFilter' => [
+		'default' => [ '(n[1i!*]gg[3*e]r|r[e3*]t[4@*a]rd|f[@*4]gg[0*o]t|ch[1!i*]nk)' ],
+	],
+	'wgDiscordExperimentalFeedLanguageCode' => [
+		'default' => 'en',
+	],
 
     // CheckUser
     'wgCheckUserCAMultiLock' => [
