@@ -21,6 +21,7 @@ wfLoadExtensions( [
     'TelepediaAds',
     'CentralAuth',
     'PortableInfobox',
+    'ProtectSite',
     'ImportDump',
     'Echo',
     'CheckUser',

@@ -238,6 +238,14 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'mediahandlers',
 	],
+	'josa' => [
+		'name' => 'Josa',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Josa',
+		'var' => 'wmgUseJosa',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
 	'video' => [
 		'name' => 'Video',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Video',
@@ -397,11 +405,7 @@ $wgManageWikiExtensions = [
 		'description' => 'socialprofile-desc',
 		'var' => 'wmgUseSocialProfile',
 		'conflicts' => false,
-		'requires' => [
-			'permissions' => [
-				'managewiki-restricted',
-			],
-		],
+		'requires' => [],
 		'install' => [
 			'sql' => [
 				'user_profile' => "$IP/extensions/SocialProfile/UserProfile/sql/user_profile.sql",
@@ -432,6 +436,14 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
+	'softredirector' => [
+		'name' => 'SoftRedirector',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:SoftRedirector',
+		'var' => 'wmgUseSoftRedirector',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
 	'categorytree' => [
 		'name' => 'CategoryTree',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CategoryTree',
@@ -456,6 +468,67 @@ $wgManageWikiExtensions = [
 		'conflicts' => false,
 		'requires' => [],
 		'section' => 'parserhooks',
+	],
+	'newsletter' => [
+		'name' => 'Newsletter',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Newsletter',
+		'var' => 'wmgUseNewsletter',
+		'conflicts' => 'lingo',
+		'requires' => [],
+		'install' => [
+			'namespaces' => [
+				'Newsletter' => [
+					'id' => 5500,
+					'searchable' => 0,
+					'subpages' => 0,
+					'protection' => 'newsletter-manage',
+					'content' => 0,
+					'aliases' => [],
+					'contentmodel' => 'NewsletterContent',
+					'additional' => []
+				],
+				'Newsletter_talk' => [
+					'id' => 5501,
+					'searchable' => 0,
+					'subpages' => 1,
+					'protection' => '',
+					'content' => 0,
+					'aliases' => [],
+					'contentmodel' => 'wikitext',
+					'additional' => []
+				],
+			],
+			'permissions' => [
+				'sysop' => [
+					'permissions' => [
+						'newsletter-create',
+						'newsletter-delete',
+						'newsletter-manage',
+						'newsletter-restore',
+					],
+				],
+			],
+			'sql' => [
+				'nl_newsletters' => "$IP/extensions/Newsletter/sql/mysql/tables-generated.sql",
+			],
+		],
+		'section' => 'other',
+	],
+	'newusermessage' => [
+		'name' => 'NewUserMessage',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:NewUserMessage',
+		'var' => 'wmgUseNewUserMessage',
+		'conflicts' => 'flow',
+		'requires' => [],
+		'section' => 'other',
+	],
+	'newusernotif' => [
+		'name' => 'New User Email Notification',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:New_User_Email_Notification',
+		'var' => 'wmgUseNewUserNotif',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
 	],
 	'pdfhandler' => [
 		'name' => 'PDF Handler',
@@ -482,6 +555,15 @@ $wgManageWikiExtensions = [
 			],
 		],
 		'section' => 'parserhooks',
+	],
+	'protectionindicator' => [
+		'name' => 'ProtectionIndicator',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ProtectionIndicator',
+		'var' => 'wmgUseProtectionIndicator',
+		'conflicts' => 'comments',
+		'install' => [],
+		'requires' => [],
+		'section' => 'other',
 	],
 	'thanks' => [
 		'name' => 'Thanks',
@@ -584,6 +666,14 @@ $wgManageWikiExtensions = [
 			],
 		],
 		'section' => 'parserhooks',
+	],
+	'lastmodified' => [
+		'name' => 'LastModified',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:LastModified',
+		'var' => 'wmgUseLastModified',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
 	],
 	'masseditregex' => [
 		'name' => 'MassEditRegex',
@@ -692,6 +782,18 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'other',
 	],
+	'variableslua' => [
+		'name' => 'VariablesLua',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:VariablesLua',
+		'var' => 'wmgUseVariablesLua',
+		'conflicts' => false,
+		'requires' => [
+			'extensions' => [
+				'variables',
+			],
+		],
+		'section' => 'other',
+	],
 	'universallanguageselector' => [
 		'name' => 'UniversalLanguageSelector',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:UniversalLanguageSelector',
@@ -774,6 +876,26 @@ $wgManageWikiExtensions = [
 		'conflicts' => false,
 		'requires' => [],
 		'section' => 'parserhooks',
+	],
+	'templatewizard' => [
+		'name' => 'TemplateWizard',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TemplateWizard',
+		'var' => 'wmgUseTemplateWizard',
+		'conflicts' => false,
+		'requires' => [
+			'extensions' => [
+				'templatedata',
+			],
+		],
+		'section' => 'other',
+	],
+	'theme' => [
+		'name' => 'Theme',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Theme',
+		'var' => 'wmgUseTheme',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
 	],
 	'approvedrevs' => [
 		'name' => 'Approved Revs',
@@ -1023,6 +1145,14 @@ $wgManageWikiExtensions = [
 		'name' => 'ImageMap',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ImageMap',
 		'var' => 'wmgUseImageMap',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
+	'inputbox' => [
+		'name' => 'InputBox',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:InputBox',
+		'var' => 'wmgUseInputBox',
 		'conflicts' => false,
 		'requires' => [],
 		'section' => 'parserhooks',
