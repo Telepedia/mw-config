@@ -55,7 +55,7 @@ if ( $wgDBname === 'newqualitipediawiki' ) {
 	wfLoadExtension['ConfirmEdit/Turnstile'];
 } else {
 	wfLoadExtension['ConfirmEdit'];
-    wfLoadExtension['ConfirmEdit/QuestyCaptcha']
+    wfLoadExtension['ConfirmEdit/QuestyCaptcha'];
 }
 
 // Closed Wikis
