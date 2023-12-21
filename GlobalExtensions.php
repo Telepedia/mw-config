@@ -9,8 +9,6 @@ wfLoadExtensions( [
     //'DiscordNotifications',
     'Interwiki',
     'GlobalUserPage',
-    'ConfirmEdit',
-    'ConfirmEdit/QuestyCaptcha',
     'RemoveRedlinks',
     'WikiSEO',
     'NativeSvgHandler',
