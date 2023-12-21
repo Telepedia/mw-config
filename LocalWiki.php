@@ -15,11 +15,6 @@ switch ( $wi->dbname ) {
         $wgPopupsRestGatewayEndpoint = '/api.php';
         break;
 
-    case 'newqualitipediawiki':
-        wfLoadExtension('ConfirmEdit');
-        wfLoadExtension('ConfirmEdit/Turnstile');
-        break;
-
     case 'witchhatatelierwiki':
         wfLoadExtension( 'MigrateUserAccount' );
         $wgMUARemoteWikiContentPath = 'https://witch-hat-atelier.fandom.com/wiki/';
