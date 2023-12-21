@@ -50,14 +50,6 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 }
 */
 
-if ( $wgDBname === 'newqualitipediawiki' ) {
-	wfLoadExtension['ConfirmEdit'];
-	wfLoadExtension['ConfirmEdit/Turnstile'];
-} else {
-	wfLoadExtension['ConfirmEdit'];
-    wfLoadExtension['ConfirmEdit/QuestyCaptcha'];
-}
-
 // Closed Wikis
 if ( $cwClosed ) {
 	$wgRevokePermissions = [

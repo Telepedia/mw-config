@@ -15,8 +15,9 @@ switch ( $wi->dbname ) {
         $wgPopupsRestGatewayEndpoint = '/api.php';
         break;
 
-    case 'testingoawiki':
-        wfLoadExtension( 'NativeSvgHandler' );
+    case 'newqualitipediawiki':
+        wfLoadExtension('ConfirmEdit');
+        wfLoadExtension('ConfirmEdit/Turnstile');
         break;
 
     case 'witchhatatelierwiki':
