@@ -1,13 +1,12 @@
 stages:
   - test
-  - notify
 
 variables:
   PHP_VERSIONS: '7.4'
 
 before_script:
   - apt-get update -qy
-  - apt-get install -y php-cli
+  - apt-get install -y php-cli php7.4-xml # Added the installation of the php7.4-xml package
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
   - composer --version
 
