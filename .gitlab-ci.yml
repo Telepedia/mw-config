@@ -6,7 +6,7 @@ variables:
 
 before_script:
   - apt-get update -qy
-  - apt-get install -y php-cli php-xml 
+  - apt-get install -y php-cli php-xml
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
   - composer --version
 
@@ -15,8 +15,12 @@ test:
   script:
     - composer validate
     - composer install --prefer-dist --no-progress
-    - composer fix
-    - composer test
+    - minus-x fix .
+    - phpcbf .; if [ $? -eq 1 ]; then exit 0; fi
+    - parallel-lint . --exclude node_modules --exclude vendor
+    - minus-x check .
+    - phpcs -sp --cache .
+    - phpunit
     - ! grep -E -r --binary-files=without-match --color=always --file=typos --exclude=typos --exclude=LICENSE.md --exclude-dir=.git --exclude-dir=vendor || true
 
 push_changes:
