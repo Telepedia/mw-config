@@ -158,10 +158,6 @@ $wgConf->settings += [
     'wgCentralAuthSilentLogin' => [
         'default' => true,
     ],
-    'wgCentralAuthHiddenLevelMigrationStage' => [
-        // Remove with 1.39
-        'default' => SCHEMA_COMPAT_READ_NEW | SCHEMA_COMPAT_WRITE_NEW,
-    ],
 
     'wgGlobalUserPageAPIUrl' => [
         'default' => 'https://meta.telepedia.net/api.php',
