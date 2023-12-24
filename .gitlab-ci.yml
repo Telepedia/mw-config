@@ -6,7 +6,7 @@ variables:
 
 before_script:
   - apt-get update -qy
-  - apt-get install -y php-cli php7.4-xml # Added the installation of the php7.4-xml package
+  - apt-get install -y php-cli php-xml 
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
   - composer --version
 
