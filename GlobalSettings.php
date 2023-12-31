@@ -75,7 +75,7 @@ if ( $cwClosed ) {
 		],
 	];
 	$wgHooks['SiteNoticeAfter'][] = 'wfConditionalSiteNotice';
-
+	// Set a sitenoitce if the wiki has been closed
 	function wfConditionalSiteNotice( &$siteNotice, $skin ) {
 		$skin->getOutput()->enableOOUI();
 		$skin->getOutput()->addInlineStyle('.mw-dismissable-notice .mw-dismissable-notice-body { margin: unset; } .Message *{box-sizing:border-box}.Message{display:table;position:relative;margin:40px auto 0;width:60%;color:#fff;transition:.2s}.Message-body,.Message-icon{display:table-cell;vertical-align:middle}.Message--orange{background-color:#f39c12}.Message-icon{width:60px;padding:30px;text-align:center;background-color:rgba(0,0,0,.25)}.fa-exclamation{font-size:26px}.Message-body{padding:30px 20px 30px 10px}.Message-body p{line-height:1.2;margin-top:6px}');
