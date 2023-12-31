@@ -7,6 +7,7 @@ variables:
 before_script:
   - apt-get update -qy
   - apt-get install -y php-cli php-xml
+  - apt-get install -y php-cli php-xml php-mbstring
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
   - composer --version
   - composer global require "mediawiki/mediawiki-codesniffer:42.0.0"
