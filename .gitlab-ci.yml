@@ -15,7 +15,7 @@ test:
   script:
     - composer validate
     - composer install --prefer-dist --no-progress
-    - minus-x fix .
+    - composer run-script fix
     - phpcbf .; if [ $? -eq 1 ]; then exit 0; fi
     - parallel-lint . --exclude node_modules --exclude vendor
     - minus-x check .
