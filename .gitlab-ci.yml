@@ -9,6 +9,8 @@ before_script:
   - apt-get install -y php-cli php-xml
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
   - composer --version
+  - composer global require "squizlabs/php_codesniffer=*"
+  - export PATH=$PATH:/root/.composer/vendor/bin 
 
 test:
   stage: test
