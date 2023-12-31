@@ -122,7 +122,7 @@ foreach ( $wmgMonologChannels as $channel => $opts ) {
 
 	// Configure Logstash handler
 	if ( $opts['logstash'] ) {
-		$level = $opts['logastash'];
+		$level = $opts['logstash'];
 		$logstashHandler = "logstash-{$level}";
 		if ( isset( $wmgMonologHandlers[ $logstashHandler ] ) ) {
 			$handlers[] = $logstashHandler;
