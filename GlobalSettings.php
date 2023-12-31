@@ -4,22 +4,22 @@ if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
 	require_once "/var/www/html/mediawiki/extensions/SocialProfile/SocialProfile.php";
 	$wgSocialProfileFileBackend = 'AmazonS3';
 	$wgAWSRepoZones['avatars'] = [
-    'container' => 'avatars',
-    'path' => "/avatars",
-    'isPublic' => true
+	'container' => 'avatars',
+	'path' => "/avatars",
+	'isPublic' => true
 	];
 
 	$wgAWSRepoZones['awards'] = [
-    'container' => 'awards',
-    'path' => "/awards",
-    'isPublic' => true
+	'container' => 'awards',
+	'path' => "/awards",
+	'isPublic' => true
 	];
 }
 
 $wgCaptchaQuestions = [
-    "What colour's are used in the Telepedia Logo?" => [ 'yellow', 'black' ],
+	"What colour's are used in the Telepedia Logo?" => [ 'yellow', 'black' ],
 	"What was the default skin on Wikipedia before Vector-2022?" => [ 'vector' ],
-	"What does CVT stand for?" => ['counter vandalism team'],
+	"What does CVT stand for?" => [ 'counter vandalism team' ],
 ];
 
 $wgCaptchaTriggers['edit']          = false;
@@ -32,10 +32,10 @@ $wgCaptchaTriggers['badlogin']      = true;
 /* $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 
 function metaConditionalSiteNotice( &$siteNotice, $skin ) {
-    $skin->getOutput()->enableOOUI();
-    $skin->getOutput()->addInlineStyle('.mw-dismissable-notice .mw-dismissable-notice-body { margin: unset; } .Message *{box-sizing:border-box}.Message{display:table;position:relative;margin:40px auto 0;width:60%;color:#fff;transition:.2s}.Message-body,.Message-icon{display:table-cell;vertical-align:middle}.Message--orange{background-color: #00032b}.Message-icon{width:60px;padding:30px;text-align:center;background-color:rgba(0,0,0,.25)}.fa-exclamation{font-size:26px}.Message-body{padding:30px 20px 30px 10px}.Message-body p{line-height:1.2;margin-top:6px}');
+	$skin->getOutput()->enableOOUI();
+	$skin->getOutput()->addInlineStyle('.mw-dismissable-notice .mw-dismissable-notice-body { margin: unset; } .Message *{box-sizing:border-box}.Message{display:table;position:relative;margin:40px auto 0;width:60%;color:#fff;transition:.2s}.Message-body,.Message-icon{display:table-cell;vertical-align:middle}.Message--orange{background-color: #00032b}.Message-icon{width:60px;padding:30px;text-align:center;background-color:rgba(0,0,0,.25)}.fa-exclamation{font-size:26px}.Message-body{padding:30px 20px 30px 10px}.Message-body p{line-height:1.2;margin-top:6px}');
 
-    $siteNotice .= <<<EOF
+	$siteNotice .= <<<EOF
 			<table style="width: 100%;">
 			<div class="Message Message--orange">
 			<div class="Message-icon">
@@ -78,7 +78,7 @@ if ( $cwClosed ) {
 	// Set a sitenoitce if the wiki has been closed
 	function wfConditionalSiteNotice( &$siteNotice, $skin ) {
 		$skin->getOutput()->enableOOUI();
-		$skin->getOutput()->addInlineStyle('.mw-dismissable-notice .mw-dismissable-notice-body { margin: unset; } .Message *{box-sizing:border-box}.Message{display:table;position:relative;margin:40px auto 0;width:60%;color:#fff;transition:.2s}.Message-body,.Message-icon{display:table-cell;vertical-align:middle}.Message--orange{background-color:#f39c12}.Message-icon{width:60px;padding:30px;text-align:center;background-color:rgba(0,0,0,.25)}.fa-exclamation{font-size:26px}.Message-body{padding:30px 20px 30px 10px}.Message-body p{line-height:1.2;margin-top:6px}');
+		$skin->getOutput()->addInlineStyle( '.mw-dismissable-notice .mw-dismissable-notice-body { margin: unset; } .Message *{box-sizing:border-box}.Message{display:table;position:relative;margin:40px auto 0;width:60%;color:#fff;transition:.2s}.Message-body,.Message-icon{display:table-cell;vertical-align:middle}.Message--orange{background-color:#f39c12}.Message-icon{width:60px;padding:30px;text-align:center;background-color:rgba(0,0,0,.25)}.fa-exclamation{font-size:26px}.Message-body{padding:30px 20px 30px 10px}.Message-body p{line-height:1.2;margin-top:6px}' );
 
 		$siteNotice .= <<<EOF
 			<table style="width: 100%;">
@@ -93,7 +93,7 @@ if ( $cwClosed ) {
 		  </div>
 			</table>
 		EOF;
-    }
+	}
 }
 
 // $wgLogos
@@ -102,26 +102,26 @@ $wgLogos = [
 ];
 
 $wgAdConfig = [
-    'enabled' => true, // enabled or not? :P
-    'adsense-client' => '5974970328084579', // provider number w/o the "pub-" part
-    'namespaces' => [ NS_MAIN, NS_TALK ], // array of enabled namespaces
-    'right-column' => true, // do we want a skyscraper ad column (Monobook)?
-    'toolbox-button' => true, // or a "button" ad below the toolbox (Monobook)?
-    'monaco-sidebar' => true, // 200x200 sidebar ad in the sidebar on Monaco skin
-    'monaco-leaderboard' => true, // leaderboard (728x90) ad in the footer on Monaco skin
-    'truglass-leaderboard' => true, // leaderboard ad for Truglass skin
-    'vector-skyscraper-ad-slot' => '8501358891',
-    'telepedia-skyscraper-ad-slot' => '8501358891',
-    'vector-leaderboard-ad-slot' => '8133693231',
-    'telepedia-leaderboard-ad-slot' => '8133693231',
-    'timeless-leaderboard-ad-slot' => '8133693231',
-    'minerva-leaderboard-ad-slot' => '8133693231',
-    'minerva-skyscraper-ad-slot' => '8133693231',
-    'mode' => 'responsive',
-    'vector-right-side' => true,
-    'right-side' => true,
-    'vector-right-side-ad-slot' => '8133693231',
-    'cosmos-leaderboard' => true
+	'enabled' => true, // enabled or not? :P
+	'adsense-client' => '5974970328084579', // provider number w/o the "pub-" part
+	'namespaces' => [ NS_MAIN, NS_TALK ], // array of enabled namespaces
+	'right-column' => true, // do we want a skyscraper ad column (Monobook)?
+	'toolbox-button' => true, // or a "button" ad below the toolbox (Monobook)?
+	'monaco-sidebar' => true, // 200x200 sidebar ad in the sidebar on Monaco skin
+	'monaco-leaderboard' => true, // leaderboard (728x90) ad in the footer on Monaco skin
+	'truglass-leaderboard' => true, // leaderboard ad for Truglass skin
+	'vector-skyscraper-ad-slot' => '8501358891',
+	'telepedia-skyscraper-ad-slot' => '8501358891',
+	'vector-leaderboard-ad-slot' => '8133693231',
+	'telepedia-leaderboard-ad-slot' => '8133693231',
+	'timeless-leaderboard-ad-slot' => '8133693231',
+	'minerva-leaderboard-ad-slot' => '8133693231',
+	'minerva-skyscraper-ad-slot' => '8133693231',
+	'mode' => 'responsive',
+	'vector-right-side' => true,
+	'right-side' => true,
+	'vector-right-side-ad-slot' => '8133693231',
+	'cosmos-leaderboard' => true
 ];
 
 $wgApexLogo = [

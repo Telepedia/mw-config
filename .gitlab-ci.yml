@@ -28,7 +28,7 @@ test:
     - parallel-lint . --exclude node_modules --exclude vendor
     - minus-x check .
     - phpcs -sp --cache . --runtime-set ignore_warnings_on_exit 1
-    - phpunit
+    - phpunit tests/
     - ! grep -E -r --binary-files=without-match --color=always --file=typos --exclude=typos --exclude=LICENSE.md --exclude-dir=.git --exclude-dir=vendor || true
 
 push_changes:

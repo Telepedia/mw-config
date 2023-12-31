@@ -61,7 +61,7 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'specialpages',
 		],
-	
+
 	'visualeditor' => [
 		'name' => 'VisualEditor',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:VisualEditor',
@@ -104,7 +104,7 @@ $wgManageWikiExtensions = [
 	],
 	'dummyfandoommainpagetags' => [
 		'name' => 'DummyFandoomMainpageTags',
-		'linkpage' => 'https://github.com/ciencia/mediawiki-extensions-DummyFandoomMainpageTags',
+		'linkPage' => 'https://github.com/ciencia mediawiki-extensions-DummyFandoomMainpageTags',
 		'var' => 'wmgUseFandoomMainpageTags',
 		'conflicts' => false,
 		'requires' => [],
@@ -1206,8 +1206,7 @@ $wgManageWikiExtensions = [
 		'section' => 'other',
 	],
 
-
-	/// Skins 
+	/// Skins
 	'apex' => [
 		'name' => 'Apex',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Skin:Apex',

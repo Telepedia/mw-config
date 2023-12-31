@@ -4,7 +4,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 header( 'Cache-Control: s-maxage=2678400, max-age=2678400' );
 
 $path = $_SERVER['REQUEST_URI'];
-$actual_link = 'https://'.$_SERVER['HTTP_HOST'].$path;
+$actual_link = 'https://' . $_SERVER['HTTP_HOST'] . $path;
 $encUrl = htmlspecialchars( $path );
 http_response_code( 404 );
 
