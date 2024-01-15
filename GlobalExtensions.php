@@ -36,5 +36,6 @@ wfLoadExtensions( [
 	'SpamBlacklist',
 	'RemovePII',
 	'Renameuser',
-	'StopForumSpam'
+	'StopForumSpam',
+	'Interwiki'
 ] );
