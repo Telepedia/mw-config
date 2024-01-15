@@ -605,6 +605,10 @@ $wgConf->settings += [
 				'files' => [
 					'https://meta.telepedia.net/index.php?title=MediaWiki:Global_spam_blacklist&action=raw&sb_ver=1',
 				],
+			'email' => [
+				'files' => [
+					'https://meta.telepedia.net/wiki/MediaWiki:Global_email_blacklist?action=raw&sb_ver=1',
+				],
 			],
 		],
 	],
