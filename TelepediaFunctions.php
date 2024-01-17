@@ -26,7 +26,7 @@ class TelepediaFunctions {
 	/** @var array */
 	public static $disabledExtensions = [];
 
-	private const CACHE_DIRECTORY = '/var/www/html/mediawiki/cache';
+	private const CACHE_DIRECTORY = '/srv/mediawiki/cache';
 
 	private const DEFAULT_SERVER = [
 		'default' => 'telepedia.net',

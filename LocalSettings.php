@@ -315,7 +315,7 @@ $wgConf->settings += [
 		],
 	],
 	'wgCreateWikiCacheDirectory' => [
-		'default' => '/var/www/html/mediawiki/cache',
+		'default' => '/srv/mediawiki/cache',
 	],
 	'wgCreateWikiCategories' => [
 		'default' => [
@@ -1219,7 +1219,7 @@ $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
 
 $wgLocalisationCacheConf['storeClass'] = LCStoreCDB::class;
-$wgLocalisationCacheConf['storeDirectory'] = '/var/www/html/mediawiki/cache/l10n';
+$wgLocalisationCacheConf['storeDirectory'] = '/srv/mediawiki/cache/l10n';
 
 if ( $wgRequestTimeLimit ) {
 	$wgHTTPMaxTimeout = $wgHTTPMaxConnectTimeout = $wgRequestTimeLimit;
