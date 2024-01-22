@@ -121,9 +121,6 @@ $wgConf->settings += [
 	'wgCentralAuthCookieDomain' => [
 		'default' => 'telepedia.net',
 	],
-	'wgCentralAuthCreateOnView' => [
-		'default' => true,
-	],
 	'wgCentralAuthDatabase' => [
 		'default' => 'centralauth',
 		'betaheze' => 'centralauth',
