@@ -1246,6 +1246,20 @@ $wgManageWikiSettings = [
 		'help' => 'Changes the default mobile skin to be used by the Mobile Frontend extension. Some skins may not be compatable.',
 		'requires' => [],
 	],
+	'wgMFCollapseSectionsByDefault' => [
+		'name' => 'Collapse sections on mobile by default',
+		'from' => 'mobilefrontend',
+		'type' => 'check',
+		'overridedefault' => true,
+		'section' => 'styling',
+		'help' => 'Collapses sections by default on mobile when set to true',
+		'requires' => [
+			'extensions' => [
+				'mobilefrontend'
+			],
+		],
+	],
+	
 
 	// Cosmos
 	'wgCosmosEnabledRailModules' => [
