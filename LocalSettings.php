@@ -93,6 +93,7 @@ $wgConf->settings += [
 	'wgAdsEnabled' => [
 		'default' => true,
 	],
+
 	// CentralAuth
 	'wgCentralAuthAutoCreateWikis' => [
 		'default' => [
@@ -149,6 +150,7 @@ $wgConf->settings += [
 		'default' => true,
 	],
 
+	// Global user page
 	'wgGlobalUserPageAPIUrl' => [
 		'default' => 'https://meta.telepedia.net/api.php',
 	],
@@ -178,6 +180,7 @@ $wgConf->settings += [
 		'default' => false,
 	],
 
+	// AbuseFilter
 	'wgAbuseFilterCentralDB' => [
 		'default' => 'metawiki',
 	],
@@ -188,6 +191,8 @@ $wgConf->settings += [
 	'wgGlobalPreferencesDB' => [
 		'default' => 'centralauth'
 	],
+
+	// Passwords
 	'wgPasswordPolicy' => [
 		'default' => [
 			'policies' => [
@@ -270,12 +275,18 @@ $wgConf->settings += [
 			'globalsysop',
 		],
 	],
+
 	// VisualEditor
 	'wgVisualEditorEnableWikitext' => [
 		'default' => true
 	],
 	'wgVisualEditorEnableDiffPage' => [
 		'default' => true
+	],
+
+	// CreateWiki
+	'wgCreateWikiGlobalWiki' => [
+		'default' => 'metawiki',
 	],
 	'wgCreateWikiDatabase' => [
 		'default' => 'centralauth',
@@ -322,7 +333,8 @@ $wgConf->settings += [
 			'Gaming' => 'gaming',
 			'Literature/Writing' => 'literature',
 			'Uncategorised' => 'uncategorised',
-			'Platform Administration' => 'administration'
+			'Platform Administration' => 'administration',
+			'Reception Wiki' => 'reception'
 		],
 	],
 	'wgCreateWikiUseCategories' => [
@@ -353,9 +365,25 @@ $wgConf->settings += [
 		'default' => false,
 		'betatest' => false,
 	],
+	'cwClosed' => [
+		'default' => false,
+	],
+	'cwExperimental' => [
+		'default' => false,
+	],
+	'cwInactive' => [
+		'default' => true,
+	],
+	'cwPrivate' => [
+		'default' => false,
+	],
+
+	// Logo
 	'wgLogo' => [
 		'default' => 'https://static.telepedia.net/metawiki/9/9f/Telepedia_icon.svg',
 	],
+
+	// DisplayTitle
 	'wgAllowDisplayTitle' => [
 		'default' => true,
 	],
@@ -372,22 +400,6 @@ $wgConf->settings += [
 		'default' => 'globalblocks',
 	],
 
-	'wgAutoCreateTempUser' => [
-		'default' => [
-			'enabled' => false,
-			'actions' => [
-				'edit',
-			],
-			'genPattern' => '*Unregistered $1',
-			'matchPattern' => '*$1',
-			'serialProvider' => [
-				'type' => 'local',
-			],
-			'serialMapping' => [
-				'type' => 'plain-numeric',
-			],
-		],
-	],
 	// Database
 	'wgAllowSchemaUpdates' => [
 		'default' => false,
@@ -510,6 +522,7 @@ $wgConf->settings += [
 		'default' => false,
 	],
 
+	// Permissions and Groups
 	'wgImplicitGroups' => [
 		'default' => [
 			'*',
@@ -517,9 +530,13 @@ $wgConf->settings += [
 			'autoconfirmed'
 		],
 	],
+
+	// HTTPS and env
 	'wgForceHTTPS' => [
 		'default' => true
 	],
+
+	// WikiDiscover
 	'wgWikiDiscoverUseDescriptions' => [
 		'default' => true
 	],
@@ -533,6 +550,7 @@ $wgConf->settings += [
 		'default' => 'Creative Commons Attribution-NonCommercial 3.0 Unported (CC BY-NC-SA 3.0)',
 		'backroomsdewiki' => 'Creative Commons Attribution 3.0 International (CC BY 3.0)'
 	],
+
 	// Files
 	'wgEnableUploads' => [
 		'default' => true,
@@ -567,16 +585,12 @@ $wgConf->settings += [
 	'wgMaxAnimatedGifArea' => [
 		'default' => '1.25e7',
 	],
-
-	// ImageMagick
 	'wgUseImageMagick' => [
 		'default' => true,
 	],
 	'wgSVGConverter' => [
 		'default' => 'Inkscape',
 	],
-
-	// Image Limits
 	'wgImageLimits' => [
 		'default' => [
 			[ 320, 240 ],
@@ -587,6 +601,21 @@ $wgConf->settings += [
 			[ 2560, 2048 ],
 			[ 2560, 2048 ],
 		],
+	],
+	'wgNativeImageLazyLoading' => [
+		'default' => true
+	],
+	'wgFileStorageMonitorAWSBucketName' => [
+		'default' => 'static.telepedia.net'
+	],
+	'wgFileStorageMonitorAWSRegion' => [
+		'default' => 'eu-west-2'
+	],
+	'wgMaxUploadSize' => [
+		'default' => 1024 * 1024 * 8,
+	],
+	'wgCopyUploadsFromSpecialUpload' => [
+		'default' => true,
 	],
 
 	// Miscellaneous
@@ -610,9 +639,6 @@ $wgConf->settings += [
 			],
 		],
 	],
-	'wgNativeImageLazyLoading' => [
-		'default' => true
-	],
 	'wgScribuntoDefaultEngine' => [
 		'default' => 'luastandalone'
 	],
@@ -622,17 +648,12 @@ $wgConf->settings += [
 	'wgAllowUserCss' => [
 		'default' => true
 	],
-	'wgFileStorageMonitorAWSBucketName' => [
-		'default' => 'static.telepedia.net'
-	],
-	'wgFileStorageMonitorAWSRegion' => [
-		'default' => 'eu-west-2'
-	],
 	'wgNoFollowDomainExceptions' => [
 		'default' => [
 			'miraheze.org',
 			'mediawiki.org',
-			'en.wikipedia.org'
+			'en.wikipedia.org',
+			'whiki.online'
 		],
 	],
 	'wgSitename' => [
@@ -675,11 +696,11 @@ $wgConf->settings += [
 	'wgCompressRevisions' => [
 		'default' => true
 	],
-
-	// Server
 	'wgDisableOutputCompression' => [
 		'default' => true,
 	],
+
+	// Server
 	'wgScriptPath' => [
 		'default' => '',
 	],
@@ -709,6 +730,8 @@ $wgConf->settings += [
 	'wgMaxShellMemory' => [
 		'default' => 2097152
 	],
+
+	// Logos and Favicons
 	'wgFavicon' => [
 		'default' => 'https://static.telepedia.net/metawiki/1/18/Telepedia_Favicon.ico',
 	],
@@ -724,31 +747,10 @@ $wgConf->settings += [
 	'wgWordmarkWidth' => [
 		'default' => 116,
 	],
+
+	// TOC
 	'wgMaxTocLevel' => [
 		'default' => 999,
-	],
-
-	// CreateWiki Defined Special Variables
-	'cwClosed' => [
-		'default' => false,
-	],
-	'cwExperimental' => [
-		'default' => false,
-	],
-	'cwInactive' => [
-		'default' => true,
-	],
-	'cwPrivate' => [
-		'default' => false,
-	],
-	'wgMaxUploadSize' => [
-		'default' => 1024 * 1024 * 8,
-	],
-	'wgEnableMetaDescriptionFunctions' => [
-		'default' => true,
-	],
-	'wgCopyUploadsFromSpecialUpload' => [
-		'default' => true,
 	],
 
 	// Extensions
@@ -759,6 +761,9 @@ $wgConf->settings += [
 		'default' => true,
 	],
 	'wgMFCollapseSectionsByDefaul' => [
+		'default' => true,
+	],
+	'wgEnableMetaDescriptionFunctions' => [
 		'default' => true,
 	],
 
@@ -886,9 +891,8 @@ $wgConf->settings += [
 	'wgEnableScaryTranscluding' => [
 		'default' => false,
 	],
-	'wgCreateWikiGlobalWiki' => [
-		'default' => 'metawiki',
-	],
+
+	// Email
 	'wgEnableEmail' => [
 		'default' => true,
 	],
@@ -964,13 +968,12 @@ $wgConf->settings += [
 		],
 	],
 	'wgFriendingEnabled' => [
-		'default' => true,
+		'default' => false,
 	],
 	'wgUserPageChoice' => [
 		'default' => true,
 	],
 	'wgGTagAnalyticsId' => [
-		'newqualitipediawiki' => 'G-P0J517S6SL',
 		'spicewarswiki' => 'G-GLR0YHSP94',
 		'citizensleeperwiki' => 'G-8GCSBGYZE0',
 		'1899wiki' => 'G-FTQ0KG9MZW',
@@ -1030,6 +1033,8 @@ $wgConf->settings += [
 	'wgRemovePIIAutoPrefix' => [
 		'default' => 'TelepediaGDPR_',
 	],
+
+	// Logging & Logstash
 	'wmgLogToDisk' => [
 		'default' => false,
 	],
@@ -1163,7 +1168,6 @@ $wgConf->settings += [
 			'SpamRegex' => false,
 			'StopForumSpam' => false,
 			'SQLBagOStuff' => false,
-			'SwiftBackend' => 'info',
 			'squid' => false,
 			'StashEdit' => false,
 			'T263581' => false,
