@@ -873,6 +873,18 @@ $wgConf->settings += [
 		'default' => 'en',
 	],
 
+	// Cargo
+	'wgCargoDBuser' => [
+		'default' => 'cargouser',
+	],
+	'wgCargoFileDataColumns' => [
+		'default' => []
+	],
+	'wgCargoPageDataColumns' => [
+		'default' => []
+	],
+
+
 	// CheckUser
 	'wgCheckUserCAMultiLock' => [
 		'default' => [
@@ -1234,6 +1246,9 @@ if ( $wi->missing ) {
 require_once '/var/www/html/mediawiki/GlobalSettings.php';
 require_once '/var/www/html/mediawiki/LocalWiki.php';
 require_once '/var/www/html/mediawiki/GlobalCache.php';
+
+// Configure last to ensure that database name has been set properly
+$wgCargoDBname = $wgDBname . 'cargo';
 
 // Define last - Extension message files for loading extensions
 if (
