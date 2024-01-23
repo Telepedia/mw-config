@@ -48,6 +48,40 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'editors',
 	],
+	'cargo' => [
+		'name' => 'Cargo',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Cargo',
+		'help' => 'Use this wisely, it can have profound impacts on database performance.',
+		'conflicts' => 'semanticmediawiki',
+		'requires' => [
+			'permissions' => [
+				'managewiki-restricted',
+			],
+		],
+		'install' => [
+			'mwscript' => [
+				"$IP/extensions/TelepediaMagic/maintenance/createCargoDB.php" => [],
+			],
+			'sql' => [
+				'cargo_tables' => "$IP/extensions/Cargo/sql/Cargo.sql",
+				'cargo_backlinks' => "$IP/extensions/Cargo/sql/cargo_backlinks.sql"
+			],
+			'permissions' => [
+				'*' => [
+					'permissions' => [
+						'runcargoqueries',
+					],
+				],
+				'sysop' => [
+					'permissions' => [
+						'recreatecargodata',
+						'deletecargodata',
+					],
+				],
+			],
+		],
+		'section' => 'parserhooks',
+	],
 	'linter' => [
 		'name' => 'Linter',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Linter',
