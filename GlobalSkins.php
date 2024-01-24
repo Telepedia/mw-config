@@ -3,7 +3,6 @@
 wfLoadSkins( [
 	'MinervaNeue',
 	'Vector',
-	'Telepedia',
 	'MonoBook',
 	'Timeless'
 ] );
