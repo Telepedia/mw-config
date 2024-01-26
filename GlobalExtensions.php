@@ -25,7 +25,7 @@ wfLoadExtensions( [
 	'Echo',
 	'CheckUser',
 	'OAuth',
-	'OATHAuth'
+	'OATHAuth',
 	'Nuke',
 	'MultimediaViewer',
 	'TemplateData',
