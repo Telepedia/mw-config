@@ -270,6 +270,7 @@ $wgConf->settings += [
 			'checkuser',
 			'oversight',
 			'steward',
+			'staff'
 		],
 		'+metawiki' => [
 			'globalsysop',
