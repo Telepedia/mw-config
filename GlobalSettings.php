@@ -141,11 +141,11 @@ if ( $wgWordmark ) {
 	];
 }
 
-$wgGroupPermissions['bureaucrats']['managewiki-core'] = true;
-$wgGroupPermissions['bureaucrats']['managewiki-settings'] = true;
-$wgGroupPermissions['bureaucrats']['managewiki-extensions'] = true;
-$wgGroupPermissions['bureaucrats']['managewiki-namespaces'] = true;
-$wgGroupPermissions['bureaucrats']['managewiki-permissions'] = true;
+$wgGroupPermissions['bureaucrat']['managewiki-core'] = true;
+$wgGroupPermissions['bureaucrat']['managewiki-settings'] = true;
+$wgGroupPermissions['bureaucrat']['managewiki-extensions'] = true;
+$wgGroupPermissions['bureaucrat']['managewiki-namespaces'] = true;
+$wgGroupPermissions['bureaucrat']['managewiki-permissions'] = true;
 
 $wgJobRunRate = 0;
 // Vector
