@@ -141,6 +141,12 @@ if ( $wgWordmark ) {
 	];
 }
 
+$wgGroupPermissions['bureaucrats']['managewiki-core'] = true;
+$wgGroupPermissions['bureaucrats']['managewiki-settings'] = true;
+$wgGroupPermissions['bureaucrats']['managewiki-extensions'] = true;
+$wgGroupPermissions['bureaucrats']['managewiki-namespaces'] = true;
+$wgGroupPermissions['bureaucrats']['managewiki-permissions'] = true;
+
 $wgJobRunRate = 0;
 // Vector
 $vectorVersion = $wgDefaultSkin === 'vector' ? '2' : '1';
