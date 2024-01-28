@@ -1239,6 +1239,26 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
+	'searchlogger' => [
+		'name' => 'SearchLogger',
+		'linkPage' => 'https://gitlab.com/telepedia/extensions/SearchLogger',
+		'var' => 'wmgUseSearchlogger',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'sql' => [
+				'search_log' => "$IP/extensions/SearchLogger/install/sql/searchlogger_table_search_log.sql",
+			],
+			'permissions' => [
+				'sysop' => [
+					'permissions' => [
+						'search_log'
+					],
+				],
+			],
+		],
+		'section' => 'other',
+	],
 
 	/// Skins
 	'apex' => [
