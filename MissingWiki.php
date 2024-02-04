@@ -103,7 +103,7 @@ p {
 
 }
 </style>
-<link rel="shortcut icon" href="https://meta.telepedia.net/images/metawiki/1/18/Telepedia_Favicon.ico" />
+<link rel="shortcut icon" href="https://static.telepedia.net/metawiki/1/18/Telepedia_Favicon.ico" />
 </head>
 <body>
 
@@ -111,7 +111,7 @@ p {
 
 
 <div id="logo">
-    <img src="https://meta.telepedia.net/images/metawiki/f/f4/Wiki_Error.svg" />
+    <img src="https://static.telepedia.net/metawiki/f/f4/Wiki_Error.svg" />
 </div>
 <div id="divider">
 
