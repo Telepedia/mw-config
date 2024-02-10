@@ -1013,7 +1013,7 @@ $wgConf->settings += [
 	],
 
 	'wgWikiSeoEnableSocialImages' => [
-		'default' => true
+		'default' => false
 	],
 
 	'wgEnableCanonicalServerLink' => [
