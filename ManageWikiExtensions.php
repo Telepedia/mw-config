@@ -903,6 +903,17 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'parserhooks',
 	],
+	'templatestylesextender' => [
+		'name' => 'TemplateStylesExtender',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TemplateStylesExtender',
+		'conflicts' => false,
+		'requires' => [
+			'extensions' => [
+				'templatestyles',
+			],
+		],
+		'section' => 'parserhooks',
+	],
 	'templatedata' => [
 		'name' => 'TemplateData',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TemplateData',
@@ -922,6 +933,13 @@ $wgManageWikiExtensions = [
 			],
 		],
 		'section' => 'other',
+	],
+	'timemachine' => [
+		'name' => 'TimeMachine',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TimeMachine',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'specialpages',
 	],
 	'theme' => [
 		'name' => 'Theme',
@@ -1257,6 +1275,34 @@ $wgManageWikiExtensions = [
 				],
 			],
 		],
+		'section' => 'other',
+	],
+	'simpletooltip' => [
+		'name' => 'SimpleTooltip',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:SimpleTooltip',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
+	'skinperpage' => [
+		'name' => 'Skin per page',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:SkinPerPage',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
+	'softredirector' => [
+		'name' => 'SoftRedirector',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:SoftRedirector',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	],
+	'revisionslider' => [
+		'name' => 'RevisionSlider',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RevisionSlider',
+		'conflicts' => false,
+		'requires' => [],
 		'section' => 'other',
 	],
 
