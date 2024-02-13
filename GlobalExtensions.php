@@ -38,5 +38,6 @@ wfLoadExtensions( [
 	'RemovePII',
 	'Renameuser',
 	'StopForumSpam',
-	'Interwiki'
+	'Interwiki',
+	'RedisCache'
 ] );
