@@ -19,4 +19,16 @@ $wgJobTypeConf['default'] = [
 	'redisServer'    => '10.0.0.7:6379',
 	'redisConfig'    => [],
 	'daemonized'     => true
- ];
+];
+
+$wgRedisServers = [
+	'cache'		=> [
+		'host'		=> '10.0.0.7',
+		'port'		=> 6379,
+		'options'	=> [
+			'serializer'		=> 'none',
+			'readTimeout'		=> 5
+		]
+	],
+];
+
