@@ -137,7 +137,7 @@ $actions = [
 ];
 
 foreach ( $actions as $action ) {
-    $wgActionPaths[$action] = "$wgArticlePath?action=$1";
+    $wgActionPaths[$action] = "$wgArticlePath?action=$action";
 }
 
 /** Apex Logo */
