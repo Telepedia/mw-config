@@ -67,4 +67,8 @@ switch ( $wi->dbname ) {
 		$wgMUARemoteWikiContentPath = 'https://backrooms.fandom.com/de/wiki/';
 		$wgMUARemoteWikiAPI = 'https://backrooms.fandom.com/de/api.php';
 		break;
+
+	case 'duneawakeningwiki':
+		wfLoadExtension( 'Cargo' );
+		break;
 }
