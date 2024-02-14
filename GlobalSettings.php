@@ -1,5 +1,6 @@
 <?php
-// SocialProfile
+
+/** SocialProfile doesn't support ExtensionRegistry, so load it manually */
 if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
 	require_once "/var/www/html/mediawiki/extensions/SocialProfile/SocialProfile.php";
 	$wgSocialProfileFileBackend = 'AmazonS3';
@@ -16,12 +17,7 @@ if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
 	];
 }
 
-$wgCaptchaQuestions = [
-	"What colour's are used in the Telepedia Logo?" => [ 'yellow', 'black' ],
-	"What was the default skin on Wikipedia before Vector-2022?" => [ 'vector' ],
-	"What does CVT stand for?" => [ 'counter vandalism team' ],
-];
-
+/** Captcha triggers */
 $wgCaptchaTriggers['edit']          = false;
 $wgCaptchaTriggers['create']        = false;
 $wgCaptchaTriggers['createtalk']    = false;
@@ -50,7 +46,7 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 }
 */
 
-// Closed Wikis
+/** Revoke permissions on wikis that are marked as closed in CreateWiki */
 if ( $cwClosed ) {
 	$wgRevokePermissions = [
 		'*' => [
@@ -74,6 +70,7 @@ if ( $cwClosed ) {
 			'undelete' => true,
 		],
 	];
+	/** Add a sitenotice to say that the wiki has been marked closed by CreateWiki */
 	$wgHooks['SiteNoticeAfter'][] = 'wfConditionalSiteNotice';
 	// Set a sitenoitce if the wiki has been closed
 	function wfConditionalSiteNotice( &$siteNotice, $skin ) {
@@ -96,11 +93,7 @@ if ( $cwClosed ) {
 	}
 }
 
-// $wgLogos
-$wgLogos = [
-	'1x' => $wgLogo,
-];
-
+/** Extension:TelepediaAds configuration */
 $wgAdConfig = [
 	'enabled' => true, // enabled or not? :P
 	'adsense-client' => '5974970328084579', // provider number w/o the "pub-" part
@@ -124,9 +117,38 @@ $wgAdConfig = [
 	'cosmos-leaderboard' => true
 ];
 
+/** Normalise action URLS into someting prettier */
+$actions = [
+    'view',
+    'edit',
+    'watch',
+    'unwatch',
+    'delete',
+    'revert',
+    'rollback',
+    'protect',
+    'unprotect',
+    'markpatrolled',
+    'render',
+    'submit',
+    'history',
+    'purge',
+    'info',
+];
+
+foreach ( $actions as $action ) {
+    $wgActionPaths[$action] = "$wgArticlePath?action=$1";
+}
+
+/** Apex Logo */
 $wgApexLogo = [
 	'1x' => $wgLogos['1x'],
 	'2x' => $wgLogos['1x'],
+];
+
+/** Icon, and Wordmarks */
+$wgLogos = [
+	'1x' => $wgLogo,
 ];
 
 if ( $wgIcon ) {
@@ -141,19 +163,11 @@ if ( $wgWordmark ) {
 	];
 }
 
-$wgGroupPermissions['bureaucrat']['managewiki-core'] = true;
-$wgGroupPermissions['bureaucrat']['managewiki-settings'] = true;
-$wgGroupPermissions['bureaucrat']['managewiki-extensions'] = true;
-$wgGroupPermissions['bureaucrat']['managewiki-namespaces'] = true;
-$wgGroupPermissions['bureaucrat']['managewiki-permissions'] = true;
-
-$wgJobRunRate = 0;
-// Vector
+/** Vector  */
 $vectorVersion = $wgDefaultSkin === 'vector' ? '2' : '1';
 
+/** MobileFrontend */
 $wgMFStripResponsiveImages = false;
 
 // Don't need a global here
 unset( $vectorVersion );
-
-// Licensing variables

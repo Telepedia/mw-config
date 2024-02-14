@@ -7,6 +7,7 @@ $wgObjectCaches['redis'] = [
 	'persistent'           => true,
 ];
 
+$wgJobRunRate = 0;
 $wgInvalidateCacheOnLocalSettingsChange = false;
 
 $wgMainCacheType = CACHE_MEMCACHED;
