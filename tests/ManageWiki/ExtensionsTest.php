@@ -1,6 +1,7 @@
 <?php
 
 namespace Telepedia\Config\Tests\ManageWiki;
+use Telepedia\Config\Tests\ManageWikiTestCase;
 
 class ExtensionsTest extends ManageWikiTestCase {
 	public function getSchema(): array {
