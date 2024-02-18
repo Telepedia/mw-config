@@ -394,8 +394,7 @@ $wgConf->settings += [
 
 	// GlobalBlocks
 	'wgApplyGlobalBlocks' => [
-		'default' => true,
-		'metawiki' => false,
+		'default' => true
 	],
 	'wgGlobalBlockingDatabase' => [
 		'default' => 'globalblocks',
