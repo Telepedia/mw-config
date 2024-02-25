@@ -6,7 +6,7 @@ header( 'Cache-Control: s-maxage=2678400, max-age=2678400' );
 $path = $_SERVER['REQUEST_URI'];
 $actual_link = 'https://' . $_SERVER['HTTP_HOST'] . $path;
 $encUrl = htmlspecialchars( $path );
-http_response_code( 404 );
+http_response_code( 410 );
 
 echo <<<EOF
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -119,7 +119,7 @@ p {
 
 <div id="message">
 <h1>ERROR</h1>
-<h2>404 &ndash; Wiki Not found</h2>
+<h2>410 &ndash; Wiki Not found</h2>
 <p style="font-style: italic">$actual_link</p>
 <p>We couldn't find a wiki by that name on our platform. Check the spelling and try again</p>
 <p>Alternatively, you can view a list of our wikis <a href="https://meta.telepedia.net/wiki/Special:WikiDiscover">here.</p>
