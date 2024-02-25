@@ -15,7 +15,7 @@ echo <<<EOF
 <link rel="icon" type="image/x-icon" href="https://meta.telepedia.net/images/metawiki/1/18/Telepedia_Favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>
-Page Not Found
+Wiki Not Found
 </title>
 <style type="text/css">
 * {
@@ -122,7 +122,7 @@ p {
 <h2>404 &ndash; Wiki Not found</h2>
 <p style="font-style: italic">$actual_link</p>
 <p>We couldn't find a wiki by that name on our platform. Check the spelling and try again</p>
-<p>Alternatively, you can view a lsit of our wikis <a href="https://meta.telepedia.net/wiki/Special:WikiDiscover">here.</p>
+<p>Alternatively, you can view a list of our wikis <a href="https://meta.telepedia.net/wiki/Special:WikiDiscover">here.</p>
 </div>
 
 </div></div>
