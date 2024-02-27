@@ -289,6 +289,9 @@ $wgConf->settings += [
 	'wgCreateWikiGlobalWiki' => [
 		'default' => 'metawiki',
 	],
+	'wgCreateWikiEnableManageInactiveWikis' => [
+		'default' => true
+	],
 	'wgCreateWikiDatabase' => [
 		'default' => 'centralauth',
 		'betatest' => 'centralauth',
