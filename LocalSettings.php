@@ -622,7 +622,7 @@ $wgConf->settings += [
 	// Miscellaneous
 	'wgReadOnlyFile' => [
 		'default' => '/srv/mediawiki/' . $wi->dbname;
-	]
+	],
 	'wgLogSpamBlacklistHits' => [
 		'default' => true
 	],
