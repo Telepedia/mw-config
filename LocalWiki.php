@@ -71,4 +71,8 @@ switch ( $wi->dbname ) {
 	case 'duneawakeningwiki':
 		wfLoadExtension( 'Cargo' );
 		break;
+
+	case 'newqualitipediawiki':
+		$wgRestrictionLevels[] = 'autopatrolled';
+		break; 
 }
