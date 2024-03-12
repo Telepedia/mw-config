@@ -268,12 +268,8 @@ $wgConf->settings += [
 	'wgOATHRequiredForGroups' => [
 		'default' => [
 			'checkuser',
-			'oversight',
 			'steward',
 			'staff'
-		],
-		'+metawiki' => [
-			'globalsysop',
 		],
 	],
 
@@ -376,7 +372,7 @@ $wgConf->settings += [
 		'default' => false,
 	],
 	'cwInactive' => [
-		'default' => true,
+		'default' => false,
 	],
 	'cwPrivate' => [
 		'default' => false,
