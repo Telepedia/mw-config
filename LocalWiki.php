@@ -70,6 +70,7 @@ switch ( $wi->dbname ) {
 
 	case 'duneawakeningwiki':
 		wfLoadExtension( 'Cargo' );
+		$wgAdConfig['enabled'] = false;
 		break;
 
 	case 'newqualitipediawiki':
