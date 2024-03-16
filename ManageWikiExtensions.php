@@ -1258,7 +1258,7 @@ $wgManageWikiExtensions = [
 		'section' => 'other',
 	],
 	'searchlogger' => [
-		'name' => 'SearchLogger',
+		'name' => 'Search Logger',
 		'linkPage' => 'https://gitlab.com/telepedia/extensions/SearchLogger',
 		'var' => 'wmgUseSearchlogger',
 		'conflicts' => false,
