@@ -4,7 +4,7 @@ switch ( $wi->dbname ) {
 
 	case 'metawiki':
 		wfLoadExtension( 'CheckUser' );
-		wfLoadExtension( 'WikiDiscover' );
+		//wfLoadExtension( 'WikiDiscover' );
 		wfLoadExtension( 'AbuseFilter' );
 		break;
 
