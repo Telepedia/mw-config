@@ -1237,6 +1237,20 @@ $wgManageWikiSettings = [
 			],
 		],
 	],
+	'wgGAPropertyId' => [
+		'name' => 'Google Analytics Property ID',
+		'from' => 'mediawiki', // not actually, but lets barf this for now
+		'global' => true,
+		'type' => 'text',
+		'overridedefault' => '',
+		'section' => 'restricted',
+		'help' => 'Property ID from Google Analytics -- used in Ext:Telelytics',
+		'requires' => [
+			'permissions' => [
+				'managewiki-restricted',
+			],
+		],
+	],
 	'wgDefaultMobileSkin' => [
 		'name' => 'Default Mobile Skin',
 		'from' => 'mobilefrontend',
