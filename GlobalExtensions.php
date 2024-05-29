@@ -39,5 +39,6 @@ wfLoadExtensions( [
 	'Renameuser',
 	'StopForumSpam',
 	'Interwiki',
-	'RedisCache'
+	'RedisCache',
+	'SEOTweaks'
 ] );
