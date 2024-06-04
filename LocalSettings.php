@@ -8,21 +8,21 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 require_once '/var/www/html/mediawiki/PrivateSettings.php';
 
 /**
- * When using ?forceprofile=1, a profile can be found as an HTML comment
- * Disabled on production hosts because it seems to be causing performance issues (how ironic)
+ * Excimer profiling
+ * https://www.mediawiki.org/wiki/Excimer
  */
-$forceprofile = $_GET['forceprofile'] ?? 0;
-if ( ( $forceprofile == 1 || PHP_SAPI === 'cli' ) && extension_loaded( 'tideways_xhprof' ) ) {
-	$xhprofFlags = TIDEWAYS_XHPROF_FLAGS_CPU | TIDEWAYS_XHPROF_FLAGS_MEMORY | TIDEWAYS_XHPROF_FLAGS_NO_BUILTINS;
-	tideways_xhprof_enable( $xhprofFlags );
-
-	$wgProfiler = [
-		'class' => ProfilerXhprof::class,
-		'flags' => $xhprofFlags,
-		'running' => true,
-		'output' => 'text',
-	];
-	$wgHTTPTimeout = 60;
+if ( extension_loaded( 'excimer' ) && isset( $_GET['forceprofile'] ) ) {
+	$excimer = new ExcimerProfiler();
+	$excimer->setPeriod( 0.001 ); // 1ms
+	$excimer->setEventType( EXCIMER_REAL );
+	$excimer->start();
+	register_shutdown_function( function () use ( $excimer ) {
+		$excimer->stop();
+		$data = $excimer->getLog()->getSpeedscopeData();
+		$data['profiles'][0]['name'] = $_SERVER['REQUEST_URI'];
+		file_put_contents( MW_INSTALL_PATH . '/logs/speedscope-' . ( new DateTime )->format( 'Y-m-d_His_v' ) . '-' . MW_ENTRY_POINT . '.json',
+				json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) );
+	} );
 }
 
 require_once '/var/www/html/mediawiki/TelepediaFunctions.php';
