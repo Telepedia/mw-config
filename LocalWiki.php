@@ -76,4 +76,10 @@ switch ( $wi->dbname ) {
 	case 'newqualitipediawiki':
 		$wgRestrictionLevels[] = 'autopatrolled';
 		break; 
+
+	case 'dxowiki':
+		wfLoadExtension( 'MigrateUserAccount' );
+		$wgMUARemoteWikiContentPath = 'https://dxo.fandom.com/wiki/';
+		$wgMUARemoteWikiAPI = 'https://dxo.fandom.com/api.php';
+		break;	
 }
