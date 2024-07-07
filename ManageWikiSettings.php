@@ -700,7 +700,11 @@ $wgManageWikiSettings = [
 		],
 		'section' => 'permissions',
 		'help' => 'Groups that aren\'t shown on Special:Listusers or somewhere else.',
-		'requires' => [],
+		'requires' => [
+			'permissions' => [
+				'managewiki-restricted',
+			],
+		],
 	],
 	'wgWhitelistRead' => [
 		'name' => 'Whitelist Read',
