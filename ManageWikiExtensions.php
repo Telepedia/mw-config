@@ -1305,6 +1305,22 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'other',
 	],
+	'purge' => [
+		'name' => 'Purge',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Purge',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'permissions' => [
+				'user' => [
+					'permissions' => [
+						'purge',
+					],
+				],
+			],
+		],
+		'section' => 'other',
+	],
 
 	/// Skins
 	'apex' => [
