@@ -23,6 +23,7 @@ wfLoadExtensions( [
 	'ProtectSite',
 	//'ImportDump',
 	'Echo',
+	'Purge',
 	'CheckUser',
 	'OAuth',
 	'OATHAuth',
