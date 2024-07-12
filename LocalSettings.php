@@ -63,7 +63,7 @@ $wgConf->settings += [
 		'default' => true
 	],
 	'wgDBserver' => [
-		'default' => '10.0.0.6',
+		'default' => 'prod-db1.service.consul',
 	],
 	'wgCdnServersNoPurge' => [
 		'default' => [
