@@ -383,7 +383,7 @@ $wgConf->settings += [
 		'default' => 'metawiki'
 	],
 	'wgWikiBuilderDatabase' => [
-		'default' => 'wikibuilder'
+		'default' => 'centralauth'
 	],
 	'wgWikiBuilderProhibitedPermissions' => [
 		'default' => [
@@ -407,7 +407,8 @@ $wgConf->settings += [
 				'viewmyprivateinfo',
 				'viewmywatchlist',
 				'managewiki',
-				'wiki_builder_restricted'
+				'wiki_builder_restricted',
+				'wiki_builder'
 			],
 			'any' => [
 				'abusefilter-hide-log',
@@ -477,6 +478,7 @@ $wgConf->settings += [
 				'viewsuppressed',
 				'writeapi',
 				'wiki_builder_restricted'
+				'wiki_builder'
 			],
 		],
 	],
