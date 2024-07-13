@@ -477,7 +477,7 @@ $wgConf->settings += [
 				'viewpmlog',
 				'viewsuppressed',
 				'writeapi',
-				'wiki_builder_restricted'
+				'wiki_builder_restricted',
 				'wiki_builder'
 			],
 		],
