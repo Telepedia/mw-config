@@ -25,7 +25,7 @@ $wgCaptchaTriggers['addurl']        = true;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 
-/* $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
+$wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 
 function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 	$skin->getOutput()->enableOOUI();
@@ -38,13 +38,13 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 			  <span class="fa fa-exclamation">!</span>
 			</div>
 			<div class="Message-body">
-			  <p>Telepedia will be conducting file maintenance on October 26, 2023, at 5pm (BST); file uploads will be disabled at this time. It is antiicpated that uploads will remain disabled for at least two (2) hours.</p>
+			  <p>Telepedia will be upgrading to MediaWiki 1.41 on Tuesday 16th July at 12:00 (BST). From this time wikis might be unavailable as the upgrade is complete.</p>
 			</div>
 		  </div>
 			</table>
 		EOF;
 }
-*/
+
 
 /** Revoke permissions on wikis that are marked as closed in CreateWiki */
 if ( $cwClosed ) {
