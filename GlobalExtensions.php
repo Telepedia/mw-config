@@ -2,6 +2,7 @@
 
 wfLoadExtensions( [
 	'AWS',
+	'AntiSpoof',
 	'CreateWiki',
 	'ManageWiki',
 	'GlobalBlocking',

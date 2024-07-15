@@ -38,6 +38,7 @@ $wgLocalFileRepo = [
 			: [],
 ];
 
+$wgSharedTables[] = 'spoofuser';
 
 /** Captcha triggers */
 $wgCaptchaTriggers['edit']          = false;
