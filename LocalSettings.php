@@ -1313,6 +1313,7 @@ $wgConf->settings += [
 
 // ManageWiki settings
 require_once __DIR__ . '/ManageWikiExtensions.php';
+
 $wi::$disabledExtensions = [
 	'editnotify',
 	'hitcounters',
@@ -1326,9 +1327,11 @@ $globals = TelepediaFunctions::getConfigGlobals();
 extract( $globals );
 
 $wi->loadExtensions();
+
 require_once __DIR__ . '/ManageWikiNamespaces.php';
 require_once __DIR__ . '/ManageWikiSettings.php';
 require_once __DIR__ . '/GlobalLogging.php';
+
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
 

@@ -17,6 +17,28 @@ if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
 	];
 }
 
+/** Some Stuff for AWS **/
+$wgLocalFileRepo = [
+	'class' => LocalRepo::class,
+	'name' => 'local',
+	'backend' => 'AmazonS3',
+	'url' => $wgUploadBaseUrl ? $wgUploadBaseUrl . $wgUploadPath : $wgUploadPath,
+	'scriptDirUrl' => $wgScriptPath,
+	'hashLevels' => 2,
+	'thumbScriptUrl' => $wgThumbnailScriptPath,
+	'transformVia404' => true,
+	'useJsonMetadata'   => true,
+	'useSplitMetadata'  => true,
+	'deletedHashLevels' => 3,
+	'abbrvThreshold' => 160,
+	'isPrivate' => $cwPrivate,
+	'zones' => $cwPrivate
+			? [
+					'thumb' => [ 'url' => "$wgScriptPath/thumb_handler.php" ] ]
+			: [],
+];
+
+
 /** Captcha triggers */
 $wgCaptchaTriggers['edit']          = false;
 $wgCaptchaTriggers['create']        = false;
@@ -25,7 +47,7 @@ $wgCaptchaTriggers['addurl']        = true;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 
-$wgReadOnly = 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
+//$wgReadOnly = 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
 
 /* $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 

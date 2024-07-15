@@ -71,15 +71,10 @@ switch ( $wi->dbname ) {
 	case 'duneawakeningwiki':
 		wfLoadExtension( 'Cargo' );
 		$wgAdConfig['enabled'] = false;
+		wfLoadExtension('Telelytics');
 		break;
 
-	case 'newqualitipediawiki':
-		$wgRestrictionLevels[] = 'autopatrolled';
-		break; 
-
-	case 'dxowiki':
-		wfLoadExtension( 'MigrateUserAccount' );
-		$wgMUARemoteWikiContentPath = 'https://dxo.fandom.com/wiki/';
-		$wgMUARemoteWikiAPI = 'https://dxo.fandom.com/api.php';
-		break;	
+    case 'testingoawiki':
+		wfLoadExtension('WikiBuilder');
+		break;
 }
