@@ -1309,6 +1309,9 @@ $wgConf->settings += [
 			'XMP' => false,
 		],
 	],
+	'wgTelelyticsConfigFilePath' => [
+		'default' => '/srv/mediawiki/ga-private.json'
+	],
 ];
 
 // ManageWiki settings
