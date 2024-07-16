@@ -1321,6 +1321,17 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
+	'telelytics' => [
+		'name' => 'Telelytics',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Telelytics',
+		'conflicts' => false,
+		'requires' => [
+			'extensions' => [
+				'searchlogger'
+			],
+		],
+		'section' => 'other',
+	],
 
 	/// Skins
 	'apex' => [
