@@ -1312,6 +1312,14 @@ $wgConf->settings += [
 	'wgTelelyticsConfigFilePath' => [
 		'default' => '/srv/mediawiki/ga-private.json'
 	],
+	
+	//sentinel 
+	'wgSentinelDatabase' => [
+		'default' => 'centralauth'
+	],
+	'wgSentinelCentralWiki' => [
+		'default' => 'metawiki'
+	]
 ];
 
 // ManageWiki settings
