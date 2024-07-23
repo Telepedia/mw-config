@@ -43,5 +43,6 @@ wfLoadExtensions( [
 	'Interwiki',
 	'RedisCache',
 	'Sentinel'
-	//'SEOTweaks'
+	//'SEOTweaks',
+	'UserProfileV2'
 ] );

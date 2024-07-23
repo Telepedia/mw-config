@@ -408,10 +408,12 @@ $wgConf->settings += [
 				'viewmywatchlist',
 				'managewiki',
 				'wiki_builder_restricted',
-				'wiki_builder'
+				'wiki_builder',
+				'profilemanager',
 			],
 			'any' => [
 				'abusefilter-hide-log',
+				'profilemanager',
 				'abusefilter-hidden-log',
 				'abusefilter-modify-global',
 				'abusefilter-private',
