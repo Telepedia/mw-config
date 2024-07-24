@@ -188,6 +188,26 @@ if ( $wgWordmark ) {
 	];
 }
 
+/** UserProfileV2 **/
+$wgFileBackends[] = [
+    'class' => 'AmazonS3FileBackend',
+    'name' => 'telepedia-userprofile',
+    'region' => 'eu-west-2',
+    'wikiId' => 'global',
+    'lockManager' => 'nullLockManager',
+    'connTimeout' => 10,
+    'reqTimeout' => 900,
+    'containerPaths' => [
+        "global-upv2avatars" => "static.telepedia.net/upv2avatars",
+    ]
+];
+
+$wgUserProfileV2Backend = 'telepedia-userprofile';
+
+$wgUserProfileV2UseGlobalAvatars = true;
+$wgUserProfileV2CacheType = 'redis';
+$wgUserProfileGlobalUploadBaseUrl = 'https://static.telepedia.net';
+
 /** Vector  */
 $vectorVersion = $wgDefaultSkin === 'vector' ? '2' : '1';
 
