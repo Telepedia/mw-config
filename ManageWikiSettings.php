@@ -1495,5 +1495,18 @@ $wgManageWikiSettings = [
 				'portableinfobox',
 			],
 		],
-	]
+	],
+	'wgUserProfileV2Color' => [
+		'name' => 'The secondary colour for use on backgrounds for groups and buttons.',
+		'from' => 'userprofilev2',
+		'type' => 'text',
+		'overridedefault' => '#E1E1E1',
+		'section' => 'styling',
+		'help' => 'Add a color name or hex code to set as the button secondary color for the UserProfileV2 extension.',
+		'requires' => [
+			'extensions' => [
+				'userprofilev2'
+			]
+		],
+	],
 ];
