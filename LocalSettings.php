@@ -25,13 +25,13 @@ if ( extension_loaded( 'excimer' ) && isset( $_GET['forceprofile'] ) ) {
 	} );
 }
 
-require_once '/var/www/html/mediawiki/TelepediaFunctions.php';
+require_once '/var/www/html/mediawiki/config/TelepediaFunctions.php';
 
 $wi = new TelepediaFunctions();
 
 // Load global skins and extensions
-require_once '/var/www/html/mediawiki/GlobalSkins.php';
-require_once '/var/www/html/mediawiki/GlobalExtensions.php';
+require_once '/var/www/html/mediawiki/config/GlobalSkins.php';
+require_once '/var/www/html/mediawiki/config/GlobalExtensions.php';
 
 $wgConf->settings += [
 	// this invalidates user sessions if we ever need to; don't change unless its an emergency!
@@ -1341,9 +1341,9 @@ extract( $globals );
 
 $wi->loadExtensions();
 
-require_once __DIR__ . '/ManageWikiNamespaces.php';
-require_once __DIR__ . '/ManageWikiSettings.php';
-require_once __DIR__ . '/GlobalLogging.php';
+require_once __DIR__ . '/config/ManageWikiNamespaces.php';
+require_once __DIR__ . '/config/ManageWikiSettings.php';
+require_once __DIR__ . '/config/GlobalLogging.php';
 
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
@@ -1360,9 +1360,9 @@ if ( $wi->missing ) {
 }
 
 // Define last to avoid all dependencies
-require_once '/var/www/html/mediawiki/GlobalSettings.php';
-require_once '/var/www/html/mediawiki/LocalWiki.php';
-require_once '/var/www/html/mediawiki/GlobalCache.php';
+require_once '/var/www/html/mediawiki/config/GlobalSettings.php';
+require_once '/var/www/html/mediawiki/config/LocalWiki.php';
+require_once '/var/www/html/mediawiki/config/GlobalCache.php';
 
 // Configure last to ensure that database name has been set properly
 $wgCargoDBname = $wgDBname . 'cargo';
