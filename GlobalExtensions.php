@@ -7,7 +7,6 @@ wfLoadExtensions( [
 	'ManageWiki',
 	'GlobalBlocking',
 	'GlobalPreferences',
-	 'DiscordNotifications',
 	'ConfirmEdit',
 	'ConfirmEdit/Turnstile',
 	'GlobalUserPage',
