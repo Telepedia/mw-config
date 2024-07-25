@@ -42,7 +42,7 @@ wfLoadExtensions( [
 	'StopForumSpam',
 	'Interwiki',
 	'RedisCache',
-	'Sentinel'
+	'Sentinel',
 	//'SEOTweaks',
 	'UserProfileV2'
 ] );
