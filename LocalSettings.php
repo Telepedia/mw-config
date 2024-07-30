@@ -5,7 +5,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-require_once '/var/www/html/mediawiki/PrivateSettings.php';
+require_once '/srv/mediawiki/PrivateSettings.php';
 
 /**
  * Excimer profiling
