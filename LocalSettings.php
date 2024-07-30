@@ -1356,7 +1356,7 @@ if ( $wgRequestTimeLimit ) {
 }
 
 if ( $wi->missing ) {
-	require_once '/var/www/html/mediawiki/MissingWiki.php';
+	require_once '/var/www/html/mediawiki/config/MissingWiki.php';
 }
 
 // Define last to avoid all dependencies
