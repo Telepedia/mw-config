@@ -10,7 +10,6 @@ wfLoadExtensions( [
 	'ConfirmEdit',
 	'ConfirmEdit/Turnstile',
 	'GlobalUserPage',
-	'RemoveRedlinks',
 	'WikiSEO',
 	'NativeSvgHandler',
 	'LinkSuggest',
