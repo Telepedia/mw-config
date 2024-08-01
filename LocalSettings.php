@@ -1332,6 +1332,7 @@ $wi::$disabledExtensions = [
 	'hitcounters',
 	'regexfunctions',
 	'wikiforum',
+	'socialprofile'
 ];
 
 $globals = TelepediaFunctions::getConfigGlobals();
