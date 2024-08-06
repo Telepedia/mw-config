@@ -730,6 +730,9 @@ $wgConf->settings += [
 	],
 
 	// Miscellaneous
+	'wgGitInfoCacheDirectory' => [
+		'default' => '/srv/mediawiki/cache/gitinfo',
+	],
 	'wgLogSpamBlacklistHits' => [
 		'default' => true
 	],
