@@ -77,5 +77,6 @@ switch ( $wi->dbname ) {
     case 'testingoawiki':
 		wfLoadExtension('WikiBuilder');
 		wfLoadExtension('Telelytics');
+		$wgShowExceptionDetails = true;
 		break;
 }
