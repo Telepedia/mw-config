@@ -1026,10 +1026,10 @@ $wgConf->settings += [
 		'default' => true,
 	],
 	'wgEmergencyContact' => [
-		'default' => 'community@telepedia.net',
+		'default' => 'no-reply@telepedia.net',
 	],
 	'wgPasswordSender' => [
-		'default' => 'community@telepedia.net',
+		'default' => 'no-reply@telepedia.net',
 	],
 	'wgAllowHTMLEmail' => [
 		'default' => true,
