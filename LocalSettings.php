@@ -480,7 +480,9 @@ $wgConf->settings += [
 				'viewsuppressed',
 				'writeapi',
 				'wiki_builder_restricted',
-				'wiki_builder'
+				'wiki_builder',
+				'sentinel',
+				'sentinel-view-logs'
 			],
 		],
 	],
@@ -560,6 +562,8 @@ $wgConf->settings += [
 				'viewmyprivateinfo',
 				'viewmywatchlist',
 				'managewiki',
+				'profilemanager',
+				'wiki_builder_restricted'
 			],
 			'any' => [
 				'abusefilter-hide-log',
@@ -628,6 +632,10 @@ $wgConf->settings += [
 				'viewpmlog',
 				'viewsuppressed',
 				'writeapi',
+				'profilemanager',
+				'wiki_builder_restricted',
+				'sentinel',
+				'sentinel-view-logs'
 			],
 		],
 	],
