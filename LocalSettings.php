@@ -482,7 +482,8 @@ $wgConf->settings += [
 				'wiki_builder_restricted',
 				'wiki_builder',
 				'sentinel',
-				'sentinel-view-logs'
+				'sentinel-view-logs',
+				'gtag-exempt'
 			],
 		],
 	],
@@ -635,7 +636,8 @@ $wgConf->settings += [
 				'profilemanager',
 				'wiki_builder_restricted',
 				'sentinel',
-				'sentinel-view-logs'
+				'sentinel-view-logs',
+				'gtag-exempt'
 			],
 		],
 	],
