@@ -6,6 +6,7 @@ switch ( $wi->dbname ) {
 		wfLoadExtension( 'CheckUser' );
 		//wfLoadExtension( 'WikiDiscover' );
 		wfLoadExtension( 'AbuseFilter' );
+		wfLoadExtension('WikiBuilder');
 		break;
 
 	case 'theperipheralwiki':
