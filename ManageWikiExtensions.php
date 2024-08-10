@@ -1324,6 +1324,7 @@ $wgManageWikiExtensions = [
 	'telelytics' => [
 		'name' => 'Telelytics',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Telelytics',
+		'var' => 'wmgUseTelelytics',
 		'conflicts' => false,
 		'requires' => [
 			'extensions' => [
