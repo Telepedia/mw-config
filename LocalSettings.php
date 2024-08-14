@@ -320,7 +320,7 @@ $wgConf->settings += [
 			"$IP/extensions/CheckUser/schema/mysql/tables-generated.sql",
 			"$IP/extensions/Echo/sql/mysql/tables-generated.sql",
 			"$IP/extensions/GlobalBlocking/sql/mysql/tables-generated-global_block_whitelist.sql",
-			"$IP/extensions/AntiSpoof/sql/mysql/tables-generated.sql",
+			"$IP/extensions/AntiSpoof/sql/mysql/tables-generated.sql"
 		],
 	],
 	'wgCreateWikiCacheDirectory' => [
