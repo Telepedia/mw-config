@@ -778,7 +778,9 @@ $wgConf->settings += [
 			'miraheze.org',
 			'mediawiki.org',
 			'en.wikipedia.org',
-			'whiki.online'
+			'whiki.online',
+			'fallout.wiki',
+			'jojowiki.com'
 		],
 	],
 	'wgSitename' => [
