@@ -1338,6 +1338,18 @@ $wgConf->settings += [
 	'wgSentinelCentralWiki' => [
 		'default' => 'metawiki'
 	]
+
+	// Cloudflare
+	'wgMultiPurgeEnabledServices' => [
+		'default' => [
+			'Cloudflare'
+		]
+	],
+	'wgMultiPurgeServiceOrder' => [
+		'default' => [
+			'Cloudflare'
+		]
+	]
 ];
 
 // ManageWiki settings
