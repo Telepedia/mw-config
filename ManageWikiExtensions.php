@@ -548,6 +548,13 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
+	'spoilers' => [
+		'name' => 'Spoilers',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Spoilers',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
 	'newusermessage' => [
 		'name' => 'NewUserMessage',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:NewUserMessage',
