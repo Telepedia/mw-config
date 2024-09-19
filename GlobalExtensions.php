@@ -5,6 +5,7 @@ wfLoadExtensions( [
 	'AntiSpoof',
 	'CreateWiki',
 	'ManageWiki',
+	'MultiPurge',
 	'GlobalBlocking',
 	'GlobalPreferences',
 	'ConfirmEdit',
