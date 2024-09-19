@@ -1346,7 +1346,7 @@ $wgConf->settings += [
 	],
 	'wgSentinelCentralWiki' => [
 		'default' => 'metawiki'
-	]
+	],
 
 	// Cloudflare
 	'wgMultiPurgeEnabledServices' => [
