@@ -550,6 +550,7 @@ $wgManageWikiExtensions = [
 	],
 	'spoilers' => [
 		'name' => 'Spoilers',
+		'var' => 'wmgUseSpoilers',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Spoilers',
 		'conflicts' => false,
 		'requires' => [],
