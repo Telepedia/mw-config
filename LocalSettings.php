@@ -605,6 +605,7 @@ $wgConf->settings += [
 				'ipinfo-view-log',
 				'sfsblock-bypass',
 				'ipblock-exempt',
+				'override-antispoof',
 				'managewiki-restricted',
 				'managewiki-editdefault',
 				'moderation-checkuser',
