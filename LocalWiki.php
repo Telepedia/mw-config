@@ -4,23 +4,16 @@ switch ( $wi->dbname ) {
 
 	case 'metawiki':
 		wfLoadExtension( 'CheckUser' );
-		//wfLoadExtension( 'WikiDiscover' );
 		wfLoadExtension( 'AbuseFilter' );
-		wfLoadExtension('WikiBuilder');
-		break;
-
-	case 'theperipheralwiki':
-		wfLoadExtension( 'MultiBoilerplate' );
-		wfLoadExtension( 'Video' );
-		wfLoadExtension( 'Popups' );
-		$wgPopupsRestGatewayEndpoint = '/api.php';
 		break;
 
 	case 'witchhatatelierwiki':
+		$wgAdConfig['enabled'] = false;
 		wfLoadExtension( 'MigrateUserAccount' );
 		$wgMUARemoteWikiContentPath = 'https://witch-hat-atelier.fandom.com/wiki/';
 		$wgMUARemoteWikiAPI = 'https://witch-hat-atelier.fandom.com/api.php';
 		$wgDefaultMobileSkin = "cosmos";
+
 		break;
 
 	case 'latelierdessorcierswiki':
@@ -72,12 +65,10 @@ switch ( $wi->dbname ) {
 	case 'duneawakeningwiki':
 		wfLoadExtension( 'Cargo' );
 		$wgAdConfig['enabled'] = false;
-		wfLoadExtension('Telelytics');
 		break;
 
     case 'testingoawiki':
 		wfLoadExtension('WikiBuilder');
-		wfLoadExtension('Telelytics');
 		$wgShowExceptionDetails = true;
 		break;
 }
