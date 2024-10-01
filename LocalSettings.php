@@ -87,7 +87,6 @@ $wgConf->settings += [
 			"10.0.0.5"
 		]
 	],
-	'wgImageMagickConvertCommand' => [
 		'default' => '/usr/bin/convert'
 	],
 	'wgAdsEnabled' => [
@@ -676,10 +675,10 @@ $wgConf->settings += [
 
 	// Licenses
 	'wgRightsUrl' => [
-		'default' => 'https://creativecommons.org/licenses/by/3.0/',
+		'default' => 'https://creativecommons.org/licenses/by-sa/3.0/',
 	],
 	'wgRightsText' => [
-		'default' => 'Creative Commons Attribution 3.0 International (CC BY 3.0)',
+		'default' => 'Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)',
 	],
 
 	// Files
