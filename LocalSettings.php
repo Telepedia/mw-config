@@ -87,6 +87,7 @@ $wgConf->settings += [
 			"10.0.0.5"
 		]
 	],
+	'wgImageMagickConvertCommand' => [
 		'default' => '/usr/bin/convert'
 	],
 	'wgAdsEnabled' => [
