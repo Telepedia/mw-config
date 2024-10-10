@@ -1506,4 +1506,14 @@ $wgManageWikiSettings = [
 		'help' => 'Add a color name or hex code to set as the button secondary color for the UserProfileV2 extension.',
 		'requires' => [],
 	],
+	'wgVectorShareUserScripts' => [
+		'name' => 'Share Vector styling/scripts between vector and vector-2022',
+		'from' => 'vector',
+		'global' => true,
+		'type' => 'check',
+		'overridedefault' => true,
+		'section' => 'styling',
+		'help' => 'When set to true, this prevents Vector-2022 from loading MediaWiki:Vector.css and MediaWiki:Vector.js',
+		'requires' => [],
+	],
 ];
