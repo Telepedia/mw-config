@@ -7,24 +7,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 require_once '/srv/mediawiki/PrivateSettings.php';
 
-/**
- * Excimer profiling
- * https://www.mediawiki.org/wiki/Excimer
- */
-if ( extension_loaded( 'excimer' ) && isset( $_GET['forceprofile'] ) ) {
-	$excimer = new ExcimerProfiler();
-	$excimer->setPeriod( 0.001 ); // 1ms
-	$excimer->setEventType( EXCIMER_REAL );
-	$excimer->start();
-	register_shutdown_function( function () use ( $excimer ) {
-		$excimer->stop();
-		$data = $excimer->getLog()->getSpeedscopeData();
-		$data['profiles'][0]['name'] = $_SERVER['REQUEST_URI'];
-		file_put_contents( MW_INSTALL_PATH . '/logs/speedscope-' . ( new DateTime )->format( 'Y-m-d_His_v' ) . '-' . MW_ENTRY_POINT . '.json',
-				json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) );
-	} );
-}
-
 require_once '/var/www/html/mediawiki/config/TelepediaFunctions.php';
 
 $wi = new TelepediaFunctions();
