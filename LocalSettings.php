@@ -262,6 +262,9 @@ $wgConf->settings += [
 	'wgVisualEditorEnableDiffPage' => [
 		'default' => true
 	],
+	'wgVisualEditorUseSingleEditTab' => [
+		'default' => true
+	],
 
 	// CreateWiki
 	'wgCreateWikiGlobalWiki' => [
