@@ -68,7 +68,10 @@ switch ( $wi->dbname ) {
 		break;
 
     case 'testingoawiki':
-		wfLoadExtension('WikiBuilder');
 		$wgShowExceptionDetails = true;
 		break;
+
+	case 'landmanwiki':
+		$wgAdConfig['enabled'] = false;
+		break;	
 }
