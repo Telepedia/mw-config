@@ -1341,6 +1341,19 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
+	'cloudflare' => [
+		'name' => 'Cloudflare',
+		'linkPage' => 'https://gitlab.com/telepedia/extensions/cloudflare',
+		'var' => 'wmgUseCloudflare',
+		'conflicts' => false,
+		'requires' => [
+			'permissions' => [
+				'managewiki-restricted',
+			],
+		],
+		'section' => 'specialpages',
+	],
+
 
 	/// Skins
 	'apex' => [
