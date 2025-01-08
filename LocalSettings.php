@@ -1190,6 +1190,7 @@ $wgConf->settings += [
 			'ContentHandler' => false,
 			'CookieWarning' => false,
 			'cookie' => false,
+			'Cloudflare' => 'debug',
 			'CreateWiki' => 'debug',
 			'rdbms' => 'warning',
 			'DeferredUpdates' => 'error',
@@ -1363,7 +1364,7 @@ $wi->loadExtensions();
 
 require_once __DIR__ . '/ManageWikiNamespaces.php';
 require_once __DIR__ . '/ManageWikiSettings.php';
-//require_once __DIR__ . '/GlobalLogging.php';
+require_once __DIR__ . '/GlobalLogging.php';
 
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
