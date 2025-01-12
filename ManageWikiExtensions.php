@@ -1353,6 +1353,15 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'specialpages',
 	],
+	'labeledsectiontransclusion' => [
+		'name' => 'LabeledSectionTransclusion',
+		'displayname' => 'Labeled Section Transclusion',
+		'var' => 'wmgUseLabeledSectionTransclusion',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Labeled_Section_Transclusion',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
 
 
 	/// Skins
