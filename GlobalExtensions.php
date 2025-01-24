@@ -37,7 +37,6 @@ wfLoadExtensions( [
 	'IPInfo',
 	'SpamBlacklist',
 	//'RemovePII',
-	'Renameuser',
 	'StopForumSpam',
 	'Interwiki',
 	'RedisCache',
