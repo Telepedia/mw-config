@@ -9,17 +9,11 @@ switch ( $wi->dbname ) {
 
 	case 'witchhatatelierwiki':
 		$wgAdConfig['enabled'] = false;
-		wfLoadExtension( 'MigrateUserAccount' );
-		$wgMUARemoteWikiContentPath = 'https://witch-hat-atelier.fandom.com/wiki/';
-		$wgMUARemoteWikiAPI = 'https://witch-hat-atelier.fandom.com/api.php';
 		$wgDefaultMobileSkin = "cosmos";
 
 		break;
 
 	case 'latelierdessorcierswiki':
-		wfLoadExtension( 'MigrateUserAccount' );
-		$wgMUARemoteWikiContentPath = 'https://latelier-des-sorciers.fandom.com/fr/wiki/';
-		$wgMUARemoteWikiAPI = 'https://latelier-des-sorciers.fandom.com/fr/api.php';
 		$wgDefaultMobileSkin = "cosmos";
 
 		$wgForeignFileRepos[] = [
@@ -54,12 +48,6 @@ switch ( $wi->dbname ) {
 			'abbrvThreshold' => 160
 		];
 
-		break;
-
-	case 'backroomsdewiki':
-		wfLoadExtension( 'MigrateUserAccount' );
-		$wgMUARemoteWikiContentPath = 'https://backrooms.fandom.com/de/wiki/';
-		$wgMUARemoteWikiAPI = 'https://backrooms.fandom.com/de/api.php';
 		break;
 
 	case 'duneawakeningwiki':
