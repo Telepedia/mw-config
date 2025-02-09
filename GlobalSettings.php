@@ -165,12 +165,6 @@ foreach ( $actions as $action ) {
     $wgActionPaths[$action] = "$wgArticlePath?action=$action";
 }
 
-/** Apex Logo */
-$wgApexLogo = [
-	'1x' => $wgLogos['1x'],
-	'2x' => $wgLogos['1x'],
-];
-
 /** Icon, and Wordmarks */
 $wgLogos = [
 	'1x' => $wgLogo,
