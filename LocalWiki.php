@@ -10,12 +10,10 @@ switch ( $wi->dbname ) {
 	case 'witchhatatelierwiki':
 		$wgAdConfig['enabled'] = false;
 		$wgDefaultMobileSkin = "cosmos";
-
 		break;
 
 	case 'latelierdessorcierswiki':
 		$wgDefaultMobileSkin = "cosmos";
-
 		$wgForeignFileRepos[] = [
 			'class' => ForeignDBViaLBRepo::class,
 			'name' => 'shared-witchhatatelierwiki',
@@ -47,7 +45,6 @@ switch ( $wi->dbname ) {
 			],
 			'abbrvThreshold' => 160
 		];
-
 		break;
 
 	case 'duneawakeningwiki':

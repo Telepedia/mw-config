@@ -50,7 +50,7 @@ $wgCaptchaTriggers['badlogin']      = true;
 
 //$wgReadOnly = 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
 
-/* $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
+$wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 
 function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 	$skin->getOutput()->enableOOUI();
@@ -63,13 +63,12 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 			  <span class="fa fa-exclamation">!</span>
 			</div>
 			<div class="Message-body">
-			  <p>Telepedia will be upgrading to MediaWiki 1.41 on Tuesday 16th July at 12:00 (BST). From this time wikis might be unavailable as the upgrade is complete.</p>
+			  <p>Telepedia will be upgrading to MediaWiki 1.43 on Sunday 9th May, 17:00 (BST). From this time wikis might be unavailable for a short time as the upgrade is complete.</p>
 			</div>
 		  </div>
 			</table>
 		EOF;
 }
-*/
 
 /** Revoke permissions on wikis that are marked as closed in CreateWiki */
 if ( $cwClosed ) {
