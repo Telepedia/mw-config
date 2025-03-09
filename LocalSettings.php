@@ -1341,6 +1341,29 @@ $wgConf->settings += [
 		'default' => [
 			'Cloudflare'
 		]
+	],
+	'+wgVirtualDomainsMapping' => [
+		'default' => [
+			'virtual-centralauth' => [
+				'db' => 'centralauth',
+			],
+			'virtual-createwiki-central' => [
+				'db' => 'metawiki',
+			],
+			'virtual-createwiki' => [
+				'db' => 'centralauth',
+			],
+			'virtual-checkuser-global' => [
+				'db' => 'centralauth',
+			],
+			'virtual-botpasswords' => [
+				'db' => 'centralauth',
+			],
+			'virtual-globalblocking' => [
+				'db' => 'centralauth',
+			],
+			
+		]
 	]
 ];
 
