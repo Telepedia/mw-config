@@ -171,53 +171,6 @@ $wgConf->settings += [
 		'default' => 'centralauth'
 	],
 
-	// Passwords
-	'wgPasswordPolicy' => [
-		'default' => [
-			'policies' => [
-				'default' => [
-					'MinimalPasswordLength' => [ 'value' => 6, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotBeSubstringInUsername' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotMatchDefaults' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'MaximalPasswordLength' => [ 'value' => 4096, 'suggestChangeOnLogin' => true ],
-					'PasswordNotInCommonList' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-				],
-				'bot' => [
-					'MinimalPasswordLength' => [ 'value' => 8, 'suggestChangeOnLogin' => true ],
-					'MinimumPasswordLengthToLogin' => [ 'value' => 6, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotBeSubstringInUsername' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotMatchDefaults' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'MaximalPasswordLength' => [ 'value' => 4096, 'suggestChangeOnLogin' => true ],
-					'PasswordNotInCommonList' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-				],
-				'sysop' => [
-					'MinimalPasswordLength' => [ 'value' => 8, 'suggestChangeOnLogin' => true ],
-					'MinimumPasswordLengthToLogin' => [ 'value' => 6, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotBeSubstringInUsername' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotMatchDefaults' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'MaximalPasswordLength' => [ 'value' => 4096, 'suggestChangeOnLogin' => true ],
-					'PasswordNotInCommonList' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-				],
-				'bureaucrat' => [
-					'MinimalPasswordLength' => [ 'value' => 8, 'suggestChangeOnLogin' => true ],
-					'MinimumPasswordLengthToLogin' => [ 'value' => 6, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotBeSubstringInUsername' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'PasswordCannotMatchDefaults' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-					'MaximalPasswordLength' => [ 'value' => 4096, 'suggestChangeOnLogin' => true ],
-					'PasswordNotInCommonList' => [ 'value' => true, 'suggestChangeOnLogin' => true ],
-				],
-			],
-			'checks' => [
-				'MinimalPasswordLength' => 'PasswordPolicyChecks::checkMinimalPasswordLength',
-				'MinimumPasswordLengthToLogin' => 'PasswordPolicyChecks::checkMinimumPasswordLengthToLogin',
-				'PasswordCannotBeSubstringInUsername' => 'PasswordPolicyChecks::checkPasswordCannotBeSubstringInUsername',
-				'PasswordCannotMatchDefaults' => 'PasswordPolicyChecks::checkPasswordCannotMatchDefaults',
-				'MaximalPasswordLength' => 'PasswordPolicyChecks::checkMaximalPasswordLength',
-				'PasswordNotInCommonList' => 'PasswordPolicyChecks::checkPasswordNotInCommonList',
-			],
-		],
-	],
-
 	// OATHAuth
 	'wgOATHAuthDatabase' => [
 		'default' => 'centralauth'

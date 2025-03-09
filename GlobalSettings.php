@@ -48,8 +48,7 @@ $wgCaptchaTriggers['addurl']        = true;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 
-$wgReadOnly = 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
-
+/**
 $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 
 function metaConditionalSiteNotice( &$siteNotice, $skin ) {
@@ -69,6 +68,7 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 			</table>
 		EOF;
 }
+*/
 
 /** Revoke permissions on wikis that are marked as closed in CreateWiki */
 if ( $cwClosed ) {
