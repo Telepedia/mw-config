@@ -5,6 +5,7 @@ switch ( $wi->dbname ) {
 	case 'metawiki':
 		wfLoadExtension( 'CheckUser' );
 		wfLoadExtension( 'AbuseFilter' );
+		wfLoadExtension( 'WikiDiscover' );
 		break;
 
 	case 'witchhatatelierwiki':
