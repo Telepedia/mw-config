@@ -119,19 +119,20 @@ class TelepediaFunctions {
 			$dblist = 'deleted';
 		}
 
-		if ( !file_exists( self::CACHE_DIRECTORY . "/{$dblist}.json" ) ) {
-			$databases = [];
+		$filePath = self::CACHE_DIRECTORY . "/{$dblist}.php";
 
-			return $databases;
+		if ( !file_exists( $filePath ) ) {
+			return [];
 		} else {
-			$databasesArray = json_decode( file_get_contents( self::CACHE_DIRECTORY . "/{$dblist}.json" ), true );
+			$databasesArray = include $filePath;
 		}
 
 		if ( $database ) {
 			if ( $fromServer ) {
 				$server = $database;
 				$database = '';
-				foreach ( $databasesArray['combi'] ?? $databasesArray['databases'] as $key => $data ) {
+				
+				foreach ( $databasesArray['databases'] as $key => $data ) {
 					if ( isset( $data['u'] ) && $data['u'] === $server ) {
 						$database = $key;
 						break;
@@ -143,15 +144,12 @@ class TelepediaFunctions {
 				}
 			}
 
-			if ( isset( $databasesArray['combi'][$database] ) || isset( $databasesArray['databases'][$database] ) ) {
-				return $databasesArray['combi'][$database] ?? $databasesArray['databases'][$database];
-			} else {
-				return '';
-			}
+			return $databasesArray['databases'][$database] ?? '';
+
 		} else {
 			global $wgDatabaseClustersMaintenance;
 
-			$databases = $databasesArray['combi'] ?? $databasesArray['databases'];
+			$databases = $databasesArray['databases'] ?? [];
 
 			if ( $wgDatabaseClustersMaintenance ) {
 				$databases = array_filter( $databases, static function ( $data, $key ) {
@@ -168,11 +166,7 @@ class TelepediaFunctions {
 			}
 		}
 
-		if ( $onlyDBs ) {
-			return array_keys( $databases );
-		}
-
-		return $databases;
+		return $onlyDBs ? array_keys( $databases ) : $databases;
 	}
 
 	public static function setupHooks() {
@@ -402,13 +396,12 @@ class TelepediaFunctions {
 		self::$currentDatabase ??= self::getCurrentDatabase();
 
 		// If we don't have a cache file, let us exit here
-		if ( !file_exists( self::CACHE_DIRECTORY . '/' . self::$currentDatabase . '.json' ) ) {
+		if ( !file_exists( self::CACHE_DIRECTORY . '/' . self::$currentDatabase . '.php' ) ) {
 			return [];
 		}
 
-		return (array)json_decode( file_get_contents(
-			self::CACHE_DIRECTORY . '/' . self::$currentDatabase . '.json'
-		), true );
+		$currentDatabaseFile = self::CACHE_DIRECTORY . '/' . self::$currentDatabase . '.php';
+ 		return include $currentDatabaseFile;
 	}
 
 	/** @var array */
@@ -421,7 +414,7 @@ class TelepediaFunctions {
 		global $IP, $wgDBname, $wgConf;
 
 		// Try configuration cache
-		$confCacheFileName = "config-$wgDBname.json";
+		$confCacheFileName = "config-$wgDBname.php";
 
 		// To-Do: merge ManageWiki cache with main config cache,
 		// to automatically update when ManageWiki is updated
@@ -436,7 +429,7 @@ class TelepediaFunctions {
 			filemtime( "$IP/includes/Defines.php" ),
 
 			// When ManageWiki is changed
-			@filemtime( self::CACHE_DIRECTORY . '/' . $wgDBname . '.json' )
+			@filemtime( self::CACHE_DIRECTORY . '/' . $wgDBname . '.php' )
 		);
 
 		static $globals = null;
@@ -512,26 +505,11 @@ class TelepediaFunctions {
 	 */
 	public static function writeToCache( string $cacheShard, array $configObject ) {
 		@mkdir( self::CACHE_DIRECTORY );
-		$tmpFile = tempnam( '/tmp/', $cacheShard );
+		$filePath = self::CACHE_DIRECTORY . '/' . $cacheShard;
 
-		$cacheObject = json_encode(
-				$configObject,
-				JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
-			) . "\n";
+		$cacheObject = '<?php return ' . var_export( $configObject, true ) . ';';
 
-		if ( $tmpFile ) {
-			if ( json_last_error() !== JSON_ERROR_NONE ) {
-				trigger_error( 'Config cache failure: Encoding failed', E_USER_ERROR );
-			} else {
-				if ( file_put_contents( $tmpFile, $cacheObject ) ) {
-					if ( rename( $tmpFile, self::CACHE_DIRECTORY . '/' . $cacheShard ) ) {
-						return;
-					}
-				}
-			}
-
-			unlink( $tmpFile );
-		}
+		file_put_contents( $filePath, $cacheObject );
 	}
 
 	/**
@@ -545,17 +523,11 @@ class TelepediaFunctions {
 		string $confActualMtime,
 		string $type = 'globals'
 	): ?array {
-		$cacheRecord = @file_get_contents( $confCacheFile );
+		$cacheRecord = @include $confCacheFile;
 
 		if ( $cacheRecord !== false ) {
-			$cacheObject = json_decode( $cacheRecord, true );
-
-			if ( json_last_error() === JSON_ERROR_NONE ) {
-				if ( ( $cacheObject['mtime'] ?? null ) == $confActualMtime ) {
-					return $cacheObject[$type] ?? null;
-				}
-			} else {
-				trigger_error( 'Config cache failure: Decoding failed', E_USER_ERROR );
+			if ( ( $cacheRecord['mtime'] ?? null ) == $confActualMtime ) {
+				return $cacheRecord[$type] ?? null;
 			}
 		}
 
@@ -678,7 +650,7 @@ class TelepediaFunctions {
 	public static function getActiveExtensions(): array {
 		global $IP, $wgDBname;
 
-		$confCacheFileName = "config-$wgDBname.json";
+		$confCacheFileName = "config-$wgDBname.php";
 
 		// To-Do: merge ManageWiki cache with main config cache,
 		// to automatically update when ManageWiki is updated
@@ -691,7 +663,7 @@ class TelepediaFunctions {
 			filemtime( "$IP/includes/Defines.php" ),
 
 			// When ManageWiki is changed
-			@filemtime( self::CACHE_DIRECTORY . '/' . $wgDBname . '.json' )
+			@filemtime( self::CACHE_DIRECTORY . '/' . $wgDBname . '.php' )
 		);
 
 		static $extensions = null;
@@ -772,7 +744,7 @@ class TelepediaFunctions {
 	public function loadExtensions() {
 		global $wgDBname;
 
-		if ( !file_exists( self::CACHE_DIRECTORY . '/' . $wgDBname . '.json' ) ) {
+		if ( !file_exists( self::CACHE_DIRECTORY . '/' . $wgDBname . '.php' ) ) {
 			global $wgConf;
 			if ( self::getRealm() !== 'default' ) {
 				$wgConf->siteParamsCallback = static function () {
@@ -933,39 +905,16 @@ class TelepediaFunctions {
 	 * @param array &$databaseLists
 	 */
 	public static function onGenerateDatabaseLists( array &$databaseLists ) {
+		$isBeta = php_uname( 'n' ) === self::BETA_HOSTNAME;
+
+		$databases = self::generateDatabaseLists(
+			self::GLOBAL_DATABASE[ $isBeta ? 'beta' : 'default' ]
+		);
+
 		$databaseLists = [
-			'active' => [
-				'combi' => self::getActiveList(
-					self::GLOBAL_DATABASE['default']
-				),
-			],
-			'active-beta' => [
-				'combi' => self::getActiveList(
-					self::GLOBAL_DATABASE['beta']
-				),
-			],
-			'beta' => [
-				'combi' => self::getCombiList(
-					self::GLOBAL_DATABASE['beta']
-				),
-			],
-			'databases' => [
-				'combi' => self::getCombiList(
-					self::GLOBAL_DATABASE['default']
-				),
-			],
-			'deleted' => [
-				'deleted' => 'databases',
-				'databases' => self::getDeletedList(
-					self::GLOBAL_DATABASE['default']
-				),
-			],
-			'deleted-beta' => [
-				'deleted-beta' => 'databases',
-				'databases' => self::getDeletedList(
-					self::GLOBAL_DATABASE['beta']
-				),
-			],
+			'active' => $databases['active'],
+			'databases' => $databases['databases'],
+			'deleted' => $databases['deleted'],
 		];
 	}
 
