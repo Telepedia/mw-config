@@ -1,22 +1,5 @@
 <?php
 
-/** SocialProfile doesn't support ExtensionRegistry, so load it manually */
-if ( $wi->isExtensionActive( 'SocialProfile' ) ) {
-	require_once "/var/www/html/mediawiki/extensions/SocialProfile/SocialProfile.php";
-	$wgSocialProfileFileBackend = 'AmazonS3';
-	$wgAWSRepoZones['avatars'] = [
-	'container' => 'avatars',
-	'path' => "/avatars",
-	'isPublic' => true
-	];
-
-	$wgAWSRepoZones['awards'] = [
-	'container' => 'awards',
-	'path' => "/awards",
-	'isPublic' => true
-	];
-}
-
 /** Some Stuff for AWS **/
 $wgLocalFileRepo = [
 	'class' => LocalRepo::class,

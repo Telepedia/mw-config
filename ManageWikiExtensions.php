@@ -433,43 +433,6 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'parserhooks',
 	],
-	'socialprofile' => [
-		'name' => 'SocialProfile',
-		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:SocialProfile',
-		'description' => 'socialprofile-desc',
-		'var' => 'wmgUseSocialProfile',
-		'conflicts' => false,
-		'requires' => [],
-		'install' => [
-			'sql' => [
-				'user_profile' => "$IP/extensions/SocialProfile/UserProfile/sql/user_profile.sql",
-				'user_fields_privacy' => "$IP/extensions/SocialProfile/UserProfile/sql/user_fields_privacy.sql",
-				'user_system_messages' => "$IP/extensions/SocialProfile/UserStats/sql/user_system_messages.sql",
-				'user_points_monthly' => "$IP/extensions/SocialProfile/UserStats/sql/user_points_monthly.sql",
-				'user_points_archive' => "$IP/extensions/SocialProfile/UserStats/sql/user_points_archive.sql",
-				'user_points_weekly' => "$IP/extensions/SocialProfile/UserStats/sql/user_points_weekly.sql",
-				'user_stats' => "$IP/extensions/SocialProfile/UserStats/sql/user_stats.sql",
-				'user_system_gift' => "$IP/extensions/SocialProfile/SystemGifts/sql/user_system_gift.sql",
-				'system_gift' => "$IP/extensions/SocialProfile/SystemGifts/sql/system_gift.sql",
-				'user_relationship' => "$IP/extensions/SocialProfile/UserRelationship/sql/user_relationship.sql",
-				'user_relationship_request' => "$IP/extensions/SocialProfile/UserRelationship/sql/user_relationship_request.sql",
-				'user_gift' => "$IP/extensions/SocialProfile/UserGifts/sql/user_gift.sql",
-				'gift' => "$IP/extensions/SocialProfile/UserGifts/sql/gift.sql",
-				'user_board' => "$IP/extensions/SocialProfile/UserBoard/sql/user_board.sql"
-			],
-			'permissions' => [
-				'sysop' => [
-					'permissions' => [
-						'awardsmanage',
-						'giftadmin',
-						'avatarremove',
-						'editothersprofiles'
-					],
-				],
-			],
-		],
-		'section' => 'other',
-	],
 	'softredirector' => [
 		'name' => 'SoftRedirector',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:SoftRedirector',
