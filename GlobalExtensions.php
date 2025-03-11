@@ -39,7 +39,6 @@ wfLoadExtensions( [
 	//'RemovePII',
 	'StopForumSpam',
 	'Interwiki',
-	'RedisCache',
 	'Sentinel',
 	//'SEOTweaks',
 	'UserProfileV2'
