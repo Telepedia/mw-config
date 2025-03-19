@@ -248,9 +248,9 @@ $wgConf->settings += [
 	'wgCreateWikiShowBiographicalOption' => [
 		'default' => true,
 	],
-	'wgCreateWikiSQLfiles' => [
+	'wgCreateWikiSQLFiles' => [
 		'default' => [
-			"/var/www/html/mediawiki/maintenance/tables-generated.sql",
+			"$IP/maintenance/tables-generated.sql",
 			"$IP/extensions/AbuseFilter/db_patches/mysql/tables-generated.sql",
 			"$IP/extensions/CheckUser/schema/mysql/tables-generated.sql",
 			"$IP/extensions/Echo/sql/mysql/tables-generated.sql",
