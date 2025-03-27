@@ -1261,7 +1261,7 @@ $wgManageWikiSettings = [
 			],
 			'visibility' => [
 				'permissions' => [
-					'staff',
+					'managewiki-restricted',
 				],
 			],
 		],
