@@ -1195,6 +1195,26 @@ $wgManageWikiSettings = [
 		'help' => 'A version of the logo without wordmark and tagline.',
 		'requires' => [],
 	],
+	'wgTimelessLogo' => [
+		'name' => 'Timeless Logo',
+		'from' => 'timeless',
+		'global' => true,
+		'type' => 'text',
+		'overridedefault' => null,
+		'section' => 'styling',
+		'help' => 'Set to the filename, excluding the File namespace, of a logo to use for the Timeless skin.',
+		'requires' => [],
+	],
+	'wgTimelessWordmark' => [
+		'name' => 'Timeless Wordmark',
+		'from' => 'timeless',
+		'global' => true,
+		'type' => 'text',
+		'overridedefault' => null,
+		'section' => 'styling',
+		'help' => 'Set to the filename, excluding the File namespace, of a wordmark to use for the Timeless skin.',
+		'requires' => [],
+	],
 	'wgMaxTocLevel' => [
 		'name' => 'Max Toc Level',
 		'from' => 'mediawiki',
@@ -1252,6 +1272,11 @@ $wgManageWikiSettings = [
 		'requires' => [
 			'permissions' => [
 				'managewiki-restricted',
+			],
+			'visibility' => [
+				'permissions' => [
+					'staff',
+				],
 			],
 		],
 	],
