@@ -1259,6 +1259,11 @@ $wgManageWikiSettings = [
 			'permissions' => [
 				'managewiki-restricted',
 			],
+			'visibility' => [
+				'permissions' => [
+					'staff',
+				],
+			],
 		],
 	],
 	'wgGAPropertyId' => [
