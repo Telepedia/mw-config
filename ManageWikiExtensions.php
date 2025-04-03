@@ -1325,6 +1325,13 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'parserhooks',
 	],
+	'randomselection' => [
+		'name' => 'RandomSelection',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RandomSelection',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'parserhooks',
+	],
 
 
 	/// Skins
