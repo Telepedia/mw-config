@@ -53,6 +53,7 @@ switch ( $wi->dbname ) {
 
     case 'testingoawiki':
 		$wgShowExceptionDetails = true;
+		wfLoadExtension( 'Cloudflare' );
 		break;
 
 	case 'landmanwiki':

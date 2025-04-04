@@ -1314,7 +1314,7 @@ $wgManageWikiExtensions = [
 				'managewiki-restricted',
 			],
 		],
-		'section' => 'specialpages',
+		'section' => 'other',
 	],
 	'labeledsectiontransclusion' => [
 		'name' => 'LabeledSectionTransclusion',
