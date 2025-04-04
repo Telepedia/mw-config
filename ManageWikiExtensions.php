@@ -1327,6 +1327,7 @@ $wgManageWikiExtensions = [
 	],
 	'randomselection' => [
 		'name' => 'RandomSelection',
+		'var' => 'wmgUseRandomSelection',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RandomSelection',
 		'conflicts' => false,
 		'requires' => [],
