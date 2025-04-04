@@ -224,7 +224,7 @@ if ( $wmgLogToDisk ) {
 		'CentralAuth' => "$wmgLogDir/debuglogs/CentralAuth.log",
 		'Cloudflare' => [
 			'destination' => "$wmgLogDir/debuglogs/cloudflare.log",
-			'level' => LogLevel::ERROR,
+			'level' => LogLevel::DEBUG,
 		],
 		'CreateWiki' => "$wmgLogDir/debuglogs/CreateWiki.log",
 		'Echo' => "$wmgLogDir/debuglogs/Echo.log",

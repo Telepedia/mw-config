@@ -995,6 +995,7 @@ $wgConf->settings += [
 	// Logging & Logstash
 	'wmgLogToDisk' => [
 		'default' => false,
+		'testingoawiki' => true
 	],
 	'wmgMonologChannels' => [
 		'default' => [
@@ -1026,7 +1027,7 @@ $wgConf->settings += [
 			'ContentHandler' => false,
 			'CookieWarning' => false,
 			'cookie' => false,
-			'Cloudflare' => 'debug',
+			'Cloudflare' => 'info',
 			'CreateWiki' => 'debug',
 			'rdbms' => 'warning',
 			'DeferredUpdates' => 'error',

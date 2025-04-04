@@ -54,6 +54,7 @@ switch ( $wi->dbname ) {
     case 'testingoawiki':
 		$wgShowExceptionDetails = true;
 		wfLoadExtension( 'Cloudflare' );
+		$wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
 		break;
 
 	case 'landmanwiki':
