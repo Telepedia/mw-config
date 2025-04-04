@@ -4,6 +4,7 @@ wfLoadExtensions( [
 	'AWS',
 	'AntiSpoof',
 	'CreateWiki',
+	'Cloudflare',
 	'ManageWiki',
 	'GlobalBlocking',
 	'GlobalPreferences',
