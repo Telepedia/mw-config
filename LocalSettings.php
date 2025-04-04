@@ -670,9 +670,6 @@ $wgConf->settings += [
 	'wgServer' => [
 		'default' => 'https://telepedia.net',
 	],
-	'wgInternalServer' => [
-		'default' => 'http://telepedia.net',
-	],
 	'wgShowHostnames' => [
 		'default' => true,
 	],
