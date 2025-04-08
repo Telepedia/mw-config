@@ -16,7 +16,6 @@ wfLoadExtensions( [
 	'GTag',
 	'Cite',
 	'TelepediaAds',
-	'CentralAuth',
 	'PortableInfobox',
 	'ProtectSite',
 	//'ImportDump',
