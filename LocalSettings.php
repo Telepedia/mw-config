@@ -79,10 +79,10 @@ $wgConf->settings += [
 	// CentralAuth
 	'wgCentralAuthAutoCreateWikis' => [
 		'default' => [
-			'loginwiki',
+			'metawiki',
 		],
 		'betaheze' => [
-			'loginwiki',
+			'metawiki',
 		],
 	],
 	'wgCentralAuthAutoNew' => [
@@ -113,8 +113,8 @@ $wgConf->settings += [
 		'metawiki' => true,
 	],
 	'wgCentralAuthLoginWiki' => [
-		'default' => 'loginwiki',
-		'betaheze' => 'loginwiki',
+		'default' => 'metawiki',
+		'betaheze' => 'metawiki',
 	],
 	'wgUseSameSiteLegacyCookies' => [
 		'default' => true,
