@@ -1251,8 +1251,15 @@ $wgCargoDBname = $wgDBname . 'cargo';
 
 // During the migration away from CentralAuth, only load CentralAuth on a wiki if this flag is set to true
 // As above, default to true, overwritten in LocalWiki.php so this must come before LocalWiki.php
+// All of the below depend on CentralAuth to function, therefore, we cannot load them without CA.
 if ( $tpUseCentralAuth ) {
-	wfLoadExtension( 'CentralAuth' );
+	wfLoadExtensions( [
+		'CentralAuth',
+		'AntiSpoof',
+		'GlobalUserPage',
+		'Sentinel',
+		'UserProfileV2'
+	] );
 }
 
 // Define last - Extension message files for loading extensions

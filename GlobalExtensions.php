@@ -2,7 +2,6 @@
 
 wfLoadExtensions( [
 	'AWS',
-	'AntiSpoof',
 	'CreateWiki',
 	'Cloudflare',
 	'ManageWiki',
@@ -10,7 +9,6 @@ wfLoadExtensions( [
 	'GlobalPreferences',
 	'ConfirmEdit',
 	'ConfirmEdit/Turnstile',
-	'GlobalUserPage',
 	'WikiSEO',
 	'NativeSvgHandler',
 	'LinkSuggest',
@@ -39,7 +37,5 @@ wfLoadExtensions( [
 	//'RemovePII',
 	'StopForumSpam',
 	'Interwiki',
-	'Sentinel',
 	//'SEOTweaks',
-	'UserProfileV2'
 ] );
