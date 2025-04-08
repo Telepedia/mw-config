@@ -60,4 +60,9 @@ switch ( $wi->dbname ) {
 	case 'landmanwiki':
 		$wgAdConfig['enabled'] = false;
 		break;	
+
+	case 'loginwiki':
+		$wgAdConfig['enabled'] = false;
+		$tpUseCentralAuth = false;
+		break;	
 }

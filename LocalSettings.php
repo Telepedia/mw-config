@@ -1238,6 +1238,9 @@ if ( $wi->missing ) {
 	require_once '/var/www/html/mediawiki/config/MissingWiki.php';
 }
 
+$tpUseCentralAuth = true;
+
+
 // Define last to avoid all dependencies
 require_once '/var/www/html/mediawiki/config/GlobalSettings.php';
 require_once '/var/www/html/mediawiki/config/LocalWiki.php';
@@ -1245,6 +1248,12 @@ require_once '/var/www/html/mediawiki/config/GlobalCache.php';
 
 // Configure last to ensure that database name has been set properly
 $wgCargoDBname = $wgDBname . 'cargo';
+
+// During the migration away from CentralAuth, only load CentralAuth on a wiki if this flag is set to true
+// As above, default to true, overwritten in LocalWiki.php so this must come before LocalWiki.php
+if ( $tpUseCentralAuth ) {
+	wfLoadExtension( 'CentralAuth' );
+}
 
 // Define last - Extension message files for loading extensions
 if (
