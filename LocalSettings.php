@@ -1216,6 +1216,9 @@ $wi::$disabledExtensions = [
 
 $globals = TelepediaFunctions::getConfigGlobals();
 
+// This is really bad, but $wgConf won't allow us for some reason to modify $wgGroupPermissions directly,
+// or its a ManageWiki bug, either way, its annoying. So just pass the global to a separate function and modify it
+// there before returning it, to always ensure we have the right groups.
 if ( $wi->dbname == 'loginwiki' ) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
