@@ -1212,10 +1212,6 @@ $wi::$disabledExtensions = [
 	'simpleblogpage'
 ];
 
-if ( !$tpUseCentralAuth ) {
-	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
-}
-
 $globals = TelepediaFunctions::getConfigGlobals();
 
 // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
@@ -1267,7 +1263,7 @@ if ( !$tpUseCentralAuth ) {
 	// when a wiki is taken off from CentralAuth, load the global permissions, and share their user tables
 	// with Meta Wiki. Also set their cookie domain so all non-CentralAuth wiki's can log in with one another
 	// see PLAT-40
-	// require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
+	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
 	// $wgSharedDB = 'metawiki';
 	// $wgSharedTables[] = 'actor';
 	$wgSessionName = 'telepedia_session';
