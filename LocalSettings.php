@@ -1265,8 +1265,8 @@ if ( !$tpUseCentralAuth ) {
 	// see PLAT-40
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
 
-	$wgSharedDB = 'metawiki';
-	$wgSharedTables[] = 'actor';
+	// $wgSharedDB = 'metawiki';
+	// $wgSharedTables[] = 'actor';
 	$wgSessionName = 'telepedia_session';
 }
 
