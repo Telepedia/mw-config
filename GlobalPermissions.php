@@ -20,7 +20,7 @@ $wgGroupPermissions[] = [
         'checkuser-log',
         'commentadmin',
         'delete',
-        'read'
+        'read',
         'deletedhistory',
         'deletedtext',
         'editprotected',
