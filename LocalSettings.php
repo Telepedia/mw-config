@@ -1190,9 +1190,6 @@ $wgConf->settings += [
 			'virtual-checkuser-global' => [
 				'db' => 'centralauth',
 			],
-			'virtual-botpasswords' => [
-				'db' => 'centralauth',
-			],
 			'virtual-globalblocking' => [
 				'db' => 'centralauth',
 			],
