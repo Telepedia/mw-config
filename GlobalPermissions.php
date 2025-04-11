@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 $wgGroupPermissions['saber'] = [
     'abusefilter-hidden-log' => true,
     'abusefilter-hide-log' => true,
