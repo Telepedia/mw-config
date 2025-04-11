@@ -1267,6 +1267,50 @@ if ( !$tpUseCentralAuth ) {
 	// $wgSharedDB = 'metawiki';
 	// $wgSharedTables[] = 'actor';
 	$wgSessionName = 'telepedia_session';
+
+	$wgGroupPermissions['saber'] = [
+		'abusefilter-hidden-log' => true,
+		'abusefilter-hide-log' => true,
+		'abusefilter-log' => true,
+		'abusefilter-log-detail' => true,
+		'abusefilter-log-private' => true,
+		'abusefilter-modify' => true,
+		'abusefilter-modify-global' => true,
+		'abusefilter-privatedetails' => true,
+		'abusefilter-revert' => true,
+		'abusefilter-view' => true,
+		'abusefilter-view-private' => true,
+		'bigdelete' => true,
+		'block' => true,
+		'blockemail' => true,
+		'checkuser' => true,
+		'checkuser-log' => true,
+		'commentadmin' => true,
+		'delete' => true,
+		'read' => true,
+		'deletedhistory' => true,
+		'deletedtext' => true,
+		'editprotected' => true,
+		'globalblock' => true,
+		'globalblock-exempt' => true,
+		'globalblock-whitelist' => true,
+		'ipblock-exempt' => true,
+		'ipinfo' => true,
+		'ipinfo-view-full' => true,
+		'noratelimit' => true,
+		'nuke' => true,
+		'profilemanager' => true,
+		'rollback' => true,
+		'sboverride' => true,
+		'sentinel' => true,
+		'sentinel-view-logs' => true,
+		'sfsblock-bypass' => true,
+		'skipcaptcha' => true,
+		'spamblacklistlog' => true,
+		'suppressionlog' => true,
+		'suppressredirect' => true,
+		'suppressrevision' => true
+	];
 }
 
 // Define last - Extension message files for loading extensions
