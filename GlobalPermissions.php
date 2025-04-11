@@ -1,6 +1,7 @@
 <?php
+global $wgConf; 
 
-$wgGroupPermissions['saber'] = [
+$wgConf->settings['wgGroupPermissions']['default']['saber'] = [
     'abusefilter-hidden-log' => true,
     'abusefilter-hide-log' => true,
     'abusefilter-log' => true,
@@ -50,7 +51,9 @@ $wgGroupPermissions['saber'] = [
 // of rights like from user group since wikis may customise what those
 // groups can do.
 // @ April 2025 edition
-$wgGroupPermissions['staff'] = array_merge($wgGroupPermissions['saber'], [
+$wgConf->settings['wgGroupPermissions']['default']['staff'] = array_merge(
+    $wgConf->settings['wgGroupPermissions']['default']['saber'] ?? [],
+    [
     'addvideo' => true,
     'analytics' => true,
     'apihighlimits' => true,
@@ -173,9 +176,10 @@ $wgGroupPermissions['staff'] = array_merge($wgGroupPermissions['saber'], [
     'viewmywatchlist' => true,
     'viewsuppressed' => true,
     'writeapi' => true
-]);
+    ]
+);
 
-$wgGroupPermissions['global-bot'] = [
+$wgConf->settings['wgGroupPermissions']['default']['global-bot'] = [
     'bot' => true,
     'editsemiprotected' => true,
     'skipcaptcha' => true

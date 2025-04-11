@@ -1198,6 +1198,8 @@ $wgConf->settings += [
 	]
 ];
 
+$tpUseCentralAuth = true;
+
 // ManageWiki settings
 require_once __DIR__ . '/ManageWikiExtensions.php';
 
@@ -1209,6 +1211,10 @@ $wi::$disabledExtensions = [
 	'socialprofile',
 	'simpleblogpage'
 ];
+
+if ( !$tpUseCentralAuth ) {
+	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
+}
 
 $globals = TelepediaFunctions::getConfigGlobals();
 
@@ -1234,8 +1240,6 @@ if ( $wgRequestTimeLimit ) {
 if ( $wi->missing ) {
 	require_once '/var/www/html/mediawiki/config/MissingWiki.php';
 }
-
-$tpUseCentralAuth = true;
 
 
 // Define last to avoid all dependencies
@@ -1263,8 +1267,7 @@ if ( !$tpUseCentralAuth ) {
 	// when a wiki is taken off from CentralAuth, load the global permissions, and share their user tables
 	// with Meta Wiki. Also set their cookie domain so all non-CentralAuth wiki's can log in with one another
 	// see PLAT-40
-	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
-
+	// require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
 	// $wgSharedDB = 'metawiki';
 	// $wgSharedTables[] = 'actor';
 	$wgSessionName = 'telepedia_session';
