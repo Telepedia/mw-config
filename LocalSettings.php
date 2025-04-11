@@ -1216,8 +1216,8 @@ $wi::$disabledExtensions = [
 
 $globals = TelepediaFunctions::getConfigGlobals();
 
-if ( !$tpUseCentralAuth ) {
-	require_once __DIR__ . '/var/www/html/mediawiki/config/GlobalPermissions.php';
+if ( $wi->dbname == 'loginwiki' ) {
+	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 }
 
