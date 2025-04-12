@@ -1198,7 +1198,8 @@ $wgConf->settings += [
 	],
 	'tpUseCentralAuth' => [
 		'default' => true,
-		'loginwiki' => false
+		'loginwiki' => false,
+		'spicewarswiki' => false,
 	]	
 ];
 
@@ -1221,11 +1222,11 @@ $globals = TelepediaFunctions::getConfigGlobals();
 // there before returning it, to always ensure we have the right groups.
 $reconciledWikis = [ 'spicewarswiki' ];
 
-if ( in_array( $wi->dbname,$reconciledWikis ) ) {
-	$tpUseCentralAuth = false;
-}
+// if ( in_array( $wi->dbname, $reconciledWikis ) ) {
+// 	$tpUseCentralAuth = false;
+// }
 
-if ( !$tpUseCentralAuth ) {
+if ( !in_array( $wi->dbname, $reconciledWikis ) ) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 }
@@ -1275,7 +1276,7 @@ if ( $tpUseCentralAuth ) {
 	] );
 }
 
-if ( !$tpUseCentralAuth ) {
+if ( !in_array( $wi->dbname, $reconciledWikis ) ) {
 	$wgSharedDB = 'metawiki';
 	$wgSharedTables[] = 'actor';
 	$wgSessionName = 'telepedia_session';
