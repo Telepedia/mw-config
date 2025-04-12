@@ -1222,6 +1222,10 @@ $globals = TelepediaFunctions::getConfigGlobals();
 $reconciledWikis = [ 'spicewarswiki' ];
 
 if ( in_array( $wi->dbname,$reconciledWikis ) ) {
+	$tpUseCentralAuth = false;
+}
+
+if ( !$tpUseCentralAuth ) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 }
