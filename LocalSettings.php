@@ -1270,8 +1270,8 @@ if ( $tpUseCentralAuth ) {
 }
 
 if ( !$tpUseCentralAuth ) {
-	// $wgSharedDB = 'metawiki';
-	// $wgSharedTables[] = 'actor';
+	$wgSharedDB = 'metawiki';
+	$wgSharedTables[] = 'actor';
 	$wgSessionName = 'telepedia_session';
 }
 
