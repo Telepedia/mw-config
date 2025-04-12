@@ -1226,7 +1226,7 @@ $globals = TelepediaFunctions::getConfigGlobals();
 // // 	$tpUseCentralAuth = false;
 // // }
 
-if ( !$wi->dbname !== 'spicewarswiki' || !$wi->dbname !== 'loginwiki' ) {
+if ( !$wi->dbname == 'spicewarswiki' || !$wi->dbname == 'loginwiki' ) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
