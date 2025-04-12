@@ -1231,6 +1231,8 @@ if ( !$tpUseCentralAuth ) {
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
 	$globals['wgSharedDB'] = 'metawiki';
+	$globals['wgSharedTables'][] = 'user';
+	$globals['wgSharedTables'][] = 'user_properties';
 	$globals['wgSharedTables'][] = 'actor';
 	$globals['wgSessionName'] = 'telepedia_session';
 }
