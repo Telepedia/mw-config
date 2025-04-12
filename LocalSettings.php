@@ -1229,6 +1229,10 @@ $reconciledWikis = [ 'spicewarswiki' ];
 if ( !in_array( $wi->dbname, $reconciledWikis ) ) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
+
+	$globals['wgSharedDB'] = 'metawiki';
+	$globals['wgSharedTables'][] = 'actor';
+	$globals['wgSessionName'] = 'telepedia_session';
 }
 
 // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
@@ -1274,12 +1278,6 @@ if ( $tpUseCentralAuth ) {
 		'Sentinel',
 		'UserProfileV2'
 	] );
-}
-
-if ( !in_array( $wi->dbname, $reconciledWikis ) ) {
-	$wgSharedDB = 'metawiki';
-	$wgSharedTables[] = 'actor';
-	$wgSessionName = 'telepedia_session';
 }
 
 // Define last - Extension message files for loading extensions
