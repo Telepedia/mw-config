@@ -1235,6 +1235,7 @@ if ( !$tpUseCentralAuth ) {
 	$globals['wgSharedTables'][] = 'user_properties';
 	$globals['wgSharedTables'][] = 'actor';
 	$globals['wgSessionName'] = 'telepedia_session';
+	$globals['wgCookieDomain'] = 'telepedia.net';
 }
 
 // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
