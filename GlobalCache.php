@@ -10,8 +10,13 @@ $wgObjectCaches['redis'] = [
 $wgJobRunRate = 0;
 $wgInvalidateCacheOnLocalSettingsChange = false;
 
-$wgMainCacheType = CACHE_MEMCACHED;
-$wgSessionCacheType = CACHE_MEMCACHED;
+if ( $wi->dbname == 'spicewarswiki' || $wi->dbname == 'loginwiki' ) {
+	$wgMainCacheType = 'redis';
+	$wgSessionCacheType = 'redis';
+} else {
+	$wgMainCacheType = CACHE_MEMCACHED;
+	$wgSessionCacheType = CACHE_MEMCACHED;
+}
 
 $wgMemCachedServers = [ '10.0.0.8:11000' ];
 
