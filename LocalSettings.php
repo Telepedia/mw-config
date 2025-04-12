@@ -1226,7 +1226,7 @@ $globals = TelepediaFunctions::getConfigGlobals();
 // // 	$tpUseCentralAuth = false;
 // // }
 
-if ( !tpUseCentralAuth ) {
+if ( !$tpUseCentralAuth ) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
