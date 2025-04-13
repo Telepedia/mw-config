@@ -7,12 +7,21 @@ $wgObjectCaches['redis'] = [
 	'persistent'           => true,
 ];
 
+/**
+ * Below is a object cache that is defined for the purpose of sharing sessions across the platform. 
+ * this will create sessions in the cache (at present, Redis) with the keys session:MWSession:<SESSIONID>.
+ * This allows MediaWiki to read them on every wiki. Otherwise this doesn't quite work and if someone logs into Wiki A
+ * and then visits Wiki B, MediaWiki will delete the session and log the user out for some reason. 
+ * 
+ * DO NOT use this specific object cache for anything other than sessions; this is a very hacky method
+ * of doing things and potentially isn't what is supposed to happen?
+ */
 $wgObjectCaches['redis-session'] = [
 	'class'                => 'RedisBagOStuff',
 	'servers'              => [ '10.0.0.7:6379' ],
 	'connectTimeout'       => 2,
 	'persistent'           => true,
-	'keyspace' 			   => 'session-'
+	'keyspace' 			   => 'globalsession'
 ];
 
 $wgJobRunRate = 0;
