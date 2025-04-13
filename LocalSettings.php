@@ -1233,9 +1233,11 @@ if ( $wi->dbname == 'spicewarswiki' || $wi->dbname == 'loginwiki' ) {
 	$globals['wgSharedDB'] = 'metawiki';
 	$globals['wgSharedTables'][] = 'user';
 	$globals['wgSharedTables'][] = 'user_properties';
+	$globals['wgSharedTables'][] = 'user_autocreate_serial';
 	$globals['wgSharedTables'][] = 'actor';
 	$globals['wgSessionName'] = 'telepedia_session';
 	$globals['wgCookieDomain'] = '.telepedia.net';
+	$globals['wgCookieSameSite'] = null;
 	$globals['wgCookiePath'] = '/';
 }
 
