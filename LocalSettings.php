@@ -1239,7 +1239,6 @@ if ( $wi->dbname == 'spicewarswiki' || $wi->dbname == 'loginwiki' ) {
 	$globals['wgCookieDomain'] = '.telepedia.net';
 	$globals['wgCookieSameSite'] = null;
 	$globals['wgCookiePath'] = '/';
-	$globals['wgMainStash'] = 'redis';
 }
 
 // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
