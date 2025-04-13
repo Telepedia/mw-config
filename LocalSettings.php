@@ -1236,6 +1236,7 @@ if ( $wi->dbname == 'spicewarswiki' || $wi->dbname == 'loginwiki' ) {
 	$globals['wgSharedTables'][] = 'actor';
 	$globals['wgSessionName'] = 'telepedia_session';
 	$globals['wgCookieDomain'] = '.telepedia.net';
+	$globals['wgCookiePath'] = '/';
 }
 
 // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
