@@ -7,12 +7,20 @@ $wgObjectCaches['redis'] = [
 	'persistent'           => true,
 ];
 
+$wgObjectCaches['redis-session'] = [
+	'class'                => 'RedisBagOStuff',
+	'servers'              => [ '10.0.0.7:6379' ],
+	'connectTimeout'       => 2,
+	'persistent'           => true,
+	'keyspace' 			   => 'session-'
+];
+
 $wgJobRunRate = 0;
 $wgInvalidateCacheOnLocalSettingsChange = false;
 
 if ( $wi->dbname == 'spicewarswiki' || $wi->dbname == 'loginwiki' ) {
 	$wgMainCacheType = 'redis';
-	$wgSessionCacheType = 'redis';
+	$wgSessionCacheType = 'redis-session';
 } else {
 	$wgMainCacheType = CACHE_MEMCACHED;
 	$wgSessionCacheType = CACHE_MEMCACHED;
