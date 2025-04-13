@@ -193,60 +193,37 @@ $wgMFStripResponsiveImages = false;
 // Don't need a global here
 unset( $vectorVersion );
 
-/** Shared File Repo for Telepedia Commons */
-$wgForeignFileRepos[] = [
-	'class' => ForeignDBViaLBRepo::class,
-	'name' => 'shared-commonswiki',
-	'backend' => 'AmazonS3',
-	'url' => 'https://static.telepedia.net/commonswiki',
-	'hashLevels' => 2,
-	'thumbScriptUrl' => false,
-	'transformVia404' => true,
-	'hasSharedCache' => false,
-	'descBaseUrl' => 'https://commons.telepedia.net/wiki/File:',
-	'scriptDirUrl' => 'https://commons.telepedia.net/',
-	'fetchDescription' => true,
-	'descriptionCacheExpiry' => 86400 * 7,
-	'wiki' => 'commonswiki',
-	'initialCapital' => true,
-	'zones' => [
-		'public' => [
-			'container' => 'local-public',
+if ( $wi->dbname !== 'commonswiki' ) {
+	/** Shared File Repo for Telepedia Commons */
+	$wgForeignFileRepos[] = [
+		'class' => ForeignDBViaLBRepo::class,
+		'name' => 'shared-commonswiki',
+		'backend' => 'AmazonS3',
+		'url' => 'https://static.telepedia.net/commonswiki',
+		'hashLevels' => 2,
+		'thumbScriptUrl' => false,
+		'transformVia404' => true,
+		'hasSharedCache' => false,
+		'descBaseUrl' => 'https://commons.telepedia.net/wiki/File:',
+		'scriptDirUrl' => 'https://commons.telepedia.net/',
+		'fetchDescription' => true,
+		'descriptionCacheExpiry' => 86400 * 7,
+		'wiki' => 'commonswiki',
+		'initialCapital' => true,
+		'zones' => [
+			'public' => [
+				'container' => 'local-public',
+			],
+			'thumb' => [
+				'container' => 'local-thumb',
+			],
+			'temp' => [
+				'container' => 'local-temp',
+			],
+			'deleted' => [
+				'container' => 'local-deleted',
+			],
 		],
-		'thumb' => [
-			'container' => 'local-thumb',
-		],
-		'temp' => [
-			'container' => 'local-temp',
-		],
-		'deleted' => [
-			'container' => 'local-deleted',
-		],
-	],
-	'abbrvThreshold' => 160
-];
-
-/**
- * Cookies/CentralAuth you are a pain
- */
-$wmgAllowedDomains = [
-	'telepedia.net', 
-	'critix.gg'
-];
-
-foreach ( $wmgAllowedDomains as $domain ) {
-	if ( preg_match( '/' . preg_quote( $domain ) . '$/', $wi->server ) ) {
-		$wgCentralAuthCookieDomain = '.' . $domain;
-		$wgMFStopRedirectCookieHost = '.' . $domain;
-		break;
-	} else {
-		$wgCentralAuthCookieDomain = '';
-		if ( $wi->isExtensionActive( 'MobileFrontend' ) ) {
-			$host = parse_url( $wi->server, PHP_URL_HOST );
-			$wgMFStopRedirectCookieHost = $host !== false ? $host : null;
-
-			// Don't need a global here
-			unset( $host );
-		}
-	}
+		'abbrvThreshold' => 160
+	];
 }
