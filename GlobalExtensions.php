@@ -5,8 +5,6 @@ wfLoadExtensions( [
 	'CreateWiki',
 	'Cloudflare',
 	'ManageWiki',
-	'GlobalBlocking',
-	'GlobalPreferences',
 	'ConfirmEdit',
 	'ConfirmEdit/Turnstile',
 	'WikiSEO',

@@ -1285,7 +1285,9 @@ if ( $tpUseCentralAuth ) {
 		'Sentinel',
 		'UserProfileV2',
 		'OATHAuth',
-		'OAuth'
+		'OAuth',
+		'GlobalBlocking',
+		'GlobalPreferences'
 	] );
 }
 
