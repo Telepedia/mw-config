@@ -1283,7 +1283,8 @@ if ( $tpUseCentralAuth ) {
 		'AntiSpoof',
 		'GlobalUserPage',
 		'Sentinel',
-		'UserProfileV2'
+		'UserProfileV2',
+		'OATHAuth'
 	] );
 }
 
