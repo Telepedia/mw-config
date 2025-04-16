@@ -1202,7 +1202,8 @@ $wgConf->settings += [
 		'spicewarswiki' => false,
 		'culpritswiki' => false,
 		'tbsatdhwiki' => false,
-		'landmanwiki' => false
+		'landmanwiki' => false,
+		'bitterrootwiki' => false
 	]	
 ];
 
@@ -1234,7 +1235,8 @@ if (
 	$wi->dbname == 'loginwiki' ||
 	$wi->dbname == 'culpritswiki' ||
 	$wi->dbname == 'tbsatdhwiki' ||
-	$wi->dbname == 'landmanwiki'
+	$wi->dbname == 'landmanwiki' ||
+	$wi->dbname == 'bitterrootwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
