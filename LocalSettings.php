@@ -1287,7 +1287,8 @@ if ( $tpUseCentralAuth ) {
 		'OATHAuth',
 		'OAuth',
 		'GlobalBlocking',
-		'GlobalPreferences'
+		'GlobalPreferences',
+		'Echo'
 	] );
 }
 
