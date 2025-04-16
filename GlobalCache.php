@@ -27,7 +27,12 @@ $wgObjectCaches['redis-session'] = [
 $wgJobRunRate = 0;
 $wgInvalidateCacheOnLocalSettingsChange = false;
 
-if ( $wi->dbname == 'spicewarswiki' || $wi->dbname == 'loginwiki' || $wi->dbname == 'culpritswiki' ) {
+if ( 
+	$wi->dbname == 'spicewarswiki' || 
+	$wi->dbname == 'loginwiki' || 
+	$wi->dbname == 'culpritswiki' ||
+	$wi->dbname == 'tbsatdhwiki'
+	) {
 	$wgMainCacheType = 'redis';
 	$wgSessionCacheType = 'redis-session';
 } else {

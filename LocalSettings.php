@@ -1201,6 +1201,7 @@ $wgConf->settings += [
 		'loginwiki' => false,
 		'spicewarswiki' => false,
 		'culpritswiki' => false,
+		'tbsatdhwiki' => false
 	]	
 ];
 
@@ -1227,7 +1228,12 @@ $globals = TelepediaFunctions::getConfigGlobals();
 // // 	$tpUseCentralAuth = false;
 // // }
 
-if ( $wi->dbname == 'spicewarswiki' || $wi->dbname == 'loginwiki' || $wi->dbname == 'culpritswiki' ) {
+if ( 
+	$wi->dbname == 'spicewarswiki' || 
+	$wi->dbname == 'loginwiki' ||
+	$wi->dbname == 'culpritswiki' ||
+	$wi->dbname == 'tbsatdhwiki'
+	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
