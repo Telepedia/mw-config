@@ -22,7 +22,6 @@ wfLoadExtensions( [
 	'Echo',
 	'Purge',
 	'CheckUser',
-	'OAuth',
 	'Nuke',
 	'MultimediaViewer',
 	'TemplateData',

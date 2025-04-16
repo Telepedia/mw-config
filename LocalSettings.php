@@ -1284,7 +1284,8 @@ if ( $tpUseCentralAuth ) {
 		'GlobalUserPage',
 		'Sentinel',
 		'UserProfileV2',
-		'OATHAuth'
+		'OATHAuth',
+		'OAuth'
 	] );
 }
 
