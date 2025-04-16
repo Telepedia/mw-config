@@ -17,7 +17,7 @@ wfLoadExtensions( [
 	'PortableInfobox',
 	'ProtectSite',
 	//'ImportDump',
-	'Echo',
+	// 'Echo',
 	'Purge',
 	'CheckUser',
 	'Nuke',
