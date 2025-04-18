@@ -220,6 +220,14 @@ $wgConf->settings += [
 	'wgCreateWikiGlobalWiki' => [
 		'default' => 'metawiki',
 	],
+	'wgCreateWikiDisallowedSubdomains' => [
+		'default' => [
+			'auth',
+			'static',
+			'localhost',
+			'telepedia'
+		]
+	],
 	'wgCreateWikiEnableManageInactiveWikis' => [
 		'default' => true
 	],
