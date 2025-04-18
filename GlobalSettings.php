@@ -178,17 +178,8 @@ $wgFileBackends[] = [
     ]
 ];
 
-$wgUserProfileV2Backend = 'telepedia-userprofile';
-
-$wgUserProfileV2UseGlobalAvatars = true;
-$wgUserProfileV2CacheType = 'redis';
-$wgUserProfileGlobalUploadBaseUrl = 'https://static.telepedia.net';
-
 /** Vector  */
 $vectorVersion = $wgDefaultSkin === 'vector' ? '2' : '1';
-
-/** MobileFrontend */
-$wgMFStripResponsiveImages = false;
 
 // Don't need a global here
 unset( $vectorVersion );

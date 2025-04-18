@@ -725,8 +725,12 @@ $wgConf->settings += [
 	'wgEnableMetaDescriptionFunctions' => [
 		'default' => true,
 	],
-
-	// Echo
+	'wgThanksConfirmationRequired' => [
+		'default' => false,
+	],
+	'wgWikiSeoEnableSocialImages' => [
+		'default' => false
+	],
 	'wgEchoSharedTrackingDB' => [
 		'default' => 'metawiki',
 	],
@@ -736,8 +740,6 @@ $wgConf->settings += [
 	'wgEchoUseJobQueue' => [
 		'default' => true,
 	],
-
-	// DiscordNotifications
 	'wgDiscordAvatarUrl' => [
 		'default' => '',
 	],
@@ -831,8 +833,6 @@ $wgConf->settings += [
 	'wgDiscordExperimentalFeedLanguageCode' => [
 		'default' => 'en',
 	],
-
-	// Cargo
 	'wgCargoDBuser' => [
 		'default' => 'cargouser',
 	],
@@ -842,9 +842,6 @@ $wgConf->settings += [
 	'wgCargoPageDataColumns' => [
 		'default' => []
 	],
-
-
-	// CheckUser
 	'wgCheckUserCAMultiLock' => [
 		'default' => [
 			'centralDB' => 'metawiki',
@@ -854,13 +851,32 @@ $wgConf->settings += [
 	'wgCheckUserEnableSpecialInvestigate' => [
 		'default' => true
 	],
-
-	// InterWiki
 	'wgInterwikiCentralDB' => [
 		'default' => 'metawiki',
 	],
 	'wgEnableScaryTranscluding' => [
 		'default' => false,
+	],
+	'wgCommentsInRecentChanges' => [
+		'default' => true,
+	],
+	'wgCommentsSortDescending' => [
+		'default' => false,
+	],
+	'wgUserProfileV2UseGlobalAvatars' => [
+		'default' => true
+	],
+	'wgUserProfileV2CacheType' => [
+		'default' => 'redis'
+	],
+	'wgUserProfileGlobalUploadBaseUrl' => [
+		'default' => 'https://static.telepedia.net'
+	],
+	'wgUserProfileV2Backend' => [
+		'default' => 'telepedia-userprofile'
+	],
+	'wgMFStripResponsiveImages' => [
+		'default' => false
 	],
 
 	// Email
@@ -880,70 +896,7 @@ $wgConf->settings += [
 		'default' => true,
 	],
 
-	// Comments
-	'wgCommentsInRecentChanges' => [
-		'default' => true,
-	],
-	'wgCommentsSortDescending' => [
-		'default' => false,
-	],
-
-	// SocialProfile
-	'wgUserBoard' => [
-		'default' => false,
-	],
-	'wgUserProfileThresholds' => [
-		'default' => [
-			'edits' => 0,
-		],
-	],
-	'wgUserProfileDisplay' => [
-		'default' => [
-			'activity' => false,
-			'articles' => true,
-			'avatar' => true,
-			'awards' => true,
-			'board' => false,
-			'custom' => true,
-			'foes' => false,
-			'friends' => false,
-			'games' => false,
-			'gifts' => true,
-			'interests' => true,
-			'personal' => true,
-			'profile' => true,
-			'stats' => true,
-			'userboxes' => true,
-		],
-	],
-	'wgUserStatsPointValues' => [
-		'default' => [
-			'edit' => 50,
-			'vote' => 0,
-			'comment' => 0,
-			'comment_plus' => 0,
-			'comment_ignored' => 0,
-			'opinions_created' => 0,
-			'opinions_pub' => 0,
-			'referral_complete' => 0,
-			'friend' => 0,
-			'foe' => 0,
-			'gift_rec' => 0,
-			'gift_sent' => 0,
-			'points_winner_weekly' => 0,
-			'points_winner_monthly' => 0,
-			'user_image' => 1000,
-			'poll_vote' => 0,
-			'quiz_points' => 0,
-			'quiz_created' => 0,
-		],
-	],
-	'wgFriendingEnabled' => [
-		'default' => false,
-	],
-	'wgUserPageChoice' => [
-		'default' => true,
-	],
+	// Other misc
 	'wgGTagAnalyticsId' => [
 		'citizensleeperwiki' => 'G-8GCSBGYZE0',
 		'1899wiki' => 'G-FTQ0KG9MZW',
@@ -967,15 +920,6 @@ $wgConf->settings += [
 		'ikissedaboywiki' => 'G-MSFPFLHC9N',
 		'vanataswiki' => 'G-M7T5C0VVYP'
 	],
-
-	'wgThanksConfirmationRequired' => [
-		'default' => false,
-	],
-
-	'wgWikiSeoEnableSocialImages' => [
-		'default' => false
-	],
-
 	'wgEnableCanonicalServerLink' => [
 		'default' => true
 	],
@@ -1173,17 +1117,7 @@ $wgConf->settings += [
 		'default' => 'metawiki'
 	],
 
-	// Cloudflare
-	'wgMultiPurgeEnabledServices' => [
-		'default' => [
-			'Cloudflare'
-		]
-	],
-	'wgMultiPurgeServiceOrder' => [
-		'default' => [
-			'Cloudflare'
-		]
-	],
+	// Virtual Domains
 	'+wgVirtualDomainsMapping' => [
 		'default' => [
 			'virtual-centralauth' => [
