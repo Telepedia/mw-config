@@ -1144,9 +1144,7 @@ $wgConf->settings += [
 		'spicewarswiki' => false,
 		'culpritswiki' => false,
 		'tbsatdhwiki' => false,
-		'landmanwiki' => false,
-		'bitterrootwiki' => false,
-		'supacellwiki' => false
+		'landmanwiki' => false
 	]	
 ];
 
