@@ -1176,8 +1176,7 @@ if (
 	$wi->dbname == 'loginwiki' ||
 	$wi->dbname == 'culpritswiki' ||
 	$wi->dbname == 'tbsatdhwiki' ||
-	$wi->dbname == 'landmanwiki' ||
-	$wi->dbname == 'supacellwiki'
+	$wi->dbname == 'landmanwiki' 
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
