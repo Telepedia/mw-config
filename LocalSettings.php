@@ -535,6 +535,7 @@ $wgConf->settings += [
 		'default' => true,
 		'witchhatatelierwiki' => false,
 		'latelierdessorcierswiki' => false,
+		'atelierspiczastychkapeluszywiki' => false
 	],
 	'wgMaxImageArea' => [
 		'default' => '1.25e7',
