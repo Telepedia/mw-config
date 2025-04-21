@@ -29,7 +29,6 @@ $wgInvalidateCacheOnLocalSettingsChange = false;
 
 if ( 
 	$wi->dbname == 'spicewarswiki' || 
-	$wi->dbname == 'loginwiki' || 
 	$wi->dbname == 'culpritswiki' ||
 	$wi->dbname == 'tbsatdhwiki' ||
 	$wi->dbname == 'landmanwiki'

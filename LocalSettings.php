@@ -1141,7 +1141,7 @@ $wgConf->settings += [
 	],
 	'tpUseCentralAuth' => [
 		'default' => true,
-		'loginwiki' => false,
+		'loginwiki' => true,
 		'spicewarswiki' => false,
 		'culpritswiki' => false,
 		'tbsatdhwiki' => false,
@@ -1174,7 +1174,6 @@ $globals = TelepediaFunctions::getConfigGlobals();
 
 if ( 
 	$wi->dbname == 'spicewarswiki' || 
-	$wi->dbname == 'loginwiki' ||
 	$wi->dbname == 'culpritswiki' ||
 	$wi->dbname == 'tbsatdhwiki' ||
 	$wi->dbname == 'landmanwiki' 
