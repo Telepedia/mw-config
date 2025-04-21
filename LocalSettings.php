@@ -1141,7 +1141,6 @@ $wgConf->settings += [
 	],
 	'tpUseCentralAuth' => [
 		'default' => true,
-		'loginwiki' => true,
 		'spicewarswiki' => false,
 		'culpritswiki' => false,
 		'tbsatdhwiki' => false,
