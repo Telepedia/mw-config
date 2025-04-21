@@ -99,6 +99,6 @@ switch ( $wi->dbname ) {
 
 	case 'loginwiki':
 		$wgAdConfig['enabled'] = false;
-		$tpUseCentralAuth = false;
+		$tpUseCentralAuth = true;
 		break;	
 }
