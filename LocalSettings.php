@@ -1145,7 +1145,8 @@ $wgConf->settings += [
 		'culpritswiki' => false,
 		'tbsatdhwiki' => false,
 		'landmanwiki' => false,
-		'supacellwiki' => false
+		'supacellwiki' => false,
+		'silowiki' => false
 	]	
 ];
 
@@ -1177,7 +1178,8 @@ if (
 	$wi->dbname == 'culpritswiki' ||
 	$wi->dbname == 'tbsatdhwiki' ||
 	$wi->dbname == 'landmanwiki' ||
-	$wi->dbname == 'supacellwiki'
+	$wi->dbname == 'supacellwiki' ||
+	$wi->dbname == 'silowiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
