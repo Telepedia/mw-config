@@ -1146,7 +1146,9 @@ $wgConf->settings += [
 		'tbsatdhwiki' => false,
 		'landmanwiki' => false,
 		'supacellwiki' => false,
-		'silowiki' => false
+		'silowiki' => false,
+		'citizensleeperwiki' => false,
+		'onlymurdersinthebuildingwiki' => false
 	]	
 ];
 
@@ -1179,7 +1181,9 @@ if (
 	$wi->dbname == 'tbsatdhwiki' ||
 	$wi->dbname == 'landmanwiki' ||
 	$wi->dbname == 'supacellwiki' ||
-	$wi->dbname == 'silowiki'
+	$wi->dbname == 'silowiki' ||
+	$wi->dbname == 'citizensleeperwiki' ||
+	$wi->dbname == 'onlymurdersinthebuildingwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
