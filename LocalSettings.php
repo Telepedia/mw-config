@@ -1182,7 +1182,6 @@ if (
 
 	$globals['wgSharedDB'] = 'metawiki';
 	$globals['wgSharedTables'][] = 'user';
-	$globals['wgSharedTables'][] = 'user_properties';
 	$globals['wgSharedTables'][] = 'user_autocreate_serial';
 	$globals['wgSharedTables'][] = 'actor';
 	$globals['wgSessionName'] = 'telepedia_session';
