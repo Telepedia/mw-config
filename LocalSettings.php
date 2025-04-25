@@ -900,25 +900,14 @@ $wgConf->settings += [
 	// Other misc
 	'wgGTagAnalyticsId' => [
 		'citizensleeperwiki' => 'G-8GCSBGYZE0',
-		'1899wiki' => 'G-FTQ0KG9MZW',
 		'tokyovicewiki' => 'G-5NVDEZ6RPT',
-		'thewatchfuleyewiki' => 'G-XZMTLND418',
-		'gamecheatswiki' => 'G-JW49FC27NT',
 		'thesecretcirclewiki' => 'G-5GG3Y717JM',
-		'onlymurdersinthebuildingwiki' => 'G-85VR8WFBTH',
 		'manorlordswiki' => 'G-56XPY67M7Z',
 		'bitterrootwiki' => 'G-42WWGQEM1F',
 		'loginwiki' => 'G-VH9DBN1J7N',
-		'bloodyhellhotelwiki' => 'G-JLHB9TSR8B',
-		'theperipheralwiki' => 'G-8GTXF640GN',
 		'tbsatdhwiki' => 'G-NC09124SMN',
 		'citadelwiki' => 'G-HDMFZBBW7R',
-		'classwiki' => 'G-44Q4VX2RLJ',
-		'itendswithuswiki' => 'G-0EET2H54SQ',
-		'thepowerwiki' => 'G-LFSZHHE86K',
-		'thenightagentwiki' => 'G-M3WPMW75DT',
 		'silowiki' => 'G-3B4YRRQT5P',
-		'ikissedaboywiki' => 'G-MSFPFLHC9N',
 		'vanataswiki' => 'G-M7T5C0VVYP'
 	],
 	'wgEnableCanonicalServerLink' => [
@@ -1147,8 +1136,7 @@ $wgConf->settings += [
 		'landmanwiki' => false,
 		'supacellwiki' => false,
 		'silowiki' => false,
-		'citizensleeperwiki' => false,
-		'onlymurdersinthebuildingwiki' => false
+		'citizensleeperwiki' => false
 	]	
 ];
 
@@ -1182,8 +1170,7 @@ if (
 	$wi->dbname == 'landmanwiki' ||
 	$wi->dbname == 'supacellwiki' ||
 	$wi->dbname == 'silowiki' ||
-	$wi->dbname == 'citizensleeperwiki' ||
-	$wi->dbname == 'onlymurdersinthebuildingwiki'
+	$wi->dbname == 'citizensleeperwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
