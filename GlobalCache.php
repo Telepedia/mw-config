@@ -34,7 +34,8 @@ if (
 	$wi->dbname == 'landmanwiki' ||
 	$wi->dbname == 'supacellwiki' ||
 	$wi->dbname == 'silowiki' ||
-	$wi->dbname == 'citizensleeperwiki'
+	$wi->dbname == 'citizensleeperwiki' ||
+	$wi->dbname == 'commonswiki'
 	) {
 	$wgMainCacheType = 'redis';
 	$wgSessionCacheType = 'redis-session';
