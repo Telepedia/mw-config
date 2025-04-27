@@ -42,7 +42,8 @@ if (
 	$wi->dbname == 'witchhatatelierwiki' ||
 	$wi->dbname == 'duneawakeningwiki' ||
 	$wi->dbname == 'cvtwiki' ||
-	$wi->dbname == 'gaminghistorywiki'
+	$wi->dbname == 'gaminghistorywiki' ||
+	$wi->dbname == 'thehbowiki'
 	) {
 	$wgMainCacheType = 'redis';
 	$wgSessionCacheType = 'redis-session';
