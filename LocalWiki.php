@@ -48,9 +48,40 @@ switch ( $wi->dbname ) {
 		break;
 
 	case 'elatelierdesombrerosdemagowiki':
-		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
+		$wgForeignFileRepos[] = [
+			'class' => ForeignDBViaLBRepo::class,
+			'name' => 'shared-witchhatatelierwiki',
+			'backend' => 'AmazonS3',
+			'url' => 'https://static.telepedia.net/witchhatatelierwiki',
+			'hashLevels' => 2,
+			'thumbScriptUrl' => false,
+			'transformVia404' => true,
+			'hasSharedCache' => true,
+			'descBaseUrl' => 'https://witchhatatelier.telepedia.net/wiki/File:',
+			'scriptDirUrl' => 'https://witchhatatelier.telepedia.net/',
+			'fetchDescription' => true,
+			'descriptionCacheExpiry' => 86400 * 7,
+			'wiki' => 'witchhatatelierwiki',
+			'initialCapital' => true,
+			'zones' => [
+				'public' => [
+					'container' => 'local-public',
+				],
+				'thumb' => [
+					'container' => 'local-thumb',
+				],
+				'temp' => [
+					'container' => 'local-temp',
+				],
+				'deleted' => [
+					'container' => 'local-deleted',
+				],
+			],
+			'abbrvThreshold' => 160
+		];
+		$wgAdConfig['enabled'] = false;
 		break;
-		
+
 	case 'atelierspiczastychkapeluszywiki':
 		$wgForeignFileRepos[] = [
 			'class' => ForeignDBViaLBRepo::class,
@@ -84,6 +115,7 @@ switch ( $wi->dbname ) {
 			'abbrvThreshold' => 160
 		];
 		$wgAdConfig['enabled'] = false;
+		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
 		break;
 
 	case 'duneawakeningwiki':
