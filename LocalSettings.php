@@ -1137,7 +1137,8 @@ $wgConf->settings += [
 		'supacellwiki' => false,
 		'silowiki' => false,
 		'citizensleeperwiki' => false,
-		'commonswiki' => false
+		'commonswiki' => false,
+		'latelierdessorcierswiki' => false
 	]	
 ];
 
@@ -1172,7 +1173,8 @@ if (
 	$wi->dbname == 'supacellwiki' ||
 	$wi->dbname == 'silowiki' ||
 	$wi->dbname == 'citizensleeperwiki' ||
-	$wi->dbname == 'commonswiki'
+	$wi->dbname == 'commonswiki' || 
+	$wi->dbname == 'latelierdessorcierswiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
