@@ -45,7 +45,7 @@ switch ( $wi->dbname ) {
 			],
 			'abbrvThreshold' => 160
 		];
-		$wgReadOnly = 'The wiki is currently in read-only mode for maintenance. Please try again later.';
+		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
 		break;
 
 	case 'atelierspiczastychkapeluszywiki':
