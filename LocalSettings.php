@@ -1145,7 +1145,8 @@ $wgConf->settings += [
 		'duneawakeningwiki' => false,
 		'cvtwiki' => false,
 		'gaminghistorywiki' => false,
-		'thehbowiki' => false
+		'thehbowiki' => false,
+		'hunterxhunterwiki' => false
 	]	
 ];
 
@@ -1188,7 +1189,8 @@ if (
 	$wi->dbname == 'duneawakeningwiki' ||
 	$wi->dbname == 'cvtwiki' ||
 	$wi->dbname == 'gaminghistorywiki' ||
-	$wi->dbname == 'thehbowiki'
+	$wi->dbname == 'thehbowiki' ||
+	$wi->dbname == 'hunterxhunterwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
