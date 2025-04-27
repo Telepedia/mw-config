@@ -45,6 +45,7 @@ switch ( $wi->dbname ) {
 			],
 			'abbrvThreshold' => 160
 		];
+		$wgReadOnly = 'The wiki is currently in read-only mode for maintenance. Please try again later.';
 		break;
 
 	case 'atelierspiczastychkapeluszywiki':
