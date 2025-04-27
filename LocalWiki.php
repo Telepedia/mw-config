@@ -45,9 +45,12 @@ switch ( $wi->dbname ) {
 			],
 			'abbrvThreshold' => 160
 		];
-		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
 		break;
 
+	case 'elatelierdesombrerosdemagowiki':
+		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
+		break;
+		
 	case 'atelierspiczastychkapeluszywiki':
 		$wgForeignFileRepos[] = [
 			'class' => ForeignDBViaLBRepo::class,
