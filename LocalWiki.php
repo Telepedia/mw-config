@@ -115,7 +115,6 @@ switch ( $wi->dbname ) {
 			'abbrvThreshold' => 160
 		];
 		$wgAdConfig['enabled'] = false;
-		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
 		break;
 
 	case 'duneawakeningwiki':

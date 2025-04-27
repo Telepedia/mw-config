@@ -1251,5 +1251,8 @@ if (
 	require_once __DIR__ . '/ExtensionMessageFiles.php';
 }
 
+// Placeholder because I don't want to rewrite this every time
+// $wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back in a couple of hours.';
+
 // Don't need a global here
 unset( $wi );
