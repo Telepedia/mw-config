@@ -9,6 +9,7 @@ switch ( $wi->dbname ) {
 	case 'witchhatatelierwiki':
 		$wgAdConfig['enabled'] = false;
 		$wgDefaultMobileSkin = "cosmos";
+		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently in read-only. Please check back in 15 minutes or so.';
 		break;
 
 	case 'latelierdessorcierswiki':
