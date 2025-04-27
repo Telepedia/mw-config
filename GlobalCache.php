@@ -38,7 +38,8 @@ if (
 	$wi->dbname == 'commonswiki' ||
 	$wi->dbname == 'latelierdessorcierswiki' ||
 	$wi->dbname == 'elatelierdesombrerosdemagowiki' ||
-	$wi->dbname == 'atelierspiczastychkapeluszywiki'
+	$wi->dbname == 'atelierspiczastychkapeluszywiki' ||
+	$wi->dbname == 'witchhatatelierwiki'
 	) {
 	$wgMainCacheType = 'redis';
 	$wgSessionCacheType = 'redis-session';

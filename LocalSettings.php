@@ -1140,7 +1140,8 @@ $wgConf->settings += [
 		'commonswiki' => false,
 		'latelierdessorcierswiki' => false,
 		'elatelierdesombrerosdemagowiki' => false,
-		'atelierspiczastychkapeluszywiki' => false
+		'atelierspiczastychkapeluszywiki' => false,
+		'witchhatatelierwiki' => false
 	]	
 ];
 
@@ -1178,7 +1179,8 @@ if (
 	$wi->dbname == 'commonswiki' || 
 	$wi->dbname == 'latelierdessorcierswiki' ||
 	$wi->dbname == 'elatelierdesombrerosdemagowiki' ||
-	$wi->dbname == 'atelierspiczastychkapeluszywiki'
+	$wi->dbname == 'atelierspiczastychkapeluszywiki' ||
+	$wi->dbname == 'witchhatatelierwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
