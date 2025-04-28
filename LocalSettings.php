@@ -1150,7 +1150,12 @@ $wgConf->settings += [
 		'vanataswiki' => false,
 		'bestvillainwiki' => false,
 		'thesecretcirclewiki' => false
-	]	
+	],
+	'wgGlobalPermissionsConfiguration' => [
+		'default' => [
+			'metawiki' => [ 'staff', 'saber' ]
+		]
+	]
 ];
 
 // ManageWiki settings
@@ -1209,6 +1214,13 @@ if (
 	$globals['wgCookieDomain'] = '.telepedia.net';
 	$globals['wgCookieSameSite'] = null;
 	$globals['wgCookiePath'] = '/';
+	wfLoadExtension( 'GlobalPermissions' );
+}
+
+// need this to be separate to the above to load the permissions on Meta Wiki which is still on CentralAuth
+if ( $wi->dbname == 'metawiki' ) {
+	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
+    GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 }
 
 // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
