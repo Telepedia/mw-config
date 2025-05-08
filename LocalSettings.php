@@ -945,7 +945,6 @@ $wgConf->settings += [
 			'api' => 'warning',
 			'api-feature-usage' => false,
 			'api-readonly' => false,
-			// When using this, use buffer.
 			'api-request' => [ 'logstash' => 'debug', 'buffer' => true ],
 			'api-warning' => false,
 			'authentication' => 'info',
@@ -1230,7 +1229,7 @@ $wi->loadExtensions();
 
 require_once __DIR__ . '/ManageWikiNamespaces.php';
 require_once __DIR__ . '/ManageWikiSettings.php';
-// require_once __DIR__ . '/GlobalLogging.php';
+require_once __DIR__ . '/GlobalLogging.php';
 
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
