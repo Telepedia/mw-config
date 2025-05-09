@@ -1276,6 +1276,7 @@ $wgManageWikiSettings = [
 				'permissions' => [
 					'managewiki-restricted',
 				]
+			]
 		]
 	],
 	'wgDefaultMobileSkin' => [
