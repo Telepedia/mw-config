@@ -938,6 +938,7 @@ $wgConf->settings += [
 	],
 	'wmgMonologChannels' => [
 		'default' => [
+			'@default' => 'error',
 			'404' => 'debug',
 			'AbuseFilter' => false,
 			'ActionFactory' => false,
