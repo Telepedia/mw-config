@@ -1256,15 +1256,12 @@ $wgManageWikiSettings = [
 		'section' => 'restricted',
 		'help' => 'The tracking ID for this property',
 		'requires' => [
-			'permissions' => [
-				'managewiki-restricted',
-			],
 			'visibility' => [
 				'permissions' => [
 					'managewiki-restricted',
-				],
-			],
-		],
+				]
+			]
+		]
 	],
 	'wgGAPropertyId' => [
 		'name' => 'Google Analytics Property ID',
@@ -1275,15 +1272,11 @@ $wgManageWikiSettings = [
 		'section' => 'restricted',
 		'help' => 'Property ID from Google Analytics -- used in Ext:Telelytics',
 		'requires' => [
-			'permissions' => [
-				'managewiki-restricted',
-			],
 			'visibility' => [
 				'permissions' => [
 					'managewiki-restricted',
-				],
-			],
-		],
+				]
+		]
 	],
 	'wgDefaultMobileSkin' => [
 		'name' => 'Default Mobile Skin',
