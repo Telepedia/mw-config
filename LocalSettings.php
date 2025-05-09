@@ -1229,7 +1229,7 @@ $wi->loadExtensions();
 
 require_once __DIR__ . '/ManageWikiNamespaces.php';
 require_once __DIR__ . '/ManageWikiSettings.php';
-// require_once __DIR__ . '/GlobalLogging.php';
+require_once __DIR__ . '/GlobalLogging.php';
 
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
