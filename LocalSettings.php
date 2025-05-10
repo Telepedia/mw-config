@@ -1149,7 +1149,8 @@ $wgConf->settings += [
 		'hunterxhunterwiki' => false,
 		'vanataswiki' => false,
 		'bestvillainwiki' => false,
-		'thesecretcirclewiki' => false
+		'thesecretcirclewiki' => false,
+		'bitterrootwiki' => false
 	],
 	'wgGlobalPermissionsConfiguration' => [
 		'default' => [
@@ -1201,7 +1202,8 @@ if (
 	$wi->dbname == 'hunterxhunterwiki' ||
 	$wi->dbname == 'vanataswiki' ||
 	$wi->dbname == 'bestvillainwiki' ||
-	$wi->dbname == 'thesecretcirclewiki'
+	$wi->dbname == 'thesecretcirclewiki' ||
+	$wi->dbname == 'bitterrootwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
