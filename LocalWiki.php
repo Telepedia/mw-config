@@ -139,5 +139,8 @@ switch ( $wi->dbname ) {
 	
 	case 'harvesterwiki':
 		$wgDefaultUserOptions['vector-theme'] = 'night';
+		$wgVectorNightMode['beta'] = true;
+		$wgVectorNightMode['logged_out'] = true;
+		$wgVectorNightMode['logged_in'] = true;
 		break;
 }
