@@ -136,4 +136,8 @@ switch ( $wi->dbname ) {
 		$wgAdConfig['enabled'] = false;
 		$tpUseCentralAuth = false;
 		break;	
+	
+	case 'harvesterwiki':
+		$wgDefaultUserOptions['vector-theme'] = 'night';
+		break;
 }
