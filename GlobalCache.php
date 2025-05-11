@@ -49,7 +49,8 @@ if (
 	$wi->dbname == 'bestvillainwiki' ||
 	$wi->dbname == 'thesecretcirclewiki' ||
 	$wi->dbname == 'bitterrootwiki' ||
-	$wi->dbname == 'genericcookinggamewiki'
+	$wi->dbname == 'genericcookinggamewiki' ||
+	$wi->dbname == 'umataniwiki'
 	) {
 	$wgMainCacheType = 'redis';
 	$wgSessionCacheType = 'redis-session';

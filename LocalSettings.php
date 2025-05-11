@@ -1151,7 +1151,8 @@ $wgConf->settings += [
 		'bestvillainwiki' => false,
 		'thesecretcirclewiki' => false,
 		'bitterrootwiki' => false,
-		'genericcookinggamewiki' => false
+		'genericcookinggamewiki' => false,
+		'umataniwiki' => false
 	],
 	'wgGlobalPermissionsConfiguration' => [
 		'default' => [
@@ -1205,7 +1206,8 @@ if (
 	$wi->dbname == 'bestvillainwiki' ||
 	$wi->dbname == 'thesecretcirclewiki' ||
 	$wi->dbname == 'bitterrootwiki' ||
-	$wi->dbname == 'genericcookinggamewiki'
+	$wi->dbname == 'genericcookinggamewiki' ||
+	$wi->dbname == 'umataniwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
