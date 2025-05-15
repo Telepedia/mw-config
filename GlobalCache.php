@@ -51,7 +51,8 @@ if (
 	$wi->dbname == 'bitterrootwiki' ||
 	$wi->dbname == 'genericcookinggamewiki' ||
 	$wi->dbname == 'umataniwiki' ||
-	$wi->dbname == '2000adwiki'
+	$wi->dbname == '2000adwiki' ||
+	$wi->dbname == 'ruwiki'
 	) {
 	$wgMainCacheType = 'redis';
 	$wgSessionCacheType = 'redis-session';

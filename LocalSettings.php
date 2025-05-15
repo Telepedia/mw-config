@@ -1153,7 +1153,8 @@ $wgConf->settings += [
 		'bitterrootwiki' => false,
 		'genericcookinggamewiki' => false,
 		'umataniwiki' => false,
-		'2000adwiki' => false
+		'2000adwiki' => false,
+		'ruwiki' => false
 	],
 	'wgGlobalPermissionsConfiguration' => [
 		'default' => [
@@ -1209,7 +1210,8 @@ if (
 	$wi->dbname == 'bitterrootwiki' ||
 	$wi->dbname == 'genericcookinggamewiki' ||
 	$wi->dbname == 'umataniwiki' ||
-	$wi->dbname == '2000adwiki'
+	$wi->dbname == '2000adwiki' ||
+	$wi->dbname == 'ruwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
