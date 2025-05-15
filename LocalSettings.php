@@ -1154,7 +1154,8 @@ $wgConf->settings += [
 		'genericcookinggamewiki' => false,
 		'umataniwiki' => false,
 		'2000adwiki' => false,
-		'ruwiki' => false
+		'ruwiki' => false,
+		'harvesterwiki' => false
 	],
 	'wgGlobalPermissionsConfiguration' => [
 		'default' => [
@@ -1211,7 +1212,8 @@ if (
 	$wi->dbname == 'genericcookinggamewiki' ||
 	$wi->dbname == 'umataniwiki' ||
 	$wi->dbname == '2000adwiki' ||
-	$wi->dbname == 'ruwiki'
+	$wi->dbname == 'ruwiki' ||
+	$wi->dbname == 'harvesterwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
