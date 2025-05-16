@@ -143,8 +143,4 @@ switch ( $wi->dbname ) {
 		$wgVectorNightMode['logged_out'] = true;
 		$wgVectorNightMode['logged_in'] = true;
 		break;
-	
-	case 'kamenriderwiki':
-		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being migrated from CentralAuth and is in read only mode. Please check back in a couple of hours.';
-		break;
 }
