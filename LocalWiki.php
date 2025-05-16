@@ -143,4 +143,8 @@ switch ( $wi->dbname ) {
 		$wgVectorNightMode['logged_out'] = true;
 		$wgVectorNightMode['logged_in'] = true;
 		break;
+	
+	case 'newqualitipediawiki':
+		$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'Essential maintenance is in progress. This wiki is in read-only mode. Please check back in around an hour.';
+		break;
 }
