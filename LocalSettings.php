@@ -1273,7 +1273,6 @@ if ( $tpUseCentralAuth ) {
 		'Sentinel',
 		'UserProfileV2',
 		'OATHAuth',
-		// 'OAuth',
 		'GlobalBlocking',
 		'GlobalPreferences',
 		'Echo'

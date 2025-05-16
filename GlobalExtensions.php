@@ -33,4 +33,5 @@ wfLoadExtensions( [
 	'StopForumSpam',
 	'Interwiki',
 	//'SEOTweaks',
+	'OAuth'
 ] );
