@@ -642,9 +642,6 @@ $wgConf->settings += [
 	'wgOAuth2GrantExpirationInterval' => [
 		'default' => 'PT4H',
 	],
-	'wgMWOAuthSharedUserSource' => [
-		'default' => 'CentralAuth',
-	],
 	'wgMWOAuthSecureTokenTransfer' => [
 		'default' => true,
 	],
@@ -1281,7 +1278,7 @@ if ( $tpUseCentralAuth ) {
 		'Sentinel',
 		'UserProfileV2',
 		'OATHAuth',
-		'OAuth',
+		// 'OAuth',
 		'GlobalBlocking',
 		'GlobalPreferences',
 		'Echo'
