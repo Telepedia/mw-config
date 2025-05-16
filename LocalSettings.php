@@ -1174,7 +1174,8 @@ $wi::$disabledExtensions = [
 	'regexfunctions',
 	'wikiforum',
 	'socialprofile',
-	'simpleblogpage'
+	'simpleblogpage',
+	'thanks'
 ];
 
 $globals = TelepediaFunctions::getConfigGlobals();
