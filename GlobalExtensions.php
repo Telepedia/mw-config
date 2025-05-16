@@ -34,5 +34,6 @@ wfLoadExtensions( [
 	'Interwiki',
 	//'SEOTweaks',
 	'OAuth',
-	'GlobalPermissions'
+	'GlobalPermissions',
+	'GlobalBlocking'
 ] );
