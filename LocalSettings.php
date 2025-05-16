@@ -1155,7 +1155,8 @@ $wgConf->settings += [
 		'umataniwiki' => false,
 		'2000adwiki' => false,
 		'ruwiki' => false,
-		'harvesterwiki' => false
+		'harvesterwiki' => false,
+		'kamenriderwiki' => false
 	],
 	'wgGlobalPermissionsConfiguration' => [
 		'default' => [
@@ -1213,7 +1214,8 @@ if (
 	$wi->dbname == 'umataniwiki' ||
 	$wi->dbname == '2000adwiki' ||
 	$wi->dbname == 'ruwiki' ||
-	$wi->dbname == 'harvesterwiki'
+	$wi->dbname == 'harvesterwiki' ||
+	$wi->dbname == 'kamenriderwiki'
 	) {
 	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
     GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
