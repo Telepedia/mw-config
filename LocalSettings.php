@@ -75,60 +75,6 @@ $wgConf->settings += [
 	'wgAdsEnabled' => [
 		'default' => true,
 	],
-
-	// CentralAuth
-	'wgCentralAuthAutoCreateWikis' => [
-		'default' => [
-			'metawiki',
-		],
-		'betaheze' => [
-			'metawiki',
-		],
-	],
-	'wgCentralAuthAutoNew' => [
-		'default' => true,
-	],
-	'wgCentralAuthAutoMigrate' => [
-		'default' => true,
-	],
-	'wgCentralAuthAutoMigrateNonGlobalAccounts' => [
-		'default' => true,
-	],
-	'wgCentralAuthCookies' => [
-		'default' => true,
-	],
-	'wgCentralAuthCookiePrefix' => [
-		'default' => 'centralauth_',
-		'betaheze' => 'betacentralauth_',
-	],
-	'wgCentralAuthDatabase' => [
-		'default' => 'centralauth',
-		'betaheze' => 'centralauth',
-	],
-	'wgCentralAuthDryRun' => [
-		'default' => false,
-	],
-	'wgCentralAuthEnableGlobalRenameRequest' => [
-		'default' => false,
-		'metawiki' => true,
-	],
-	'wgCentralAuthLoginWiki' => [
-		'default' => 'metawiki',
-		'betaheze' => 'metawiki',
-	],
-	'wgUseSameSiteLegacyCookies' => [
-		'default' => true,
-	],
-	'wgCentralAuthSessionCacheType' => [
-		'default' => CACHE_MEMCACHED,
-	],
-	'wgCentralAuthPreventUnattached' => [
-		'default' => true,
-	],
-	'wgCentralAuthSilentLogin' => [
-		'default' => true,
-	],
-
 	// Global user page
 	'wgGlobalUserPageAPIUrl' => [
 		'default' => 'https://meta.telepedia.net/api.php',
@@ -955,9 +901,6 @@ $wgConf->settings += [
 			'caches' => false,
 			'captcha' => 'debug',
 			'cargo' => false,
-			'CentralAuth' => 'info',
-			'CentralAuthRename' => false,
-			'CentralAuthVerbose' => false,
 			'CentralNotice' => false,
 			'cite' => false,
 			'ContentHandler' => false,
@@ -1125,38 +1068,6 @@ $wgConf->settings += [
 			
 		]
 	],
-	'tpUseCentralAuth' => [
-		'default' => true,
-		'spicewarswiki' => false,
-		'culpritswiki' => false,
-		'tbsatdhwiki' => false,
-		'landmanwiki' => false,
-		'supacellwiki' => false,
-		'silowiki' => false,
-		'citizensleeperwiki' => false,
-		'commonswiki' => false,
-		'latelierdessorcierswiki' => false,
-		'elatelierdesombrerosdemagowiki' => false,
-		'atelierspiczastychkapeluszywiki' => false,
-		'witchhatatelierwiki' => false,
-		'duneawakeningwiki' => false,
-		'cvtwiki' => false,
-		'gaminghistorywiki' => false,
-		'thehbowiki' => false,
-		'hunterxhunterwiki' => false,
-		'vanataswiki' => false,
-		'bestvillainwiki' => false,
-		'thesecretcirclewiki' => false,
-		'bitterrootwiki' => false,
-		'genericcookinggamewiki' => false,
-		'umataniwiki' => false,
-		'2000adwiki' => false,
-		'ruwiki' => false,
-		'harvesterwiki' => false,
-		'kamenriderwiki' => false,
-		'metawiki' => false,
-		'newqualitipediawiki' => false
-	],
 	'wgGlobalPermissionsConfiguration' => [
 		'default' => [
 			'metawiki' => [ 'staff', 'saber' ]
@@ -1179,56 +1090,17 @@ $wi::$disabledExtensions = [
 
 $globals = TelepediaFunctions::getConfigGlobals();
 
-if ( 
-	$wi->dbname == 'spicewarswiki' || 
-	$wi->dbname == 'culpritswiki' ||
-	$wi->dbname == 'tbsatdhwiki' ||
-	$wi->dbname == 'landmanwiki' ||
-	$wi->dbname == 'supacellwiki' ||
-	$wi->dbname == 'silowiki' ||
-	$wi->dbname == 'citizensleeperwiki' ||
-	$wi->dbname == 'commonswiki' || 
-	$wi->dbname == 'latelierdessorcierswiki' ||
-	$wi->dbname == 'elatelierdesombrerosdemagowiki' ||
-	$wi->dbname == 'atelierspiczastychkapeluszywiki' ||
-	$wi->dbname == 'witchhatatelierwiki' ||
-	$wi->dbname == 'duneawakeningwiki' ||
-	$wi->dbname == 'cvtwiki' ||
-	$wi->dbname == 'gaminghistorywiki' ||
-	$wi->dbname == 'thehbowiki' ||
-	$wi->dbname == 'hunterxhunterwiki' ||
-	$wi->dbname == 'vanataswiki' ||
-	$wi->dbname == 'bestvillainwiki' ||
-	$wi->dbname == 'thesecretcirclewiki' ||
-	$wi->dbname == 'bitterrootwiki' ||
-	$wi->dbname == 'genericcookinggamewiki' ||
-	$wi->dbname == 'umataniwiki' ||
-	$wi->dbname == '2000adwiki' ||
-	$wi->dbname == 'ruwiki' ||
-	$wi->dbname == 'harvesterwiki' ||
-	$wi->dbname == 'kamenriderwiki' || 
-	$wi->dbname == 'metawiki' ||
-	$wi->dbname == 'newqualitipediawiki'
-	) {
-	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
-    GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
+require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
+GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
-	$globals['wgSharedDB'] = 'metawiki';
-	$globals['wgSharedTables'][] = 'user';
-	$globals['wgSharedTables'][] = 'user_autocreate_serial';
-	$globals['wgSharedTables'][] = 'actor';
-	$globals['wgSessionName'] = 'telepedia_session';
-	$globals['wgCookieDomain'] = '.telepedia.net';
-	$globals['wgCookieSameSite'] = null;
-	$globals['wgCookiePath'] = '/';
-	wfLoadExtension( 'GlobalPermissions' );
-}
-
-// need this to be separate to the above to load the permissions on Meta Wiki which is still on CentralAuth
-if ( $wi->dbname == 'metawiki' ) {
-	require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
-    GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
-}
+$globals['wgSharedDB'] = 'metawiki';
+$globals['wgSharedTables'][] = 'user';
+$globals['wgSharedTables'][] = 'user_autocreate_serial';
+$globals['wgSharedTables'][] = 'actor';
+$globals['wgSessionName'] = 'telepedia_session';
+$globals['wgCookieDomain'] = '.telepedia.net';
+$globals['wgCookieSameSite'] = null;
+$globals['wgCookiePath'] = '/';
 
 // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
 extract( $globals );
