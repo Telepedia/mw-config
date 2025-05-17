@@ -1125,7 +1125,7 @@ if ( $wi->missing ) {
 	require_once '/var/www/html/mediawiki/config/MissingWiki.php';
 }
 
-
+$wgAdConfig['enabled'] = true; 
 // Define last to avoid all dependencies
 require_once '/var/www/html/mediawiki/config/GlobalSettings.php';
 require_once '/var/www/html/mediawiki/config/LocalWiki.php';
