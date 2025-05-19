@@ -35,5 +35,6 @@ wfLoadExtensions( [
 	//'SEOTweaks',
 	'OAuth',
 	'GlobalPermissions',
-	'GlobalBlocking'
+	'GlobalBlocking',
+	'UserProfileV2'
 ] );
