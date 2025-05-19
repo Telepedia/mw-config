@@ -10,7 +10,6 @@ wfLoadExtensions( [
 	'WikiSEO',
 	'NativeSvgHandler',
 	'LinkSuggest',
-	'DismissableSiteNotice',
 	'GTag',
 	'Cite',
 	'TelepediaAds',
