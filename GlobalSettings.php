@@ -103,25 +103,6 @@ if ( $cwClosed ) {
 /** Extension:TelepediaAds configuration */
 $wgAdConfig = [
 	'enabled' => true, // enabled or not? :P
-	'adsense-client' => '5974970328084579', // provider number w/o the "pub-" part
-	'namespaces' => [ NS_MAIN, NS_TALK ], // array of enabled namespaces
-	'right-column' => true, // do we want a skyscraper ad column (Monobook)?
-	'toolbox-button' => true, // or a "button" ad below the toolbox (Monobook)?
-	'monaco-sidebar' => true, // 200x200 sidebar ad in the sidebar on Monaco skin
-	'monaco-leaderboard' => true, // leaderboard (728x90) ad in the footer on Monaco skin
-	'truglass-leaderboard' => true, // leaderboard ad for Truglass skin
-	'vector-skyscraper-ad-slot' => '8501358891',
-	'telepedia-skyscraper-ad-slot' => '8501358891',
-	'vector-leaderboard-ad-slot' => '8133693231',
-	'telepedia-leaderboard-ad-slot' => '8133693231',
-	'timeless-leaderboard-ad-slot' => '8133693231',
-	'minerva-leaderboard-ad-slot' => '8133693231',
-	'minerva-skyscraper-ad-slot' => '8133693231',
-	'mode' => 'responsive',
-	'vector-right-side' => true,
-	'right-side' => true,
-	'vector-right-side-ad-slot' => '8133693231',
-	'cosmos-leaderboard' => true
 ];
 
 /** Normalise action URLS into someting prettier */
