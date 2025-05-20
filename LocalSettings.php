@@ -252,7 +252,7 @@ $wgConf->settings += [
 		'default' => true,
 	],
 	'wgCreateWikiUseJobQueue' => [
-		'default' => false,
+		'default' => true,
 		'betatest' => false,
 	],
 	'cwClosed' => [
