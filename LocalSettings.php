@@ -786,12 +786,6 @@ $wgConf->settings += [
 	'wgCargoPageDataColumns' => [
 		'default' => []
 	],
-	'wgCheckUserCAMultiLock' => [
-		'default' => [
-			'centralDB' => 'metawiki',
-			'groups' => [ 'staff' ]
-		],
-	],
 	'wgCheckUserEnableSpecialInvestigate' => [
 		'default' => true
 	],
