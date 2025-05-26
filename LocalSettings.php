@@ -1065,7 +1065,9 @@ $wgConf->settings += [
 			'virtual-globalblocking' => [
 				'db' => 'centralauth',
 			],
-			
+			'virtual-global-database' => [
+				'db' => 'centralauth'
+			]
 		]
 	],
 	'wgGlobalPermissionsConfiguration' => [
