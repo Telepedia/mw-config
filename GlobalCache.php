@@ -27,43 +27,9 @@ $wgObjectCaches['redis-session'] = [
 $wgJobRunRate = 0;
 $wgInvalidateCacheOnLocalSettingsChange = false;
 
-if ( 
-	$wi->dbname == 'spicewarswiki' || 
-	$wi->dbname == 'culpritswiki' ||
-	$wi->dbname == 'tbsatdhwiki' ||
-	$wi->dbname == 'landmanwiki' ||
-	$wi->dbname == 'supacellwiki' ||
-	$wi->dbname == 'silowiki' ||
-	$wi->dbname == 'citizensleeperwiki' ||
-	$wi->dbname == 'commonswiki' ||
-	$wi->dbname == 'latelierdessorcierswiki' ||
-	$wi->dbname == 'elatelierdesombrerosdemagowiki' ||
-	$wi->dbname == 'atelierspiczastychkapeluszywiki' ||
-	$wi->dbname == 'witchhatatelierwiki' ||
-	$wi->dbname == 'duneawakeningwiki' ||
-	$wi->dbname == 'cvtwiki' ||
-	$wi->dbname == 'gaminghistorywiki' ||
-	$wi->dbname == 'thehbowiki' ||
-	$wi->dbname == 'hunterxhunterwiki' ||
-	$wi->dbname == 'vanataswiki' ||
-	$wi->dbname == 'bestvillainwiki' ||
-	$wi->dbname == 'thesecretcirclewiki' ||
-	$wi->dbname == 'bitterrootwiki' ||
-	$wi->dbname == 'genericcookinggamewiki' ||
-	$wi->dbname == 'umataniwiki' ||
-	$wi->dbname == '2000adwiki' ||
-	$wi->dbname == 'ruwiki' ||
-	$wi->dbname == 'harvesterwiki' ||
-	$wi->dbname == 'kamenriderwiki' ||
-	$wi->dbname == 'metawiki' ||
-	$wi->dbname == 'newqualitipediawiki'
-	) {
-	$wgMainCacheType = 'redis';
-	$wgSessionCacheType = 'redis-session';
-} else {
-	$wgMainCacheType = CACHE_MEMCACHED;
-	$wgSessionCacheType = CACHE_MEMCACHED;
-}
+$wgMainCacheType = 'redis';
+$wgSessionCacheType = 'redis-session';
+
 
 $wgMemCachedServers = [ '10.0.0.8:11000' ];
 
