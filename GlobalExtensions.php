@@ -35,5 +35,6 @@ wfLoadExtensions( [
 	'OAuth',
 	'GlobalPermissions',
 	'GlobalBlocking',
-	'UserProfileV2'
+	'UserProfileV2',
+	'UAM'
 ] );
