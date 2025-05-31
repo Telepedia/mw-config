@@ -883,7 +883,7 @@ $wgConf->settings += [
 			'api' => 'warning',
 			'api-feature-usage' => false,
 			'api-readonly' => false,
-			'api-request' => [ 'logstash' => 'debug', 'buffer' => true ],
+			'api-request' => false,
 			'api-warning' => false,
 			'authentication' => 'info',
 			'authevents' => 'info',
