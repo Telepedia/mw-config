@@ -581,6 +581,12 @@ $wgConf->settings += [
 		'default' => true,
 	],
 
+	// Parser Cache -- 30 days to reduce unecessary parsing of articles where it is 
+	// unecessary
+	'wgParserCacheExpireTime' => [
+		'default' => 60 * 60 * 24 * 30
+	],
+
 	// OAuth
 	'wgMWOAuthCentralWiki' => [
 		'default' => 'metawiki',
