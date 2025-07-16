@@ -36,5 +36,6 @@ wfLoadExtensions( [
 	'GlobalPermissions',
 	'GlobalBlocking',
 	'UserProfileV2',
-	'UAM'
+	'UAM',
+	'Sentinel'
 ] );
