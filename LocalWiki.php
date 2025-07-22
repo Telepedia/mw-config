@@ -4,6 +4,7 @@ switch ( $wi->dbname ) {
 
 	case 'metawiki':
 		wfLoadExtension( 'WikiDiscover' );
+		$wgAdConfig['enabled'] = false;
 		break;
 
 	case 'witchhatatelierwiki':
