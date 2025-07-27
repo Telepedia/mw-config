@@ -751,14 +751,6 @@ $wgManageWikiExtensions = [
 		],
 		'section' => 'other',
 	],
-	'webchat' => [
-		'name' => 'WebChat',
-		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:WebChat',
-		'var' => 'wmgUseWebChat',
-		'conflicts' => false,
-		'requires' => [],
-		'section' => 'specialpages',
-	],
 	'voteny' => [
 		'name' => 'VoteNY',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:VoteNY',

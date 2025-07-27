@@ -828,7 +828,7 @@ $wgConf->settings += [
 		'default' => true,
 	],
 	'wgEnableUserEmail' => [
-		'default' => true,
+		'default' => false,
 	],
 	'wgEmergencyContact' => [
 		'default' => 'no-reply@telepedia.net',
