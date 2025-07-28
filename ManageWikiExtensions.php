@@ -1392,4 +1392,11 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'section' => 'skins',
 	],
+	'darkmode' => [
+		'name' => 'DarkMode',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:DarkMode',
+		'conflicts' => false,
+		'requires' => [],
+		'section' => 'other',
+	]
 ];
