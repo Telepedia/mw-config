@@ -546,6 +546,14 @@ $wgConf->settings += [
 			],
 		],
 	],
+	'wgParsoidSettings' => [
+		'default' => [
+			'useSelser' => true,
+		],
+		'+ext-Linter' => [
+			'linting' => true,
+		],
+	],
 	'wgScribuntoDefaultEngine' => [
 		'default' => 'luastandalone'
 	],

@@ -199,3 +199,22 @@ if ( $wi->dbname !== 'commonswiki' ) {
 		'abbrvThreshold' => 160
 	];
 }
+
+// linter stuff
+$wgVirtualRestConfig = [
+	'modules' => [
+		'parsoid' => [
+			'url' => $wi->server . '/rest.php',
+			'domain' => $wi->server,
+			'prefix' => $wi->dbname,
+			'forwardCookies' => (bool)$cwPrivate,
+			'restbaseCompat' => false,
+		],
+	],
+	'global' => [
+		'domain' => $wgCanonicalServer,
+		'timeout' => 360,
+		'forwardCookies' => false,
+		'HTTPProxy' => null,
+	],
+];

@@ -39,3 +39,5 @@ wfLoadExtensions( [
 	'UAM',
 	'Sentinel'
 ] );
+
+wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
