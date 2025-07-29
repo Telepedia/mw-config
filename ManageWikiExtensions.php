@@ -90,7 +90,7 @@ $wgManageWikiExtensions = [
 		'requires' => [],
 		'install' => [
 			'sql' => [
-				'linter' => "$IP/extensions/Linter/sql/tables-generated.sql"
+				'linter' => "$IP/extensions/Linter/sql/mysql/tables-generated.sql"
 			],
 		],
 		'section' => 'specialpages',
