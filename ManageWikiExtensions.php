@@ -1396,6 +1396,7 @@ $wgManageWikiExtensions = [
 		'name' => 'DarkMode',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:DarkMode',
 		'conflicts' => false,
+		'var' => 'wmgUseDarkMode',
 		'requires' => [],
 		'section' => 'other',
 	]
