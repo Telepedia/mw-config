@@ -174,7 +174,6 @@ if ( $wi->dbname !== 'commonswiki' ) {
 		'url' => 'https://static.telepedia.net/commonswiki',
 		'hashLevels' => 2,
 		'thumbScriptUrl' => false,
-		'transformVia404' => true,
 		'hasSharedCache' => false,
 		'descBaseUrl' => 'https://commons.telepedia.net/wiki/File:',
 		'scriptDirUrl' => 'https://commons.telepedia.net/',
