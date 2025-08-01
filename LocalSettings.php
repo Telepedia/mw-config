@@ -41,6 +41,9 @@ $wgConf->settings += [
 	'wgUploadBaseUrl' => [
 		'default' => 'https://static.telepedia.net'
 	],
+	'wgGenerateThumbnailOnParse' => [
+		'default' => false
+	],
 	'wgUseCdn' => [
 		'default' => true
 	],
