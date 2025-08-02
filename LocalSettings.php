@@ -526,6 +526,9 @@ $wgConf->settings += [
 	],
 
 	// Miscellaneous
+	'wgCaptchaClass' => [
+		'default' => MediaWiki\Extension\ConfirmEdit\Turnstile\Turnstile::class
+	],
 	'wgGitInfoCacheDirectory' => [
 		'default' => '/srv/mediawiki/cache/gitinfo',
 	],
