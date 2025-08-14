@@ -7,13 +7,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 require_once '/srv/mediawiki/PrivateSettings.php';
 
-require_once '/var/www/html/mediawiki/config/TelepediaFunctions.php';
+require_once '/prod/mediawiki/config/TelepediaFunctions.php';
 
 $wi = new TelepediaFunctions();
 
 // Load global skins and extensions
-require_once '/var/www/html/mediawiki/config/GlobalSkins.php';
-require_once '/var/www/html/mediawiki/config/GlobalExtensions.php';
+require_once '/prod/mediawiki/config/GlobalSkins.php';
+require_once '/prod/mediawiki/config/GlobalExtensions.php';
 
 $wgConf->settings += [
 	// this invalidates user sessions if we ever need to; don't change unless its an emergency!
@@ -1106,7 +1106,7 @@ $wi::$disabledExtensions = [
 
 $globals = TelepediaFunctions::getConfigGlobals();
 
-require_once '/var/www/html/mediawiki/config/GlobalPermissions.php';
+require_once '/prod/mediawiki/config/GlobalPermissions.php';
 GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
 $globals['wgSharedDB'] = 'metawiki';
@@ -1138,14 +1138,14 @@ if ( $wgRequestTimeLimit ) {
 }
 
 if ( $wi->missing ) {
-	require_once '/var/www/html/mediawiki/config/MissingWiki.php';
+	require_once '/prod/mediawiki/config/MissingWiki.php';
 }
 
 $wgAdConfig['enabled'] = true; 
 // Define last to avoid all dependencies
-require_once '/var/www/html/mediawiki/config/GlobalSettings.php';
-require_once '/var/www/html/mediawiki/config/LocalWiki.php';
-require_once '/var/www/html/mediawiki/config/GlobalCache.php';
+require_once '/prod/mediawiki/config/GlobalSettings.php';
+require_once '/prod/mediawiki/config/LocalWiki.php';
+require_once '/prod/mediawiki/config/GlobalCache.php';
 
 // Configure last to ensure that database name has been set properly
 $wgCargoDBname = $wgDBname . 'cargo';
