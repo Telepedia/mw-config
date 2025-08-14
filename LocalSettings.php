@@ -48,7 +48,7 @@ $wgConf->settings += [
 		'default' => true
 	],
 	'wgDBserver' => [
-		'default' => 10.0.0.6,
+		'default' => '10.0.0.6',
 	],
 	'wgCdnServersNoPurge' => [
 		'default' => [
