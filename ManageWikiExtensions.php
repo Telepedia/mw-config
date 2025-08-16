@@ -1399,5 +1399,18 @@ $wgManageWikiExtensions = [
 		'var' => 'wmgUseDarkMode',
 		'requires' => [],
 		'section' => 'other',
+	],
+	'tableprogresstracking' => [
+		'name' => 'TableProgressTracking',
+		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TableProgressTracking',
+		'var' => 'wmgUseTableProgressTracking',
+		'conflicts' => false,
+		'requires' => [],
+		'install' => [
+			'sql' => [
+				'tableprogresstracking' => "$IP/extensions/TableProgressTracking/schema/mysql/tables-generated.sql"
+			],
+		],
+		'section' => 'other',
 	]
 ];
