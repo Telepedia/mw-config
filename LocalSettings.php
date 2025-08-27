@@ -422,7 +422,8 @@ $wgConf->settings += [
 				'profilemanager',
 				'sentinel',
 				'sentinel-view-logs',
-				'gtag-exempt'
+				'gtag-exempt',
+				'editinterface-platform'
 			],
 		],
 	],
