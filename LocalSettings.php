@@ -379,7 +379,6 @@ $wgConf->settings += [
 				'ipinfo-view-basic',
 				'ipinfo-view-full',
 				'ipinfo-view-log',
-				'sfsblock-bypass',
 				'ipblock-exempt',
 				'override-antispoof',
 				'managewiki-restricted',
