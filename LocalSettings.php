@@ -374,6 +374,8 @@ $wgConf->settings += [
 				'handle-import-dump-requests',
 				'handle-pii',
 				'hideuser',
+				'deletelogentry',
+				'deleterevision',
 				'investigate',
 				'ipinfo',
 				'ipinfo-view-basic',
