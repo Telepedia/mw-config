@@ -15,6 +15,10 @@ $wi = new TelepediaFunctions();
 require_once '/prod/mediawiki/config/GlobalSkins.php';
 require_once '/prod/mediawiki/config/GlobalExtensions.php';
 
+// send some data to Prometheus
+$wgStatsFormat = 'dogstatsd';
+$wgStatsTarget = 'udp://logging.telepedia.net:9125';
+
 $wgConf->settings += [
 	// this invalidates user sessions if we ever need to; don't change unless its an emergency!
 	'wgAuthenticationTokenVersion' => [
