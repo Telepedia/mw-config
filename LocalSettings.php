@@ -926,6 +926,7 @@ $wgConf->settings += [
 			'ContentHandler' => false,
 			'CookieWarning' => false,
 			'cookie' => false,
+			'ConfigCentre' => 'debug',
 			'Cloudflare' => 'error',
 			'CreateWiki' => 'debug',
 			'rdbms' => 'warning',
@@ -1087,6 +1088,9 @@ $wgConf->settings += [
 			],
 			'virtual-global-database' => [
 				'db' => 'centralauth'
+			],
+			'virtual-configcentre' => [
+				'db' => 'centralauth'
 			]
 		]
 	],
@@ -1094,7 +1098,134 @@ $wgConf->settings += [
 		'default' => [
 			'metawiki' => [ 'staff', 'saber' ]
 		]
+	],
+
+	// ConfigCentre
+	'wgConfigCentreMasterWiki' => [
+		'default' => 'master'
+	],
+	'wgConfigCentreVerticals' => [
+		'default' => [
+			'M/TV' => 'Movies & TV',
+			'Literature' => 'Books/Manga',
+			'Lifestyle' => 'Lifestyle',
+			'Gaming' => 'Gaming (Board, Video)',
+			'Music' => 'Music',
+			'Anime' => 'Anime'
+		]
+	],
+	'wgConfigCentreIsBeta' => [
+		'default' => true
+	],
+	'wgConfigCentreProhibitedPermissions' => [
+		'default' => [
+			'abusefilter-hide-log',
+				'abusefilter-hidden-log',
+				'abusefilter-modify-global',
+				'abusefilter-private',
+				'abusefilter-private-log',
+				'abusefilter-privatedetails',
+				'abusefilter-privatedetails-log',
+				'aft-oversighter',
+				'autocreateaccount',
+				'bigdelete',
+				'centralauth-createlocal',
+				'centralauth-lock',
+				'centralauth-suppress',
+				'centralauth-rename',
+				'centralauth-unmerge',
+				'checkuser',
+				'checkuser-log',
+				'checkuser-temporary-account',
+ 				'checkuser-temporary-account-no-preference',
+ 				'checkuser-temporary-account-log',
+				'createwiki',
+				'editincidents',
+				'editothersprofiles-private',
+				'flow-suppress',
+				'generate-random-hash',
+				'globalblock',
+				'globalblock-exempt',
+				'globalgroupmembership',
+				'globalgrouppermissions',
+				'handle-import-dump-interwiki',
+				'handle-import-dump-requests',
+				'handle-pii',
+				'hideuser',
+				'deletelogentry',
+				'deleterevision',
+				'investigate',
+				'ipinfo',
+				'ipinfo-view-basic',
+				'ipinfo-view-full',
+				'ipinfo-view-log',
+				'ipblock-exempt',
+				'override-antispoof',
+				'managewiki-restricted',
+				'managewiki-editdefault',
+				'checkuser-temporary-account',
+				'checkuser-temporary-account-log',
+				'protectsite',
+				'createwiki-deleterequest',
+				'createwiki-suppressionlog',
+				'createwiki-suppressrequest',
+				'moderation-checkuser',
+				'mwoauthmanageconsumer',
+				'mwoauthmanagemygrants',
+				'mwoauthsuppress',
+				'mwoauthviewprivate',
+				'mwoauthviewsuppressed',
+				'oathauth-api-all',
+				'oathauth-enable',
+				'oathauth-disable-for-user',
+				'oathauth-verify-user',
+				'oathauth-view-log',
+				'renameuser',
+				'requestwiki',
+				'siteadmin',
+				'smw-patternedit',
+				'smw-viewjobqueuewatchlist',
+				'stopforumspam',
+				'suppressionlog',
+				'suppressrevision',
+				'themedesigner',
+				'titleblacklistlog',
+				'updatepoints',
+				'userrights',
+				'userrights-interwiki',
+				'view-private-import-dump-requests',
+				'viewglobalprivatefiles',
+				'viewpmlog',
+				'viewsuppressed',
+				'writeapi',
+				'profilemanager',
+				'sentinel',
+				'sentinel-view-logs',
+				'gtag-exempt',
+				'editinterface-platform',
+				'read',
+				'skipcaptcha',
+				'torunblocked',
+				'centralauth-merge',
+				'generate-dump',
+				'editsitecss',
+				'editsitejson',
+				'editsitejs',
+				'editusercss',
+				'edituserjson',
+				'edituserjs',
+				'editmyoptions',
+				'editmyprivateinfo',
+				'editmywatchlist',
+				'globalblock-whitelist',
+				'ipblock-exempt',
+				'viewmyprivateinfo',
+				'viewmywatchlist',
+				'managewiki',
+				'profilemanager'
+		]
 	]
+
 ];
 
 // ManageWiki settings

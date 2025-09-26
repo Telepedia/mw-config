@@ -176,7 +176,10 @@ final class GlobalPermissions {
         'viewmypivateinfo' => true,
         'viewmywatchlist' => true,
         'viewsuppressed' => true,
-        'writeapi' => true
+        'writeapi' => true,
+        'configcentre' => true,
+        'configcentre-restricted' => true,
+        'editinterface-platform' => true
     ]);
 
     $globals['wgGroupPermissions']['global-bot'] = [
