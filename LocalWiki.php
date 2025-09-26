@@ -3,8 +3,11 @@
 switch ( $wi->dbname ) {
 
 	case 'metawiki':
-		wfLoadExtension( 'WikiDiscover' );
 		$wgAdConfig['enabled'] = false;
+
+		// Temp for migration; see PLAT-1
+		wfLoadExtension( 'ConfigCentre' );
+		$wgWikiId = 'master';
 		break;
 
 	case 'witchhatatelierwiki':
