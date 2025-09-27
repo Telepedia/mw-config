@@ -7,6 +7,13 @@ $wgObjectCaches['redis'] = [
 	'persistent'           => true,
 ];
 
+$wgObjectCaches['configcentre'] = [
+	'class'                => 'RedisBagOStuff',
+	'servers'              => [ '10.0.0.8:6379' ],
+	'connectTimeout'       => 2,
+	'persistent'           => true,
+];
+
 /**
  * Below is a object cache that is defined for the purpose of sharing sessions across the platform. 
  * this will create sessions in the cache (at present, Redis) with the keys session:MWSession:<SESSIONID>.
