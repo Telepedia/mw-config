@@ -1306,7 +1306,7 @@ $wgCargoDBname = $wgDBname . 'cargo';
 
 // Temp - to be moved to TelepediaCore ext.
 $wgResourceModules['telepedia.fetch'] = [
-	'scripts' => '/prod/mediawiki/config/TPRest.js'
+	'scripts' => 'config/TPRest.js'
 ];
 
 // Define last - Extension message files for loading extensions
