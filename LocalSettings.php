@@ -1224,6 +1224,23 @@ $wgConf->settings += [
 				'managewiki',
 				'profilemanager'
 		]
+	],
+	'wgConfigCentreSettingGroups' => [
+		'default' => [
+			'Core' => 'Core',
+			'Anti-Spam' => 'Anti-Spam',
+			'Categories' => 'Categories',
+			'Editing' => 'Editing',
+			'Links' => 'Links',
+			'Localisation' => 'Localisation',
+			'Parser Functions' => 'Parser Functions',
+			'Media' => 'Media',
+			'Permissions' => 'Permissions',
+			'Preferences' => 'Preferences',
+			'Recent Changes' => 'Recent Changes',
+			'SEO' => 'SEO',
+			'Styling' => 'Styling'
+		]
 	]
 
 ];
