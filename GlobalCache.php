@@ -7,6 +7,13 @@ $wgObjectCaches['redis'] = [
 	'persistent'           => true,
 ];
 
+/**
+ * ConfigCentre cache for holding data about wikis; specifically kept separate from the rest
+ * of the object caches to lower latency and prevent keys from being evicted due to memory et al
+ * 
+ * Not to be used for anything other than determining wiki context et al and stuff associated with 
+ * determining what wiki we are on
+ */
 $wgObjectCaches['configcentre'] = [
 	'class'                => 'RedisBagOStuff',
 	'servers'              => [ '10.0.0.8:6379' ],
@@ -37,7 +44,6 @@ $wgInvalidateCacheOnLocalSettingsChange = false;
 $wgMainCacheType = 'redis';
 $wgSessionCacheType = 'redis-session';
 
-
 $wgMemCachedServers = [ '10.0.0.8:11000' ];
 
 $wgJobTypeConf['default'] = [
@@ -46,15 +52,3 @@ $wgJobTypeConf['default'] = [
 	'redisConfig'    => [],
 	'daemonized'     => true
 ];
-
-$wgRedisServers = [
-	'cache'		=> [
-		'host'		=> '10.0.0.7',
-		'port'		=> 6379,
-		'options'	=> [
-			'serializer'		=> 'none',
-			'readTimeout'		=> 5
-		]
-	],
-];
-

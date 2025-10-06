@@ -11,9 +11,11 @@ require_once '/prod/mediawiki/config/TelepediaFunctions.php';
 
 $wi = new TelepediaFunctions();
 
-// Load global skins and extensions
+// Load some stuff that must be initialise and available as globals before
+// we determine the wiki context
 require_once '/prod/mediawiki/config/GlobalSkins.php';
 require_once '/prod/mediawiki/config/GlobalExtensions.php';
+require_once '/prod/mediawiki/config/GlobalCache.php';
 
 // send some data to Prometheus
 $wgStatsFormat = 'dogstatsd';
@@ -1299,7 +1301,6 @@ $wgAdConfig['enabled'] = true;
 // Define last to avoid all dependencies
 require_once '/prod/mediawiki/config/GlobalSettings.php';
 require_once '/prod/mediawiki/config/LocalWiki.php';
-require_once '/prod/mediawiki/config/GlobalCache.php';
 
 // Configure last to ensure that database name has been set properly
 $wgCargoDBname = $wgDBname . 'cargo';
