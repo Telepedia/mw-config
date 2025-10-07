@@ -9,8 +9,8 @@ $encUrl = htmlspecialchars( $path );
 http_response_code( 410 );
 
 echo <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html">
+<html lang="en">
 <head>
 <link rel="icon" type="image/x-icon" href="https://meta.telepedia.net/images/metawiki/1/18/Telepedia_Favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -18,8 +18,12 @@ echo <<<EOF
 Wiki Not Found
 </title>
 <style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Gabarito:wght@400..900&display=swap');
 * {
-    font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+    font-family: 'Figtree', 'Gill Sans MT', sans-serif;
+}
+.missing-title {
+	font-family: 'Gabarito', 'Gill Sans MT', sans-serif;
 }
 a:link { 
     color: #005b90;
@@ -89,6 +93,16 @@ p {
     height: 300px;
     width: 390px;
 }
+
+.tp-button {
+	padding: 7px 18px;
+	background: #d9e111;
+	border: 0;
+	width: 100%;
+	margin-top: 1rem;
+	cursor: pointer;
+	font-weight: bold;
+}
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #282828;
@@ -118,11 +132,13 @@ p {
 </div>
 
 <div id="message">
-<h1>ERROR</h1>
+<h1 class="missing-title">ERROR</h1>
 <h2>410 &ndash; Wiki Not found</h2>
 <p style="font-style: italic">$actual_link</p>
-<p>We couldn't find a wiki by that name on our platform. Check the spelling and try again</p>
-<p>Alternatively, you can view a list of our wikis <a href="https://meta.telepedia.net/wiki/Special:WikiDiscover">here.</p>
+<p>We couldn't find that wiki on our platform. Check the spelling and try again.</p>
+<a href="https://meta.telepedia.net/wiki/Telepedia_Meta_Wiki">
+	<button class="tp-button">To Meta Wiki  &rarr;</button>
+</a>
 </div>
 
 </div></div>
