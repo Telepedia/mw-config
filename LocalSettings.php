@@ -52,7 +52,7 @@ $wgConf->settings += [
 		'default' => 'https://static.telepedia.net'
 	],
 	'wgGenerateThumbnailOnParse' => [
-		'default' => true
+		'default' => false
 	],
 	'wgUseCdn' => [
 		'default' => true
