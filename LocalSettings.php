@@ -965,6 +965,7 @@ $wgConf->settings += [
 			'Flow' => 'debug',
 			'formatnum' => false,
 			'FSFileBackend' => 'debug',
+			'FileOperation' => 'debug',
 			'gitinfo' => false,
 			'GlobalTitleFail' => false,
 			'GlobalWatchlist' => false,
