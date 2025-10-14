@@ -663,7 +663,7 @@ $wgConf->settings += [
 
 	// Shell
 	'wgMaxShellMemory' => [
-		'default' => 2097152
+		'default' => 524288
 	],
 
 	// Logos and Favicons
