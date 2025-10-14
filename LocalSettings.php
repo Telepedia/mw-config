@@ -1261,7 +1261,8 @@ $wi::$disabledExtensions = [
 	'wikiforum',
 	'socialprofile',
 	'simpleblogpage',
-	'thanks'
+	'thanks',
+	'telelytics'
 ];
 
 $globals = TelepediaFunctions::getConfigGlobals();
