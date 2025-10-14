@@ -5,6 +5,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
+// Start the profiler if requested, before anything else is done
+require_once __DIR__ . '/Profiler.php';
+TelepediaProfiler::setup();
+
 require_once '/srv/mediawiki/PrivateSettings.php';
 
 require_once '/prod/mediawiki/config/TelepediaFunctions.php';
