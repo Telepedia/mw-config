@@ -13,7 +13,7 @@ class TelepediaProfiler {
 			isset( $_GET[ 'forceprofile' ] )
 		) {
 			$excimer = new ExcimerProfiler();
-			$excimer->setPeriod( 60 );
+			$excimer->setPeriod( 0.001 );
 			$excimer->setEventType( EXCIMER_REAL );
 			$excimer->start();
 			register_shutdown_function( function () use ( $excimer ) {
