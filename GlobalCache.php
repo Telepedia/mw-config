@@ -44,8 +44,6 @@ $wgInvalidateCacheOnLocalSettingsChange = false;
 $wgMainCacheType = 'redis';
 $wgSessionCacheType = 'redis-session';
 
-$wgMemCachedServers = [ '10.0.0.8:11000' ];
-
 $wgJobTypeConf['default'] = [
 	'class'          => 'JobQueueRedis',
 	'redisServer'    => '10.0.0.7:6379',
