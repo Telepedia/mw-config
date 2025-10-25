@@ -9,17 +9,16 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 require_once __DIR__ . '/Profiler.php';
 TelepediaProfiler::setup();
 
-require_once '/srv/mediawiki/PrivateSettings.php';
-
-require_once '/prod/mediawiki/config/TelepediaFunctions.php';
-
-$wi = new TelepediaFunctions();
-
 // Load some stuff that must be initialise and available as globals before
 // we determine the wiki context
+require_once '/srv/mediawiki/PrivateSettings.php';
 require_once '/prod/mediawiki/config/GlobalSkins.php';
 require_once '/prod/mediawiki/config/GlobalExtensions.php';
 require_once '/prod/mediawiki/config/GlobalCache.php';
+require_once '/prod/mediawiki/config/TelepediaFunctions.php';
+
+// Determine the wiki context
+$wi = new TelepediaFunctions();
 
 // send some data to Prometheus
 $wgStatsFormat = 'dogstatsd';
@@ -1113,7 +1112,7 @@ $wgConf->settings += [
 	],
 	'wgConfigCentreProhibitedPermissions' => [
 		'default' => [
-			'abusefilter-hide-log',
+				'abusefilter-hide-log',
 				'abusefilter-hidden-log',
 				'abusefilter-modify-global',
 				'abusefilter-private',
@@ -1256,6 +1255,7 @@ $wi::$disabledExtensions = [
 $globals = TelepediaFunctions::getConfigGlobals();
 
 require_once '/prod/mediawiki/config/GlobalPermissions.php';
+
 GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
 $globals['wgSharedDB'] = 'metawiki';
@@ -1291,29 +1291,13 @@ if ( $wi->missing ) {
 }
 
 $wgAdConfig['enabled'] = true; 
+
 // Define last to avoid all dependencies
 require_once '/prod/mediawiki/config/GlobalSettings.php';
 require_once '/prod/mediawiki/config/LocalWiki.php';
 
 // Configure last to ensure that database name has been set properly
 $wgCargoDBname = $wgDBname . 'cargo';
-
-// During the migration away from CentralAuth, only load CentralAuth on a wiki if this flag is set to true
-// As above, default to true, overwritten in LocalWiki.php so this must come before LocalWiki.php
-// // All of the below depend on CentralAuth to function, therefore, we cannot load them without CA.
-// if ( $tpUseCentralAuth ) {
-// 	wfLoadExtensions( [
-// 		'CentralAuth',
-// 		'AntiSpoof',
-// 		'GlobalUserPage',
-// 		'Sentinel',
-// 		'UserProfileV2',
-// 		'OATHAuth',
-// 		'GlobalBlocking',
-// 		'GlobalPreferences',
-// 		'Echo'
-// 	] );
-// }
 
 // Temp - to be moved to TelepediaCore ext.
 $wgResourceModules['telepedia.fetch'] = [
