@@ -31,7 +31,6 @@ $wgCaptchaTriggers['addurl']        = true;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 
-/**
 $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 
 function metaConditionalSiteNotice( &$siteNotice, $skin ) {
@@ -45,13 +44,13 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 			  <span class="fa fa-exclamation">!</span>
 			</div>
 			<div class="Message-body">
-			  <p>Telepedia will be upgrading to MediaWiki 1.43 on Sunday 9th May, 17:00 (BST). From this time wikis might be unavailable for a short time as the upgrade is complete.</p>
+			  <p>ManageWiki access will be disabled tomorrow at 19:00 GMT as we prepare to replace ManageWiki with our custom solution. Please make any changes to wiki confiuration or extensions before this time.</p>
+			  <p>ConfigCentre access will be enabled before the end of the weekend.</p>
 			</div>
 		  </div>
 			</table>
 		EOF;
 }
-*/
 
 /** Revoke permissions on wikis that are marked as closed in CreateWiki */
 if ( $cwClosed ) {
