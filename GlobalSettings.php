@@ -44,7 +44,7 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 			  <span class="fa fa-exclamation">!</span>
 			</div>
 			<div class="Message-body">
-			  <p>ManageWiki access will be disabled tomorrow at 19:00 GMT as we prepare to replace ManageWiki with our custom solution. Please make any changes to wiki confiuration or extensions before this time.</p>
+			  <p>ManageWiki access will be disabled tomorrow at 19:00 GMT as we prepare to replace ManageWiki with our custom solution. Please make any changes to wiki configuration or extensions before this time.</p>
 			  <p>ConfigCentre access will be enabled before the end of the weekend.</p>
 			</div>
 		  </div>
