@@ -50,6 +50,7 @@ $wgManageWikiExtensions = [
 	],
 	'cargo' => [
 		'name' => 'Cargo',
+		'var' => 'wmgUseCargo',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Cargo',
 		'help' => 'Use this wisely, it can have profound impacts on database performance.',
 		'conflicts' => 'semanticmediawiki',
@@ -1362,6 +1363,7 @@ $wgManageWikiExtensions = [
 	],
 	'citizen' => [
 		'name' => 'Citizen',
+		'var' => 'wmgUseCitizen',
 		'linkPage' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Skin:Citizen',
 		'var' => 'wmgUseCitizen',
 		'conflicts' => false,
