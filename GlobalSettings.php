@@ -31,6 +31,8 @@ $wgCaptchaTriggers['addurl']        = true;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 
+/**
+
 $wgHooks['SiteNoticeAfter'][] = 'metaConditionalSiteNotice';
 
 function metaConditionalSiteNotice( &$siteNotice, $skin ) {
@@ -51,6 +53,7 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 			</table>
 		EOF;
 }
+*/
 
 /** Revoke permissions on wikis that are marked as closed in CreateWiki */
 if ( $cwClosed ) {

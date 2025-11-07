@@ -312,11 +312,11 @@ $wgConf->settings += [
 	// ManageWiki
 	'wgManageWiki' => [
 		'default' => [
-			'core' => true,
-			'extensions' => true,
-			'namespaces' => true,
-			'permissions' => true,
-			'settings' => true
+			'core' => false,
+			'extensions' => false,
+			'namespaces' => false,
+			'permissions' => false,
+			'settings' => false
 		],
 	],
 	'wgManageWikiExtensionsDefault' => [
