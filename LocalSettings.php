@@ -125,6 +125,18 @@ $wgConf->settings += [
 		'default' => false,
 		'metawiki' => true,
 	],
+	'wgAbuseFilterActions' => [
+		'default' => [
+			'block' => true,
+			'blockautopromote' => true,
+			'degroup' => false,
+			'disallow' => true,
+			'rangeblock' => false,
+			'tag' => true,
+			'throttle' => true,
+			'warn' => true,
+		],
+	],
 	'wgGlobalPreferencesDB' => [
 		'default' => 'centralauth'
 	],
