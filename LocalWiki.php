@@ -4,11 +4,6 @@ switch ( $wi->dbName ) {
 
 	case 'metawiki':
 		$wgAdConfig['enabled'] = false;
-
-		// Temp for migration; see PLAT-1
-		wfLoadExtension( 'ToastNotifications' );
-		wfLoadExtension( 'ConfigCentre' );
-		$wgWikiId = 'master';
 		break;
 
 	case 'witchhatatelierwiki':
