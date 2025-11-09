@@ -37,7 +37,8 @@ wfLoadExtensions( [
 	'GlobalBlocking',
 	'UserProfileV2',
 	'UAM',
-	'Sentinel'
+	'Sentinel',
+	'TelepediaCore'
 ] );
 
 wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
