@@ -1,5 +1,8 @@
 <?php
 
+// set to false for now
+$cwPrivate = false;
+
 /** Some Stuff for AWS **/
 $wgLocalFileRepo = [
 	'class' => LocalRepo::class,
@@ -167,7 +170,7 @@ $vectorVersion = $wgDefaultSkin === 'vector' ? '2' : '1';
 // Don't need a global here
 unset( $vectorVersion );
 
-if ( $wi->dbname !== 'commonswiki' ) {
+if ( $wi->dbName !== 'commonswiki' ) {
 	/** Shared File Repo for Telepedia Commons */
 	$wgForeignFileRepos[] = [
 		'class' => ForeignDBViaLBRepo::class,
@@ -206,9 +209,9 @@ if ( $wi->dbname !== 'commonswiki' ) {
 $wgVirtualRestConfig = [
 	'modules' => [
 		'parsoid' => [
-			'url' => $wi->server . '/rest.php',
-			'domain' => $wi->server,
-			'prefix' => $wi->dbname,
+			'url' => '/rest.php',
+			'domain' => $wgServer,
+			'prefix' => $wi->dbName,
 			'forwardCookies' => (bool)$cwPrivate,
 			'restbaseCompat' => false,
 		],

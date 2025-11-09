@@ -16,9 +16,14 @@ require_once '/prod/mediawiki/config/GlobalSkins.php';
 require_once '/prod/mediawiki/config/GlobalExtensions.php';
 require_once '/prod/mediawiki/config/GlobalCache.php';
 require_once '/prod/mediawiki/config/TelepediaFunctions.php';
+require_once '/prod/mediawiki/config/ConfigCentreNamespaces.php';
+require_once '/prod/mediawiki/config/GlobalDatabase.php';
+require_once '/prod/mediawiki/config/LoadWiki.php';
 
 // Determine the wiki context
-$wi = new TelepediaFunctions();
+// $wi = new TelepediaFunctions();
+$wi = new LoadWiki();
+$wi->execute();
 
 // send some data to Prometheus
 $wgStatsFormat = 'dogstatsd';
@@ -1107,7 +1112,7 @@ $wgConf->settings += [
 
 	// ConfigCentre
 	'wgConfigCentreMasterWiki' => [
-		'default' => 'master'
+		'default' => '32099726c907980eeb175bb00f9f51b3cdd9b08f'
 	],
 	'wgConfigCentreVerticals' => [
 		'default' => [
@@ -1250,42 +1255,44 @@ $wgConf->settings += [
 
 ];
 
-// ManageWiki settings
-require_once __DIR__ . '/ManageWikiExtensions.php';
+// // ManageWiki settings
+// require_once __DIR__ . '/ManageWikiExtensions.php';
 
-$wi::$disabledExtensions = [
-	'editnotify',
-	'hitcounters',
-	'regexfunctions',
-	'wikiforum',
-	'socialprofile',
-	'simpleblogpage',
-	'thanks',
-	'telelytics'
-];
+// $wi::$disabledExtensions = [
+// 	'editnotify',
+// 	'hitcounters',
+// 	'regexfunctions',
+// 	'wikiforum',
+// 	'socialprofile',
+// 	'simpleblogpage',
+// 	'thanks',
+// 	'telelytics'
+// ];
 
-$globals = TelepediaFunctions::getConfigGlobals();
+$wgConf->extractAllGlobals( $wgDBname );
+
+// $globals = TelepediaFunctions::getConfigGlobals();
 
 require_once '/prod/mediawiki/config/GlobalPermissions.php';
 
 GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
 
-$globals['wgSharedDB'] = 'metawiki';
-$globals['wgSharedTables'][] = 'user';
-$globals['wgSharedTables'][] = 'user_autocreate_serial';
-$globals['wgSharedTables'][] = 'actor';
-$globals['wgSessionName'] = 'telepedia_session';
-$globals['wgCookieDomain'] = '.telepedia.net';
-$globals['wgCookieSameSite'] = null;
-$globals['wgCookiePath'] = '/';
+$wgSharedDB = 'metawiki';
+$wgSharedTables[] = 'user';
+$wgSharedTables = 'user_autocreate_serial';
+$wgSharedTables[] = 'actor';
+$wgSessionName = 'telepedia_session';
+$wgCookieDomain = '.telepedia.net';
+$wgCookieSameSite = null;
+$wgCookiePath = '/';
 
-// phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
-extract( $globals );
+// // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
+// extract( $globals );
 
-$wi->loadExtensions();
+// $wi->loadExtensions();
 
-require_once __DIR__ . '/ManageWikiNamespaces.php';
-require_once __DIR__ . '/ManageWikiSettings.php';
+// require_once __DIR__ . '/ManageWikiNamespaces.php';
+// require_once __DIR__ . '/ManageWikiSettings.php';
 require_once __DIR__ . '/GlobalLogging.php';
 
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
@@ -1298,9 +1305,9 @@ if ( $wgRequestTimeLimit ) {
 	$wgHTTPMaxTimeout = $wgHTTPMaxConnectTimeout = $wgRequestTimeLimit;
 }
 
-if ( $wi->missing ) {
-	require_once '/prod/mediawiki/config/MissingWiki.php';
-}
+// if ( $wi->missing ) {
+// 	require_once '/prod/mediawiki/config/MissingWiki.php';
+// }
 
 $wgAdConfig['enabled'] = true; 
 

@@ -1,6 +1,6 @@
 <?php
 
-switch ( $wi->dbname ) {
+switch ( $wi->dbName ) {
 
 	case 'metawiki':
 		$wgAdConfig['enabled'] = false;
