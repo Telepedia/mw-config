@@ -1277,7 +1277,7 @@ $wgConf->extractAllGlobals( $wgDBname );
 
 require_once '/prod/mediawiki/config/GlobalPermissions.php';
 
-// GlobalPermissions::modifyPermissionsAfterManageWiki($globals);
+GlobalPermissions::modifyPermissionsAfterManageWiki();
 
 $wgSharedDB = 'metawiki';
 $wgSharedTables = [

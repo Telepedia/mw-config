@@ -2,9 +2,9 @@
 
 final class GlobalPermissions {
 
-    public static function modifyPermissionsAfterManageWiki( &$globals ) {
-
-        $globals['wgGroupPermissions']['saber'] = [
+    public static function modifyPermissionsAfterManageWiki() {
+        global $wgGroupPermissions, $wgAddGroups;
+        $wgGroupPermissions['saber'] = [
             'abusefilter-hidden-log' => true,
             'abusefilter-hide-log' => true,
             'abusefilter-log' => true,
@@ -54,7 +54,7 @@ final class GlobalPermissions {
     // of rights like from user group since wikis may customise what those
     // groups can do.
     // @ April 2025 edition
-    $globals['wgGroupPermissions']['staff'] = array_merge($globals['wgGroupPermissions']['saber'], [
+    $wgGroupPermissions['staff'] = array_merge($globals['wgGroupPermissions']['saber'], [
         'addvideo' => true,
         'analytics' => true,
         'apihighlimits' => true,
@@ -179,17 +179,20 @@ final class GlobalPermissions {
         'writeapi' => true,
         'configcentre' => true,
         'configcentre-restricted' => true,
-        'editinterface-platform' => true
+        'editinterface-platform' => true,
     ]);
 
-    $globals['wgGroupPermissions']['global-bot'] = [
+    $wgGroupPermissions['global-bot'] = [
         'bot' => true,
         'editsemiprotected' => true,
         'skipcaptcha' => true
     ];
 
-    $globals['wgAddGroups']['staff']['sentinel'] = true;
-    $globals['wgAddGroups']['staff']['checkuser'] = true;
+    $wgAddGroups['staff']['sentinel'] = true;
+    $wgAddGroups['staff']['checkuser'] = true;
+
+    // don't care, thank you
+    unset( $wgGroupPermissions['steward'] );
     }
 }
 
