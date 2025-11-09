@@ -1232,7 +1232,9 @@ $wgConf->settings += [
 				'viewmyprivateinfo',
 				'viewmywatchlist',
 				'managewiki',
-				'profilemanager'
+				'profilemanager',
+				'no-createwiki',
+				'configcentre-restricted'
 		]
 	],
 	'wgConfigCentreSettingGroups' => [
