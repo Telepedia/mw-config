@@ -54,7 +54,7 @@ final class GlobalPermissions {
     // of rights like from user group since wikis may customise what those
     // groups can do.
     // @ April 2025 edition
-    $wgGroupPermissions['staff'] = array_merge($globals['wgGroupPermissions']['saber'], [
+    $wgGroupPermissions['staff'] = array_merge( $wgGroupPermissions['saber'], [
         'addvideo' => true,
         'analytics' => true,
         'apihighlimits' => true,
