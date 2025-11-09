@@ -35,3 +35,6 @@ $wgLBFactoryConf = [
 	],
 	'readOnlyBySection' => [],
 ];
+
+// MUST be defined before LoadWiki::class executes
+$wgVirtualDomainsMapping['virtual-configcentre'] = [ 'cluster' => 'specials', 'db' => 'configcentre'];
