@@ -15,7 +15,7 @@ require_once '/srv/mediawiki/PrivateSettings.php';
 require_once '/prod/mediawiki/config/GlobalSkins.php';
 require_once '/prod/mediawiki/config/GlobalExtensions.php';
 require_once '/prod/mediawiki/config/GlobalCache.php';
-require_once '/prod/mediawiki/config/TelepediaFunctions.php';
+// require_once '/prod/mediawiki/config/TelepediaFunctions.php';
 require_once '/prod/mediawiki/config/ConfigCentreNamespaces.php';
 require_once '/prod/mediawiki/config/GlobalDatabase.php';
 require_once '/prod/mediawiki/config/LoadWiki.php';
