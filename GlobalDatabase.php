@@ -3,7 +3,6 @@
 use Telepedia\Extensions\TelepediaCore\LBFactoryMulti_TP;
 
 $wgDBtype = 'mysql';
-$wgDBuser = 'root';
 $wgLBFactoryConf = [
 	'class' => LBFactoryMulti_TP::class,
 	'secret' => $wgSecretKey,
