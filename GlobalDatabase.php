@@ -36,4 +36,4 @@ $wgLBFactoryConf = [
 ];
 
 // MUST be defined before LoadWiki::class executes
-$wgVirtualDomainsMapping['virtual-configcentre'] = [ 'cluster' => 'specials', 'db' => 'configcentre'];
+$wgVirtualDomainsMapping['virtual-configcentre'] = [ 'cluster' => 'specials', 'db' => 'centralauth'];
