@@ -40,7 +40,8 @@ wfLoadExtensions( [
 	'Sentinel',
 	'TelepediaCore',
 	'ConfigCentre',
-	'ToastNotifications'
+	'ToastNotifications',
+	'SitemapOnTheFly'
 ] );
 
 wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );

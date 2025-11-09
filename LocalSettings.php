@@ -1253,8 +1253,13 @@ $wgConf->settings += [
 			'SEO' => 'SEO',
 			'Styling' => 'Styling'
 		]
+	],
+	'wgSitemapNamespaces' => [
+		'default' => [
+			0,
+			14
+		]
 	]
-
 ];
 
 // // ManageWiki settings
