@@ -1,5 +1,5 @@
 <?php
-
+use MediaWiki\Config\SiteConfiguration;
 use MediaWiki\Languages\Data\Names;
 use MediaWiki\Registration\ExtensionRegistry;
 use Wikimedia\ObjectCache\RedisBagOStuff;
@@ -119,6 +119,8 @@ class LoadWiki {
 		if ( !isset( $wgObjectCaches['configcentre'] ) ) {
 			throw new RuntimeException( "Unable to connect to Redis. Cannot continue..." );
 		}
+
+		$wgConf = new SiteConfiguration();
 
 		// HTTP requests will first go through the cache, and if not found, the data will be set in there
 		// for cli requests, we will always get the data from the database to ensure
