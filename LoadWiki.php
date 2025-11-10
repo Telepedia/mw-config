@@ -696,7 +696,6 @@ class LoadWiki {
 				'cs.wiki_id' => $this->wikiId
 			] )->where( [
 				'cas.deleted' => 0,
-				'cas.setting_restricted' => 0,
 				$extensionCondition
 			] )->caller( __METHOD__ . "::getVariables" )->fetchResultSet();
 
