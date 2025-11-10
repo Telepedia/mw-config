@@ -885,18 +885,6 @@ $wgConf->settings += [
 	],
 
 	// Other misc
-	'wgGTagAnalyticsId' => [
-		'citizensleeperwiki' => 'G-8GCSBGYZE0',
-		'tokyovicewiki' => 'G-5NVDEZ6RPT',
-		'thesecretcirclewiki' => 'G-5GG3Y717JM',
-		'manorlordswiki' => 'G-56XPY67M7Z',
-		'bitterrootwiki' => 'G-42WWGQEM1F',
-		'loginwiki' => 'G-VH9DBN1J7N',
-		'tbsatdhwiki' => 'G-NC09124SMN',
-		'citadelwiki' => 'G-HDMFZBBW7R',
-		'silowiki' => 'G-3B4YRRQT5P',
-		'vanataswiki' => 'G-M7T5C0VVYP'
-	],
 	'wgEnableCanonicalServerLink' => [
 		'default' => true
 	],
