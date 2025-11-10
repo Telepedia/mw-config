@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Config\SiteConfiguration;
+
 // Don't allow web access.
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
@@ -22,8 +24,8 @@ require_once '/prod/mediawiki/config/LoadWiki.php';
 
 // Determine the wiki context
 // $wi = new TelepediaFunctions();
+$wgConf = new SiteConfiguration();
 $wi = new LoadWiki();
-$wi->execute();
 
 // send some data to Prometheus
 $wgStatsFormat = 'dogstatsd';
@@ -1261,6 +1263,8 @@ $wgConf->settings += [
 		]
 	]
 ];
+
+$wi->execute();
 
 // // ManageWiki settings
 // require_once __DIR__ . '/ManageWikiExtensions.php';

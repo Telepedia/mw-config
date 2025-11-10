@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Config\SiteConfiguration;
 use MediaWiki\Languages\Data\Names;
 use MediaWiki\Registration\ExtensionRegistry;
 use Wikimedia\ObjectCache\RedisBagOStuff;
@@ -128,9 +127,6 @@ class LoadWiki {
 		$cache = new RedisBagOStuff( $wgObjectCaches['configcentre'] );
 
 		$this->cache = $cache;
-
-		// Define a new $wgConf that we will use throughout
-		$wgConf = new SiteConfiguration();
 
 		$this->commandLineMode = PHP_SAPI === 'cli' || defined( 'MW_ENTRY_POINT' ) && MW_ENTRY_POINT === 'cli';
 
