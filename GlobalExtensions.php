@@ -15,23 +15,19 @@ wfLoadExtensions( [
 	'TelepediaAds',
 	'PortableInfobox',
 	'ProtectSite',
-	//'ImportDump',
 	'Echo',
 	'Purge',
 	'CheckUser',
 	'Nuke',
 	'MultimediaViewer',
 	'TemplateData',
-	// 'SEO',
 	'Scribunto',
 	'AbuseFilter',
 	'TelepediaMagic',
 	'IPInfo',
 	'SpamBlacklist',
-	//'RemovePII',
 	'StopForumSpam',
 	'Interwiki',
-	//'SEOTweaks',
 	'OAuth',
 	'GlobalPermissions',
 	'GlobalBlocking',
@@ -41,7 +37,8 @@ wfLoadExtensions( [
 	'TelepediaCore',
 	'ConfigCentre',
 	'ToastNotifications',
-	'SitemapOnTheFly'
+	'SitemapOnTheFly',
+	'MissingWiki'
 ] );
 
 wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
