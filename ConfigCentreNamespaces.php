@@ -9,9 +9,7 @@ $wgConfigCentreNamespacesAdditional = [
 		'type' => 'check',
 		'main' => true,
 		'talk' => false,
-		'excluded' => [
-			3000
-		],
+		'excluded' => [],
 		'default' => false,
 	],
 	'wgCapitalLinkOverrides' => [
