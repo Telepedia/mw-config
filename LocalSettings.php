@@ -192,45 +192,6 @@ $wgConf->settings += [
 	],
 
 	// CreateWiki
-	'wgCreateWikiGlobalWiki' => [
-		'default' => 'metawiki',
-	],
-	'wgCreateWikiDisallowedSubdomains' => [
-		'default' => [
-			'auth',
-			'static',
-			'localhost',
-			'telepedia'
-		]
-	],
-	'wgCreateWikiEnableManageInactiveWikis' => [
-		'default' => true
-	],
-	'wgCreateWikiDatabase' => [
-		'default' => 'centralauth',
-		'betatest' => 'centralauth',
-	],
-	'wgCreateWikiDatabaseSuffix' => [
-		'default' => 'wiki',
-		'betatest' => 'wikibeta',
-	],
-	'wgCreateWikiEmailNotifications' => [
-		'default' => true,
-	],
-	'wgCreateWikiPurposes' => [
-		'default' => [
-			'Video game (specified video game) information wiki' => 'Video game (specified video game) information wiki',
-			'Video game (broad genre or video game series) information wiki' => 'Video game (broad genre or video game series) information wiki',
-			'Movie franchise information wiki' => 'Movie franchise information wiki',
-			'TV Series information wiki' => 'TV Series information wiki',
-			'Platform Administration' => 'Platform Administration wiki',
-			'Book or Graphic' => 'Manga, Comic, or other graphical material',
-			'None of the above' => 'None of the above',
-		],
-	],
-	'wgCreateWikiShowBiographicalOption' => [
-		'default' => true,
-	],
 	'wgCreateWikiSQLFiles' => [
 		'default' => [
 			"$IP/maintenance/tables-generated.sql",
@@ -241,60 +202,32 @@ $wgConf->settings += [
 			"$IP/extensions/AntiSpoof/sql/mysql/tables-generated.sql"
 		],
 	],
-	'wgCreateWikiCacheDirectory' => [
-		'default' => '/srv/mediawiki/cache',
-	],
-	'wgCreateWikiCategories' => [
-		'default' => [
-			'Movies & TV' => 'm/tv',
-			'Fandom' => 'fandom',
-			'Fantasy' => 'fantasy',
-			'Gaming' => 'gaming',
-			'Literature/Writing' => 'literature',
-			'Uncategorised' => 'uncategorised',
-			'Platform Administration' => 'administration',
-			'Reception Wiki' => 'reception'
-		],
-	],
-	'wgCreateWikiUseCategories' => [
-		'default' => true,
-	],
 	'wgCreateWikiSubdomain' => [
-		'default' => 'telepedia.net',
+		'default' => '.telepedia.net',
 	],
-	'wgCreateWikiUseClosedWikis' => [
-		'default' => true,
-	],
-	'wgCreateWikiUseCustomDomains' => [
-		'default' => true,
-	],
-	'wgCreateWikiUseEchoNotifications' => [
-		'default' => true,
-	],
-	'wgCreateWikiUseExperimental' => [
-		'default' => false,
-	],
-	'wgCreateWikiUseInactiveWikis' => [
-		'default' => true,
-	],
-	'wgCreateWikiUsePrivateWikis' => [
-		'default' => true,
-	],
-	'wgCreateWikiUseJobQueue' => [
-		'default' => true,
-		'betatest' => false,
-	],
-	'cwClosed' => [
-		'default' => false,
-	],
-	'cwExperimental' => [
-		'default' => false,
-	],
-	'cwInactive' => [
-		'default' => false,
-	],
-	'cwPrivate' => [
-		'default' => false,
+	'wgCreateWikiDefaultSkinOptions' => [
+		'default' => [
+			[
+				'name' => 'vector',
+				'example' => 'https://static.telepedia.net/commonswiki/5/57/Vector_Example.png',
+				'display' => 'Vector'
+			], 
+			[
+				'name' => 'vector-2022',
+				'example' => 'https://static.telepedia.net/commonswiki/9/93/Vector-2022_Example.png',
+				'display' => 'Vector (2022)'
+			], 
+			[
+				'name' => 'monobook',
+				'example' => 'https://static.telepedia.net/commonswiki/4/47/MonoBook_Example.png',
+				'display' => 'MonoBook'
+			],
+			[
+				'name' => 'timeless',
+				'example' => 'https://static.telepedia.net/commonswiki/7/7b/Timeless_Example.png',
+				'display' => 'Timeless'
+			]
+		]
 	],
 
 	// Logo
