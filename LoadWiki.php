@@ -471,7 +471,7 @@ class LoadWiki {
 	}
 
 	private function setGlobals(): void {
-		global $wgDBname, $wgConf, $wgLBFactoryConf, $wgServer;
+		global $wgDBname, $wgConf, $wgLBFactoryConf, $wgServer, $wgCanonicalServer;
 
 		// Database stuff
 		$wgDBname = $this->dbName;
@@ -482,7 +482,9 @@ class LoadWiki {
 		// Wiki Context stuff
 		$wgConf->settings['wgWikiId'][$this->dbName] = $this->wikiId;
 		$wgConf->settings['wgServer'][$this->dbName] = $this->parsedUrl['scheme'] . '://' . $this->serverName;
+		$wgConf->settings['wgCanonicalServer'][$this->dbName] = $this->parsedUrl['scheme'] . '://' . $this->serverName;
 		$wgServer = $this->parsedUrl['scheme'] . '://' . $this->serverName;
+		$wgCanonicalServer = $this->parsedUrl['scheme'] . '://' . $this->serverName;
 
 		// ResourceLoader et al
 		$langPrefix = isset( $this->parsedUrl['lang'] ) ? "/{$this->parsedUrl['lang']}" : '';
