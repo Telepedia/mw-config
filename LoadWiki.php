@@ -473,6 +473,10 @@ class LoadWiki {
 	private function setGlobals(): void {
 		global $wgDBname, $wgConf, $wgLBFactoryConf, $wgServer, $wgCanonicalServer;
 
+		// Get the URL from either the cache or the database, which will contain the lang path too if present, and remove it
+		$parsed = parse_url( $this->wiki['url'] );
+        $server = $parsed['scheme'] . '://' . $parsed['host'];
+
 		// Database stuff
 		$wgDBname = $this->dbName;
 		$wgConf->settings['wgDBname'][$this->dbName] = $this->dbName;
@@ -481,10 +485,10 @@ class LoadWiki {
 
 		// Wiki Context stuff
 		$wgConf->settings['wgWikiId'][$this->dbName] = $this->wikiId;
-		$wgConf->settings['wgServer'][$this->dbName] = $this->parsedUrl['scheme'] . '://' . $this->serverName;
-		$wgConf->settings['wgCanonicalServer'][$this->dbName] = $this->parsedUrl['scheme'] . '://' . $this->serverName;
-		$wgServer = $this->parsedUrl['scheme'] . '://' . $this->serverName;
-		$wgCanonicalServer = $this->parsedUrl['scheme'] . '://' . $this->serverName;
+		$wgConf->settings['wgServer'][$this->dbName] = $server;
+		$wgConf->settings['wgCanonicalServer'][$this->dbName] = $server;
+		$wgServer = $server;
+		$wgCanonicalServer = $server;
 
 		// ResourceLoader et al
 		$langPrefix = isset( $this->parsedUrl['lang'] ) ? "/{$this->parsedUrl['lang']}" : '';
