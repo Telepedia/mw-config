@@ -20,6 +20,9 @@ require_once '/prod/mediawiki/config/ConfigCentreNamespaces.php';
 require_once '/prod/mediawiki/config/GlobalDatabase.php';
 require_once '/prod/mediawiki/config/LoadWiki.php';
 
+// PLAT-2: temp disable user access to CreateWiki
+$wgGroupPermissions['user']['createwiki'] = false;
+
 // Determine the wiki context
 // $wi = new TelepediaFunctions();
 $wi = new LoadWiki();

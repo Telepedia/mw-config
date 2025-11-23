@@ -4,9 +4,6 @@ switch ( $wi->dbName ) {
 
 	case 'metawiki':
 		$wgAdConfig['enabled'] = false;
-		// [PLAT-2]: load CreateWiki but temporarily remove creation rights from users
-		wfLoadExtension( 'CreateWiki' );
-		$wgGroupPermissions['user']['createwiki'] = false;
 		break;
 
 	case 'witchhatatelierwiki':

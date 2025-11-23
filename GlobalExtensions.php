@@ -38,7 +38,8 @@ wfLoadExtensions( [
 	'ConfigCentre',
 	'ToastNotifications',
 	'SitemapOnTheFly',
-	'MissingWiki'
+	'MissingWiki',
+	'CreateWiki'
 ] );
 
 wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
