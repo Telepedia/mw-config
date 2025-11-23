@@ -229,6 +229,11 @@ $wgConf->settings += [
 			]
 		]
 	],
+	'wgCreateWikiClusters' => [
+		'default' => [
+			'c1'
+		]
+	],
 
 	// Logo
 	'wgLogo' => [
