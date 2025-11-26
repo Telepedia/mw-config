@@ -1043,6 +1043,12 @@ $wgConf->settings += [
 	'wgConfigCentreMasterWiki' => [
 		'default' => '32099726c907980eeb175bb00f9f51b3cdd9b08f'
 	],
+	'wgConfigCentreReservedGroups' => [
+		'default' => [
+			'staff',
+			'saber'
+		]
+	],
 	'wgConfigCentreVerticals' => [
 		'default' => [
 			'M/TV' => 'Movies & TV',
