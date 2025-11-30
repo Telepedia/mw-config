@@ -1220,11 +1220,9 @@ require_once '/prod/mediawiki/config/GlobalPermissions.php';
 
 GlobalPermissions::modifyPermissionsAfterManageWiki( $globals );
 $globals['wgSharedDB'] = 'metawiki';
-$globals['wgSharedTables'] = [
-	'user',
-	'user_autocreate_serial',
-	'actor'
-];
+$globals['wgSharedTables'][] = 'user';
+$globals['wgSharedTables'][] = 'user_autocreate_serial';
+$globals['wgSharedTables'][] = 'actor';
 $globals['wgSessionName'] = 'telepedia_session';
 $globals['wgCookieDomain'] = '.telepedia.net';
 $globals['wgCookieSameSite'] = null;
