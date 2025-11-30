@@ -1215,13 +1215,15 @@ $wgConf->settings += [
 // configuration. When MediaWikiServices is called, we then will overwrite $GLOBALS again with our custom configuration
 // this ensures that anything added AFTER (such as permissions to groups from extensions) will be disregarded
 $globals = $wgConf->getAll( $wgDBname );
+
+require_once '/prod/mediawiki/config/GlobalPermissions.php';
+
+GlobalPermissions::modifyPermissionsAfterManageWiki( $globals );
+
 extract( $globals );
 
 $wgHooks['MediaWikiServices'][] = 'LoadWiki::onMediaWikiServices';
 
-require_once '/prod/mediawiki/config/GlobalPermissions.php';
-
-GlobalPermissions::modifyPermissionsAfterManageWiki();
 
 $wgSharedDB = 'metawiki';
 $wgSharedTables = [
