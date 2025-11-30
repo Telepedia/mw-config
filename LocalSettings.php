@@ -1219,30 +1219,21 @@ $globals = $wgConf->getAll( $wgDBname );
 require_once '/prod/mediawiki/config/GlobalPermissions.php';
 
 GlobalPermissions::modifyPermissionsAfterManageWiki( $globals );
+$globals['wgSharedDB'] = 'metawiki';
+$globals['wgSharedTables'] = [
+	'user',
+	'user_autocreate_serial',
+	'actor'
+];
+$globals['wgSessionName'] = 'telepedia_session';
+$globals['wgCookieDomain'] = '.telepedia.net';
+$globals['wgCookieSameSite'] = null;
+$globals['wgCookiePath'] = '/';
 
 extract( $globals );
 
 $wgHooks['MediaWikiServices'][] = 'LoadWiki::onMediaWikiServices';
 
-
-$wgSharedDB = 'metawiki';
-$wgSharedTables = [
-	'user',
-	'user_autocreate_serial',
-	'actor'
-];
-$wgSessionName = 'telepedia_session';
-$wgCookieDomain = '.telepedia.net';
-$wgCookieSameSite = null;
-$wgCookiePath = '/';
-
-// // phpcs:ignore MediaWiki.Usage.ForbiddenFunctions.extract
-// extract( $globals );
-
-// $wi->loadExtensions();
-
-// require_once __DIR__ . '/ManageWikiNamespaces.php';
-// require_once __DIR__ . '/ManageWikiSettings.php';
 require_once __DIR__ . '/GlobalLogging.php';
 
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
