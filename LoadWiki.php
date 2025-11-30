@@ -864,4 +864,26 @@ class LoadWiki {
 			}
 		}
 	}
+
+	/**
+	 * When MediaWikiServices initialises, override any config that may have been changed by extensions
+	 * such as $wgGroupPermissions back to what it was from the database - this is a dirty hack to get around
+	 * PLAT-87 where an extension defines groups in extension.json which then cannot be removed in ConfigCentre because
+	 * they are loaded after ConfigCentre settings are extracted. 
+	 * @return void
+	 */
+	public static function onMediaWikiServices(): void {
+		if ( !isset( $GLOBALS['globals'] ) || !is_array( $GLOBALS['globals'] ) ) {
+			return;
+		}
+
+		$settings = $GLOBALS['wgConf']->settings;
+		foreach ( $GLOBALS['globals'] as $global => $value ) {
+			if ( !isset( $settings["+$global"] ) ) {
+				$GLOBALS[$global] = $value;
+			}
+		}
+		
+		unset( $GLOBALS['globals'] );
+	}
 }

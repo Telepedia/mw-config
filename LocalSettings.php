@@ -1211,9 +1211,13 @@ $wgConf->settings += [
 // 	'telelytics'
 // ];
 
-$wgConf->extractAllGlobals( $wgDBname );
+// PLAT-87 extract the globals so that anything initialising after LocalSettings has ran has access to the 
+// configuration. When MediaWikiServices is called, we then will overwrite $GLOBALS again with our custom configuration
+// this ensures that anything added AFTER (such as permissions to groups from extensions) will be disregarded
+$globals = $wgConf->getAll( $wgDBname );
+extract( $globals );
 
-// $globals = TelepediaFunctions::getConfigGlobals();
+$wgHooks['MediaWikiServices'][] = 'LoadWiki::onMediaWikiServices';
 
 require_once '/prod/mediawiki/config/GlobalPermissions.php';
 
