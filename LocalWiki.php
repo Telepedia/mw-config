@@ -4,6 +4,11 @@ switch ( $wi->dbName ) {
 
 	case 'metawiki':
 		$wgAdConfig['enabled'] = false;
+		$wgRevokePermissions['no-createwiki']['createwiki'] = true;
+		break;
+
+	case 'starterwiki':
+		$wgAdConfig['enabled'] = false;
 		break;
 
 	case 'witchhatatelierwiki':
