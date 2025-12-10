@@ -190,6 +190,9 @@ final class GlobalPermissions {
     $globals['wgAddGroups']['staff']['sentinel'] = true;
     $globals['wgAddGroups']['staff']['checkuser'] = true;
 
+    // allow users to create wikis - unfortunately due to the setup, we need this here
+    $globals['wgGroupPermissions']['autoconfirmed']['createwiki'] = true;
+
     // don't care, thank you
     unset( $globals['wgGroupPermissions']['steward'] );
     }
