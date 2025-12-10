@@ -1194,17 +1194,7 @@ $wgConf->settings += [
 			0,
 			14
 		]
-	],
-	// 1 wiki every 2 weeks should be sufficient
-	'+wgRateLimits' => [
-		'default' => [],
-		'metawiki' => [
-			'createwiki' => [
-				'ip-all' => [ 1, 1209600 ],
-				'user' => [ 1, 1209600 ],
-		],
-	],
-
+	]
 ];
 
 // // ManageWiki settings
