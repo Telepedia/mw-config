@@ -5,7 +5,7 @@ switch ( $wi->dbName ) {
 	case 'metawiki':
 		$wgAdConfig['enabled'] = false;
 		$wgRevokePermissions['no-createwiki']['createwiki'] = true;
-		$wgGroupPermissions['autoconfirmed']['createwiki'] = true;
+		$wgGroupPermissions['user']['createwiki'] = true;
 		break;
 
 	case 'starterwiki':
