@@ -15,16 +15,11 @@ require_once '/srv/mediawiki/PrivateSettings.php';
 require_once '/prod/mediawiki/config/GlobalSkins.php';
 require_once '/prod/mediawiki/config/GlobalExtensions.php';
 require_once '/prod/mediawiki/config/GlobalCache.php';
-// require_once '/prod/mediawiki/config/TelepediaFunctions.php';
 require_once '/prod/mediawiki/config/ConfigCentreNamespaces.php';
 require_once '/prod/mediawiki/config/GlobalDatabase.php';
 require_once '/prod/mediawiki/config/LoadWiki.php';
 
-// PLAT-2: temp disable user access to CreateWiki
-$wgGroupPermissions['user']['createwiki'] = false;
-
 // Determine the wiki context
-// $wi = new TelepediaFunctions();
 $wi = new LoadWiki();
 $wi->execute();
 
@@ -1197,19 +1192,6 @@ $wgConf->settings += [
 	]
 ];
 
-// // ManageWiki settings
-// require_once __DIR__ . '/ManageWikiExtensions.php';
-
-// $wi::$disabledExtensions = [
-// 	'editnotify',
-// 	'hitcounters',
-// 	'regexfunctions',
-// 	'wikiforum',
-// 	'socialprofile',
-// 	'simpleblogpage',
-// 	'thanks',
-// 	'telelytics'
-// ];
 
 // PLAT-87 extract the globals so that anything initialising after LocalSettings has ran has access to the 
 // configuration. When MediaWikiServices is called, we then will overwrite $GLOBALS again with our custom configuration
@@ -1244,9 +1226,6 @@ if ( $wgRequestTimeLimit ) {
 	$wgHTTPMaxTimeout = $wgHTTPMaxConnectTimeout = $wgRequestTimeLimit;
 }
 
-// if ( $wi->missing ) {
-// 	require_once '/prod/mediawiki/config/MissingWiki.php';
-// }
 
 $wgAdConfig['enabled'] = true; 
 
