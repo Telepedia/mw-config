@@ -2,9 +2,7 @@
 
 wfLoadExtensions( [
 	'AWS',
-	// 'CreateWiki',
 	'Cloudflare',
-	// 'ManageWiki',
 	'ConfirmEdit',
 	'ConfirmEdit/Turnstile',
 	'WikiSEO',
@@ -39,7 +37,8 @@ wfLoadExtensions( [
 	'ToastNotifications',
 	'SitemapOnTheFly',
 	'MissingWiki',
-	'CreateWiki'
+	'CreateWiki',
+	'GlobalPreferences'
 ] );
 
 wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
