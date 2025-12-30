@@ -14,8 +14,8 @@
  * @author Original Authority
  */
 class TPRest {
-    constructor( baseUrl = '/rest.php' ) {
-        this.baseUrl = baseUrl;
+    constructor() {
+        this.baseUrl = mw.util.wikiScript( 'rest' );
     }
 
     async request( path, options = {} ) {
