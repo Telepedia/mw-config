@@ -1240,7 +1240,7 @@ $wgCargoDBname = $wgDBname . 'cargo';
 $wgResourceModules['telepedia.fetch'] = [
 	'scripts' => 'config/TPRest.js',
 	'dependencies' => [
-		'mw.util'
+		'mediawiki.util'
 	]
 ];
 
