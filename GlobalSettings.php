@@ -58,53 +58,6 @@ function metaConditionalSiteNotice( &$siteNotice, $skin ) {
 }
 */
 
-/** Revoke permissions on wikis that are marked as closed in CreateWiki */
-if ( $cwClosed ) {
-	$wgRevokePermissions = [
-		'*' => [
-			'block' => true,
-			'createaccount' => true,
-			'delete' => true,
-			'edit' => true,
-			'protect' => true,
-			'import' => true,
-			'upload' => true,
-			'undelete' => true,
-		],
-		'user' => [
-			'block' => true,
-			'createaccount' => true,
-			'delete' => true,
-			'edit' => true,
-			'protect' => true,
-			'import' => true,
-			'upload' => true,
-			'undelete' => true,
-		],
-	];
-	/** Add a sitenotice to say that the wiki has been marked closed by CreateWiki */
-	$wgHooks['SiteNoticeAfter'][] = 'wfConditionalSiteNotice';
-	// Set a sitenoitce if the wiki has been closed
-	function wfConditionalSiteNotice( &$siteNotice, $skin ) {
-		$skin->getOutput()->enableOOUI();
-		$skin->getOutput()->addInlineStyle( '.mw-dismissable-notice .mw-dismissable-notice-body { margin: unset; } .Message *{box-sizing:border-box}.Message{display:table;position:relative;margin:40px auto 0;width:60%;color:#fff;transition:.2s}.Message-body,.Message-icon{display:table-cell;vertical-align:middle}.Message--orange{background-color:#f39c12}.Message-icon{width:60px;padding:30px;text-align:center;background-color:rgba(0,0,0,.25)}.fa-exclamation{font-size:26px}.Message-body{padding:30px 20px 30px 10px}.Message-body p{line-height:1.2;margin-top:6px}' );
-
-		$siteNotice .= <<<EOF
-			<table style="width: 100%;">
-			<div class="Message Message--orange">
-			<div class="Message-icon">
-			  <span class="fa fa-exclamation">!</span>
-			</div>
-			<div class="Message-body">
-			  <p>This wiki has been closed, either as a result of inactivity, or actions that violate the Platform's Terms of Use and Conditions of Service.</p>
-			  <p>If you wish to reopen this wiki, please create a ticket on Phorge, including the reasons for reopening. You may also wish to join our Discord Sever to enquire about this.</p>
-			</div>
-		  </div>
-			</table>
-		EOF;
-	}
-}
-
 /** Extension:TelepediaAds configuration */
 $wgAdConfig = [
 	'enabled' => true, // enabled or not? :P
