@@ -964,6 +964,9 @@ $wgConf->settings += [
 			0,
 			14
 		]
+	],
+	'wgCosmosFetchWantedPagesFromCache' => [
+		'default' => true
 	]
 ];
 
