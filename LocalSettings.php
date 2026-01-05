@@ -800,6 +800,9 @@ $wgConf->settings += [
 			],
 			'virtual-configcentre' => [
 				'db' => 'centralauth'
+			],
+			'virtual-LoginNotify' => [
+				'db' => 'centralauth'
 			]
 		]
 	],
