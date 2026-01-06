@@ -970,6 +970,9 @@ $wgConf->settings += [
 	],
 	'wgCosmosFetchWantedPagesFromCache' => [
 		'default' => true
+	],
+	'wgCacheDirectory' => [
+		'default' => '/srv/mediawiki/cache'
 	]
 ];
 
