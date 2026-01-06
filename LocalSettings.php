@@ -623,6 +623,7 @@ $wgConf->settings += [
 	'wmgMonologChannels' => [
 		'default' => [
 			'@default' => 'error',
+			'plat74' => 'debug',
 			'404' => 'debug',
 			'AbuseFilter' => false,
 			'ActionFactory' => false,
