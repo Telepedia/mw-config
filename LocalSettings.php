@@ -99,11 +99,6 @@ $wgConf->settings += [
 	],
 
 	// Skins
-	'wgDefaultMobileSkin' => [
-		'default' => 'minerva',
-		'witchhatatelierwiki' => 'cosmos',
-		'elatelierdesombrerosdemagowiki' => 'cosmos'
-	],
 	'wgCosmosContentWidth' => [
 		'default' => 'large',
 	],
