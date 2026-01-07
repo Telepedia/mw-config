@@ -25,7 +25,7 @@ class TelepediaProfiler {
 			} );
 		}
 
-		self::registerSlowLog();
+		// self::registerSlowLog();
 	}
 
 	/**
