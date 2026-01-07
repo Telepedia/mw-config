@@ -1005,7 +1005,7 @@ $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
 
 $wgLocalisationCacheConf['storeClass'] = LCStoreCDB::class;
-$wgLocalisationCacheConf['storeDirectory'] = '/srv/mediawiki/cache/l10n';
+$wgLocalisationCacheConf['storeDirectory'] = "/srv/mediawiki/cache/l10n/$wgDBname";
 
 if ( $wgRequestTimeLimit ) {
 	$wgHTTPMaxTimeout = $wgHTTPMaxConnectTimeout = $wgRequestTimeLimit;
