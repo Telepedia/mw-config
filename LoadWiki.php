@@ -230,6 +230,7 @@ class LoadWiki {
 		$this->checkAndRedirectToCanonicalDomain();
 
 		$this->setGlobals();
+		$this->populateLocalDatabases();
 		$this->extractAndQueueExtensions();
 		$this->extractAndSetVariables();
 		$this->extractAndSetNamespaces();
@@ -885,5 +886,44 @@ class LoadWiki {
 		}
 		
 		unset( $GLOBALS['globals'] );
+	}
+
+	/**
+	 * Because MediaWiki hardcodes a check on $wgLocalDatabases everywhere, we have no choice but to set it
+	 * @return void
+	 * @throws Exception
+	 */
+	public function populateLocalDatabases(): void {
+		global $wgLocalDatabases, $wgConf;
+
+		$allWikis = [];
+
+		if ( !$this->commandLineMode ) {
+			$key = $this->cache->makeGlobalKey( 'configcentre', 'allwikis', 'v0' );
+			$data = $this->cache->get( $key );
+
+			if ( $data ) {
+				$allWikis = $data;
+			}
+		}
+
+		if ( empty( $allWikis ) ) {
+			$dbr = $this->getDB();
+
+			$allWikis = $dbr->newSelectQueryBuilder()
+				->select( 'wiki_database' )
+				->from( 'cc_wikis' )
+				->caller( __METHOD__ )
+				->fetchFieldValues();
+
+			if ( !$this->commandLineMode ) {
+				$key = $this->cache->makeGlobalKey( 'configcentre', 'allwikis', 'v0' );
+				$this->cache->set( $key, $allWikis, 86400 ); // 24 hours for this eek need to purge this always
+				// on wiki creation
+			}
+		}
+
+		$wgLocalDatabases = $allWikis;
+		$wgConf->settings['wgLocalDatabases'] = $allWikis;
 	}
 }
