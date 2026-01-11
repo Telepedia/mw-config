@@ -799,6 +799,9 @@ $wgConf->settings += [
 			],
 			'virtual-LoginNotify' => [
 				'db' => 'centralauth'
+			],
+			'virtual-rtbf' => [
+				'db' => 'centralauth'
 			]
 		]
 	],
