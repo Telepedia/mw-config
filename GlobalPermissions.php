@@ -179,6 +179,7 @@ final class GlobalPermissions {
         'configcentre' => true,
         'configcentre-restricted' => true,
         'editinterface-platform' => true,
+        'request-to-be-forgotten-admin' => true
     ]);
 
     $globals['wgGroupPermissions']['global-bot'] = [

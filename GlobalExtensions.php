@@ -38,7 +38,8 @@ wfLoadExtensions( [
 	'SitemapOnTheFly',
 	'MissingWiki',
 	'CreateWiki',
-	'GlobalPreferences'
+	'GlobalPreferences',
+	'RequestToBeForgotten'
 ] );
 
 wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
