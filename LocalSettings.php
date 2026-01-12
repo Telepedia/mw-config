@@ -942,7 +942,8 @@ $wgConf->settings += [
 				'managewiki',
 				'profilemanager',
 				'no-createwiki',
-				'configcentre-restricted'
+				'configcentre-restricted',
+				'request-to-be-forgotten-admin'
 		]
 	],
 	'wgConfigCentreSettingGroups' => [
