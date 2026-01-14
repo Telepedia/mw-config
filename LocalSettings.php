@@ -847,6 +847,7 @@ $wgConf->settings += [
 				'abusefilter-private-log',
 				'abusefilter-privatedetails',
 				'abusefilter-privatedetails-log',
+				'abusefilter-modify-blocked-external-domains'
 				'aft-oversighter',
 				'autocreateaccount',
 				'bigdelete',
