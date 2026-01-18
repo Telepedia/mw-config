@@ -978,6 +978,16 @@ $wgConf->settings += [
 	],
 	'wgCacheDirectory' => [
 		'default' => '/srv/mediawiki/cache'
+	],
+
+	// DNS blacklist to prevent spam accounts
+	'wgEnableDnsBlacklist' => [
+		'default' => true
+	],
+	'wgDnsBlacklistUrls' => [
+		'default' => [
+			'all.s5h.net.'
+		]
 	]
 ];
 
