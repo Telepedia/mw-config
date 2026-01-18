@@ -987,8 +987,8 @@ $wgConf->settings += [
 	'wgDnsBlacklistUrls' => [
 		'default' => [
 			'all.s5h.net.'
-		]
-	]
+		],
+	],
 ];
 
 
