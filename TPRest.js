@@ -41,6 +41,14 @@ class TPRest {
 
         try {
             const response = await fetch( `${this.baseUrl}${path}`, config );
+
+            if ( response.status === 204 ) {
+                // if the response is created from ->createNoContent(), then just return a bogus success
+                // message to the caller so it doesn't try to parse the JSON if there was none
+                // if not, doing a try/catch block will always execute the catch block
+                return { success: true };
+            }
+            
             const data = await response.json();
 
             // Error should always be returned from a subclass of SimpleClass::handler with the
