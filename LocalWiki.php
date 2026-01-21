@@ -3,22 +3,22 @@
 switch ( $wi->dbName ) {
 
 	case 'metawiki':
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		$wgRevokePermissions['no-createwiki']['createwiki'] = true;
 		break;
 
 	case 'starterwiki':
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		break;
 
 	case 'witchhatatelierwiki':
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		$wgDefaultMobileSkin = "cosmos";
 		break;
 
 	case 'latelierdessorcierswiki':
 		$wgDefaultMobileSkin = "cosmos";
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		$wgForeignFileRepos[] = [
 			'class' => ForeignDBViaLBRepo::class,
 			'name' => 'shared-witchhatatelierwiki',
@@ -84,7 +84,7 @@ switch ( $wi->dbName ) {
 			],
 			'abbrvThreshold' => 160
 		];
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		break;
 
 	case 'atelierspiczastychkapeluszywiki':
@@ -119,12 +119,12 @@ switch ( $wi->dbName ) {
 			],
 			'abbrvThreshold' => 160
 		];
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		break;
 
 	case 'duneawakeningwiki':
 		wfLoadExtension( 'Cargo' );
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		break;
 
     case 'testingoawiki':
@@ -134,11 +134,11 @@ switch ( $wi->dbName ) {
 		break;
 
 	case 'landmanwiki':
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		break;	
 
 	case 'loginwiki':
-		$wgAdConfig['enabled'] = false;
+		$wgAdsEnabled = false;
 		$tpUseCentralAuth = false;
 		break;	
 	
