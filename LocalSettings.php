@@ -983,6 +983,12 @@ $wgConf->settings += [
 			'all.s5h.net.'
 		],
 	],
+	'wgShowCreditsIfMax' => [
+		'default' => false
+	],
+	'wgMaxCredits' => [
+		'default' => 0
+	]
 ];
 
 
