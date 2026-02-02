@@ -274,11 +274,6 @@ $wgConf->settings += [
 		'default' => true
 	],
 
-	// WikiDiscover
-	'wgWikiDiscoverUseDescriptions' => [
-		'default' => true
-	],
-
 	// Licenses
 	'wgRightsUrl' => [
 		'default' => 'https://creativecommons.org/licenses/by-sa/3.0/',
@@ -342,12 +337,7 @@ $wgConf->settings += [
 	'wgNativeImageLazyLoading' => [
 		'default' => true
 	],
-	'wgFileStorageMonitorAWSBucketName' => [
-		'default' => 'static.telepedia.net'
-	],
-	'wgFileStorageMonitorAWSRegion' => [
-		'default' => 'eu-west-2'
-	],
+
 	'wgMaxUploadSize' => [
 		'default' => 1024 * 1024 * 8,
 	],
