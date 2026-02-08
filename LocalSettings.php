@@ -339,7 +339,7 @@ $wgConf->settings += [
 	],
 
 	'wgMaxUploadSize' => [
-		'default' => 1024 * 1024 * 8,
+		'default' => 1024 * 1024 * 12,
 	],
 	'wgCopyUploadsFromSpecialUpload' => [
 		'default' => true,
