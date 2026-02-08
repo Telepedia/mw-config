@@ -306,10 +306,7 @@ $wgConf->settings += [
 		]
 	],
 	'wgUseInstantCommons' => [
-		'default' => true,
-		'witchhatatelierwiki' => false,
-		'latelierdessorcierswiki' => false,
-		'atelierspiczastychkapeluszywiki' => false
+		'default' => false
 	],
 	'wgMaxImageArea' => [
 		'default' => '1.25e7',
