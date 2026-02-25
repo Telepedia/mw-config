@@ -150,5 +150,29 @@ $wgConfigCentreNamespacesAdditional = [
 			[ 'default' => false ]
 		),
 		'help' => '',
+	],
+	'wgAgoraCommentNamespaces' => [
+		'name' => 'Enable Comments in this namespace?',
+		'from' => 'mediawiki',
+		'type' => 'check',
+		'main' => true,
+		'talk' => false,
+		'excluded' => [
+			1,
+			2,
+			3,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			14
+		],
+		'default' => array_merge(
+			array_fill_keys( $wgContentNamespaces, true ),
+			[ 'default' => false ]
+		),
+		'help' => '',
 	]
 ];

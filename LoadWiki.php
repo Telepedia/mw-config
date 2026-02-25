@@ -738,6 +738,9 @@ class LoadWiki {
 		}
 	}
 
+	/**
+	 * Extract our namespace config from either the cache or the database and set it appropriately
+	 */
 	private function extractAndSetNamespaces(): void {
 		if ( !$this->commandLineMode ) {
 			$key = $this->cache->makeGlobalKey( 'configcentre', 'namespaces', 'v0', $this->wikiId );
@@ -789,16 +792,43 @@ class LoadWiki {
 
 			// Unserialize the content from the database and/or cache, suppressing any errors as the data
 			// may not exist there so we don't want errors
-			$additional = @unserialize( $namespace['namespace_additional'] );
+			// Unserialize the content from the database and/or cache, suppressing any errors
+			$additional = @unserialize( $namespace['namespace_additional'] ) ?: [];
 
-			if ( !empty( $additional ) ) {
-				foreach( $additional as $key => $value ) {
-					if ( array_key_exists( $key, $wgConfigCentreNamespacesAdditional ) ) {
-						if ( $wgConfigCentreNamespacesAdditional[$key]['type'] == 'vestyle' ) {
-							$wgConf->settings[$key]['default'][$id] = $value;
-						} else {
-							$wgConf->settings[$key]['default'][] = $value;
-						}
+			foreach ( $wgConfigCentreNamespacesAdditional as $key => $definition ) {
+				$isTalk = ( $id > 0 && $id % 2 !== 0 );
+
+				if ( $isTalk && empty( $definition['talk'] ) ) {
+					continue;
+				}
+				if ( !$isTalk && empty( $definition['main'] ) ) {
+					continue;
+				}
+
+				if ( !empty( $definition['excluded'] ) && in_array( $id, $definition['excluded'], true ) ) {
+					continue;
+				}
+
+				if ( array_key_exists( $key, $additional ) ) {
+					$value = $additional[$key];
+				} else {
+					$defaultConfig = $definition['default'];
+					if ( !is_array( $defaultConfig ) ) {
+						$value = $defaultConfig;
+					} elseif ( array_key_exists( $id, $defaultConfig ) ) {
+						$value = $defaultConfig[$id];
+					} elseif ( array_key_exists( 'default', $defaultConfig ) ) {
+						$value = $defaultConfig['default'];
+					} else {
+						$value = false;
+					}
+				}
+
+				if ( $definition['type'] === 'vestyle' || $definition['type'] === 'select' ) {
+					$wgConf->settings[$key]['default'][$id] = $value;
+				} elseif ( $definition['type'] === 'check' ) {
+					if ( $value === true ) {
+						$wgConf->settings[$key]['default'][] = $id;
 					}
 				}
 			}
