@@ -6,7 +6,6 @@ wfLoadExtensions( [
 	'ConfirmEdit',
 	'ConfirmEdit/Turnstile',
 	'WikiSEO',
-	'NativeSvgHandler',
 	'LinkSuggest',
 	'GTag',
 	'Cite',

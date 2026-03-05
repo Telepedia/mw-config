@@ -975,6 +975,9 @@ $wgConf->settings += [
 	],
 	'wgMaxCredits' => [
 		'default' => 0
+	],
+	'wgSVGNativeRendering' => [
+		'default' => true
 	]
 ];
 
