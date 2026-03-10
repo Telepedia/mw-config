@@ -1015,6 +1015,13 @@ if ( $wgRequestTimeLimit ) {
 	$wgHTTPMaxTimeout = $wgHTTPMaxConnectTimeout = $wgRequestTimeLimit;
 }
 
+// this is a bit of a hack - since ConfigCentre doesn't allow associative arrays, we bodge it here. Furthermore,
+// since it also will interpret all options as strings in the list, we need to check it here and force it to a boolean
+$recentChangesType = $wgCosmosRailModuleRecentChangesType;
+
+$wgCosmosEnabledRailModules['recentchanges'] = ($recentChangesType === 'false') 
+    ? false 
+    : $recentChangesType;
 
 $wgAdConfig['enabled'] = true; 
 
