@@ -5,7 +5,6 @@ wfLoadExtensions( [
 	'Cloudflare',
 	'ConfirmEdit',
 	'ConfirmEdit/Turnstile',
-	'WikiSEO',
 	'GTag',
 	'TelepediaAds',
 	'ProtectSite',
