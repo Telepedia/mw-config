@@ -490,6 +490,8 @@ class LoadWiki {
 		$wgConf->settings['wgCanonicalServer'][$this->dbName] = $server;
 		$wgServer = $server;
 		$wgCanonicalServer = $server;
+		$wgConf->settings['wgMetaNamespace'][$this->dbName] = str_replace( [ ' ', ':' ], '_', $this->wiki['wiki_name'] );
+		$wgConf->settings['wgMetaNamespaceTalk'][$this->dbName] = str_replace( [ ' ', ':' ], '_', "{$this->wiki['wiki_name']}_talk" );
 
 		// ResourceLoader et al
 		$langPrefix = isset( $this->parsedUrl['lang'] ) ? "/{$this->parsedUrl['lang']}" : '';
@@ -777,7 +779,12 @@ class LoadWiki {
 		foreach ( $this->namespaces as $namespace ) {
 			$id = (int)$namespace['namespace_id'];
 			$isMain = $id == 0;
-			$wgConf->settings['wgExtraNamespaces']['default'][$id] = $isMain ? "" : $namespace['namespace_name'];
+
+			// don't add core namespaces to $wgExtraNamespaces, since this always forces them to EN
+			if ( !$namespace['namespace_core'] ) {
+				$wgConf->settings['wgExtraNamespaces']['default'][$id] = $isMain ? "" : $namespace['namespace_name'];
+			}
+			
 			$wgConf->settings['wgNamespacesToBeSearchedDefault']['default'][$id] = (bool)$namespace['namespace_is_searchable'];
 			$wgConf->settings['wgNamespacesWithSubpages']['default'][$id] = (bool)$namespace['namespace_subpages'];
 			$wgConf->settings['wgNamespaceContentModels']['default'][$id] = $namespace['namespace_content_model'];
