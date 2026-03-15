@@ -162,6 +162,8 @@ $wgConf->settings += [
 			'suppressrevision',
 			'userrights',
 			'userrights-interwiki',
+			'configcentre-restricted',
+			'request-to-be-forgotten-admin'
 		],
 		'+metawiki' => [
 			'edituserjs',
@@ -172,7 +174,8 @@ $wgConf->settings += [
 		'default' => [
 			'checkuser',
 			'steward',
-			'staff'
+			'staff',
+			'saber'
 		],
 	],
 
