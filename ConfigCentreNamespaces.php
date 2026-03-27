@@ -22,7 +22,7 @@ $wgConfigCentreNamespacesAdditional = [
 			2,
 			8,
 		],
-		'default' => false,
+		'default' => true,
 		'help' => 'Overrides <code>$wgCapitalLinks</code> for this namespace. Warning: This may break your existing wiki links.',
 	],
 	'wgNoFollowNsExceptions' => [
