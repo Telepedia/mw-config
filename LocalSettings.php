@@ -381,7 +381,7 @@ $wgConf->settings += [
 		],
 	],
 	'wgScribuntoDefaultEngine' => [
-		'default' => 'luastandalone'
+		'default' => 'luasandbox'
 	],
 	'wgUsePrivateIPs' => [
 		'default' => true
