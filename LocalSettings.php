@@ -524,6 +524,18 @@ $wgConf->settings += [
 	'wgEchoUseJobQueue' => [
 		'default' => true,
 	],
+	'wgNotifyTypeAvailabilityByCategory' => [
+		'default' => [
+			'agora-reply' => [
+				'web' => true,
+				'email' => false
+			],
+			'agora-mention' => [
+				'web' => true,
+				'email' => false
+			]
+		]
+	],
 	'wgCargoDBuser' => [
 		'default' => 'cargouser',
 	],
