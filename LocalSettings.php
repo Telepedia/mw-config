@@ -1023,14 +1023,14 @@ require_once __DIR__ . '/GlobalLogging.php';
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
 
-// $wgLocalisationCacheConf['storeClass'] = LCStoreCDB::class;
-// $wgLocalisationCacheConf['storeDirectory'] = "/srv/mediawiki/cache/l10n/$wgDBname";
+$wgLocalisationCacheConf['storeClass'] = LCStoreCDB::class;
+$wgLocalisationCacheConf['storeDirectory'] = "/srv/mediawiki/cache/l10n/$wgDBname";
 // use array here to try and improve performance
-$wgLocalisationCacheConf = [
-    'store' => 'array',
-    'storeDirectory' => "/srv/mediawiki/cache/l10n",
-];
-unset( $wgLocalisationCacheConf['storeClass'] );
+// $wgLocalisationCacheConf = [
+//     'store' => 'array',
+//     'storeDirectory' => "/srv/mediawiki/cache/l10n",
+// ];
+
 
 if ( $wgRequestTimeLimit ) {
 	$wgHTTPMaxTimeout = $wgHTTPMaxConnectTimeout = $wgRequestTimeLimit;
