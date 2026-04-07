@@ -1030,6 +1030,7 @@ $wgLocalisationCacheConf = [
     'store' => 'array',
     'storeDirectory' => "/srv/mediawiki/cache/l10n",
 ];
+unset( $wgLocalisationCacheConf['storeClass'] );
 
 if ( $wgRequestTimeLimit ) {
 	$wgHTTPMaxTimeout = $wgHTTPMaxConnectTimeout = $wgRequestTimeLimit;
