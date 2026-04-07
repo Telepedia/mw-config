@@ -50,3 +50,5 @@ $wgJobTypeConf['default'] = [
 	'redisConfig'    => [],
 	'daemonized'     => true
 ];
+
+$wgMessageCacheType = CACHE_ACCEL;
