@@ -84,10 +84,10 @@ class TelepediaProfiler {
 		global $wgDBname;
 		$wiki = $wgDBname ?? 'unknown';
 		$action = $_GET['action'] ?? 'view';
-		$parsed = self::$pageViewCausedParse ? 'true' : 'false';
-		$forcedStr = self::$isForced ? 'true' : 'false';
+		$parsed = self::$pageViewCausedParse ? 'yes' : 'no';
+		$forcedStr = self::$isForced ? 'yes' : 'no';
 		
-		$loggedIn = 'false';
+		$loggedIn = 'no';
 		try {
 			if ( class_exists( 'MediaWiki\Context\RequestContext' ) ) {
 				$loggedIn = RequestContext::getMain()->getUser()->isRegistered() ? 'yes' : 'no';
