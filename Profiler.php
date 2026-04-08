@@ -84,20 +84,20 @@ class TelepediaProfiler {
 		global $wgDBname;
 		$wiki = $wgDBname ?? 'unknown';
 		$action = $_GET['action'] ?? 'view';
-		$parsed = self::$pageViewCausedParse ? 'yes' : 'no';
-		$forcedStr = self::$isForced ? 'yes' : 'no';
+		$parsed = self::$pageViewCausedParse ? '1' : '0';
+		$forcedStr = self::$isForced ? '1' : '0';
 		
-		$loggedIn = 'no';
+		$loggedIn = '0';
 		try {
 			if ( class_exists( 'MediaWiki\Context\RequestContext' ) ) {
-				$loggedIn = RequestContext::getMain()->getUser()->isRegistered() ? 'yes' : 'no';
+				$loggedIn = RequestContext::getMain()->getUser()->isRegistered() ? '1' : '0';
 			}
 		} catch ( Throwable $e ) {
 			// do nothing if we errored
 		}
 
 		$appName = sprintf(
-			'mediawiki.cpu{wiki="%s", action="%s", logged_in="%s", parsed="%s", forced="%s"}',
+			'mediawiki.cpu{wiki="%s",action="%s",logged_in="%s",parsed="%s",forced="%s"}',
 			$wiki, $action, $loggedIn, $parsed, $forcedStr
 		);
 
