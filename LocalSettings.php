@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 // Start the profiler if requested, before anything else is done
 require_once __DIR__ . '/Profiler.php';
-TelepediaProfiler::setup();
+TelepediaProfiler::setup( 0.01 );
 
 // Load some stuff that must be initialise and available as globals before
 // we determine the wiki context
