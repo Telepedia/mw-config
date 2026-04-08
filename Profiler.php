@@ -90,7 +90,7 @@ class TelepediaProfiler {
 		$loggedIn = 'false';
 		try {
 			if ( class_exists( 'MediaWiki\Context\RequestContext' ) ) {
-				$loggedIn = RequestContext::getMain()->getUser()->isRegistered() ? 'true' : 'false';
+				$loggedIn = RequestContext::getMain()->getUser()->isRegistered() ? 'yes' : 'no';
 			}
 		} catch ( Throwable $e ) {
 			// do nothing if we errored
