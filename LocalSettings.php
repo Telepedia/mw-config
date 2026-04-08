@@ -978,7 +978,7 @@ $wgConf->settings += [
 
 	// DNS blacklist to prevent spam accounts
 	'wgEnableDnsBlacklist' => [
-		'default' => true
+		'default' => false
 	],
 	'wgDnsBlacklistUrls' => [
 		'default' => [
