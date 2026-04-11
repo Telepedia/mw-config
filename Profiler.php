@@ -112,7 +112,7 @@ class TelepediaProfiler {
 
     	// here we just use a socket and fire and forget so MediaWiki/PHP isn't waiting for the response back
 		// we lose some ability to check if the response was successful here, but alas
-    	$fp = fsockopen( $host, $port, $errno, $errstr, 0.5 );
+    	$fp = fsockopen( $host, $port, $errno, $errstr, 1.0 );
 
     	if ( $fp ) {
         	$out = "POST {$path} HTTP/1.1\r\n";
