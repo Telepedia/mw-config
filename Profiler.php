@@ -32,7 +32,7 @@ class TelepediaProfiler {
 		// Only profile a percentage of standard traffic so we don't overwhelm the network
 		// if we aren't included in the sample AND the request wasn't forced, return
 		if ( !self::$isForced && mt_rand( 1, (int)( 1 / $sampleRate ) ) > 1 ) {
-			return; 
+			return;
 		}
 
 		self::$excimer = new ExcimerProfiler();
@@ -68,52 +68,66 @@ class TelepediaProfiler {
 		self::$excimer->stop();
 		$log = self::$excimer->getLog();
 
-		if ( self::$isForced ) {
-			$data = $log->getSpeedscopeData();
-			$data['profiles'][0]['name'] = $_SERVER['REQUEST_URI'] ?? 'Unknown';
-			
-			$logDir = '/var/log/mediawiki-profiling';
-			if ( !is_dir( $logDir ) ) {
-				@mkdir( $logDir, 0755, true );
-			}
-			
-			$filename = $logDir . '/speedscope-' . ( new DateTime )->format( 'Y-m-d_His_v' ) . '-' . MW_ENTRY_POINT . '.json';
-			@file_put_contents( $filename, json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) );
-		}
+		$speedscopeData = $log->getSpeedscopeData();
+		$collapsedStacks = $log->formatCollapsed();
 
 		global $wgDBname;
 		$wiki = $wgDBname ?? 'unknown';
 		$action = $_GET['action'] ?? 'view';
-		$parsed = self::$pageViewCausedParse ? '1' : '0';
-		$forcedStr = self::$isForced ? '1' : '0';
-		
-		$loggedIn = '0';
+		$parsed = (bool)self::$pageViewCausedParse;
+
+		$loggedIn = false;
 		try {
 			if ( class_exists( 'MediaWiki\Context\RequestContext' ) ) {
-				$loggedIn = RequestContext::getMain()->getUser()->isRegistered() ? '1' : '0';
+				$loggedIn = RequestContext::getMain()->getUser()->isRegistered();
 			}
 		} catch ( Throwable $e ) {
-			// do nothing if we errored
+			// ignore
 		}
 
-		$appName = sprintf(
-			'mediawiki.cpu{wiki="%s",action="%s",logged_in="%s",parsed="%s",forced="%s"}',
-			$wiki, $action, $loggedIn, $parsed, $forcedStr
-		);
+		$payload = [
+			'wiki' => $wiki,
+			'action' => $action,
+			'entryPoint' => MW_ENTRY_POINT,
+			'forced' => self::$isForced,
+			'labels' => [
+				'loggedIn' => $loggedIn,
+				'parsed'   => $parsed
+			],
+			'stacks' => $collapsedStacks,
+			'speedscope' => json_encode(
+				$speedscopeData,
+				JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+			),
+		];
 
-		$collapsedData = $log->formatCollapsed();
+		$json = json_encode( $payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 
-		$url = "http://obs1.telepedia.internal:4040/ingest?name=" . urlencode( $appName ) . "&format=collapsed";
+		$url = 'http://obs1.telepedia.internal:4644/api/ingest';
+       $parsedUrl = parse_url( $url );
+       
+       $host = $parsedUrl['host'];
+       $port = $parsedUrl['port'] ?? 80;
+       $path = $parsedUrl['path'] ?? '/';
 
-		$ch = curl_init( $url );
-		curl_setopt( $ch, CURLOPT_POST, 1 );
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, $collapsedData );
-		curl_setopt( $ch, CURLOPT_HTTPHEADER, [ 'Content-Type: text/plain' ] );
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		
-		curl_setopt( $ch, CURLOPT_TIMEOUT, 1 ); 
-		
-		@curl_exec( $ch );
-		curl_close( $ch );
+       // here we just use a socket and fire and forget so MediaWiki/PHP isn't waiting for the response back
+	   // we lose some ability to check if the response was successful here, but alas
+       $fp = @fsockopen( $host, $port, $errno, $errstr, 0.2 );
+
+       if ( $fp ) {
+          $out = "POST {$path} HTTP/1.1\r\n";
+          $out .= "Host: {$host}\r\n";
+          $out .= "Content-Type: application/json\r\n";
+          $out .= "Content-Length: " . strlen( $json ) . "\r\n";
+          $out .= "Connection: Close\r\n\r\n";
+          $out .= $json;
+
+          fwrite( $fp, $out );
+          
+		  // not interested in reading the response back
+          fclose( $fp );
+       } else {
+		 // do nothing
+       }
 	}
 }
