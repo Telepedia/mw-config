@@ -116,7 +116,7 @@ class TelepediaProfiler {
 
        if ( $fp ) {
           $out = "POST {$path} HTTP/1.1\r\n";
-          $out .= "Host: {$host}\r\n";
+		  $out .= "Host: {$host}:{$port}\r\n";
           $out .= "Content-Type: application/json\r\n";
           $out .= "Content-Length: " . strlen( $json ) . "\r\n";
           $out .= "Connection: Close\r\n\r\n";
