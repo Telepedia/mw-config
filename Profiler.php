@@ -104,30 +104,30 @@ class TelepediaProfiler {
 		$json = json_encode( $payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 
 		$url = 'http://obs1.telepedia.internal:4644/api/ingest';
-       $parsedUrl = parse_url( $url );
+    	$parsedUrl = parse_url( $url );
        
-       $host = $parsedUrl['host'];
-       $port = $parsedUrl['port'] ?? 80;
-       $path = $parsedUrl['path'] ?? '/';
+    	$host = $parsedUrl['host'];
+    	$port = $parsedUrl['port'] ?? 80;
+    	$path = $parsedUrl['path'] ?? '/';
 
-       // here we just use a socket and fire and forget so MediaWiki/PHP isn't waiting for the response back
-	   // we lose some ability to check if the response was successful here, but alas
-       $fp = @fsockopen( $host, $port, $errno, $errstr, 0.2 );
+    	// here we just use a socket and fire and forget so MediaWiki/PHP isn't waiting for the response back
+		// we lose some ability to check if the response was successful here, but alas
+    	$fp = fsockopen( $host, $port, $errno, $errstr, 0.5 );
 
-       if ( $fp ) {
-          $out = "POST {$path} HTTP/1.1\r\n";
-		  $out .= "Host: {$host}:{$port}\r\n";
-          $out .= "Content-Type: application/json\r\n";
-          $out .= "Content-Length: " . strlen( $json ) . "\r\n";
-          $out .= "Connection: Close\r\n\r\n";
-          $out .= $json;
+    	if ( $fp ) {
+        	$out = "POST {$path} HTTP/1.1\r\n";
+			$out .= "Host: {$host}:{$port}\r\n";
+        	$out .= "Content-Type: application/json\r\n";
+        	$out .= "Content-Length: " . strlen( $json ) . "\r\n";
+        	$out .= "Connection: Close\r\n\r\n";
+        	$out .= $json;
 
-          fwrite( $fp, $out );
+        	fwrite( $fp, $out );
           
-		  // not interested in reading the response back
-          fclose( $fp );
-       } else {
+			// not interested in reading the response back
+        	fclose( $fp );
+    	} else {
 		 // do nothing
-       }
+    	}
 	}
 }
