@@ -69,6 +69,7 @@ class TelepediaProfiler {
 		$log = self::$excimer->getLog();
 
 		$speedscopeData = $log->getSpeedscopeData();
+		$speedscopeData['profiles'][0]['name'] = $_SERVER['REQUEST_URI'];
 		$collapsedStacks = $log->formatCollapsed();
 
 		global $wgDBname;
