@@ -141,11 +141,6 @@ $wgConf->settings += [
 	'wgGlobalPreferencesDB' => [
 		'default' => 'centralauth'
 	],
-
-	// OATHAuth
-	'wgOATHAuthDatabase' => [
-		'default' => 'centralauth'
-	],
 	'wgOATHExclusiveRights' => [
 		'default' => [
 			'abusefilter-privatedetails',
@@ -801,6 +796,9 @@ $wgConf->settings += [
 				'db' => 'centralauth'
 			],
 			'virtual-rtbf' => [
+				'db' => 'centralauth'
+			],
+			'virtual-oathauth' => [
 				'db' => 'centralauth'
 			]
 		]
