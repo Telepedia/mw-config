@@ -661,6 +661,7 @@ $wgConf->settings += [
 			'Echo' => 'debug',
 			'EditConflict' => 'error',
 			'EditConstraintRunner' => 'error',
+			'ExternalVideo' => 'debug',
 			'error' => 'debug',
 			'error-json' => false,
 			'EventLogging' => false,
