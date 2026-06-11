@@ -14,7 +14,8 @@ switch ( $wi->dbName ) {
 	case 'witchhatatelierwiki':
 		$wgAdsEnabled = false;
 		$wgDefaultMobileSkin = "cosmos";
-		$wgRestrictionLevels[] = 'knights-moralis';
+		$wgAvailableRights[] = "knights-moralis";
+		$wgRestrictionLevels[] = "knights-moralis";
 		break;
 
 	case 'latelierdessorcierswiki':
