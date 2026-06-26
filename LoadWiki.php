@@ -842,7 +842,7 @@ class LoadWiki {
 		}
 	}
 
-	/**
+		/**
 	 * Set our permissions onto $wgConf
 	 * @return void
 	 * @throws Exception
@@ -881,24 +881,34 @@ class LoadWiki {
 		global $wgConf;
 
 		foreach ( $this->permissions as $permission ) {
+			$groupName = $permission['group_name'];
+
+			// T422244 – revoke import and importupload permission and skip adding it to the group
+			// this will probably catch a lot of groups that don't actually have the right but eh
+			$wgConf->settings['wgRevokePermissions']['default'][$groupName]['import'] = true;
+			$wgConf->settings['wgRevokePermissions']['default'][$groupName ]['importupload'] = true;
+
 			foreach ( unserialize( $permission['permissions'] ) as $perm ) {
-				$wgConf->settings['wgGroupPermissions']['default'][$permission['group_name']][$perm] = true;
+				if ( $perm === 'import' || $perm === 'importupload' ) {
+					continue;
+				}
+				$wgConf->settings['wgGroupPermissions']['default'][$groupName][$perm] = true;
 			}
 
 			foreach ( unserialize( $permission['add_groups'] ) as $addGroup ) {
-				$wgConf->settings['wgAddGroups']['default'][$permission['group_name']][] = $addGroup;
+				$wgConf->settings['wgAddGroups']['default'][$groupName][] = $addGroup;
 			}
 
 			foreach ( unserialize( $permission['remove_groups'] ) as $removeGroup ) {
-				$wgConf->settings['wgRemoveGroups']['default'][$permission['group_name']][] = $removeGroup;
+				$wgConf->settings['wgRemoveGroups']['default'][$groupName][] = $removeGroup;
 			}
 
 			foreach ( unserialize( $permission['add_self'] ) as $addSelf ) {
-				$wgConf->settings['wgGroupsAddToSelf']['default'][$permission['group_name']][] = $addSelf;
+				$wgConf->settings['wgGroupsAddToSelf']['default'][$groupName][] = $addSelf;
 			}
 
 			foreach ( unserialize( $permission['remove_self'] ) as $removeSelf ) {
-				$wgConf->settings['wgGroupsRemoveFromSelf']['default'][$permission['group_name']][] = $removeSelf;
+				$wgConf->settings['wgGroupsRemoveFromSelf']['default'][$groupName][] = $removeSelf;
 			}
 		}
 	}

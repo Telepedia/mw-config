@@ -942,7 +942,10 @@ $wgConf->settings += [
 				'profilemanager',
 				'no-createwiki',
 				'configcentre-restricted',
-				'request-to-be-forgotten-admin'
+				'request-to-be-forgotten-admin',
+				// T422244
+				'import',
+				'importupload'
 		]
 	],
 	'wgConfigCentreSettingGroups' => [
