@@ -1058,6 +1058,10 @@ $wgResourceModules['telepedia.fetch'] = [
 	]
 ];
 
+// T422244 – temporarily disable import and importupload
+$wgRevokePermissions['*']['importupload'] = true;
+$wgRevokePermissions['*']['import'] = true; 
+
 // Define last - Extension message files for loading extensions
 if (
 	file_exists( __DIR__ . '/ExtensionMessageFiles.php' ) &&
