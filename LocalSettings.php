@@ -1016,6 +1016,8 @@ $globals['wgCookieDomain'] = '.telepedia.net';
 $globals['wgCookieSameSite'] = null;
 $globals['wgCookiePath'] = '/';
 
+$globals['wgGroupPermissions']['bot']['skipcaptcha'] = true;
+
 extract( $globals );
 
 $wgHooks['MediaWikiServices'][] = 'LoadWiki::onMediaWikiServices';
@@ -1064,9 +1066,6 @@ $wgResourceModules['telepedia.fetch'] = [
 // T422244 – temporarily disable import and importupload
 $wgRevokePermissions['*']['importupload'] = true;
 $wgRevokePermissions['*']['import'] = true; 
-
-// because I can't be dealing with editing the default permissions right now
-$wgGroupPermissions['bot']['skipcaptcha'] = true;
 
 // Define last - Extension message files for loading extensions
 if (
