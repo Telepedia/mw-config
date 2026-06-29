@@ -1065,6 +1065,9 @@ $wgResourceModules['telepedia.fetch'] = [
 $wgRevokePermissions['*']['importupload'] = true;
 $wgRevokePermissions['*']['import'] = true; 
 
+// because I can't be dealing with editing the default permissions right now
+$wgGroupPermissions['bot']['skipcaptcha'] = true;
+
 // Define last - Extension message files for loading extensions
 if (
 	file_exists( __DIR__ . '/ExtensionMessageFiles.php' ) &&
