@@ -14,7 +14,6 @@ wfLoadExtensions( [
 	'Scribunto',
 	'AbuseFilter',
 	'TelepediaMagic',
-	'IPInfo',
 	'SpamBlacklist',
 	'StopForumSpam',
 	'Interwiki',
