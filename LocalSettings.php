@@ -1024,6 +1024,17 @@ $wgHooks['MediaWikiServices'][] = 'LoadWiki::onMediaWikiServices';
 
 require_once __DIR__ . '/GlobalLogging.php';
 
+// Map namespaces for WikiMaps – we're setting them here so they can't be changed just yet
+// must come after namespaces have already been extracted on line 1021
+$wgExtraNamespaces[ 2900 ] = "Map";
+$wgExtraNamespaces[ 2901 ] = "Map_talk";
+$wgNamespacesToBeSearchedDefault[ 2900 ] = true;
+$wgNamespacesWithSubpages[ 2900 ] = false;
+$wgNamespacesWithSubpages[ 2901 ] = false;
+$wgNamespaceContentModels[ 2900 ] = "wikimap";
+$wgContentNamespaces[] = 2900;
+// end map namespaces
+
 $wgUploadDirectory = "{$IP}/images/$wgDBname";
 $wgUploadPath = "{$wgScriptPath}/$wgDBname";
 
