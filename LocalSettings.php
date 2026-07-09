@@ -754,7 +754,8 @@ $wgConf->settings += [
 			'wfLogDBError' => 'debug',
 			'xff' => false,
 			'XMP' => false,
-			'RTBF' => 'info'
+			'RTBF' => 'info',
+			'Gadgets' => false
 		],
 	],
 	'wgTelelyticsConfigFilePath' => [
