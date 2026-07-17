@@ -998,7 +998,9 @@ $wgConf->settings += [
 		'default' => true
 	],
 	'wgRSSUrlWhitelist' => [
-		'default' => '*'
+		'default' => [
+			'*'
+		]
 	]
 ];
 
