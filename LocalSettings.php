@@ -996,6 +996,9 @@ $wgConf->settings += [
 	],
 	'wgSVGNativeRendering' => [
 		'default' => true
+	],
+	'wgRSSUrlWhitelist' => [
+		'default' => '*'
 	]
 ];
 
