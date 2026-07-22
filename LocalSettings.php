@@ -1001,6 +1001,12 @@ $wgConf->settings += [
 		'default' => [
 			'*'
 		]
+	],
+	'wgArtemisHost' => [
+		'default' => 'jobrunner.telepedia.internal'
+	],
+	'wgArtemisPort' => [
+		'default' => '61613'
 	]
 ];
 
