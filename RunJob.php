@@ -24,7 +24,7 @@ if ( !isset( $job['wiki'] ) ) {
 define( 'MEDIAWIKI_JOB_RUNNER', 1 );
 define( 'MW_DB', $job['wiki'] );
 
-require_once __DIR__ . '/includes/WebStart.php';
+require_once __DIR__ . '/../includes/WebStart.php';
 
 // Never render PHP errors into the response body. The conductor treats any
 // 200 as success and discards the body, so a warning/notice leaking into the
