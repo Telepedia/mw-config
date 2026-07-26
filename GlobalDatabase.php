@@ -25,7 +25,7 @@ $wgLBFactoryConf = [
 		],
 	],
 	'hostsByName' => [
-		'db1' => '10.0.0.6',
+		'db1' => 'db1.telepedia.internal',
 	],
 	'externalLoads' => [
 		'specials' => [
