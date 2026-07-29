@@ -146,7 +146,13 @@ class LoadWiki {
 	 * @return void
 	 */
 	private function determineWikiContext(): void {
-		if ( !empty( $_SERVER['SERVER_NAME' ] ) ) {
+		// MW_DB must take precedence over a defined SERVER_NAME; this is because jobs are ran over RPC/HTTP and the
+		// SERVER_NAME is set to a catch all, the actual wiki context comes from MW_DB which is defined at the top of
+		// RunJob.php, so to avoid PHP using the catch all, double check if we already have a MW_DB definition
+		if ( defined( 'MW_DB' ) ) {
+			$this->commandLineMode = true;
+			$this->dbName = MW_DB;
+		} elseif ( !empty( $_SERVER['SERVER_NAME' ] ) ) {
 			$this->serverName = strtolower( $_SERVER['SERVER_NAME'] );
 			$fullUrl = self::getCurrentURI();
 
@@ -177,9 +183,6 @@ class LoadWiki {
 
 			// we don't know it yet
 			$this->wikiId = null;
-		} elseif ( defined( 'MW_DB' ) ) {
-			$this->commandLineMode = true;
-			$this->dbName = MW_DB;
 		} else {
 			// nothing else can be done here so exit (potentially return some kind of 500 error or something)
 			// @TODO that
