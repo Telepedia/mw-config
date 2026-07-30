@@ -2,7 +2,7 @@
 
 $wgObjectCaches['redis'] = [
 	'class'                => 'RedisBagOStuff',
-	'servers'              => [ '10.0.0.7:6379' ],
+	'servers'              => [ 'redis.telepedia.internal:6379' ],
 	'connectTimeout'       => 2,
 	'persistent'           => true,
 ];
@@ -16,7 +16,7 @@ $wgObjectCaches['redis'] = [
  */
 $wgObjectCaches['configcentre'] = [
 	'class'                => 'RedisBagOStuff',
-	'servers'              => [ '10.0.0.8:6379' ],
+	'servers'              => [ 'redis2.telepedia.internal:6379' ],
 	'connectTimeout'       => 2,
 	'persistent'           => true,
 ];
@@ -32,7 +32,7 @@ $wgObjectCaches['configcentre'] = [
  */
 $wgObjectCaches['redis-session'] = [
 	'class'                => 'RedisBagOStuff',
-	'servers'              => [ '10.0.0.7:6379' ],
+	'servers'              => [ 'redis.telepedia.internal:6379' ],
 	'connectTimeout'       => 2,
 	'persistent'           => true,
 	'keyspace' 			   => 'globalsession'
@@ -46,7 +46,7 @@ $wgSessionCacheType = 'redis-session';
 
 $wgJobTypeConf['default'] = [
 	'class'          => 'JobQueueRedis',
-	'redisServer'    => '10.0.0.7:6379',
+	'redisServer'    => 'redis.telepedia.internal:6379',
 	'redisConfig'    => [],
 	'daemonized'     => true
 ];
