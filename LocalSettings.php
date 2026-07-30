@@ -1010,7 +1010,8 @@ $wgConf->settings += [
 	],
 	'wgUseArtemisJobQueue' => [
 		'default' => false,
-		'silowiki' => true
+		'silowiki' => true,
+		'witchhatatelierwiki' => true
 	]
 ];
 
