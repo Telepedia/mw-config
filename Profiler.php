@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\MediaWikiServices;
 
 class TelepediaProfiler {
 
@@ -115,53 +116,26 @@ class TelepediaProfiler {
 
 		$json = json_encode( $payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 
-		$url = 'http://obs1.telepedia.internal:4644/api/ingest';
-    	$parsedUrl = parse_url( $url );
-       
-    	$host = $parsedUrl['host'];
-    	$port = $parsedUrl['port'] ?? 80;
-    	$path = $parsedUrl['path'] ?? '/';
 
-    	// send over a raw socket. This runs in a shutdown function, after the user's response has
-		// already been flushed, so a brief wait for the ingest reply costs them nothing.
-    	$fp = fsockopen( $host, $port, $errno, $errstr, 1.0 );
+		$req = MediaWikiServices::getInstance()->getHttpRequestFactory()->create(
+			'http://obs1.telepedia.internal:4644/api/ingest',
+			[
+				'method'         => 'POST',
+				'postData'       => $json,
+				'timeout'        => 2,
+				'connectTimeout' => 1,
+			],
+			__METHOD__
+		);
+		$req->setHeader( 'Content-Type', 'application/json' );
 
-    	if ( $fp ) {
-        	$out = "POST {$path} HTTP/1.1\r\n";
-			$out .= "Host: {$host}:{$port}\r\n";
-        	$out .= "Content-Type: application/json\r\n";
-        	$out .= "Content-Length: " . strlen( $json ) . "\r\n";
-        	$out .= "Connection: Close\r\n\r\n";
-        	$out .= $json;
-
-        	$total = strlen( $out );
-        	$sent = 0;
-        	while ( $sent < $total ) {
-        		$written = fwrite( $fp, substr( $out, $sent ) );
-        		if ( $written === false || $written === 0 ) {
-        			break;
-        		}
-        		$sent += $written;
-        	}
-        	stream_set_timeout( $fp, 2 );
-        	do {
-        		$chunk = fread( $fp, 8192 );
-        	} while ( $chunk !== false && $chunk !== '' );
-
-        	fclose( $fp );
-			
-        	if ( $sent < $total ) {
-        		error_log(
-        			"TelepediaProfiler: short write to ingest ({$sent}/{$total} bytes) "
-        			. 'from node=' . gethostname() . " for {$wiki} forced=" . ( self::$isForced ? '1' : '0' )
-        		);
-        	}
-    	} else {
+		$status = $req->execute();
+		if ( !$status->isOK() ) {
 			error_log(
-				'TelepediaProfiler: failed to connect to profiling ingest ' . $host . ':' . $port
-				. ' from node=' . gethostname()
-				. " (errno {$errno}: {$errstr}); profile for {$wiki} dropped, forced=" . ( self::$isForced ? '1' : '0' )
+				'TelepediaProfiler: ingest POST failed from node=' . gethostname()
+				. ' for ' . $wiki . ' forced=' . ( self::$isForced ? '1' : '0' )
+				. ': ' . $status->__toString()
 			);
-    	}
+		}
 	}
 }
