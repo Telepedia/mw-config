@@ -27,6 +27,7 @@ class TelepediaProfiler {
 		if ( isset( $_GET['forceprofile'] ) ) {
 			error_log(
 				'TelepediaProfiler: forceprofile received'
+				. ' node=' . gethostname()
 				. ' uri=' . ( $_SERVER['REQUEST_URI'] ?? '?' )
 				. ' host=' . ( $_SERVER['SERVER_NAME'] ?? '?' )
 				. ' excimer=' . ( extension_loaded( 'excimer' ) ? '1' : '0' )
@@ -139,8 +140,9 @@ class TelepediaProfiler {
         	fclose( $fp );
     	} else {
 			error_log(
-				"TelepediaProfiler: failed to connect to profiling ingest {$host}:{$port} "
-				. "(errno {$errno}: {$errstr}); profile for {$wiki} dropped, forced=" . ( self::$isForced ? '1' : '0' )
+				'TelepediaProfiler: failed to connect to profiling ingest ' . $host . ':' . $port
+				. ' from node=' . gethostname()
+				. " (errno {$errno}: {$errstr}); profile for {$wiki} dropped, forced=" . ( self::$isForced ? '1' : '0' )
 			);
     	}
 	}
