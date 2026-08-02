@@ -23,6 +23,16 @@ class TelepediaProfiler {
 	 * @param float $sampleRate Percentage of standard traffic to profile (e.g., 0.01 for 1%)
 	 */
 	public static function setup( float $sampleRate = 0.01 ): void {
+		// TEMP DEBUG: for some reason forceprofile isn't working so hmm
+		if ( isset( $_GET['forceprofile'] ) ) {
+			error_log(
+				'TelepediaProfiler: forceprofile received'
+				. ' uri=' . ( $_SERVER['REQUEST_URI'] ?? '?' )
+				. ' host=' . ( $_SERVER['SERVER_NAME'] ?? '?' )
+				. ' excimer=' . ( extension_loaded( 'excimer' ) ? '1' : '0' )
+			);
+		}
+
 		if ( !extension_loaded( 'excimer' ) ) {
 			return;
 		}
