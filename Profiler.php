@@ -122,8 +122,8 @@ class TelepediaProfiler {
     	$port = $parsedUrl['port'] ?? 80;
     	$path = $parsedUrl['path'] ?? '/';
 
-    	// here we just use a socket and fire and forget so MediaWiki/PHP isn't waiting for the response back
-		// we lose some ability to check if the response was successful here, but alas
+    	// send over a raw socket. This runs in a shutdown function, after the user's response has
+		// already been flushed, so a brief wait for the ingest reply costs them nothing.
     	$fp = fsockopen( $host, $port, $errno, $errstr, 1.0 );
 
     	if ( $fp ) {
@@ -143,9 +143,11 @@ class TelepediaProfiler {
         		}
         		$sent += $written;
         	}
-        	fflush( $fp );
+        	stream_set_timeout( $fp, 2 );
+        	do {
+        		$chunk = fread( $fp, 8192 );
+        	} while ( $chunk !== false && $chunk !== '' );
 
-			// not interested in reading the response back
         	fclose( $fp );
 			
         	if ( $sent < $total ) {
