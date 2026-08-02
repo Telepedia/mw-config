@@ -124,11 +124,14 @@ class TelepediaProfiler {
         	$out .= $json;
 
         	fwrite( $fp, $out );
-          
+
 			// not interested in reading the response back
         	fclose( $fp );
     	} else {
-		 // do nothing
+			error_log(
+				"TelepediaProfiler: failed to connect to profiling ingest {$host}:{$port} "
+				. "(errno {$errno}: {$errstr}); profile for {$wiki} dropped, forced=" . ( self::$isForced ? '1' : '0' )
+			);
     	}
 	}
 }
