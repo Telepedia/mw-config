@@ -134,10 +134,26 @@ class TelepediaProfiler {
         	$out .= "Connection: Close\r\n\r\n";
         	$out .= $json;
 
-        	fwrite( $fp, $out );
+        	$total = strlen( $out );
+        	$sent = 0;
+        	while ( $sent < $total ) {
+        		$written = fwrite( $fp, substr( $out, $sent ) );
+        		if ( $written === false || $written === 0 ) {
+        			break;
+        		}
+        		$sent += $written;
+        	}
+        	fflush( $fp );
 
 			// not interested in reading the response back
         	fclose( $fp );
+			
+        	if ( $sent < $total ) {
+        		error_log(
+        			"TelepediaProfiler: short write to ingest ({$sent}/{$total} bytes) "
+        			. 'from node=' . gethostname() . " for {$wiki} forced=" . ( self::$isForced ? '1' : '0' )
+        		);
+        	}
     	} else {
 			error_log(
 				'TelepediaProfiler: failed to connect to profiling ingest ' . $host . ':' . $port
