@@ -1011,7 +1011,17 @@ $wgConf->settings += [
 	'wgUseArtemisJobQueue' => [
 		'default' => false,
 		'silowiki' => true,
-		'witchhatatelierwiki' => true
+		'witchhatatelierwiki' => true,
+		'metawiki' => true
+	],
+	'wgWikiClosureNotificationEmail' => [
+		'default' => 'tech@telepedia.net'
+	],
+	'wgWikiClosureInactiveDays' => [
+		'default' => 45
+	],
+	'wgWikiClosurePageThreshold' => [
+		'default' => 15
 	]
 ];
 
