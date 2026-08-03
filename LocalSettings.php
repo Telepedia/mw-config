@@ -1012,7 +1012,7 @@ $wgConf->settings += [
 		'default' => false,
 		'silowiki' => true,
 		'witchhatatelierwiki' => true,
-		'metawiki' => true
+		'metawiki' => false
 	],
 	'wgWikiClosureNotificationEmail' => [
 		'default' => 'tech@telepedia.net'
