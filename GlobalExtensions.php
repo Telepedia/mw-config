@@ -15,7 +15,8 @@ wfLoadExtensions( [
 	'AbuseFilter',
 	'TelepediaMagic',
 	'SpamBlacklist',
-	'StopForumSpam',
+	// Disable for now, this adds approx 200ms latency to an edit constructing an IPSet
+	//'StopForumSpam',
 	'Interwiki',
 	'OAuth',
 	'GlobalPermissions',
