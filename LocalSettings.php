@@ -11,13 +11,13 @@ TelepediaProfiler::setup( 0.01 );
 
 // Load some stuff that must be initialise and available as globals before
 // we determine the wiki context
-require_once '/srv/mediawiki/PrivateSettings.php';
-require_once '/prod/mediawiki/config/GlobalSkins.php';
-require_once '/prod/mediawiki/config/GlobalExtensions.php';
-require_once '/prod/mediawiki/config/GlobalCache.php';
-require_once '/prod/mediawiki/config/ConfigCentreNamespaces.php';
-require_once '/prod/mediawiki/config/GlobalDatabase.php';
-require_once '/prod/mediawiki/config/LoadWiki.php';
+require_once __DIR__ . '/PrivateSettings.php';
+require_once __DIR__ . '/GlobalSkins.php';
+require_once __DIR__ . '/GlobalExtensions.php';
+require_once __DIR__ . '/GlobalCache.php';
+require_once __DIR__ . '/ConfigCentreNamespaces.php';
+require_once __DIR__ . '/GlobalDatabase.php';
+require_once __DIR__ . '/LoadWiki.php';
 
 // Determine the wiki context
 $wi = new LoadWiki();
