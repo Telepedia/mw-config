@@ -25,7 +25,8 @@ $wgLBFactoryConf = [
 		],
 	],
 	'hostsByName' => [
-		'db1' => 'db1.telepedia.internal',
+		// We use k8 service names for databases, so this is handled by K3s at runtime
+		'db1' => 'mariadb',
 	],
 	'externalLoads' => [
 		'specials' => [
