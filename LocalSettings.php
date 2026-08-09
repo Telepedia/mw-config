@@ -59,9 +59,6 @@ $wgConf->settings += [
 	'wgUseCdn' => [
 		'default' => true
 	],
-	'wgDBserver' => [
-		'default' => '10.0.0.6',
-	],
 	'wgCdnMaxAge' => [
 		'default' => 2592000
 	],
