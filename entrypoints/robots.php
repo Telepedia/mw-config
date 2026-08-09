@@ -1,7 +1,7 @@
 <?php
 
 define( 'MW_NO_SESSION', 1 );
-require_once '/prod/mediawiki/includes/WebStart.php';
+require_once getenv( 'MW_INSTALL_PATH' ) . '/includes/WebStart.php';
 
 use MediaWiki\Content\TextContent;
 use MediaWiki\MediaWikiServices;

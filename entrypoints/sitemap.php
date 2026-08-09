@@ -3,7 +3,7 @@
 use Telepedia\Extensions\SitemapOnTheFly\SitemapGenerator;
 
 define( 'MW_NO_SESSION', 1 );
-require_once '/prod/mediawiki/includes/WebStart.php';
+require_once getenv( 'MW_INSTALL_PATH' ) . '/includes/WebStart.php';
 
 // Set the content type header for all responses
 header( 'Content-Type: application/xml; charset=utf-8' );
