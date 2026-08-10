@@ -2,7 +2,7 @@
 
 $wgObjectCaches['redis'] = [
 	'class'                => 'RedisBagOStuff',
-	'servers'              => [ 'redis.telepedia.internal:6379' ],
+	'servers'              => [ 'redis-cache:6379' ],
 	'connectTimeout'       => 2,
 	'persistent'           => true,
 ];
@@ -16,7 +16,7 @@ $wgObjectCaches['redis'] = [
  */
 $wgObjectCaches['configcentre'] = [
 	'class'                => 'RedisBagOStuff',
-	'servers'              => [ 'redis2.telepedia.internal:6379' ],
+	'servers'              => [ 'redis-cache:6379' ],
 	'connectTimeout'       => 2,
 	'persistent'           => true,
 ];
@@ -32,10 +32,45 @@ $wgObjectCaches['configcentre'] = [
  */
 $wgObjectCaches['redis-session'] = [
 	'class'                => 'RedisBagOStuff',
-	'servers'              => [ 'redis.telepedia.internal:6379' ],
+	'servers'              => [ 'redis-sessions:6379' ],
 	'connectTimeout'       => 2,
 	'persistent'           => true,
 	'keyspace' 			   => 'globalsession'
+];
+
+$wgObjectCaches['parsercache-redis'] = [
+	'class'          => 'RedisBagOStuff',
+	'servers'        => [ 'redis-cache:6379' ],
+	'connectTimeout' => 2,
+	'persistent'     => true,
+];
+
+/**
+ * Parser cache is backed by the database; reads go to redis first, and then fallback
+ * to the database before being regenerated from scratch
+ */
+$wgObjectCaches['mysql-multiwrite'] = [
+	'class'  => 'MultiWriteBagOStuff',
+	'caches' => [
+		0 => [ 'factory' => [ 'ObjectCache', 'getInstance' ], 'args' => [ 'parsercache-redis' ] ],
+		1 => [
+			'class'   => 'SqlBagOStuff',
+			'servers' => [ 'pc1' => [
+				'type'     => 'mysql',
+				'host'     => 'mariadb',
+				'dbname'   => 'parsercache',
+				'user'     => $wgDBuser,
+				'password' => $wgDBpassword,
+				'flags'    => 0,
+			] ],
+			'purgePeriod' => 0,
+			'tableName'   => 'pc',
+			'shards'      => 1,
+			'reportDupes' => false,
+		],
+	],
+	'replication' => 'async',
+	'reportDupes' => false,
 ];
 
 $wgJobRunRate = 0;
@@ -43,10 +78,14 @@ $wgInvalidateCacheOnLocalSettingsChange = false;
 
 $wgMainCacheType = 'redis';
 $wgSessionCacheType = 'redis-session';
+$wgParserCacheType = 'mysql-multiwrite';
 
+/**
+ * @TODO: remove this when everything goes through Artemis
+ */
 $wgJobTypeConf['default'] = [
 	'class'          => 'JobQueueRedis',
-	'redisServer'    => 'redis.telepedia.internal:6379',
+	'redisServer'    => 'redis-cache:6379',
 	'redisConfig'    => [],
 	'daemonized'     => true
 ];
