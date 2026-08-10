@@ -1080,8 +1080,8 @@ $wgCosmosEnabledRailModules['recentchanges'] = ($recentChangesType === 'false')
 $wgAdConfig['enabled'] = true; 
 
 // Define last to avoid all dependencies
-require_once '/prod/mediawiki/config/GlobalSettings.php';
-require_once '/prod/mediawiki/config/LocalWiki.php';
+require_once __DIR__ . '/GlobalSettings.php';
+require_once __DIR__ . '/LocalWiki.php';
 
 // Route this wiki's jobs to Apache Artemis if it opted in via $wgUseArtemisJobQueue.
 if ( !empty( $wgUseArtemisJobQueue ) ) {
