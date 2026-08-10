@@ -1028,7 +1028,7 @@ $wgConf->settings += [
 // this ensures that anything added AFTER (such as permissions to groups from extensions) will be disregarded
 $globals = $wgConf->getAll( $wgDBname );
 
-require_once '/prod/mediawiki/config/GlobalPermissions.php';
+require_once __DIR__ . '/GlobalPermissions.php';
 
 GlobalPermissions::modifyPermissionsAfterManageWiki( $globals );
 $globals['wgSharedDB'] = 'metawiki';
