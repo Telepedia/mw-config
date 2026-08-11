@@ -77,7 +77,7 @@ pipeline {
         withCredentials([string(credentialsId: 'github-ext-token', variable: 'GH_TOKEN')]) {
           sh '''
             git config user.email "jenkins@telepedia.net"
-            git config user.name  "Jenkins"
+            git config user.name  "MonsieurJenkins"
             git tag -a "$RELEASE" -m "$RELEASE"
             git push "https://x-access-token:${GH_TOKEN}@github.com/Telepedia/mw-config" "$RELEASE"
           '''
