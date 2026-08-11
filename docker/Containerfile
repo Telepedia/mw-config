@@ -1,0 +1,88 @@
+# syntax=docker/dockerfile:1
+
+FROM php:8.2-cli-trixie AS fetch
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        git unzip python3 python3-yaml ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_HOME=/tmp/composer MW_DIR=/srv/mediawiki
+WORKDIR /srv/mediawiki
+
+# composer advisories are blocking our deploy, but these are only dev ones; we don't have them in prod
+# so just disable this for now until we figure out whats causing it
+RUN composer config --global policy.advisories.block false
+
+ARG MW_VERSION=REL1_43
+ARG MW_COMMIT=
+RUN if [ -n "$MW_COMMIT" ]; then \
+        git init -q . && git remote add origin https://github.com/telepedia/mediawiki \
+        && git fetch -q --depth 1 origin "$MW_COMMIT" && git checkout -q FETCH_HEAD ; \
+    else \
+        git clone -q --depth 1 -b "$MW_VERSION" https://github.com/telepedia/mediawiki . ; \
+    fi \
+    && composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
+
+COPY docker/composer.local.json ./composer.local.json
+COPY docker/extensions.yaml docker/fetch-extensions.py ./
+RUN --mount=type=secret,id=github_token \
+    --mount=type=secret,id=gitlab_user \
+    --mount=type=secret,id=gitlab_token \
+    if [ -s /run/secrets/github_token ]; then \
+        gh=$(cat /run/secrets/github_token); \
+        git config --global url."https://x-access-token:${gh}@github.com/".insteadOf "https://github.com/"; \
+        git config --global url."https://x-access-token:${gh}@github.com/".insteadOf "git@github.com:"; \
+    fi; \
+    if [ -s /run/secrets/gitlab_token ]; then \
+        gu=$(cat /run/secrets/gitlab_user); gt=$(cat /run/secrets/gitlab_token); \
+        git config --global url."https://${gu}:${gt}@gitlab.com/telepedia/".insteadOf "https://gitlab.com/telepedia/"; \
+    fi; \
+    python3 fetch-extensions.py \
+    && rm -f fetch-extensions.py extensions.yaml \
+    && rm -rf .git /root/.gitconfig
+
+COPY . /srv/config
+RUN rm -rf /srv/config/docker /srv/config/.git
+
+FROM php:8.2-fpm-trixie AS app
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev \
+        libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev \
+        librsvg2-bin imagemagick \
+        libicu76 libzip5 libxslt1.1 \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
+    && docker-php-ext-install -j"$(nproc)" \
+        bcmath calendar exif gd gettext intl mbstring mysqli opcache \
+        pcntl pdo_mysql shmop sockets sysvmsg sysvsem sysvshm xsl zip \
+    && pecl install igbinary apcu excimer redis imagick \
+    && docker-php-ext-enable igbinary apcu excimer redis imagick \
+    && apt-get purge -y --auto-remove \
+        libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev \
+        libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=fetch /srv/mediawiki /srv/mediawiki
+COPY --from=fetch /srv/config /srv/config
+
+RUN mkdir -p /srv/mediawiki/cache/l10n \
+    && chown -R www-data:www-data /srv/mediawiki/cache /srv/mediawiki/images
+
+ARG RELEASE=dev
+ARG VCS_REF=unknown
+ENV MW_INSTALL_PATH=/srv/mediawiki MW_CONFIG_FILE=/srv/config/LocalSettings.php MW_RELEASE=${RELEASE}
+LABEL org.opencontainers.image.version="${RELEASE}" \
+      org.opencontainers.image.revision="${VCS_REF}"
+
+WORKDIR /srv/mediawiki
+EXPOSE 9000
+CMD ["php-fpm"]
+
+FROM nginx:stable AS web
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=fetch /srv/mediawiki /srv/mediawiki
+
+ARG RELEASE=dev
+ARG VCS_REF=unknown
+LABEL org.opencontainers.image.version="${RELEASE}" \
+      org.opencontainers.image.revision="${VCS_REF}"
+
+EXPOSE 8080
