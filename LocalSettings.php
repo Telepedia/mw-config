@@ -606,12 +606,7 @@ $wgConf->settings += [
 	'wgRemovePIIAutoPrefix' => [
 		'default' => 'TelepediaGDPR_',
 	],
-
-	// Logging & Logstash
-	'wmgLogToDisk' => [
-		'default' => false,
-		'testingoawiki' => true
-	],
+	
 	'wmgMonologChannels' => [
 		'default' => [
 			'@default' => 'error',
