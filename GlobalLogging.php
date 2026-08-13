@@ -35,6 +35,18 @@ $wmgMonologProcessors = [
 			};
 		}
 	],
+	'tpgelf' => [
+		'factory' => static function () {
+			return static function ( array $record ) {
+				$record['extra']['application_name'] = 'mediawiki';
+				$record['extra']['mediawiki_channel'] = $record['channel'] ?? '';
+				// GELF 'level' is the numeric syslog severity; keep the text too
+				$record['extra']['level_name'] = $record['level_name'] ?? '';
+
+				return $record;
+			};
+		}
+	],
 ];
 
 $wmgMonologHandlers = [
@@ -45,20 +57,14 @@ $wmgMonologHandlers = [
 
 foreach ( [ 'debug', 'info', 'warning', 'error' ] as $logLevel ) {
 	$wmgMonologHandlers[ "logstash-$logLevel" ] = [
-		'class'     => SyslogHandler::class,
-		'formatter' => 'logstash',
-		'args'      => [
-			// tag
-			'mediawiki',
-			// host
-			'127.0.0.1',
-			// port
-			10514,
-			// facility
-			LOG_USER,
-			// log level threshold
-			$logLevel,
-		],
+		'factory' => static function () use ( $logLevel ) {
+			return new \Monolog\Handler\GelfHandler(
+				new \Gelf\Publisher(
+					new \Gelf\Transport\UdpTransport( '100.85.182.237', 12201 )
+				),
+				$logLevel
+			);
+		},
 	];
 }
 
