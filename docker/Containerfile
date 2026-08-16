@@ -22,7 +22,8 @@ RUN if [ -n "$MW_COMMIT" ]; then \
     fi
 
 COPY docker/composer.local.json ./composer.local.json
-RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
+RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
+    && composer update --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
 
 COPY docker/extensions.yaml docker/fetch-extensions.py ./
 RUN --mount=type=secret,id=github_token \
