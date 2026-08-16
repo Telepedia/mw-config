@@ -19,10 +19,11 @@ RUN if [ -n "$MW_COMMIT" ]; then \
         && git fetch -q --depth 1 origin "$MW_COMMIT" && git checkout -q FETCH_HEAD ; \
     else \
         git clone -q --depth 1 -b "$MW_VERSION" https://github.com/telepedia/mediawiki . ; \
-    fi \
-    && composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
+    fi
 
 COPY docker/composer.local.json ./composer.local.json
+RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
+
 COPY docker/extensions.yaml docker/fetch-extensions.py ./
 RUN --mount=type=secret,id=github_token \
     --mount=type=secret,id=gitlab_user \
