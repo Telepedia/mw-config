@@ -8,12 +8,8 @@ $wgObjectCaches['redis'] = [
 ];
 
 /**
- * ConfigCentre cache for holding data about wikis; specifically kept separate from the rest
- * of the object caches to lower latency and prevent keys from being evicted due to memory et al
- * 
- * Not to be used for anything other than determining wiki context et al and stuff associated with 
- * determining what wiki we are on
- */
+* Mostly kept for backwards compatability, alias for redis object cache; not durable and not written to disk
+*/
 $wgObjectCaches['configcentre'] = [
 	'class'                => 'RedisBagOStuff',
 	'servers'              => [ 'redis-cache:6379' ],
@@ -28,7 +24,7 @@ $wgObjectCaches['configcentre'] = [
  * and then visits Wiki B, MediaWiki will delete the session and log the user out for some reason. 
  * 
  * DO NOT use this specific object cache for anything other than sessions; this is a very hacky method
- * of doing things and potentially isn't what is supposed to happen?
+ * of doing things and potentially isn't what is supposed to happen? This is durable in any case and is written to disk to prevent session loss
  */
 $wgObjectCaches['redis-session'] = [
 	'class'                => 'RedisBagOStuff',
@@ -38,6 +34,9 @@ $wgObjectCaches['redis-session'] = [
 	'keyspace' 			   => 'globalsession'
 ];
 
+/**
+* Alias for $wgObjectCache['redis]'
+*/
 $wgObjectCaches['parsercache-redis'] = [
 	'class'          => 'RedisBagOStuff',
 	'servers'        => [ 'redis-cache:6379' ],
