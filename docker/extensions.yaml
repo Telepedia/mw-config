@@ -15,6 +15,7 @@ AbuseFilter:
   branch: REL1_43
   path: extensions/AbuseFilter
   repo_url: https://github.com/wikimedia/mediawiki-extensions-AbuseFilter
+  composer: true
 AddHTMLMetaAndTitle:
   branch: REL1_43
   path: extensions/AddHTMLMetaAndTitle
