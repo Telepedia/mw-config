@@ -886,15 +886,8 @@ class LoadWiki {
 		foreach ( $this->permissions as $permission ) {
 			$groupName = $permission['group_name'];
 
-			// T422244 – revoke import and importupload permission and skip adding it to the group
-			// this will probably catch a lot of groups that don't actually have the right but eh
-			$wgConf->settings['wgRevokePermissions']['default'][$groupName]['import'] = true;
-			$wgConf->settings['wgRevokePermissions']['default'][$groupName ]['importupload'] = true;
 
 			foreach ( unserialize( $permission['permissions'] ) as $perm ) {
-				if ( $perm === 'import' || $perm === 'importupload' ) {
-					continue;
-				}
 				$wgConf->settings['wgGroupPermissions']['default'][$groupName][$perm] = true;
 			}
 

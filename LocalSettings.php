@@ -936,9 +936,6 @@ $wgConf->settings += [
 				'no-createwiki',
 				'configcentre-restricted',
 				'request-to-be-forgotten-admin',
-				// T422244
-				'import',
-				'importupload'
 		]
 	],
 	'wgConfigCentreSettingGroups' => [
@@ -1095,10 +1092,6 @@ $wgResourceModules['telepedia.fetch'] = [
 		'mediawiki.util'
 	]
 ];
-
-// T422244 – temporarily disable import and importupload
-$wgRevokePermissions['*']['importupload'] = true;
-$wgRevokePermissions['*']['import'] = true; 
 
 // Define last - Extension message files for loading extensions
 if (
