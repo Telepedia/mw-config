@@ -25,7 +25,7 @@ $wi->execute();
 
 // send some data to Prometheus
 $wgStatsFormat = 'dogstatsd';
-$wgStatsTarget = 'udp://logging.telepedia.net:9125';
+$wgStatsTarget = 'udp://100.85.182.237:9125';
 
 $wgConf->settings += [
 	// this invalidates user sessions if we ever need to; don't change unless its an emergency!
@@ -871,8 +871,6 @@ $wgConf->settings += [
 				'ipinfo-view-log',
 				'ipblock-exempt',
 				'override-antispoof',
-				'managewiki-restricted',
-				'managewiki-editdefault',
 				'checkuser-temporary-account',
 				'checkuser-temporary-account-log',
 				'protectsite',
@@ -931,7 +929,6 @@ $wgConf->settings += [
 				'ipblock-exempt',
 				'viewmyprivateinfo',
 				'viewmywatchlist',
-				'managewiki',
 				'profilemanager',
 				'no-createwiki',
 				'configcentre-restricted',
