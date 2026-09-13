@@ -47,18 +47,18 @@ RUN rm -rf /srv/config/docker /srv/config/.git
 
 FROM php:8.2-fpm-trixie AS app
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev \
+        libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev liblua5.1-0-dev \
         libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev \
         librsvg2-bin imagemagick \
-        libicu76 libzip5 libxslt1.1 \
+        libicu76 libzip5 libxslt1.1 liblua5.1-0 \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install -j"$(nproc)" \
         bcmath calendar exif gd gettext intl mbstring mysqli opcache \
         pcntl pdo_mysql shmop sockets sysvmsg sysvsem sysvshm xsl zip \
-    && pecl install igbinary apcu excimer redis imagick \
-    && docker-php-ext-enable igbinary apcu excimer redis imagick \
+    && pecl install igbinary apcu excimer redis imagick luasandbox \
+    && docker-php-ext-enable igbinary apcu excimer redis imagick luasandbox \
     && apt-get purge -y --auto-remove \
-        libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev \
+        libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev liblua5.1-0-dev \
         libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev \
     && rm -rf /var/lib/apt/lists/*
 

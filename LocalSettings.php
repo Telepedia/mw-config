@@ -87,6 +87,9 @@ $wgConf->settings += [
 	'wgImageMagickConvertCommand' => [
 		'default' => '/usr/bin/convert'
 	],
+	'wgPhpCli' => [
+		'default' => '/usr/local/bin/php'
+	],
 	'wgAdsEnabled' => [
 		'default' => true,
 	],
@@ -313,7 +316,7 @@ $wgConf->settings += [
 		'default' => true,
 	],
 	'wgSVGConverter' => [
-		'default' => 'Inkscape',
+		'default' => 'rsvg',
 	],
 	'wgImageLimits' => [
 		'default' => [
