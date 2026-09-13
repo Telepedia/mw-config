@@ -21,10 +21,6 @@ RUN if [ -n "$MW_COMMIT" ]; then \
         git clone -q --depth 1 -b "$MW_VERSION" https://github.com/telepedia/mediawiki . ; \
     fi
 
-COPY docker/composer.local.json ./composer.local.json
-RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
-    && composer update --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
-
 COPY docker/extensions.yaml docker/fetch-extensions.py ./
 RUN --mount=type=secret,id=github_token \
     --mount=type=secret,id=gitlab_user \
@@ -41,6 +37,10 @@ RUN --mount=type=secret,id=github_token \
     python3 fetch-extensions.py \
     && rm -f fetch-extensions.py extensions.yaml \
     && rm -rf .git /root/.gitconfig
+
+COPY docker/composer.local.json ./composer.local.json
+RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
+    && composer update --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
 
 COPY . /srv/config
 RUN rm -rf /srv/config/docker /srv/config/.git
