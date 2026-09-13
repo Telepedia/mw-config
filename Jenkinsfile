@@ -50,7 +50,7 @@ pipeline {
         ]) {
           sh '''
             echo "$HARBOR_PSW" | docker login "$REGISTRY" -u "$HARBOR_USR" --password-stdin
-            for target in app web; do
+            for target in app web jobrunner; do
               img="$REGISTRY/mediawiki/${target}"
               docker build \
                 --secret id=github_token,env=GH_TOKEN \

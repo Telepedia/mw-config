@@ -88,3 +88,21 @@ LABEL org.opencontainers.image.version="${RELEASE}" \
       org.opencontainers.image.revision="${VCS_REF}"
 
 EXPOSE 8080
+
+# Job Runner stuffs
+FROM php:8.2-cli-trixie AS conductor
+ARG CONDUCTOR_VERSION=v1.0.2
+RUN --mount=type=secret,id=github_token \
+    set -eu; \
+    token="$(cat /run/secrets/github_token)"; \
+    curl -sf -H "Authorization: token ${token}" -H "Accept: application/vnd.github+json" \
+        "https://api.github.com/repos/telepedia/mediawiki-services-conductor/releases/tags/${CONDUCTOR_VERSION}" \
+        -o /tmp/release.json; \
+    asset() { php -r '$r = json_decode(file_get_contents("/tmp/release.json"), true); foreach ($r["assets"] as $a) { if ($a["name"] === $argv[1]) { echo $a["url"]; } }' -- "$1"; }; \
+    curl -sfL -H "Authorization: token ${token}" -H "Accept: application/octet-stream" "$(asset conductor-linux-amd64)" -o /conductor; \
+    curl -sfL -H "Authorization: token ${token}" -H "Accept: application/octet-stream" "$(asset conductor-linux-amd64.sha256)" -o /tmp/conductor.sha256; \
+    [ "$(cut -d' ' -f1 /tmp/conductor.sha256)" = "$(sha256sum /conductor | cut -d' ' -f1)" ]; \
+    chmod 0755 /conductor
+
+FROM app AS jobrunner
+COPY --from=conductor /conductor /usr/local/bin/conductor

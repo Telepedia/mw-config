@@ -995,10 +995,7 @@ $wgConf->settings += [
 		'default' => '61613'
 	],
 	'wgUseArtemisJobQueue' => [
-		'default' => false,
-		'silowiki' => true,
-		'witchhatatelierwiki' => true,
-		'metawiki' => false
+		'default' => true,
 	],
 	'wgWikiClosureNotificationEmail' => [
 		'default' => 'tech@telepedia.net'
