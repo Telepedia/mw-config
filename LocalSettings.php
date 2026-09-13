@@ -1100,8 +1100,8 @@ if (
 	require_once __DIR__ . '/ExtensionMessageFiles.php';
 }
 
-// Placeholder because I don't want to rewrite this every time
-$wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is a mirror and is currently in read-only mode.';
+// destroy cache before this time because I'm lazy
+$wgCacheEpoch = '20260913170500';
 
 // Don't need a global here
 unset( $wi );
