@@ -149,4 +149,14 @@ switch ( $wi->dbName ) {
 		$wgVectorNightMode['logged_out'] = true;
 		$wgVectorNightMode['logged_in'] = true;
 		break;
+
+	case 'windbreakerwiki':
+		// temp hack, config centre needs to handle this better
+		$GLOBALS['wgGroupPermissions']['*']['read'] = false;
+		$GLOBALS['wgGroupPermissions']['user']['read'] = false;
+		$GLOBALS['wgGroupPermissions']['sysop']['read'] = true;
+		$GLOBALS['globals']['wgGroupPermissions']['*']['read'] = false;
+		$GLOBALS['globals']['wgGroupPermissions']['user']['read'] = false;
+		$GLOBALS['globals']['wgGroupPermissions']['sysop']['read'] = true;
+		break;
 }
