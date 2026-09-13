@@ -1,7 +1,4 @@
 {
-	"require": {
-		"graylog2/gelf-php": "^2.0"
-	},
 	"extra": {
 		"merge-plugin": {
 			"include": [
