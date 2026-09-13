@@ -62,6 +62,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 COPY --from=fetch /srv/mediawiki /srv/mediawiki
 COPY --from=fetch /srv/config /srv/config
 
