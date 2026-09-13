@@ -1027,6 +1027,10 @@ $globals['wgCookieSameSite'] = null;
 $globals['wgCookiePath'] = '/';
 
 $globals['wgGroupPermissions']['bot']['skipcaptcha'] = true;
+
+// Echo's REL1_43 security fix gates notifications on this right; it grants it via extension.json, which we discard (PLAT-87)
+$globals['wgGroupPermissions']['*']['echo-read-notifications'] = true;
+
 $globals['wgExtraNamespaces'][2900] = "Map";
 $globals['wgExtraNamespaces'][2901] = "Map_talk";
 $globals['wgNamespacesToBeSearchedDefault'][2900] = true;
@@ -1081,7 +1085,8 @@ $wgCargoDBname = $wgDBname . 'cargo';
 
 // Temp - to be moved to TelepediaCore ext.
 $wgResourceModules['telepedia.fetch'] = [
-	'scripts' => 'config/TPRest.js',
+	'localBasePath' => __DIR__,
+	'scripts' => 'TPRest.js',
 	'dependencies' => [
 		'mediawiki.util'
 	]
