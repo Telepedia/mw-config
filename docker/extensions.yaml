@@ -1072,6 +1072,7 @@ TelepediaCore:
   branch: main
   path: extensions/TelepediaCore
   repo_url: https://github.com/telepedia/telepediacore
+  composer: true
 Citizen:
   branch: main
   path: skins/Citizen
