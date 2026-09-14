@@ -55,9 +55,11 @@ class TPRest {
             // [ 'error' => 'Error here' ] structure such as
             // $this->getResponseFactory()->createHttpError( 500, [ 'error' => 'some error here' ]
             if ( !response.ok || data?.error ) {
-                throw new Error( data?.error || `HTTP ${response.status}: ${response.statusText}` );
+                const err = new Error( data?.error || `HTTP ${response.status}: ${response.statusText}` );
+                err.status = response.status;
+                err.data = data;
+                throw err;
             }
-
             return data;
 
         } catch ( error ) {
