@@ -63,6 +63,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+COPY docker/php/uploads.ini "$PHP_INI_DIR/conf.d/uploads.ini"
 
 COPY --from=fetch /srv/mediawiki /srv/mediawiki
 COPY --from=fetch /srv/config /srv/config
