@@ -67,6 +67,7 @@ COPY docker/php/uploads.ini "$PHP_INI_DIR/conf.d/uploads.ini"
 
 COPY --from=fetch /srv/mediawiki /srv/mediawiki
 COPY --from=fetch /srv/config /srv/config
+COPY docker/LocalSettings.php /srv/mediawiki/LocalSettings.php
 
 RUN mkdir -p /srv/mediawiki/cache/l10n \
     && chown -R www-data:www-data /srv/mediawiki/cache /srv/mediawiki/images
