@@ -64,6 +64,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 COPY docker/php/uploads.ini "$PHP_INI_DIR/conf.d/uploads.ini"
+COPY docker/php/zz-pool.conf /usr/local/etc/php-fpm.d/zz-pool.conf
 
 COPY --from=fetch /srv/mediawiki /srv/mediawiki
 COPY --from=fetch /srv/config /srv/config
