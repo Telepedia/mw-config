@@ -83,7 +83,7 @@ def main():
     if changed_any:
         with open(MANIFEST, 'w') as f:
             yaml.dump(data, f)
-        print('\nUpdated extensions.yaml -- review the diff, commit, and rebuild.')
+        print('\nUpdated extensions.yaml -- the diff MUST be committed and Jenkins deploy ran to propegate changes.')
 
 
 if __name__ == '__main__':
