@@ -1341,7 +1341,7 @@ SitemapOnTheFly:
   branch: main
   path: extensions/SitemapOnTheFly
   repo_url: https://github.com/Telepedia/SitemapOnTheFly.git
-  commit: c38efcf43f0338dd1ef92944f55562f6fd05b17a
+  commit: 1f37f23bd13156ddeb6fbeb90e7ef7ecfbd6e58b
 MissingWiki:
   branch: main
   path: extensions/MissingWiki
