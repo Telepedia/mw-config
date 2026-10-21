@@ -206,21 +206,11 @@ CologneBlue:
   path: skins/CologneBlue
   repo_url: https://github.com/wikimedia/mediawiki-skins-CologneBlue
   commit: 8a701373d2779743599b4302253fd27b2f4274f0
-CommentStreams:
-  branch: REL1_43
-  path: extensions/CommentStreams
-  repo_url: https://github.com/wikimedia/mediawiki-extensions-CommentStreams
-  commit: 4d1da2b4f21b4528fd7eb473efb73146c0a8389c
 'Commentbox ':
   branch: REL1_43
   path: 'extensions/Commentbox '
   repo_url: https://github.com/wikimedia/mediawiki-extensions-Commentbox
   commit: fe2d10197381238bd42c5b107ad06139b2d2cbd5
-Comments:
-  branch: master
-  path: extensions/Comments
-  repo_url: https://github.com/Telepedia/mediawiki-extensions-Comments
-  commit: 2e22cae5334fca160a8ca0e896b6db35b585e27f
 CommonsMetadata:
   branch: REL1_43
   path: extensions/CommonsMetadata
