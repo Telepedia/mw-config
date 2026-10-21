@@ -1,5 +1,8 @@
 # syntax=docker/dockerfile:1
 
+# Temp; remove ltr
+ARG PHP_FPM_IMAGE=harbor.telepedia.org/mediawiki/php:8.2.35-fpm-trixie
+
 FROM php:8.2-cli-trixie AS fetch
 RUN apt-get update && apt-get install -y --no-install-recommends \
         git unzip python3 python3-yaml ca-certificates \
@@ -46,7 +49,10 @@ RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-r
 COPY . /srv/config
 RUN rm -rf /srv/config/docker /srv/config/.git
 
-FROM php:8.2-fpm-trixie AS app
+FROM ${PHP_FPM_IMAGE} AS app
+
+RUN php -r 'exit(version_compare(PHP_VERSION, "8.2.35", ">=") ? 0 : 1);' \
+    || { echo "PHP $(php -r 'echo PHP_VERSION;') is older than 8.2.35" >&2; exit 1; }
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev liblua5.1-0-dev \
         libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev \

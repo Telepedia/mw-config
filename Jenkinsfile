@@ -2,7 +2,8 @@ pipeline {
   agent any
 
   options {
-    timeout(time: 15, unit: 'MINUTES')  
+    // raise this temporarily whilst we build PHP ourselves because docker is taking too long
+    timeout(time: 45, unit: 'MINUTES')
     disableConcurrentBuilds()
   }
 
@@ -36,6 +37,20 @@ pipeline {
           }
           env.VCS_REF = sh(returnStdout: true, script: 'git rev-parse --short=7 HEAD').trim()
           echo "Release: ${env.RELEASE} (new=${env.NEW}) @ ${env.VCS_REF}"
+        }
+      }
+    }
+
+    // temp build PHP ourselves bcuz docker takes too long
+    stage('PHP base image') {
+      when { environment name: 'NEW', value: 'true' }
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'harbor-robot', usernameVariable: 'HARBOR_USR', passwordVariable: 'HARBOR_PSW')]) {
+          sh '''
+            echo "$HARBOR_PSW" | docker login "$REGISTRY" -u "$HARBOR_USR" --password-stdin
+            DOCKER_BUILDKIT=1 ./docker/php-base/build.sh
+            docker logout "$REGISTRY"
+          '''
         }
       }
     }
