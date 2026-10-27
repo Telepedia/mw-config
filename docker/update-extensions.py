@@ -53,6 +53,8 @@ def main():
 
     yaml = YAML()
     yaml.preserve_quotes = True
+    yaml.default_flow_style = False
+    yaml.width = 4096
     with open(MANIFEST) as f:
         data = yaml.load(f)
 
