@@ -1312,8 +1312,8 @@ TableProgressTracking:
 ConfigCentre:
   branch: main
   path: extensions/ConfigCentre
-  repo_url: https://gitlab.com/telepedia/extensions/configcentre
-  gitlab: true
+  repo_url: git@github.com:Telepedia/mediawiki-extensions-configcentre.git
+  github: true
   private: true
   commit: 65c1261292f6c89dee85314791d0e1e1fa7760b1
 TelepediaCore:
@@ -1342,9 +1342,9 @@ MissingWiki:
 CreateWiki:
   branch: main
   path: extensions/CreateWiki
-  repo_url: https://gitlab.com/telepedia/extensions/createnewwiki
+  repo_url: git@github.com:Telepedia/mediawiki-extensions-createwiki.git
+  github: true
   private: true
-  gitlab: true
   composer: true
   commit: 14cc3b209380645a8be8d4e785de46e320b07ee3
 RequestToBeForgotten:
