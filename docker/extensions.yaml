@@ -23,8 +23,7 @@ AbuseFilter:
 AddHTMLMetaAndTitle:
   branch: REL1_43
   path: extensions/AddHTMLMetaAndTitle
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-AddHTMLMetaAndTitle
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-AddHTMLMetaAndTitle
   commit: 42dd23a2f1fb26ab478e975373edf92e3dbbabf7
 AdminLinks:
   branch: REL1_43
@@ -55,8 +54,7 @@ Arrays:
 ArticleCreationWorkflow:
   branch: REL1_43
   path: extensions/ArticleCreationWorkflow
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-ArticleCreationWorkflow
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-ArticleCreationWorkflow
   commit: 7dc66aa33a58880b51c74a8236ddd5ca02857b7b
 ArticlePlaceholder:
   branch: REL1_43
@@ -81,8 +79,7 @@ AuthorProtect:
 AutoCreateCategoryPages:
   branch: master
   path: extensions/AutoCreateCategoryPages
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-AutoCreateCategoryPages
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-AutoCreateCategoryPages
   commit: ec4a7b203bcd3d372fe1e4ca1116dc87b8e70eb8
 AutoCreatePage:
   branch: main
@@ -143,8 +140,7 @@ CategoryExplorer:
 CategorySortHeaders:
   branch: REL1_43
   path: extensions/CategorySortHeaders
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-CategorySortHeaders
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-CategorySortHeaders
   commit: fbabd6876459b17134d03720705a64069da91043
 CategoryTree:
   branch: REL1_43
@@ -315,8 +311,7 @@ DisplayTitle:
 DummyFandoomMainpageTags:
   branch: master
   path: extensions/DummyFandoomMainpageTags
-  repo_url: 
-    https://github.com/ciencia/mediawiki-extensions-DummyFandoomMainpageTags
+  repo_url: https://github.com/ciencia/mediawiki-extensions-DummyFandoomMainpageTags
   commit: 07b582c7ba6f947063add9edbde76962eb864cef
 DuskToDawn:
   branch: REL1_43
@@ -661,8 +656,7 @@ Metrolook:
 MigrateUserAccount:
   branch: main
   path: extensions/MigrateUserAccount
-  repo_url: 
-    https://github.com/weirdgloop/mediawiki-extensions-MigrateUserAccount.git
+  repo_url: https://github.com/weirdgloop/mediawiki-extensions-MigrateUserAccount.git
   commit: 40bcb9cf159159327901aaefff0175e47a182cd7
 MinervaNeue:
   branch: REL1_43
@@ -885,8 +879,7 @@ ProtectSite:
 ProtectionIndicator:
   branch: REL1_43
   path: extensions/ProtectionIndicator
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-ProtectionIndicator
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-ProtectionIndicator
   commit: d0cb339f801365b78bfb3c712e22f8f3df389776
 Purge:
   branch: master
@@ -971,8 +964,7 @@ SearchLogger:
 ShortDescription:
   branch: main
   path: extensions/ShortDescription
-  repo_url: 
-    https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription
+  repo_url: https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription
   commit: 8d348a84a2e337b777525daeea2ff01707785171
 SimpleChanges:
   branch: REL1_43
@@ -1022,8 +1014,7 @@ SubpageFun:
 SyntaxHighlight_GeSHi:
   branch: REL1_43
   path: extensions/SyntaxHighlight_GeSHi
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi
   commit: 4727808cab52d8ee7fd4e5436b4be7db2bec6d15
 TabberNeue:
   branch: main
@@ -1135,8 +1126,7 @@ Translate:
 TranslationNotifications:
   branch: REL1_43
   path: extensions/TranslationNotifications
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-TranslationNotifications
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-TranslationNotifications
   commit: bd12d07ffa3b58983fd7fd4f62dbb3271ed97c2f
 TreeAndMenu:
   branch: master
@@ -1156,8 +1146,7 @@ TwoColConflict:
 UniversalLanguageSelector:
   branch: REL1_43
   path: extensions/UniversalLanguageSelector
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-UniversalLanguageSelector
   commit: 1096300de457e5d1d967ace44cee9ea9231f9d70
 UploadWizard:
   branch: REL1_43
@@ -1182,8 +1171,7 @@ UserFunctions:
 UserPageEditProtection:
   branch: REL1_43
   path: extensions/UserPageEditProtection
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-UserPageEditProtection
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-UserPageEditProtection
   commit: be638e4db291cd933192f2732f2cbe2eb92d6e09
 VEForAll:
   branch: REL1_43
@@ -1239,8 +1227,7 @@ WikiSEO:
 WikiTextLoggedInOut:
   branch: REL1_43
   path: extensions/WikiTextLoggedInOut
-  repo_url: 
-    https://github.com/wikimedia/mediawiki-extensions-WikiTextLoggedInOut
+  repo_url: https://github.com/wikimedia/mediawiki-extensions-WikiTextLoggedInOut
   commit: 4fb792315279276b9723d2c91f30e53296a10c07
 YouTube:
   branch: main
@@ -1289,8 +1276,7 @@ Sentinel:
 EmbedVideo:
   branch: master
   path: extensions/EmbedVideo
-  repo_url: 
-    https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo.git
+  repo_url: https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo.git
   commit: db22ad784d259d97a8574dde2a32fa3ec015e0b6
 Cloudflare:
   branch: main
@@ -1324,7 +1310,7 @@ ConfigCentre:
   repo_url: git@github.com:Telepedia/mediawiki-extensions-configcentre.git
   github: true
   private: true
-  commit: e66929b59349bef4663b98cf6e75bdc340b08e11
+  commit: 75fd7bb349ec1e749791322ad284629d9cdfce29
 TelepediaCore:
   branch: main
   path: extensions/TelepediaCore
