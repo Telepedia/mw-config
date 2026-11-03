@@ -10,6 +10,11 @@ use Wikimedia\Rdbms\Platform\ISQLPlatform;
 class LoadWiki {
 
 	/**
+	 * Key used in the domain cache entry to record that no wiki serves this domain
+	 */
+	private const MISSING_WIKI = 'wiki_missing';
+
+	/**
 	 * Instance of the redis cache that we use throughout
 	 * this is set to persistent in $wgObjectCaches
 	 *
@@ -197,19 +202,22 @@ class LoadWiki {
 	 * @throws Exception
 	 */
 	public function execute(): void {
+		// Whether the cache has already told us that no wiki serves this domain
+		$knownMissing = false;
+
 		// HTTP case, we know the server name so we can check Redis first
 		if ( empty( $this->commandLineMode ) && !empty( $this->serverName ) ) {
-			$key = $this->cache->makeGlobalKey(
-				'configcentre',
-				'byDomain',
-				'v0',
-				rtrim( $this->serverName . '/' . ( $this->parsedUrl['lang'] ?? '' ), '/' )
-			);
-			$res = $this->cache->get( $key );
-			$this->wiki = isset( $res['wiki_id'] ) ? $res : [];
+			$res = $this->cache->get( $this->getDomainCacheKey() );
+
+			if ( isset( $res['wiki_id'] ) ) {
+				$this->wiki = $res;
+			} else {
+				$this->wiki = [];
+				$knownMissing = is_array( $res ) && !empty( $res[self::MISSING_WIKI] );
+			}
 		}
 
-		if ( !isset( $this->wiki['wiki_id'] ) || $this->commandLineMode ) {
+		if ( ( !isset( $this->wiki['wiki_id'] ) && !$knownMissing ) || $this->commandLineMode ) {
 			if ( !empty( $this->dbName ) ) {
 				$this->lookupViaDatabaseName();
 			} elseif ( !empty( $this->serverName ) ) {
@@ -365,19 +373,32 @@ class LoadWiki {
 			];
 
 			if ( empty( $this->commandLineMode ) ) {
-				$this->cache->set(
-					$this->cache->makeGlobalKey(
-						'configcentre',
-						'byDomain',
-						'v0',
-						rtrim( $this->serverName . '/' . ( $this->parsedUrl['lang'] ?? ''), '/' )
-					),
-					$this->wiki,
-					86400
-				);
+				$this->cache->set( $this->getDomainCacheKey(), $this->wiki, 86400 );
 			}
+		} elseif ( empty( $this->commandLineMode ) ) {
+			// No wiki serves this domain, so record that and skip this join on subsequent requests
+			// rather than looking it up again every time we render the missing wiki page.
+			// ConfigCentreDomainService::addNewDomain() clears this key when a domain is added, so a
+			// newly created wiki starts serving immediately; the TTL only covers domains that appear
+			// in cc_domains without going through that service
+			$this->cache->set( $this->getDomainCacheKey(), [ self::MISSING_WIKI => true ], 3600 );
 		}
 
+	}
+
+	/**
+	 * The cache key under which the configuration for the domain being requested is stored.
+	 * Also used by ConfigCentre when it invalidates a domain, so the two must agree
+	 *
+	 * @return string
+	 */
+	private function getDomainCacheKey(): string {
+		return $this->cache->makeGlobalKey(
+			'configcentre',
+			'byDomain',
+			'v0',
+			rtrim( $this->serverName . '/' . ( $this->parsedUrl['lang'] ?? '' ), '/' )
+		);
 	}
 
 	/**

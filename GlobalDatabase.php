@@ -6,6 +6,10 @@ $wgDBtype = 'mysql';
 $wgLBFactoryConf = [
 	'class' => LBFactoryMulti_TP::class,
 	'secret' => $wgSecretKey,
+	// @Note: put databases here which are not wikis, and then we do not ask ConfigCentre
+	'sectionsByDB' => [
+		'centralauth' => 'DEFAULT',
+	],
 	'sectionLoads' => [
 		'DEFAULT' => [
 			'db1' => 0,
