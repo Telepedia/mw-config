@@ -223,7 +223,7 @@ class LoadWiki {
 			} elseif ( !empty( $this->serverName ) ) {
 				$this->lookupViaServerName();
 			}
-		} else {
+		} elseif ( !$knownMissing ) {
 			// data taken from the cache
 			$this->wikiId = $this->wiki['wiki_id'];
 			$this->dbName = $this->wiki['db_name'];
