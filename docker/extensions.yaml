@@ -1310,13 +1310,13 @@ ConfigCentre:
   repo_url: git@github.com:Telepedia/mediawiki-extensions-configcentre.git
   github: true
   private: true
-  commit: 75fd7bb349ec1e749791322ad284629d9cdfce29
+  commit: 361d04d86aa1f8737a5968b146a0b9c7c791ee03
 TelepediaCore:
   branch: main
   path: extensions/TelepediaCore
   repo_url: https://github.com/telepedia/telepediacore
   composer: true
-  commit: 02c9f8ee6ac67e640e8cf4dee22946380b4ff26b
+  commit: 77fbe87bd81e3c7cd31d9799c9521edd4e5c3cdb
 Citizen:
   branch: main
   path: skins/Citizen
