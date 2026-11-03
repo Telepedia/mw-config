@@ -1310,7 +1310,7 @@ ConfigCentre:
   repo_url: git@github.com:Telepedia/mediawiki-extensions-configcentre.git
   github: true
   private: true
-  commit: 361d04d86aa1f8737a5968b146a0b9c7c791ee03
+  commit: d09815e7af8418c25699e2c5e8e32c8d58104a3d
 TelepediaCore:
   branch: main
   path: extensions/TelepediaCore
