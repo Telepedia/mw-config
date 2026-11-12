@@ -332,7 +332,6 @@ $wgConf->settings += [
 	'wgNativeImageLazyLoading' => [
 		'default' => true
 	],
-
 	'wgMaxUploadSize' => [
 		'default' => 1024 * 1024 * 15,
 	],
@@ -375,6 +374,17 @@ $wgConf->settings += [
 			'linting' => true,
 		],
 	],
+	// Temporarily disable Parsoid on 1.47
+	'wgUseParsoidParser' => [
+		'default' => false,
+	],
+	'wgUseParsoidLinksUpdate' => [
+		'default' => false,
+	],
+	'wgUseParsoidMessages' => [
+		'default' => false,
+	],
+
 	'wgScribuntoDefaultEngine' => [
 		'default' => 'luasandbox'
 	],

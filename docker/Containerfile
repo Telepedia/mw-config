@@ -44,7 +44,8 @@ RUN --mount=type=secret,id=github_token \
 
 COPY docker/composer.local.json ./composer.local.json
 RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
-    && composer update --no-dev --no-interaction --prefer-dist --ignore-platform-reqs
+    && composer update --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
+    && composer dump-autoload --no-dev --optimize --classmap-authoritative
 
 COPY . /srv/config
 RUN rm -rf /srv/config/docker /srv/config/.git
