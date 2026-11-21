@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 
-# Temp; remove ltr
-ARG PHP_FPM_IMAGE=harbor.telepedia.org/mediawiki/php:8.2.35-fpm-trixie
+ARG PHP_FPM_IMAGE=php:8.2.36-fpm-trixie
 
 FROM php:8.2-cli-trixie AS fetch
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -52,8 +51,8 @@ RUN rm -rf /srv/config/docker /srv/config/.git
 
 FROM ${PHP_FPM_IMAGE} AS app
 
-RUN php -r 'exit(version_compare(PHP_VERSION, "8.2.35", ">=") ? 0 : 1);' \
-    || { echo "PHP $(php -r 'echo PHP_VERSION;') is older than 8.2.35" >&2; exit 1; }
+RUN php -r 'exit(version_compare(PHP_VERSION, "8.2.36", ">=") ? 0 : 1);' \
+    || { echo "PHP $(php -r 'echo PHP_VERSION;') is older than 8.2.36" >&2; exit 1; }
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libicu-dev libonig-dev libzip-dev libxslt1-dev libmagickwand-dev liblua5.1-0-dev \
         libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev \
@@ -93,7 +92,7 @@ WORKDIR /srv/mediawiki
 EXPOSE 9000
 CMD ["php-fpm"]
 
-FROM nginx:stable AS web
+FROM nginx:1.30.7 AS web
 COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=fetch /srv/mediawiki /srv/mediawiki
 
