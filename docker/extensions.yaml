@@ -1376,3 +1376,7 @@ ToastNotifications:
   path: extensions/ToastNotifications
   repo_url: https://gitlab.com/telepedia/extensions/mediawiki-toast.git
   commit: d394946c3a221b465efa86c5028de240e0532f06
+SearchDigest:
+  branch: REL1_43
+  path: extensions/SearchDigest
+  repo_url: https://github.com/weirdgloop/mediawiki-extensions-SearchDigest.git
