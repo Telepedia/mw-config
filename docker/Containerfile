@@ -42,9 +42,10 @@ RUN --mount=type=secret,id=github_token \
     && rm -rf .git /root/.gitconfig
 
 COPY docker/composer.local.json ./composer.local.json
-RUN composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
+RUN composer config --no-plugins platform.php 8.2.36 \
+    && composer install --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
     && composer update --no-dev --no-interaction --prefer-dist --ignore-platform-reqs \
-    && composer dump-autoload --no-dev --optimize --classmap-authoritative
+    && composer dump-autoload --no-dev --optimize --classmap-authoritative --ignore-platform-reqs
 
 COPY . /srv/config
 RUN rm -rf /srv/config/docker /srv/config/.git
